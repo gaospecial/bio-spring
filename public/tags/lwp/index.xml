@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LWP on Hugo Prose</title>
+    <link>/tags/lwp/</link>
+    <description>Recent content in LWP on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="/tags/lwp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Perl LWP：从“国家地理每日图片”到“Cell最近一期的封面”</title>
+      <link>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</link>
+      <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</guid>
+      <description>在网上看到了一个从国家地理杂志网站下载每日图片的Perl程序。因为网站改版，脚本已经不能正常运行，经过修改后，经测试可以将每日图片下载到当前目录，代码如下：
+#!/usr/bin/perl # author: # Seraphxby # Purpose: # 查看国家地理每日图片的Perl脚本 # history: # v0.1 first draft # 2010-12-8 modified by gaospecial use warnings; use strict; use LWP::Simple; my $url=&#39;http://photography.nationalgeographic.com/photography/photo-of-the-day&#39;; my $content = get( &amp;quot;$url&amp;quot; ) || die &amp;quot;get the page failed!\n&amp;quot;; my $img; if ($content =~ m/(.*?&amp;lt;\/a&amp;gt;)/s) { $content = $1; if($content =~ m/&amp;lt;img.*?src=&amp;quot;([^\t]*?)&amp;quot;/){ # 非贪婪的数量词 *?,匹配中不含有跳格\t $img = $1; if($img =~ m/^(.*?)([^\/]+$)/){ $url = $1; $img = $2; getstore($url.$img,$img) || die &amp;quot;get img failed!</description>
+    </item>
+    
+  </channel>
+</rss>

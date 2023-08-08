@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>云数据库 on Hugo Prose</title>
+    <link>/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 云数据库 on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何连接阿里云数据库RDS</title>
+      <link>/post/2015/08/21/2015-08-21-connect-to-rds/</link>
+      <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/08/21/2015-08-21-connect-to-rds/</guid>
+      <description>mysql客户端方式 用户安装MySQL客户端后，可进入命令行方式链接数据库。
+命令格式：mysql -u user_name -h example.mysql.rds.aliyuncs.com -P3306 -pxxxx
+其中，-u 指定的是用户名， -h指定的是主机名， -P指定的是端口， -p指定的是密码。
+WordPress使用RDS 添加服务器IP到白名单
+修改wp-config.php
+参见WordPress迁移</description>
+    </item>
+    
+  </channel>
+</rss>

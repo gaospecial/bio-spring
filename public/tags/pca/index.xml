@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PCA on Hugo Prose</title>
+    <link>/tags/pca/</link>
+    <description>Recent content in PCA on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/pca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>比较 stats::procmp() 和 vegan::rda() 两种方法</title>
+      <link>/post/2018/11/02/comparison-of-two-pca-methods/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/11/02/comparison-of-two-pca-methods/</guid>
+      <description>上次提及 PCA 分析的方法有很多种。那不同方法之间的得到的结果会有差异吗？
+最近采用 PCA 分析 RNA-seq 样本之间的差异，得到了下面的结果。
+生成示例数据 生成一个含有 1000 个基因, 27 个样品的数据集. 这 27 个样品来自于 3 个基因型(WT, Mutant1, Mutant2), 3 种处理(CK, Trt1, Trt2), 共分为 \(3 * 3 = 9\) 组, 每组 3 个重复, 合计 27 个样品.
+library(DESeq2) library(dplyr) library(ggplot2) theme_set(theme_bw()) dds &amp;lt;- makeExampleDESeqDataSet(n = 1000, m=27) dds$condition &amp;lt;- factor(rep(rep(c(&amp;quot;Ctrl&amp;quot;,&amp;quot;Trt1&amp;quot;,&amp;quot;Trt2&amp;quot;),3), 3)) dds$genotype &amp;lt;- factor(rep(rep(c(&amp;quot;WT&amp;quot;,&amp;quot;MuA&amp;quot;,&amp;quot;MuB&amp;quot;), each=3),3)) # sample table sample_table &amp;lt;- colData(dds) %&amp;gt;% as.data.frame() %&amp;gt;% tibble::rownames_to_column(var=&amp;quot;sample_id&amp;quot;) # 做 log2 变换 rld &amp;lt;- rlog(dds, blind = F) 使用 stats::prcomp() 进行主成分分析 # 运行 PCA pca &amp;lt;- stats::prcomp(t(assay(rld))) # 计算解释度 percent_var &amp;lt;- pca$sdev^2/sum(pca$sdev^2) # 绘图 df &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title>常见排序分析方法及R语言实现</title>
+      <link>/post/2018/10/22/ordination-analysis-in-r/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/22/ordination-analysis-in-r/</guid>
+      <description>常用排序分析方法 相信大家在做微生物多样性研究时经常听到PCA分析、PCoA分析，NMDS分析，CCA分析，RDA分析。它们对物种（或基因、功能）的分析具有重要作用，因而频频出现在16S测序及宏基因组测序中。以上分析本质上都属于排序分析（Ordination analysis）。
+排序分析（ordination analysis），最早是生态学（ecology）中研究群落（communities）的一大类多元分析手段，将某个地区调查的不同环境（site）以及所对应的物种组成（species），按照相似度（similarity）或距离（distance）对site在排序轴上（ordination axes）进行排序，将其表示为沿一个或多个排序轴排列的点，从而分析各个site或species与环境因子之间的关系。其目的是把多维空间压缩到低维空间（如二维），并且保证因维数降低而导致的信息量损失尽量少，实体（site或species）按其相似关系重新排列，提高其可理解性（interpretability）；同时，通过统计手段检验排序轴（ordination axes）是否能真正代表环境因子的梯度（gradient）1。
+因此，排序分析的作用可以总结为两个方面：①降维；②探索性分析；
+常用的排序方法如下2：
+排序分析方法 Raw data based （线性模型） Raw data based （单峰模型） Distance based 间接排序法 （非限制性） PCA CA，DCA PCoA，NMDS 直接排序法 （限制性） RDA CCA dbRDA 其中间接排序法包括：
+PCA（principal components analysis，主成分分析） CA（correspondence analysis，对应分析） DCA（Detrended correspondenceanalysis, 去趋势对应分析) PCoA（principal coordinate analysis，主坐标分析） NMDS（non-metric multi-dimensional scaling，非度量多维尺度分析）； 直接排序法包括：
+RDA（Redundancy analysis，冗余分析） CCA（canonical correspondence analysis，典范对应分析） dbRDA（distance based redundancy analysis，基于距离的冗余分析） CAP（canonical analysis of principal coordinates，主要坐标的典型分析） 其中PCA和RDA是基于线性模型（linear model）的，而CA、DCA、CCA、DCCA是基于单峰（unimodal）模型。
+选择单峰模型还是线性模型？ 用DCA（vegan::decorana()）先对数据（site-species）进行分析； 查看结果中的“Axis lengths”的第一轴DCA1的值，根据该值判断该采用线性模型还是单峰模型： 如果大于4.0，就应该选单峰模型； 如果3.0-4.0之间，选线性模型或者单峰模型均可； 如果小于3.0, 线性模型的结果要好于单峰模型 如何选择一种合适的方法？ 排序方法的选择取决于1）您拥有的数据类型，2）您想要/可以使用的相似距离矩阵，以及3）您想说的内容。所有这些排序方法都基于数据构建的相似距离矩阵，使用不同的方法（例如Euclidean，Bray-Curtis，Jaccard等）来计算样本之间的距离。但是，不同方法计算相似度矩阵将不会给出相同的结果。不同的排序方法使用不同的相似度矩阵，并可能对结果产生显著影响。</description>
+    </item>
+    
+    <item>
+      <title>排序分析结果作图</title>
+      <link>/post/2018/10/22/plot-pca-using-ggplot2/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/22/plot-pca-using-ggplot2/</guid>
+      <description>数据整理 library(vegan) ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.6-4 data(&amp;quot;varespec&amp;quot;) pca &amp;lt;- rda(varespec) 首先看一下结果：
+summary(pca) ## ## Call: ## rda(X = varespec) ## ## Partitioning of variance: ## Inertia Proportion ## Total 1826 1 ## Unconstrained 1826 1 ## ## Eigenvalues, and their contribution to the variance ## ## Importance of components: ## PC1 PC2 PC3 PC4 PC5 PC6 ## Eigenvalue 982.9788 464.3040 132.25052 73.9337 48.41829 37.00937 ## PC7 PC8 PC9 PC10 PC11 PC12 ## Eigenvalue 25.</description>
+    </item>
+    
+  </channel>
+</rss>

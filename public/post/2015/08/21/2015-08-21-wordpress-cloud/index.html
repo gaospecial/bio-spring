@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> 将 WordPress 迁移到 阿里云 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="将 WordPress 迁移到 阿里云"/>
+<meta name="twitter:description" content="最近将国外的主机迁移到了阿里云（参见：Site Changelog）。没办法，GFW太厉害了。留在外面只能做僵尸网站。
+本文简要介绍了将WordPress迁移到云服务器ECS、云数据库RDS，域名绑定到云解析的方法。
+如果要购买 ECS 云服务器，使用我的邀请码（U6FOVY，有效期截止 2015-11-30）可以得到 九折 优惠。
+新服务器 安装LAMP：Ubuntu快速安装 LAMP
+安装phpmyadmin：
+[cc lang=”bash”]
+sudo apt-get install phpmyadmin
+ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
+[/cc]
+旧服务器 WordPress整站打包下载。
+使用一个插件生成数据库备份wp-DB-backup：wp_backup.sql.gz
+迁移 上传整站到/var/www/html，只需要修改wp-config.php更新数据库信息。
+打开http://newsite.com/phpmyadmin，创建一个数据库，将wp_backup.sql.gz 导入（import）。
+进入options工作表，更新home和siteurl的值。
+[cc lang=”mysql”]
+mysql&gt; use wordpress;
+mysql&gt; source wp.sql;
+mysql&gt; update `wp1_options` set `option_value` = “http://bio-spring.top/” where `option_name` = “siteurl”;
+mysql&gt; update `wp1_options` set `option_value` = “http://bio-spring.top/” where `option_name` = “home”;
+[/cc]
+使用云数据库 RDS 在RDS控制面板创建database，然后登录到RDS，同上设置。
+[cc lang=”bash”]
+bash$ mysql -uuser -ppasswd -husername."/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">将 WordPress 迁移到 阿里云</span></h1>
+
+<h3 class="date">2015-08-21</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97-cloud&#43;">云计算 CLOUD&#43;</a> <a href="/tags/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B-tutorial">原创教程 TUTORIAL</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE-website">网站建设 WEBSITE</a> <a href="/tags/ubuntu">Ubuntu</a> <a href="/tags/wordpress">wordpress</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91">阿里云</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>最近将国外的主机迁移到了阿里云（参见：<a href="http://bio-spring.top/?page_id=16">Site
+Changelog</a>）。没办法，GFW太厉害了。留在外面只能做僵尸网站。</p>
+<p><strong>本文简要介绍了将WordPress迁移到云服务器ECS、云数据库RDS，域名绑定到云解析的方法。</strong></p>
+<p>如果要购买 ECS 云服务器，使用我的邀请码（<strong>U6FOVY</strong>，有效期截止
+2015-11-30）可以得到 <strong>九折</strong> 优惠。</p>
+<h3 id="新服务器">新服务器</h3>
+<p>安装LAMP：<a href="http://bio-spring.top/?p=584">Ubuntu快速安装 LAMP</a><br>
+安装phpmyadmin：<br>
+[cc lang=”bash”]<br>
+sudo apt-get install phpmyadmin<br>
+ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin<br>
+[/cc]</p>
+<h3 id="旧服务器">旧服务器</h3>
+<p>WordPress整站打包下载。<br>
+使用一个插件生成数据库备份wp-DB-backup：wp_backup.sql.gz</p>
+<h3 id="迁移">迁移</h3>
+<p>上传整站到/var/www/html，只需要修改wp-config.php更新数据库信息。<br>
+打开http://newsite.com/phpmyadmin，创建一个数据库，将wp_backup.sql.gz
+导入（import）。<br>
+进入options工作表，更新home和siteurl的值。<br>
+[cc lang=”mysql”]<br>
+mysql&gt; use wordpress;<br>
+mysql&gt; source wp.sql;<br>
+mysql&gt; update `wp1_options` set `option_value` =
+“http://bio-spring.top/” where `option_name` = “siteurl”;<br>
+mysql&gt; update `wp1_options` set `option_value` =
+“http://bio-spring.top/” where `option_name` = “home”;<br>
+[/cc]</p>
+<h3 id="使用云数据库-rds">使用云数据库 RDS</h3>
+<p>在RDS控制面板创建database，然后登录到RDS，同上设置。<br>
+[cc lang=”bash”]<br>
+bash$ mysql -uuser -ppasswd -husername.mysql.rds.aliyuncs.com #
+登录到RDS<br>
+[/cc]</p>
+<h3 id="绑定域名到阿里云解析">绑定域名到阿里云解析</h3>
+<p>进入域名注册上后台，修改NameServer为万网NS。<br>
+<a href="https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/clipboard.png"><img src="https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/clipboard.png" class="alignnone size-full wp-image-588" width="609" height="465" alt="godaddy_dns" /></a></p>
+<h3 id="在阿里云解析添加解析等待生效即可">在阿里云解析“添加解析”，等待生效即可。</h3>
+<p><a href="https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/aliyun_dns.png"><img src="https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/aliyun_dns.png" class="alignnone size-full wp-image-587" width="1093" height="78" alt="aliyun_dns" /></a><br>
+搞定了。</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2015-08-21-wordpress-cloud.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2015/08/16/2015-08-16-sspace-getopts-error/" title=Next&#32;post&#32;(older)>Fix “getopts.pl can not be located in @INC” error in SSPACE_Standard_v3.0.pl</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2015/08/21/2015-08-21-connect-to-rds/" title=Previous&#32;post&#32;(newer)>如何连接阿里云数据库RDS</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件分享 on Hugo Prose</title>
+    <link>/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
+    <description>Recent content in 软件分享 on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Sep 2008 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux下好用的媒体播放器——smplayer</title>
+      <link>/post/2008/09/20/linux%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AA%92%E4%BD%93%E6%92%AD%E6%94%BE%E5%99%A8smplayer/</link>
+      <pubDate>Sat, 20 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2008/09/20/linux%E4%B8%8B%E5%A5%BD%E7%94%A8%E7%9A%84%E5%AA%92%E4%BD%93%E6%92%AD%E6%94%BE%E5%99%A8smplayer/</guid>
+      <description>和 gxine、VLC player、Mplayer 相比，这个播放器更加好用。解码完全，可以播放avi、rmvb格式的电影，可以对字幕进行控制。
+如果用过 Kmplayer，你会觉得一切好像似曾相识。这个软件其实就是Linux平台下的Kmplayer。</description>
+    </item>
+    
+  </channel>
+</rss>

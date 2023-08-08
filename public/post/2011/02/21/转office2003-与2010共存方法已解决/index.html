@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> 【转】office2003 与2010共存方法?（已解决） | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="【转】office2003 与2010共存方法?（已解决）"/>
+<meta name="twitter:description" content="以下方法只适用于2007,如果是2010你知道怎么操作吗？如果找到了别忘了让我与你分享哟。
+终于找到解决方法啦！当然不是我的成果。借用！
+最新方法：打开开始菜单里的运行。先复制命令1，粘贴到运行框里，回车。再复制命令2，粘贴到运行框里回车，命令如下：
+命令1（用于Office 2003）：reg add HKCU\Software\Microsoft\Office\11.0\Word\Options /v NoReReg /t REG_DWORD /d 1
+命令2（用于Office 2007）：reg add HKCU\Software\Microsoft\Office\12.0\Word\Options /v NoReReg /t REG_DWORD /d 1
+命令3（用于Office 2010）：reg add HKCU\Software\Microsoft\Office\14.0\Word\Options /v NoReReg /t REG_DWORD /d 1
+附：office2003 与2010共存方法（转）
+在现在的办公软件中， Microsoft出品的 Office集成办公软件占据了绝大多数的市场份额，从最初的
+Office 2000，到后面的 Office 2003以至近两年刚发行的 Office 2007，它直观的界面、强大的文字处
+理功能和出色图表计算，让我们大大简化了日常办公的烦琐。可在实际的工作中，数据交换和传输已经成
+了必不可少的工作单元，当一份文件传到你的电脑上，如何用正确的软件版本打开，有以下几种使用方法
+，供参考。
+1 、安装双版本 Office软件
+有一部分人，安装 Office 2007只是为了尝鲜，实际工作中还是使用 Office2003。但在默认情况下，安
+装 Office 2007时，安装程序就会自动将老版本的 Office程序卸载。没关系，我们只需稍作设置，旧的
+不去，新的照来置，就可以让 Office 2007和 Office2003共存在一个系统中。
+安装 Office 2007时，选择“自定义”安装方式，安装程序会自动扫描到系统中已经安装的 Office程序
+，并提供 3种升级安装方式。这里选择“保留所有早期版本”，安装完成后，我们可以在程序菜单中同时
+看到 Office 2003和 Office 2007了。"/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">【转】office2003 与2010共存方法?（已解决）</span></h1>
+
+<h3 class="author">
+gaoch
+</h3>
+
+<h3 class="date">2011-02-21</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4">百度空间</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>以下方法只适用于2007,如果是2010你知道怎么操作吗？如果找到了别忘了让我与你分享哟。</p>
+<p>终于找到解决方法啦！当然不是我的成果。借用！</p>
+<p><strong>最新方法</strong>：打开开始菜单里的运行。先复制命令1，粘贴到运行框里，回车。再复制命令2，粘贴到运行框里回车，命令如下：</p>
+<p>命令1（用于Office 2003）：reg add
+HKCU\Software\Microsoft\Office\11.0\Word\Options /v NoReReg /t
+REG_DWORD /d 1</p>
+<p>命令2（用于Office 2007）：reg add
+HKCU\Software\Microsoft\Office\12.0\Word\Options /v NoReReg /t
+REG_DWORD /d 1</p>
+<p>命令3（用于Office 2010）：reg add
+HKCU\Software\Microsoft\Office\14.0\Word\Options /v NoReReg /t
+REG_DWORD /d 1</p>
+<p><strong>附</strong>：office2003 与2010共存方法（转）</p>
+<p>在现在的办公软件中， Microsoft出品的
+Office集成办公软件占据了绝大多数的市场份额，从最初的</p>
+<p>Office 2000，到后面的 Office 2003以至近两年刚发行的 Office
+2007，它直观的界面、强大的文字处</p>
+<p>理功能和出色图表计算，让我们大大简化了日常办公的烦琐。可在实际的工作中，数据交换和传输已经成</p>
+<p>了必不可少的工作单元，当一份文件传到你的电脑上，如何用正确的软件版本打开，有以下几种使用方法</p>
+<p>，供参考。<br>
+1 、安装双版本 Office软件<br>
+有一部分人，安装 Office 2007只是为了尝鲜，实际工作中还是使用
+Office2003。但在默认情况下，安</p>
+<p>装 Office 2007时，安装程序就会自动将老版本的
+Office程序卸载。没关系，我们只需稍作设置，旧的</p>
+<p>不去，新的照来置，就可以让 Office 2007和 Office2003共存在一个系统中。<br>
+安装 Office
+2007时，选择“自定义”安装方式，安装程序会自动扫描到系统中已经安装的
+Office程序</p>
+<p>，并提供
+3种升级安装方式。这里选择“保留所有早期版本”，安装完成后，我们可以在程序菜单中同时</p>
+<p>看到 Office 2003和 Office 2007了。<br>
+2 、 Office 2003和 Office 2007打开文档优先级设定<br>
+当系统同时安装 office 2003和 office 2007两个版本的
+office办公软件的时候，双击打开一个 office</p>
+<p>文档（Word/Excel/Powerpoint），默认使用应是按照最后安装为优先的规则，而在工作和实际应用中按</p>
+<p>照个人喜好来使用，怎样改变默认方式来打开呢？</p>
+<p>开始→运行→输入 excel2003的安装路径，例如 (含开始的引号 )：<br>
+&ldquo;C:\Program Files\Microsoft Office\Office11\excel.exe&rdquo; /regserver<br>
+其它的如法炮制， OK！这样，双击任意一个 Office文档则默认用 Office
+2003打开，同时 Office 2007</p>
+<p>也可从开始→程序中打开使用，两全其美。</p>
+<p>然后在文件类型里找到xls，选高级，新建操作“使用Microsoft Office
+2007打开”，路径是07的excel</p>
+<p>的路径，其他的如法炮制，这样右击图标就有用07打开的选项了。<br>
+但选用07打开后，如果是word文档，又会弹出安装对话框，怎么办呢？<br>
+其实很简单，在文件夹选项的查看里，把“使用简单文件共享”前的勾去掉，找到C:\Program</p>
+<p>Files\Common Files\Microsoft Shared\OFFICE12\Office Setup
+Controller\setup.exe，右击选属性，</p>
+<p>在安全里把所有用户的权限设为拒绝，再运行word2007看看，是不是完美共存啊？？</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+<div>
+  <div class="side side-left"><h3>Author&#39;s bio</h3></div>
+  <div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2011-02-21-1.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Citation</h3></div>
+  <p>For attribution, please cite this work as</p>
+  <pre><code>gaoch (2011). 【转】office2003 与2010共存方法?（已解决）. Hugo Prose. /post/2011/02/21/%E8%BD%ACoffice2003-%E4%B8%8E2010%E5%85%B1%E5%AD%98%E6%96%B9%E6%B3%95%E5%B7%B2%E8%A7%A3%E5%86%B3/</code></pre>
+  <p>BibTeX citation</p>
+  <pre><code>@misc{
+  title = "【转】office2003 与2010共存方法?（已解决）",
+  author = "gaoch",
+  year = "2011",
+  journal = "Hugo Prose",
+  note = "/post/2011/02/21/%E8%BD%ACoffice2003-%E4%B8%8E2010%E5%85%B1%E5%AD%98%E6%96%B9%E6%B3%95%E5%B7%B2%E8%A7%A3%E5%86%B3/"
+}</code></pre>
+</div>
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2011/02/19/2011-02-19-matlab-cleanup/" title=Next&#32;post&#32;(older)>matlab 怎样去掉矩阵中的零元素</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2011/03/11/2011-03-11-linux-grep-usage/" title=Previous&#32;post&#32;(newer)>Linux grep的用法</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

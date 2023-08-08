@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>primer design on Hugo Prose</title>
+    <link>/tags/primer-design/</link>
+    <description>Recent content in primer design on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/primer-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Massive RT-PCR Primer Designer is online</title>
+      <link>/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</link>
+      <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</guid>
+      <description>The Massive RT-PCR Primer Designer is based on Primer3 and BioPerl toolbox, and was derived from the standalone codes which have been discussed by two previous blog posts (Post 1 and Post 2).
+You may access the service at The Massive RT-PCR Primer Designer.
+What this tool needs is your fasta file, which contains one or more nucleotide sequences that will be use as PCR template. Upload this file and the tool will generate the most ideal primer pairs suitable for quantitive Real-Time PCR (qRT-PCR).</description>
+    </item>
+    
+    <item>
+      <title>使用BioPerl和primer3批量设计RT-PCR引物</title>
+      <link>/post/2010/11/12/2010-11-12-rt-primer-bioperl/</link>
+      <pubDate>Fri, 12 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/11/12/2010-11-12-rt-primer-bioperl/</guid>
+      <description>Update：
+我已经设置了一个Massive RT-PCR Primer Designer服务，有需要的朋友可以直接去上传自己基因序列的Fasta文件，然后服务器会将引物返回。
+关于Missing SEQUENCE tag错误的处理
+以下为原文。
+———————————————————————————————–
+本文介绍批量设计RT-PCR引物的方法，基于Ubuntu 10.10系统和BioPerl 1.6.1。但是应当适用于大部分Linux系统。
+本文假定你已经安装好BioPerl。
+安装primer3和Bio::PrimerDesigner
+[bash]
+&amp;gt;sudo apt-get install primer3 libbio-primerdesigner-perl
+[/bash]
+修正程序Bug
+Primer3安装之后的可执行文件存在于/usr/bin/primer3_core，而Bio::PrimerDesigner软件包找不到该文件，所以需要建立一个符号链接。
+[bash]
+&amp;gt;sudo ln -s /usr/bin/primer3_core /usr/local/bin/primer3
+[/bash]
+准备序列文件
+将要设计的文件以Fasta格式保存（也可以用其它BioPerl识别的任意格式保存）在当前目录中，此处以seqs.fa命名。
+代码
+然后在当前目录中新建文件designPrimer.pl。
+录入代码如下：
+[perl]
+#! perl -w
+use Bio::SeqIO;
+use Bio::PrimerDesigner;
+my $seqs = Bio::SeqIO-&amp;gt;new(-file =&amp;gt; ‘seqs.fa’);
+open OUT, ‘&amp;gt;&amp;gt; raw_output.txt’;
+my $pd = Bio::PrimerDesigner-&amp;gt;new;
+while( my $seq = $seqs-&amp;gt;next_seq() ) {
+my $seqid = $seq-&amp;gt;id;
+my $dna = $seq-&amp;gt;seq;</description>
+    </item>
+    
+  </channel>
+</rss>

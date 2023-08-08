@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DT on Hugo Prose</title>
+    <link>/tags/dt/</link>
+    <description>Recent content in DT on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DT软件包的使用</title>
+      <link>/post/2020/02/17/library-dt/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/02/17/library-dt/</guid>
+      <description>基础用法library(DT)datatable(iris)在上面的表格中，搜索框提供了针对所有数据进行检索的功能，检索词可以是文本、数值或其它任意的数据项。检索结果实时显示，如果没有找到任何结果则显示为空白。
+语法datatable 的语法如下所示。
+datatable(data, options = list(), class = &amp;quot;display&amp;quot;,callback = JS(&amp;quot;return table;&amp;quot;), rownames, colnames, container,caption = NULL, filter = c(&amp;quot;none&amp;quot;, &amp;quot;bottom&amp;quot;, &amp;quot;top&amp;quot;), escape = TRUE,style = &amp;quot;default&amp;quot;, width = NULL, height = NULL, elementId = NULL,fillContainer = getOption(&amp;quot;DT.fillContainer&amp;quot;, NULL),autoHideNavigation = getOption(&amp;quot;DT.autoHideNavigation&amp;quot;, NULL),selection = c(&amp;quot;multiple&amp;quot;, &amp;quot;single&amp;quot;, &amp;quot;none&amp;quot;), extensions = list(),plugins = NULL, editable = FALSE)样式和显示相关参数class：设置原始的类，类名来自于 default.css 或者 bootstrap.</description>
+    </item>
+    
+  </channel>
+</rss>

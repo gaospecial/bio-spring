@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on Hugo Prose</title>
+    <link>/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2020/12/01/hello-r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2020/12/01/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>在RMarkdown中设定图片大小的方法</title>
+      <link>/post/2020/04/13/ways-to-set-figure-size-in-markdown/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/13/ways-to-set-figure-size-in-markdown/</guid>
+      <description>本文是 英文原文 的翻译。
+使用 YAML 头部文件--- title: &amp;quot;My Document&amp;quot; output: html_document: fig_width: 6 fig_height: 4 --- 统一设置每个图片的宽 6 英寸，高 4 英寸。
+plot(pressure)使用 chunk option这将影响后面所有代码生成图片的大小。
+knitr::opts_chunk$set(fig.width=4, fig.height=4)plot(pressure)如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如{r fig2, fig.height = 8, fig.width = 6, fig.align = &#34;center&#34;}。
+plot(pressure)此外，还有 fig.asp=0.7 和 out.width=&#34;80%&#34; 等参数可供使用。
+out.width使用后对于优化手持设备、PDF文件等的显示很有帮助。
+下面的例子与前面相比就是加入了out.width=&#34;80%&#34;的设置，当用手机浏览时可以看到二者的差别。
+plot(pressure)使用 Pandoc 的 Markdown 语法Rmarkdown 默认使用 Pandoc 来转换，因此可以使用 Pandoc 语法改变图片大小。如上一篇帖子使用的一个图片如果这样设置，会得到下面的结果。 ![](https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png){ width=50% }
+使用 HTML 语法Markdown 天生支持原生的 HTML 语法。因此也可以使用 HTML 来对图片大小进行修改。</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2015/07/23/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ecology on Hugo Prose</title>
+    <link>/tags/ecology/</link>
+    <description>Recent content in ecology on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ecology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ordination analysis to assess shifts of niche structure</title>
+      <link>/post/2018/10/17/ordination-analysis-to-assess-shifts-of-niche-structure/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/17/ordination-analysis-to-assess-shifts-of-niche-structure/</guid>
+      <description>本分析方法来在2018年在 ISME J 发表的一篇论文1，原来的分析是用 Mathematica 做的，我尝试在 R 里面实现它。
+Mallon CA et al. (2018). The impact of failure: unsuccessful bacterial invasions steer the soil microbial community away from the invader’s niche. The ISME Journal 1.&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+    </item>
+    
+    <item>
+      <title>mothur and QIIME</title>
+      <link>/post/2016/02/09/2016-02-09-mothur-and-qiime/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/02/09/2016-02-09-mothur-and-qiime/</guid>
+      <description>说明：mothur的官博上比较了mothur和QIIME这两个微生物生态学研究的常用软件之间存在的差异。博主略作整理，以飨读者。
+原文链接在这里：http://blog.mothur.org/2016/01/12/mothur-and-qiime
+以下为原文和大意的翻译。
+译者：这是mothur博客上一篇关于QIIME的文章，作者系统比较了两个工具的不同。
+Despite their differences in philosophy, most of the differences in mothur and QIIME are cosmetic. Both packages have been successful. Having both of them around is good for microbial ecology. Within both packages there are warts – inconveniences to the users and antiquated/bad ideas. Within both packages there are strengths. If you are going to criticize someone for their choice of software, do it for some specific point.</description>
+    </item>
+    
+  </channel>
+</rss>

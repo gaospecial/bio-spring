@@ -1,0 +1,40 @@
+---
+title: 'igraph: 生成网络'
+author: gaoch
+date: '2020-02-26'
+slug: igraph-make-graph
+categories:
+  - R
+tags:
+  - igraph
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>library(igraph)
+notable_graph &lt;- c(&quot;Bull&quot;, &quot;Chvatal&quot;, &quot;Coxeter&quot;, &quot;Cubical&quot;, &quot;Diamond&quot;, &quot;Dodecahedral&quot;, &quot;Dodecahedron&quot;, 
+                   &quot;Folkman&quot;, &quot;Franklin&quot;, &quot;Frucht&quot;, &quot;Grotzsch&quot;, &quot;Heawood&quot;, &quot;Herschel&quot;, &quot;House&quot;, 
+                   &quot;HouseX&quot;, &quot;Icosahedral&quot;, &quot;Icosahedron&quot;, &quot;Krackhardt kite&quot;, &quot;Levi&quot;, &quot;McGee&quot;, 
+                   &quot;Meredith&quot;, &quot;Noperfectmatching&quot;, &quot;Nonline&quot;, &quot;Octahedral&quot;, &quot;Octahedron&quot;, 
+                   &quot;Petersen&quot;, &quot;Robertson&quot;, &quot;Smallestcyclicgroup&quot;, &quot;Tetrahedral&quot;, &quot;Tetrahedron&quot;, 
+                   &quot;Thomassen&quot;, &quot;Tutte&quot;, &quot;Uniquely3colorable&quot;, &quot;Walther&quot;, &quot;Zachary&quot;)
+
+graph &lt;- lapply(notable_graph,make_graph)</code></pre>
+<p><code>make_graph()</code> 一共支持 35 个内置图形。</p>
+<pre class="r"><code>par(mfrow=c(5,7))
+
+success &lt;- lapply(notable_graph, function(x){
+  graph &lt;- make_graph(x)
+  par(mar=c(1,1,1,1))
+  plot(graph, main = x)
+})</code></pre>
+<p><img src="/post/2020-02-26-igraph-make-graph_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<pre class="r"><code>make_star(10) %&gt;% plot</code></pre>
+<p><img src="/post/2020-02-26-igraph-make-graph_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>make_de_bruijn_graph(3,4) %&gt;% plot</code></pre>
+<p><img src="/post/2020-02-26-igraph-make-graph_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code>make_full_graph(10) %&gt;% plot</code></pre>
+<p><img src="/post/2020-02-26-igraph-make-graph_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
+<pre class="r"><code>make_kautz_graph(3,4) %&gt;% plot</code></pre>
+<p><img src="/post/2020-02-26-igraph-make-graph_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>

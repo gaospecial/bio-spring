@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ht-seq on Hugo Prose</title>
+    <link>/tags/ht-seq/</link>
+    <description>Recent content in ht-seq on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ht-seq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原核转录组分析的原理和流程</title>
+      <link>/post/2019/07/17/rna-seq/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/07/17/rna-seq/</guid>
+      <description>本文是我在华中农业大学JC Bioinformatics 2018暑期生物信息学培训班上的讲义
+原核转录组 原核转录组课程讲授利用RNA-seq方法研究细菌基因组中基因表达差异的原理和方法。课程中不仅介绍了RNA-seq生物信息学分析的内容，还对RNA-seq的原理、文库构建等湿实验进行解读。
+为了降低学习门槛，课程中的实例取自公开发表的细菌基因组，但是这不意味着相关原理和方法不能应用于其它微生物基因组。
+另外，本课程涉及到的文库构建原理、方法、生物信息学工具软件在其它物种相关研究（各种基于高通量测序的研究方法）中也具有普适性。需要学生自己体会和进一步学习。
+在开始本课程之前 你需要：
+在你的电脑上已经安装了Linux双系统或虚拟机（推荐） Linux发行版推荐Ubuntu 虚拟机软件推荐VirtualBox 对Linux系统下的工作环境有一定认识 使用Bash或类似的命令行工具 了解命令参数的使用 会使用程序内嵌的帮助系统（help或man） 能够使用系统的包管理系统安装软件（如Ubuntu下的apt-get） 能够安装预编译好的生物信息学工具（包括设置PATH环境变量等） 在你的电脑上已经安装了最新版本的R 能够安装CRAN里面的包 能够安装Bioconductor里面的包 会使用R的命令行 会操作R的变量和数据 对ggplot作图有初步的认识 图形语法 能够使用ggplot2绘制简单的图形 在你的电脑上已经安装了最新版本的RStudio 已经初步认识了RStudio的界面 能够在RStudio中使用命令行 能够在RStudio中查看变量和输出 课程主要内容 转录组的原理：通过测序mRNA等的丰度得到基因表达情况 RNA-seq的实验和分析流程 文库的构建：ssRNA-seq的介绍 短序列与基因组的比对 基因组注释信息在分析中的应用 差异表达基因的鉴定（差异基因数目上、表达量上的差异） 差异表达基因的富集分析 如何针对数据下一个结论 商业公司RNA-seq结果解析 文件夹的结构 结题报告（有用、无用、错误和正确的信息） 从头开始RNA-seq分析的流程 Alignment -&amp;gt; Read Count 靠谱的基因表达差异工具：DESeq2 靠谱的基因富集分析工具：ClusterProfiler 案例研究：重现论文中的数据图表 研究目的：BS、PP对VP基因表达的影响 实验设计：共培养和单独培养的RNA-seq RNA-seq数据分析 结论 转录组的原理：通过测序mRNA的丰度得到基因表达情况 前一段时间，有一个非常火的电视剧：三国机密之潜龙在渊。讲述了汉室与曹操之间纠葛的关系。 里面有曹丕与曹植争宠。让我想到了他们还有个弟弟：曹冲。历史总是很有意思的。 曹冲十三岁就死了，让人遗憾。但是，曹冲称象的故事广为流传。
+古时候没有那么大量程的秤，采用了化整为零的方法。所以有一头大象 = 一堆石头的换算。
+那如果来了一群大象，就可以分别用不同的一堆石头来定量，得出大象之间的重量差异。
+大象A = 石头堆A 大象B = 石头堆B 大象C = 石头堆C …… 这其实跟RNA-seq检测基因表达差异的情况非常类似。</description>
+    </item>
+    
+  </channel>
+</rss>

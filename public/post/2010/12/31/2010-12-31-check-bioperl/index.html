@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> 如何检查BioPerl是否正确安装 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何检查BioPerl是否正确安装"/>
+<meta name="twitter:description" content="为了检查BioPerl是否安装正确，我们可以使用perldoc命令来看一下。
+如果你是Linux系统，随意打开一个终端；如果用的是Windows系统，那么打开命令提示符。输入以下命令：
+[bash]
+perldoc Bio::SeqIO
+[/bash]
+以上命令的作用是查看Bio::SeqIO模块的文档是否存在，如果存在，则会有相应的文档输出，则你安装Bio::SeqIO模块；如果没有，说明Perl找不到该模块，你还没有安装Bio::SeqIO模块。
+引物Bio::SeqIO是BioPerl的基础模块，所以，你懂的，其它的一些模块也可以的，比如Bio::Seq Bio::SearchIO等等。
+此外，对于Perl的其它模块是否正确安装，也可以用perldoc命令检查一下。比如Bio::Graphics模块，并不保护在BioPerl的“安装包”内，所以对于要使用Gbrowser的同学来讲，需要手动安装该模块。
+新年到了，祝看到这篇文章的同学新年快乐。
+Happy new year！"/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">如何检查BioPerl是否正确安装</span></h1>
+
+<h3 class="date">2010-12-31</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/bioperl-bioperl">BioPerl BIOPERL</a> <a href="/tags/%E7%94%9F%E7%89%A9%E8%BD%AF%E4%BB%B6-bio-software">生物软件 BIO-SOFTWARE</a> <a href="/tags/bioperl">BioPerl</a> <a href="/tags/perldoc">perldoc</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>为了检查BioPerl是否安装正确，我们可以使用perldoc命令来看一下。</p>
+<p>如果你是Linux系统，随意打开一个终端；如果用的是Windows系统，那么打开命令提示符。输入以下命令：</p>
+<p>[bash]</p>
+<p>perldoc Bio::SeqIO</p>
+<p>[/bash]</p>
+<p>以上命令的作用是查看Bio::SeqIO模块的文档是否存在，如果存在，则会有相应的文档输出，则你安装Bio::SeqIO模块；如果没有，说明Perl找不到该模块，你还没有安装Bio::SeqIO模块。</p>
+<p>引物Bio::SeqIO是BioPerl的基础模块，所以，你懂的，其它的一些模块也可以的，比如Bio::Seq 
+Bio::SearchIO等等。</p>
+<p>此外，对于Perl的其它模块是否正确安装，也可以用perldoc命令检查一下。比如Bio::Graphics模块，并不保护在BioPerl的“安装包”内，所以对于要使用Gbrowser的同学来讲，需要手动安装该模块。</p>
+<p> </p>
+<p>新年到了，祝看到这篇文章的同学新年快乐。</p>
+<p><span style="color: #ff0000; font-size: large;">Happy new year！</span></p>
+<p> </p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2010-12-31-check-bioperl.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2010/12/12/2010-12-12-rename-multiple-files/" title=Next&#32;post&#32;(older)>Ubuntu linux下Shell批量重命名文件的实例</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2010/12/31/2010-12-31-win7-on-usb/" title=Previous&#32;post&#32;(newer)>如何在移动硬盘中安装windows7</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

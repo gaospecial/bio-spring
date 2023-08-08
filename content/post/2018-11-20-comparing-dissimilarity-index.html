@@ -1,0 +1,36 @@
+---
+title: 比较不同差异系数的结果
+author: gaoch
+date: '2018-11-20'
+slug: comparing-dissimilarity-index
+categories:
+  - R
+tags:
+  - statistics
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><code>vegdist</code> 提供了多个计算差异度的算法。这些算法自然是各有各的适用范围。对于同一个数据集，其结果有什么直观上的差异呢？</p>
+<pre class="r"><code>library(vegan)
+library(pheatmap)
+library(cowplot)
+data(&quot;varespec&quot;)
+dist.methods &lt;- c(&quot;manhattan&quot;, &quot;euclidean&quot;, &quot;canberra&quot;, &quot;clark&quot;, &quot;bray&quot;, &quot;kulczynski&quot;, &quot;jaccard&quot;, &quot;gower&quot;, &quot;altGower&quot;, &quot;morisita&quot;, &quot;horn&quot;, &quot;mountford&quot;, &quot;raup&quot;, &quot;binomial&quot;, &quot;chao&quot;, &quot;cao&quot; , &quot;mahalanobis&quot;)</code></pre>
+<p>对于这17种方法，分别计算其距离，用 <code>pheatmap()</code> 比较其差异。</p>
+<pre class="r"><code>dist.plots &lt;- vector(&quot;list&quot;,length(dist.methods))
+for (i in seq_along(dist.methods)){
+  dist &lt;- vegdist(varespec,method = dist.methods[[i]])
+  plot &lt;- pheatmap(dist,cluster_cols = F,cluster_rows = F,main = dist.methods[[i]],silent = T)
+  dist.plots[[i]] = plot[[4]]
+}</code></pre>
+<pre><code>## Warning in vegdist(varespec, method = dist.methods[[i]]): results may be
+## meaningless with non-integer data in method &quot;morisita&quot;</code></pre>
+<pre><code>## Warning in vegdist(varespec, method = dist.methods[[i]]): results may be
+## meaningless with non-integer data in method &quot;chao&quot;</code></pre>
+<pre><code>## Warning in vegdist(varespec, method = dist.methods[[i]]): results may be
+## meaningless with non-integer data in method &quot;cao&quot;</code></pre>
+<p>差距还是挺大的。</p>
+<pre class="r"><code>plot_grid(plotlist = dist.plots,labels = &quot;AUTO&quot;,ncol=4)</code></pre>
+<p><img src="/post/2018-11-20-comparing-dissimilarity-index_files/figure-html/unnamed-chunk-3-1.png" width="960" /></p>

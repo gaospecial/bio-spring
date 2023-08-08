@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>分区 on Hugo Prose</title>
+    <link>/tags/%E5%88%86%E5%8C%BA/</link>
+    <description>Recent content in 分区 on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Sep 2011 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E5%88%86%E5%8C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+      <link>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+      <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+      <description>使用UUID的方法挂载分区
+打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo umount -a”命令全部卸载，然好再使用“sudo mount -a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+/dev/sda7 /var/ftp ext3 relatime 0 2
+怎么办？
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。
+一组 UUID，系由一串 16 位组（亦称 16 字节，或 128 位）的16进位数字所构成，是故UUID理论上的总数为216 x 8=2128，约等于3.4 x 1038。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。
+输入命令，得到各设备的UUID。
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]
+根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+UUID=d51b2056-6825-456c-957d-ebb16edd349d /var/ftp ext3 relatime 0 2</description>
+    </item>
+    
+  </channel>
+</rss>

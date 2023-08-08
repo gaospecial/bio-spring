@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>生物学 BIOLOGY on Hugo Prose</title>
+    <link>/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/</link>
+    <description>Recent content in 生物学 BIOLOGY on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>作图神器PowerPoint：三角瓶</title>
+      <link>/post/2016/03/22/2016-03-22-drawing-conical-flask-with-powerpoint/</link>
+      <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/03/22/2016-03-22-drawing-conical-flask-with-powerpoint/</guid>
+      <description>PowerPoint其实是一个作图神器，加上一点技巧，加上一点耐心，可以作出高水平的科技图片。
+PowerPoint 2010版本以后，隐藏了一个“强悍的形状工具”，使得我们可以通过烧脑想想，动手作出很多实用的形状来。打开方法在这里：百度经验
+如下图所示，便是绘制一个三角瓶的主要步骤。
+很好很强大，是不是？</description>
+    </item>
+    
+    <item>
+      <title>fastq format – sra format</title>
+      <link>/post/2012/08/21/2012-08-21-fastq-format-sra-format/</link>
+      <pubDate>Tue, 21 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/08/21/2012-08-21-fastq-format-sra-format/</guid>
+      <description>fastq格式与fasta格式相同的一点在于它们都是文本格式，不同之处在于前者提供了测序质量等更多的信息，而后者仅仅能提供序列（前者也提供序列）。
+FASTQ format is a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores. Both the sequence letter and quality score are encoded with a single ASCII character for brevity. It was originally developed at the Wellcome Trust Sanger Institute to bundle a FASTA sequence and its quality data, but has recently become the de facto standard for storing the output of high throughput sequencing instruments such as the Illumina Genome Analyzer.</description>
+    </item>
+    
+    <item>
+      <title>生物信息学中的 SAM 格式介绍</title>
+      <link>/post/2012/08/16/2012-08-16-sam-format/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/08/16/2012-08-16-sam-format/</guid>
+      <description>Following is a brief description of the SAM format as output by bowtie when the -S/–sam option is specified. For more details, see the SAM format specification.
+When -S/–sam is specified, bowtie prints a SAM header with @HD, @SQ and @PG lines. When one or more –sam-RG arguments are specified, bowtie will also print an @RG line that includes all user-specified –sam-RG tokens separated by tabs.
+Each subsequnt line corresponds to a read or an alignment.</description>
+    </item>
+    
+    <item>
+      <title>处理设计引物时候的PRIMER_ERROR=Missing SEQUENCE tag错误</title>
+      <link>/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</link>
+      <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</guid>
+      <description>Update：You May directly use our Massive RT-PCR Primer Designer from Jan 16, 2016. ————————————————————————————————————-
+我先前曾经写过一个设计RT-PCR引物的脚本，当初运行良好，所以把它给分享了出来（在这里）。最近又用发现会有错误，“Missing SEQUENCE tag”，经过分析，最终解决了这个问题。
+方法如下：
+[cc lang=’bash’]sudo gedit /usr/local/share/perl/5.10.1/Bio/PrimerDesigner/primer3.pm[/cc]
+将其中的SEQUENCE换成SEQUENCE_TEMPLATE即可。总共要换三四个位置。
+造成这一错误的原因在于Primer3和Bio::PrimerDesigner的API不兼容。 前者使用“SEQUENCE_TEMPLATE”作为引物的模板，而后者确传递给primer3引物设计程序一个“SEQUENCE”参数，从而造成引物设计上的失败。</description>
+    </item>
+    
+    <item>
+      <title>使用BioEdit生成和绘制蛋白质进化树</title>
+      <link>/post/2011/07/20/2011-07-20-bioedit-tree/</link>
+      <pubDate>Wed, 20 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/20/2011-07-20-bioedit-tree/</guid>
+      <description>BioEdit是一个功能很强大的生物学软件，整合了很多常用的生物信息工具。如：多序列比对，质粒图谱的绘制，查看DNA序列的酶切位点等等。
+使用BioEdit可以方便的生成和绘制进化树。（另请参考：进化树大杀器MEGA的使用）
+首先，打开序列。我们这里是一个含有6个蛋白质的Fasta格式的文件。如下所示：
+然后从菜单中选择“ClustalW多序列比对”，会弹出下一个对话框，设置一些程序运行的参数。
+我们这里采用了默认配置，直接点击“Run ClustalW”按钮。ClustalW程序会以命令行的形式运行，程序运行会在多序列比对完成之后，显示多序列比对的结果，并生成进化树。
+“进化树”呢？别着急，进化树已经生成了。现在，我们关闭BioEdit软件。进化树已经在它该在的地方了，我们这就去把它挖出来。
+我们来到了BioEdit的安装目录（通常是“C:\BioEdit”），这里有一个Temp临时文件夹，打开临时文件夹，里面就要我们要的东西了。
+我这里有5个文件，你那里说不定会有别的临时文件。如果无法确定，不妨把这些文件都删除了，重头运行一遍，就这剩下这5个文件了。
+正如文件名昭示的那样，第一个文件是一个log文件，第二个文件时程序运行的参数设置，第三个文件是多序列比对的结果，第四个文件时我们的蛋白质序列的一份拷贝，最后一个就是我们需要的进化树了。
+这几个文件其实都是文本文件，可以用“记事本”之类的软件打开的。最后一个进化树用TreeView软件打开，就会得到这样的结果。
+这是一棵什么树？叶子的标示都不对啊。不好意思，忘记告诉你了，这个dnd文件需要修改一下。将这些“0000000XX”的编号改成我们的序列名称“Seq1，Seq2”等等。用文本编辑器打开最前面和最后面的那个文件。按照log文件中的指示，把dnd文件中的编号改过来吧。
+会变成这个样子。
+这是你想要的结果吗？
+我们还有一下几种展示方案，敬请选择。
+好了，就这样结束了。如果觉得有问题，请留言吧。BioEdit的，进化树的都可以。
+对了，忘记告诉你，如何安装Treeview这个软件了。BioEdit附带了这个软件，不过默认似乎没有安装，在BioEdit的安装目录，有安装包，自行安装一下吧。
+注意：以上内容在WindowsXP中测试通过，Win7什么的，不能保证哦！</description>
+    </item>
+    
+    <item>
+      <title>紫外线灯管（紫外线杀菌灯）的构成和原理</title>
+      <link>/post/2011/07/17/2011-07-17-uv-lamp/</link>
+      <pubDate>Sun, 17 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/17/2011-07-17-uv-lamp/</guid>
+      <description>紫外线灯管的构成和原理
+紫外线杀菌灯（UV灯）实际上是属于一种低压汞灯，和普通日光灯一样，利用低压汞蒸汽（&amp;lt;10-2Pa）被激发后发射紫外线。
+不同的是日光灯的灯管采用的是普通玻璃，254nm紫外线不能透出来，只能被灯管内壁的荧光粉吸收后激发出可见光。如果改变荧光粉的成分和比例，它就可以发出我们通常所见的不同颜色的光。
+**1、发光原理。**紫外线光在水银放电管中产生。水银放电管是包含两个电极和绝缘器的一根石英玻璃管，管体内悬浮着水银蒸汽（汞蒸气）这种惰性气体。
+当紫外线灯管通电且被激发后，水银在254nm，310nm和365nm处达到最高点，产生在200 和400nm之间的紫外线光辐射，其中峰值365nm类型的紫外线灯管，被广泛应用于工业上表面加工作业的干燥固化；254nm及特制185nm的灯管常用于杀菌消毒、污水处理、油烟净化，甚至是光清洗。
+紫外线灯可以被生产成几毫米到超过2米的长度，功率可做到杀菌灯中不足1W，固化灯至25KW。 这些固化灯的寿命从1000到2500小时内变化，杀菌灯的寿命从6000到20000小时内变化。
+**2、灯管。**一般杀菌灯的灯管都采用石英玻璃制作，因为石英玻璃对紫外线各波段都有很高的透过率，达80%-90%，并且同时能忍受800°C的高温，是做杀菌灯的最佳材料。
+因成本关系与用途不同，也有用紫外线穿透率＜50%的高硼砂玻璃管代替石英玻璃的。高硼玻璃的成本很低，但它在性能上远比不上石英杀菌灯，其杀菌效果有相当大的差异。
+**3、电极：**电极由钨制成。
+**4、连线。**用钼板来连接电极和电线，可以和石英一起膨胀。并且当加热时仍然能忍受高电压。
+**5、灯头。**石英玻璃与普通玻璃在性能上有很大的差别，主要是热膨胀系数不同，一般不能封接铝盖灯头，所以杀菌灯的灯头材质多采用胶木、塑料或陶瓷。</description>
+    </item>
+    
+    <item>
+      <title>Biological DataBases: NCBI与SwissProt</title>
+      <link>/post/2011/04/18/2011-04-18-biological-databases-ncbi-swissprot/</link>
+      <pubDate>Mon, 18 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/04/18/2011-04-18-biological-databases-ncbi-swissprot/</guid>
+      <description>人们使用数据库管理数据，对于生物数据来说，一个优秀的数据库有以下优点：
+然而，生物数据的迅速增大，带来很多问题：
+相对来说，NCBI收录生物数据时力求完整不遗漏，所以数据库内容是冗余的，有很多重复性条目，无意义条目。
+与之相对的，SwissProt数据库则力求注释完整，在收录数据会进行合并和归档，以保证量不重复。</description>
+    </item>
+    
+    <item>
+      <title>抗结核新药研发进程</title>
+      <link>/post/2011/02/17/2011-02-17-anti-tb-drugs/</link>
+      <pubDate>Thu, 17 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/02/17/2011-02-17-anti-tb-drugs/</guid>
+      <description>在2011年1月的Nature上，总结了抗结核新药的研发进程。已经有个别药物进入III期临床试验，相信快要面世啦。
+Koul, A., Arnoult, E., Lounis, N., Guillemont, J. &amp;amp; Andries, K. The challenge of new drug discovery for tuberculosis. Nature 469, 483-490 (2011).</description>
+    </item>
+    
+    <item>
+      <title>beta半乳糖苷酶活性测定</title>
+      <link>/post/2011/02/16/2011-02-16-lacz-fusion-assay/</link>
+      <pubDate>Wed, 16 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/02/16/2011-02-16-lacz-fusion-assay/</guid>
+      <description>试验原理
+如图所示，糖苷酶水解底物无色ONPG，生成黄色产物，通过测量吸光值，可以得出糖苷酶的活性。
+所用试剂
+Z buffer, per 50 mL:
+* O.80g Na2HPO4.7H2O (0.06M)
+* 0.28g NaH2PO4.H2O (0.04M)
+* 0.5 mL 1M KCl (0.01M)
+* 0.05 mL 1M MgSO4 (0.001M)
+* 0.135 mL b -mercaptoethanol (BME) (0.05M)
+* bring to approximately 40 mL with H2O, dissolve all the salts
+* adjust the pH to 7.0
+* use a graduated cylinder to bring the buffer to 50 mL
+* donot autoclave, store at 4 C.</description>
+    </item>
+    
+    <item>
+      <title>Perl LWP：从“国家地理每日图片”到“Cell最近一期的封面”</title>
+      <link>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</link>
+      <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</guid>
+      <description>在网上看到了一个从国家地理杂志网站下载每日图片的Perl程序。因为网站改版，脚本已经不能正常运行，经过修改后，经测试可以将每日图片下载到当前目录，代码如下：
+#!/usr/bin/perl # author: # Seraphxby # Purpose: # 查看国家地理每日图片的Perl脚本 # history: # v0.1 first draft # 2010-12-8 modified by gaospecial use warnings; use strict; use LWP::Simple; my $url=&#39;http://photography.nationalgeographic.com/photography/photo-of-the-day&#39;; my $content = get( &amp;quot;$url&amp;quot; ) || die &amp;quot;get the page failed!\n&amp;quot;; my $img; if ($content =~ m/(.*?&amp;lt;\/a&amp;gt;)/s) { $content = $1; if($content =~ m/&amp;lt;img.*?src=&amp;quot;([^\t]*?)&amp;quot;/){ # 非贪婪的数量词 *?,匹配中不含有跳格\t $img = $1; if($img =~ m/^(.*?)([^\/]+$)/){ $url = $1; $img = $2; getstore($url.$img,$img) || die &amp;quot;get img failed!</description>
+    </item>
+    
+    <item>
+      <title>关于GFF3格式</title>
+      <link>/post/2010/10/28/2010-10-28-about-gff3/</link>
+      <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/28/2010-10-28-about-gff3/</guid>
+      <description>GFF3是GFF注释文件的新标准。文件中每一行为基因组的一个属性，分为9列，以TAB分开。
+依次是：
+1. reference sequence：参照序列
+指出注释的对象。如一个染色体，克隆或片段。可以有多个参照序列。
+2. source ：来源
+注释的来源。如果未知，则用点（.）代替。
+3. type ：类型
+属性的类型。建议使用符合SO惯例的名称（sequence ontology，参看[[Sequence Ontology Project]]) ,如gene，repeat_region，exon，CDS等。
+4. start position ：起点
+属性对应片段的起点。从1开始计数。
+5. end position ：终点
+属性对应片段的终点。一般比起点的数值要大。
+6. score ：得分
+对于一些可以量化的属性，可以在此设置一个数值以表示程度的不同。如果为空，用点（.）代替。
+7. strand ：链
+“＋”表示正链，“－”表示负链，“.”表示不需要指定正负链。
+8. phase ：步进
+对于编码蛋白质的CDS来说，本列指定下一个密码子开始的位置。可以是0，1或2，表示到达下一个密码子需要跳过的碱基个数。
+对于其它属性，则用点（.）代替。
+9. attributes ：属性
+一个包含众多属性的列表。格式为“标签＝值”（tag=value）。不同属性之间以分号相隔。可以存在空格，不过若有“,=;”则用URL转义（URL escaping rule），同时TAB也需要转换为“%09”表示。
+下列的标签已定义：
+ID
+指定一个唯一的标识。对属性分类是非常好用（例如查找一个转录单位中所以的外显子）。
+Name
+指定属性的名称。展示给用户的就是该属性。
+Alias
+名称的代称或其它。当存在其它名称时使用该属性。
+Note
+描述性的一些说明。
+Alias和Note可以有多个值，不同值之间以逗号分隔。
+如：Alias=M19211,gna-12,GAMMA-GLOBULIN
+Other good stuff can go into the attributes field, as we shall see later.</description>
+    </item>
+    
+    <item>
+      <title>Bio-Rad iQ5 vs. Opticon Monitor</title>
+      <link>/post/2010/10/22/2010-10-22-bio-rad-iq5-vs-opticon-monitor/</link>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/22/2010-10-22-bio-rad-iq5-vs-opticon-monitor/</guid>
+      <description>使用 Bio-Rad 两款RT-PCR产品的评价
+最近做了两次RT-PCR实验，实验所用的仪器都是伯乐公司的产品，一个小型点的拥有48孔平板，一个大点的有标准的96孔平板。硬件方面操作不必多说，想不到软件居然也不一样。所以这里单独谈谈软件。这两款软件分别是 iQ5 和 Opticon Monitor 。
+iQ5 的反应缓慢 所用的文件格式很容易损坏 界面也不友好
+Opticon Monitor响应较快 文件格式基于文本文件 界面较友好 但是自动确定的Ct阈值不准确
+同一公司的软件，互补性很强，有点搞笑是不？
+Posted from GScribble.</description>
+    </item>
+    
+  </channel>
+</rss>

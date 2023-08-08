@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot on Hugo Prose</title>
+    <link>/categories/ggplot/</link>
+    <description>Recent content in ggplot on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggVennDiagram 的新生</title>
+      <link>/post/2021/05/08/ggvenndiagram-reborn/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/05/08/ggvenndiagram-reborn/</guid>
+      <description>ggVennDiagram 是一个用于绘制 Venn 图的 R 语言软件包。最初，我只是在需要画 Venn图的时候，发现没有一件趁手的工具，而最终不得不写了一个给自己用的工具。随后，抱着试一试的态度发布到了 GitHub 和 CRAN 上面。结果引起了用户持续的关注和好评，截止今日已经获得了超过 100 个小星星。
+在 CRAN 上面也已经被累计下载了 2 万多次了。
+考虑到原来的设计和代码是十分粗糙的，所以我在 1.0 版本的时候，完全重构了 ggVennDiagram1。
+为此，系统调研了 R 环境中可用的 Venn 图绘制工具，博取众家之长，并增强了自己原有的特色和优势。重生后的 ggVennDiagram 用起来更加方便，功能也更加强大，同时以后的扩展性也会非常好。
+下面是一些使用的示例：
+先生成一个示例数据：
+genes &amp;lt;- paste0(&amp;quot;gene&amp;quot;,1:1000)set.seed(20210502)gene_list &amp;lt;- list(A = sample(genes,100),B = sample(genes,200),C = sample(genes,300),D = sample(genes,200))library(ggVennDiagram)设置集合标签的内容，颜色和大小标签图层在最上面，不会被填充遮盖。但是如果是非常长的标签，可能会显示不完整。此时只需要应用一个 ggplot2 函数即可。
+ggVennDiagram(gene_list, category.names = c(&amp;quot;a very long name&amp;quot;,&amp;quot;short name&amp;quot;,&amp;quot;name&amp;quot;,&amp;quot;another name&amp;quot;),set_color = c(&amp;quot;red1&amp;quot;,&amp;quot;red2&amp;quot;,&amp;quot;red3&amp;quot;,&amp;quot;red4&amp;quot;),set_size = 6) +scale_x_continuous(expand = expansion(mult = .</description>
+    </item>
+    
+  </channel>
+</rss>

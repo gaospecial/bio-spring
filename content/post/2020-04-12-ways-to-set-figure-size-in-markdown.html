@@ -1,0 +1,62 @@
+---
+title: 在RMarkdown中设定图片大小的方法
+author: gaoch
+date: '2020-04-13'
+slug: ways-to-set-figure-size-in-markdown
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>本文是 <a href="https://sebastiansauer.github.io/figure_sizing_knitr/">英文原文</a> 的翻译。</p>
+<ol style="list-style-type: decimal">
+<li>使用 YAML 头部文件</li>
+</ol>
+<pre><code>--- 
+title: &quot;My Document&quot; 
+output: html_document: 
+fig_width: 6 
+fig_height: 4 
+--- </code></pre>
+<p>统一设置每个图片的宽 6 英寸，高 4 英寸。</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<p><img src="/post/2020-04-12-ways-to-set-figure-size-in-markdown_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>使用 chunk option</li>
+</ol>
+<p>这将影响后面所有代码生成图片的大小。</p>
+<pre class="r"><code>knitr::opts_chunk$set(fig.width=4, fig.height=4)
+plot(pressure)</code></pre>
+<p><img src="/post/2020-04-12-ways-to-set-figure-size-in-markdown_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如<code>{r fig2, fig.height = 8, fig.width = 6, fig.align = "center"}</code>。</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<p><img src="/post/2020-04-12-ways-to-set-figure-size-in-markdown_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>此外，还有 <code>fig.asp=0.7</code> 和 <code>out.width="80%"</code> 等参数可供使用。</p>
+<p><strong><code>out.width</code>使用后对于优化手持设备、PDF文件等的显示很有帮助。</strong></p>
+<p>下面的例子与前面相比就是加入了<code>out.width="80%"</code>的设置，当用手机浏览时可以看到二者的差别。</p>
+<pre class="r"><code>plot(pressure)</code></pre>
+<p><img src="/post/2020-04-12-ways-to-set-figure-size-in-markdown_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>使用 Pandoc 的 Markdown 语法</li>
+</ol>
+<p>Rmarkdown 默认使用 Pandoc 来转换，因此可以使用 Pandoc 语法改变图片大小。如上一篇帖子使用的一个图片如果这样设置，会得到下面的结果。 <code>![](https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png){ width=50% }</code></p>
+<p><img src="https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png" style="width:50.0%" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>使用 HTML 语法</li>
+</ol>
+<p>Markdown 天生支持原生的 HTML 语法。因此也可以使用 HTML 来对图片大小进行修改。</p>
+<pre class="html"><code>&lt;center&gt;&lt;img src=&quot;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&quot; width=&quot;75%&quot; title=&quot;HTML图片&quot;/&gt;&lt;/center&gt;
+</code></pre>
+<center>
+<img src="https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png" width="75%" title="HTML图片"/>
+</center>
+<ol start="4" style="list-style-type: decimal">
+<li>使用 <code>knitr::include_graphics()</code> 函数</li>
+</ol>
+<p>这个函数提供了一种统一的语法来使用 chunk option 完成图片大小的设置。如下面的图片使用的参数<code>{r fig.width=5,fig.height=5,out.width="40%",fig.align="right"}</code>。</p>
+<pre class="r"><code>knitr::include_graphics(&quot;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&quot;)</code></pre>
+<p><img src="https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png" width="40%" style="display: block; margin: auto 0 auto auto;" /></p>

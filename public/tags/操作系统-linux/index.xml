@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>操作系统 LINUX on Hugo Prose</title>
+    <link>/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/</link>
+    <description>Recent content in 操作系统 LINUX on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>三分钟在阿里云中用上免费SSL</title>
+      <link>/post/2018/10/23/2018-10-23-setup-ssl-in-aliyun/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/23/2018-10-23-setup-ssl-in-aliyun/</guid>
+      <description> 给自己的网站添加SSL证书其实并不复杂，但是关键一点就是首先要拥有一个SSL证书。由于SSL证书价格不菲，很多个人站长会选择放弃使用Https。但是，自从开源、免费的Let’s Encrypt证书出现后，我觉得SSL也是我们草根站长可以玩的了。 https://blog.csdn.net/ithomer/article/details/78075006
+根据 https://certbot.eff.org/lets-encrypt/ubuntubionic-apache 官方教程指引，可以很快在阿里云的服务器中用上Let’s Encrypt的证书，全程只需三分钟。
+安装软件 $ sudo apt-get update $ sudo apt-get install software-properties-common $ sudo add-apt-repository ppa:certbot/certbot $ sudo apt-get update $ sudo apt-get install python-certbot-apache 获取证书 运行下述命令将启动一个向导，自动为你获取证书，并更新APACHE网站配置启用证书。
+$ sudo certbot --apache 更新证书 从Let’s Encrypt申请的证书有效期很短，只有90天。因此需要每隔一段时间续订一下。运行下列命令将模拟更新证书。
+$ sudo certbot renew --dry-run 添加 cron 来自动化。
+# crontab -e 在 crontab 中添加下列两行，将会每隔90天自动运行续订任务。
+# renew Let&#39;s Encrypt SSL cert every 90 days 0 0 */90 * * certbot renew </description>
+    </item>
+    
+    <item>
+      <title>清理Windows 10系统盘</title>
+      <link>/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</guid>
+      <description>Windows最近发了个大更新。自国庆节期间更新系统之后，50G的系统盘已经几乎被填满了。Windows就是这么臃肿，越用越慢。这方面真是大不如Linux。用了几年的Ubuntu根目录才1G左右，简直把Windows吊打的渣都不剩。
+吐槽归吐槽，但是还是不得不着手对系统进行清理。
+首先打开系统自带的磁盘清理工具，19.2G的Windows.old清理之后，感觉清爽了不少。
+其次，打开磁盘占用分析神器 RidNacs 扫描C盘，发现 System32\DriverStore 臃肿的不堪入目。居然占用了15G空间。
+使用 DriverStore Explorer 查看，可以发现，绝大多数都是N卡的显卡驱动。每个驱动400M，总共有好几十个。
+NVIDIA也是个怀旧的公司，每次更新驱动，都会将老版驱动做一个备份，于是这个文件夹就越来越大了。不得不说，在这一点上跟Windows还是挺一致的。
+下一步，准备把所有旧驱动删掉。通过设备管理器确认现在正在使用的显卡驱动就是上面图片中最新的哪一款，于是将其它所有NV驱动选中，使用 DriverStore Explorer 删除。
+此外，还发现一个文件夹非常大。就是这个：C:\Users\All Users\Microsoft\DataMart\PaidWiFi\OffersCache\Offers
+从命名上来看，这纯粹是个广告嘛。于是保留了 zh-cn 以外，其余全部删除。
+http://www.gqgtpc.com/thread-102248-1-1.html</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 快速安装 LAMP</title>
+      <link>/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</link>
+      <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</guid>
+      <description>[cc lang=”bash”]
+sudo apt-get install tasksel
+# 任务标记分组
+sudo tasksel install lamp-server
+#安装途中MySQL要求设定账户有密码，这是与操作系统没关系的账户与密码。
+[/cc]</description>
+    </item>
+    
+    <item>
+      <title>在Ubuntu 12.04系统中安装LAMP（网络服务器套件）并设置rewrite</title>
+      <link>/post/2012/08/23/2012-08-23-lamp-in-ubuntu-with-rewrite/</link>
+      <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/08/23/2012-08-23-lamp-in-ubuntu-with-rewrite/</guid>
+      <description>打开终端，输入以下命令，一键完成安装：
+[bash]sudo apt-get install apache2 php5
+libapache2-mod-php5 mysql-server
+libapache2-mod-auth-mysql php5-mysql
+phpmyadmin[/bash]
+请安装提示根据需要设置密码。
+一键打开 Rewrite：
+[bash]sudo a2enmod rewrite
+sudo service apache2 restart[/bash]
+最后一步：
+[bash]sudo gedit /etc/apache2/site-available/default[/bash]
+将其中的“Allow override NONE”改为“ALLOW OVERRIDE ALL”。</description>
+    </item>
+    
+    <item>
+      <title>在 Fedora 14 上配置 putty 自动认证</title>
+      <link>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</guid>
+      <description>配置要点：
+在Fedora（服务器）端生成公钥和私钥； 设置公钥和私钥的权限； 下载或者拷贝私钥到要运行 putty 的电脑上（客户端）； 导入私钥到putty中，保存配制； 完成。 具体操作
+以下在服务器端完成。
+[cc lang=”bash”]
+ssh-keygen -t rsa
+cp .ssh/id_rsa.pub .ssh/authorized_keys
+chmod go-w .ssh
+chmod go-w .ssh/authorized_keys
+[/cc]
+将私钥拷贝到客户端计算机上，也可以使用“PSFTP”下载到客户端上，然后依下列操作导入密钥
+打开“PUTTYGEN.EXE”以便导入私钥。
+将私钥导出为putty使用的“*.ppk”格式文件
+退出该软件，打开putty配置文件
+在“Private key for authorization”项目下面选择刚才生成的ppk文档。
+保存配置文件。
+打开putty，便可以不再输入密码而直接通过认证了。</description>
+    </item>
+    
+    <item>
+      <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+      <link>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+      <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+      <description>使用UUID的方法挂载分区
+打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo umount -a”命令全部卸载，然好再使用“sudo mount -a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+/dev/sda7 /var/ftp ext3 relatime 0 2
+怎么办？
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。
+一组 UUID，系由一串 16 位组（亦称 16 字节，或 128 位）的16进位数字所构成，是故UUID理论上的总数为216 x 8=2128，约等于3.4 x 1038。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。
+输入命令，得到各设备的UUID。
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]
+根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+UUID=d51b2056-6825-456c-957d-ebb16edd349d /var/ftp ext3 relatime 0 2</description>
+    </item>
+    
+    <item>
+      <title>使用shell删除文本中的重复行</title>
+      <link>/post/2011/07/16/2011-07-16-remove-dup-lines/</link>
+      <pubDate>Sat, 16 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/16/2011-07-16-remove-dup-lines/</guid>
+      <description>使用uniq命令得到不重复的行
+现有文件如下：
+—————————————————
+my friends, chenhong
+my friends, chenhong
+my friends, chenhong
+my teacher, liyong
+my teacher, liyong
+my teacher, liyong
+my father, wuzhongyi
+my father, wuzhongyi
+my father, wuzhongyi
+my sister, wushiying
+my sister, wushiying
+my sister, wushiying
+—————————————————
+现在欲把文件变成如下：
+—————————————————
+my friends, chenhong
+my teacher, liyong
+my father, wuzhongyi
+my sister, wushiying
+—————————————————
+命令：
+[cc lang=”bash”]uniq file[/cc]
+使用sort和awk删除存在特定列重复的行
+有文件如下：
+———————-
+aa cc dd ee
+11 34 45 22</description>
+    </item>
+    
+    <item>
+      <title>在windows中获得Linux使用环境</title>
+      <link>/post/2011/06/25/2011-06-25-linux-in-windows/</link>
+      <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/06/25/2011-06-25-linux-in-windows/</guid>
+      <description>http://www.virtualbox.org/
+http://www.cygwin.com/
+http://unxutils.sourceforge.net/
+Linux系统中的一些优越性特别是bash的优越性是windows系统不具备的。然而Linux运行在PC上，却又无法提供如Windows般的优越的用户界面，特别是office之类的常用软件。
+为了同时得到Windows和Linux提供给我们的便利，有很多种方法。比如，你可以安装双系统，双系统带来的是“实质性”的体验。然而，为了能随时在“系统”之间切换，我会选择安装一个虚拟机。那么，VirtualBox是个不错的选择。
+VirtualBox的性能与“实体机”十分相似，界面友好，速度很快。值得推荐。
+慢慢的，你会觉得虚拟机用起来还是不太方便。你不得不打开虚拟机软件，运行你的“虚拟机”，内存慢慢的不足，系统反应变慢。渐渐地，我觉得不应该这么对待我的老爷机了。寻找别的方法吧。
+于是安装了cygwin。该软件在windows系统中构建一个完整的Linux命令提示符，甚至还可以安装图形界面。
+不过呢，我发觉大部分用到Linux的时候，仅仅是为了适应grep，awk等命令。于是我就单纯的把这么几个可执行程序放到了Windows系统中了。于是下载了unxutils。该程序只有1M多哦，只有1M多。安装之后，提供了34个常用命令。
+遗憾地是，失去了对管道的支持了。
+以上3种方法，各有优略，视情况各取所需吧。</description>
+    </item>
+    
+    <item>
+      <title>Linux grep的用法</title>
+      <link>/post/2011/03/11/2011-03-11-linux-grep-usage/</link>
+      <pubDate>Fri, 11 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/03/11/2011-03-11-linux-grep-usage/</guid>
+      <description>在文件夹中搜索其中的js文件
+[bash]grep function *.js[/bash]
+在当前文件夹和子文件夹中搜索所有文件
+[bash]grep -d recurse -i ‘function_input’ *[/bash]
+注意，在此处使用*.*和*，结果会有所不同。
+从文件中读取**Pattern**
+[bash]grep -f pattern_file search_file[/bash]
+需要注意的是，在pattern_file中，不能有空行存在，如果有空行存在，得不到想要的结果。这个bug困扰了我好久啊。</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu linux下Shell批量重命名文件的实例</title>
+      <link>/post/2010/12/12/2010-12-12-rename-multiple-files/</link>
+      <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/12/2010-12-12-rename-multiple-files/</guid>
+      <description>将当前目录下面的php文件全部改写为html文件
+[bash]
+for it in *.php;
+do
+mv $it “$it.pdf”;
+done
+[/bash]
+将文件名中的URL转义字符%2E修正为点号.
+有时候下载的文件名中含有URL的转义字符，如%2E，%2F等
+参见附录：URL转义字符。
+[bash]
+for it in `ls *.pdf|grep “%2E”`;
+do
+mv $it `echo $it|sed s/%2E/./g`;
+done
+[/bash]
+按照文件大小编号命名
+[bash]
+let i=0;
+for it in `ls -S`;
+do
+mv $it “size${i}.txt”;
+let i=i+1;
+done
+[/bash]
+将当前目录下面的php文件全部改写为html文件-修订版
+上述的命名法仍然保留了php字符，如果想去掉的话，这样：
+[bash]
+for it in `ls *.php`;
+do
+mv $it `echo $it|sed s/.php$/./g`;
+done
+[/bash]
+附录：URL转义字符。
+URL转义字符原理
+为了安全或者网页数据的正常传递，需要将一些特殊的字符转换成ASCII码，格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的ASCII（16进制）码值。例如 空格的编码值是”%20″。
+URL特殊符号及对应的十六进制值编码：
+符号 在URL中的特殊意义 URL转义字符 + URL中+号表示空格 %2B 空格 URL中的空格可以用+号或者编码%20 / 分隔目录和子目录 %2F ?</description>
+    </item>
+    
+    <item>
+      <title>Linux下命令行压缩照片或图片的脚本</title>
+      <link>/post/2010/11/17/2010-11-17-linux-image-resize/</link>
+      <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/11/17/2010-11-17-linux-image-resize/</guid>
+      <description>硬盘空间不足。
+有一些毕业时候拍摄的照片，量很多，每个都有2M多，非常占用空间。在windows下面，常常用光影魔术手进行批处理，在Linux下面，那就用到了imagemagick（翻译过来也是“图片魔术师”——说不定是光影魔术手的祖师爷呢，哈哈）。
+安装imagemagick
+[bash]
+&amp;gt;sudo apt-get install imagemagick
+[/bash]
+压缩图片
+最长边设为700px，并在图片左上角添加风格化的水印。
+然后，删除原来的照片。
+[bash]
+&amp;gt;mkdir to
+&amp;gt;for file in *.JPG; do
+&amp;gt;convert $file -resize 700×700 -pointsize 16 -fill white -stroke black -strokewidth 5 -annotate +20+25 ‘2008 summer’ -stroke none -annotate +20+25 ‘2008 summer’ to/`basename $file`;
+&amp;gt;done
+&amp;gt;rm *.JPG
+[/bash]
+备注
+imagemagick的功能非常强大，在 http://www.imagemagick.org/Usage/resize/ 和http://www.imagemagick.org/Usage/fonts/有很多叹为观止的例子参考。
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 10.10环境下安装GScribble</title>
+      <link>/post/2010/10/28/2010-10-28-ubuntu-gscribble/</link>
+      <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/28/2010-10-28-ubuntu-gscribble/</guid>
+      <description>GScibble是Linux下面的优秀的博客程序客户端，比Blogtk界面友好。可以读取Wordpress的分类信息，还可以编辑已发布的条目。
+为了在我的Ubuntu 10.10环境下安装该程序，我还是处理了几个小问题，在这里Mark一下。
+首先，安装过程中的问题。
+安装文件可以从SF下载：http://sourceforge.net/projects/gscribble/
+按照安装文件INSTALL的说明操作即可。
+$ chmod +x setup.py $ sudo ./setup.py install
+我的系统缺少python-gtkhtml2的库，打开新立得软件包管理器，搜索之后安装，即可完成安装。 其次，Python的版本问题。
+我原先的Python版本为2.5。安装之后启动程序不成功。于是我安装了Python2.6,并将默认的Python链接到Python2.6上。
+现在，可以使用GScribble方便的发布更新了。
+小提示：如果程序无法正常启动，可以在终端输入gscribble的方式试试，终端中的错误提示会对你有帮助的。
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>重新安装bioperl</title>
+      <link>/post/2010/10/28/2010-10-28-reinstall-bioperl/</link>
+      <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/28/2010-10-28-reinstall-bioperl/</guid>
+      <description>此文适合一下情况：
+更新BioPerl时，想彻底删除旧版程序，安装一个完整的全新BioPerl；
+安装BioPerl后出错，需要从头安装。
+重新安装时不会自动覆盖老板本，因此需要手动删除以下文件：
+bioperl位于以下目录：
+/usr/local/man/man3/Bio::*
+/usr/local/bin/bp_*
+/usr/local/man/man1/bp_*
+/usr/local/share/perl/5.8.8/Bio/
+然后再进行安装即可。
+&amp;gt;perl Build.PL
+&amp;gt;./Build test
+&amp;gt;./Build install
+If your system is Ubuntu, just type the following command in terminal:
+sudo apt-get install bioperl
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>测试：使用BloGTK发表文章</title>
+      <link>/post/2010/10/17/2010-10-17-bloggtk-test/</link>
+      <pubDate>Sun, 17 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/17/2010-10-17-bloggtk-test/</guid>
+      <description>这是使用BloGTK 1.1发表的文章。
+通过XML-RPC协议，可以方便的发表文章，而不用登录后台。这在网络条件差的时候尤为方便。</description>
+    </item>
+    
+  </channel>
+</rss>

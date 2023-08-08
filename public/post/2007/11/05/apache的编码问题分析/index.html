@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> Apache的编码问题分析 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Apache的编码问题分析"/>
+<meta name="twitter:description" content="谈到Apache的编码我们就要涉及到3个东西
+http标记语言中的**&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt;**标签 PHP中的**header(&ldquo;content-type:text/html; charset=xxx&rdquo;);**函数 Apache配置文件httpd.conf中的AddDefaultCharset **一、&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt;**标签
+按顺序来，先说这个&lt;META&gt;标签，这个标签有很多功能的，具体请点这里。
+我今天想说只是上面提到的那种形式。解释一下**&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt;**， 意思是对这个网页进行声明，让浏览器对整个页面的内容采用xxx编码，xxx可以为GB2312，GBK，UTF-8（和MySQL不同，MySQL是 UTF8）等等。因此，大部分页面可以采用这种方式来告诉浏览器显示这个页面的时候采用什么编码，这样才不会造成编码错误而产生乱码。但是有的时候我们会 发现有了这句还是不行，不管xxx是哪一种，浏览器采用的始终都是一种编码，这个情况我后面会谈到。
+请注意，&lt;meta&gt;是属于html信息的，仅仅是一个声明，它起作用表明服务器已经把HTML信息传到了浏览器。
+二、header(&ldquo;content-type:text/html; charset=xxx&rdquo;);
+这个函数header()的作用是把括号里面的信息发到http标头。关于此函数具体用法请点击这里。
+如 果括号里面的内容为文中所说那样，那作用和&lt;META&gt;标签基本相同，大家对照第一个看发现字符都差不多的。但是不同的是如果有这段函数，浏 览器就会永远采用你所要求的xxx编码，绝对不会不听话，因此这个函数是很有用的。为什么会这样呢？那就得说说HTTPS标头和HTML信息的差别了：
+https标头是服务器以HTTP协议传送HTML信息到浏览器前所送出的字串。
+因为meta标签是属于html信息的，所以header()发送的内容先到达浏览器，通俗点就是header()的优先级高于meta（不知道可不可以这样讲）。加入一个php页面既有header(&ldquo;content-type:text/html; charset=xxx&rdquo;)，又有**&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt;**，浏览器就只认前者http标头而不认meta了。当然这个函数只能在php页面内使用。
+同样也留有一个问题，为什么前者就绝对起作用，而后者有时候就不行呢？这就是接下来要谈的Apache的原因了。
+三、AddDefaultCharset
+Apache根目录的conf文件夹里，有整个Apache的配置文档httpd.conf。具体如何配置apache请点击这里（windows，linux）。
+用文本编辑器打开httpd.conf，第708行（不同版本可能不同）有AddDefaultCharset xxx，xxx为编码名称。这行代码的意思：设置整个服务器内的网页文件https标头里的字符集为你默认的xxx字符集。有这行，就相当于给每个文件都加了一行header(&ldquo;content-type:text/html; charset=xxx&rdquo;)。这下就明白为什么明明meta设置了是utf-8，可浏览器始终采用gb2312的原因。
+如果网页里有header(&ldquo;content-type:text/html; charset=xxx&rdquo;)，就把默认的字符集改为你设置的字符集，所以这个函数永远有用。如果把AddDefaultCharset xxx前面加个“#”，注释掉这句，而且页面里不含header(&ldquo;content-type…&quot;)，那这个时候就轮到meta标签起作用了。
+总结：
+来个排序
+header(&ldquo;content-type:text/html; charset=xxx&rdquo;) AddDefaultCharset xxx &lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt; 如果你是web程序员，给你的每个页面都加个header(&ldquo;content-type:text/html; charset=xxx&rdquo;)，保证它在任何服务器都能正确显示，可移植性强。
+至于那句AddDefaultCharset xxx，要不要注释就仁者见仁了。反正我是注释掉了，不过我写页子也要写header()，便于放到服务器上能正常显示。
+mysql数据库操作乱码问题
+在mysql语句里写入
+mysql_query(&ldquo;SET NAMES &lsquo;gb2312&rsquo;&rdquo;);
+即可指定查询的时候传送的字符编码是gb2312
+Linux联盟收集整理"/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">Apache的编码问题分析</span></h1>
+
+<h3 class="author">
+gaoch
+</h3>
+
+<h3 class="date">2007-11-05</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4">百度空间</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>谈到Apache的编码我们就要涉及到3个东西</p>
+<ul>
+<li>http标记语言中的**&lt;META http-equiv=&ldquo;content-type&rdquo;
+content=&ldquo;text/html; charset=xxx&rdquo;&gt;**标签  </li>
+<li>PHP中的**header(&ldquo;content-type:text/html; charset=xxx&rdquo;);**函数  </li>
+<li>Apache配置文件httpd.conf中的<strong>AddDefaultCharset</strong>  </li>
+</ul>
+<p>**一、&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html;
+charset=xxx&rdquo;&gt;**标签</p>
+<p>按顺序来，先说这个&lt;META&gt;标签，这个标签有很多功能的，具体<a href="http://www.pconline.com.cn/pcedu/sj/wz/html/0401/293106.html">请点这里</a>。</p>
+<p>我今天想说只是上面提到的那种形式。解释一下**&lt;META
+http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html; charset=xxx&rdquo;&gt;**，
+意思是对这个网页进行声明，让浏览器对整个页面的内容采用xxx编码，xxx可以为GB2312，GBK，UTF-8（和MySQL不同，MySQL是
+UTF8）等等。因此，大部分页面可以采用这种方式来告诉浏览器显示这个页面的时候采用什么编码，这样才不会造成编码错误而产生乱码。但是有的时候我们会
+发现有了这句还是不行，不管xxx是哪一种，浏览器采用的始终都是一种编码，这个情况我后面会谈到。</p>
+<p>请注意，&lt;meta&gt;是属于html信息的，仅仅是一个声明，它起作用表明服务器已经把HTML信息传到了浏览器。</p>
+<p><strong>二、header(&ldquo;content-type:text/html; charset=xxx&rdquo;);</strong></p>
+<p>这个函数header()的作用是把括号里面的信息发到http标头。关于此函数具体用法请<a href="http://cn2.php.net/header">点击这里</a>。</p>
+<p>如
+果括号里面的内容为文中所说那样，那作用和&lt;META&gt;标签基本相同，大家对照第一个看发现字符都差不多的。但是不同的是如果有这段函数，浏
+览器就会永远采用你所要求的xxx编码，绝对不会不听话，因此这个函数是很有用的。为什么会这样呢？那就得说说HTTPS标头和HTML信息的差别了：</p>
+<blockquote>
+<p>https标头是服务器以HTTP协议传送HTML信息到浏览器前所送出的字串。</p>
+</blockquote>
+<p>因为meta标签是属于html信息的，所以header()发送的内容先到达浏览器，通俗点就是header()的优先级高于meta（不知道可不可以这样讲）。加入一个php页面既有<strong>header(&ldquo;content-type:text/html;
+charset=xxx&rdquo;)</strong>，又有**&lt;META http-equiv=&ldquo;content-type&rdquo;
+content=&ldquo;text/html;
+charset=xxx&rdquo;&gt;**，浏览器就只认前者http标头而不认meta了。当然这个函数只能在php页面内使用。</p>
+<p>同样也留有一个问题，为什么前者就绝对起作用，而后者有时候就不行呢？这就是接下来要谈的Apache的原因了。</p>
+<p><strong>三、<strong>AddDefaultCharset</strong></strong></p>
+<p>Apache根目录的conf文件夹里，有整个Apache的配置文档<strong>httpd.conf</strong>。具体如何配置apache请点击这里（<a href="http://www.phpchina.com/bbs/thread-2674-1-1.html">windows</a>，<a href="http://www.phpchina.com/bbs/thread-1381-1-1.html">linux</a>）。</p>
+<p>用文本编辑器打开httpd.conf，第708行（不同版本可能不同）有<strong>AddDefaultCharset</strong>
+<strong>xxx</strong>，xxx为编码名称。这行代码的意思：设置整个服务器内的网页文件https标头里的字符集为你默认的xxx字符集。有这行，就相当于给每个文件都加了一行<strong>header(&ldquo;content-type:text/html;
+charset=xxx&rdquo;)</strong>。这下就明白为什么明明meta设置了是utf-8，可浏览器始终采用gb2312的原因。</p>
+<p>如果网页里有<strong>header(&ldquo;content-type:text/html;
+charset=xxx&rdquo;)</strong>，就把默认的字符集改为你设置的字符集，所以这个函数永远有用。如果把<strong>AddDefaultCharset</strong>
+<strong>xxx</strong>前面加个“#”，注释掉这句，而且页面里不含header(&ldquo;content-type…&quot;)，那这个时候就轮到meta标签起作用了。</p>
+<p><strong>总结：</strong></p>
+<p>来个排序</p>
+<ol>
+<li><strong>header(&ldquo;content-type:text/html; charset=xxx&rdquo;)</strong></li>
+<li><strong>AddDefaultCharset</strong> <strong>xxx</strong>  </li>
+<li><strong>&lt;META http-equiv=&ldquo;content-type&rdquo; content=&ldquo;text/html;
+charset=xxx&rdquo;&gt;</strong>  </li>
+</ol>
+<p>如果你是web程序员，给你的每个页面都加个<strong>header(&ldquo;content-type:text/html;
+charset=xxx&rdquo;)</strong>，保证它在任何服务器都能正确显示，可移植性强。</p>
+<p>至于那句<strong>AddDefaultCharset</strong>
+<strong>xxx</strong>，要不要注释就仁者见仁了。反正我是注释掉了，不过我写页子也要写header()，便于放到服务器上能正常显示。</p>
+<p>mysql数据库操作乱码问题</p>
+<p>在mysql语句里写入</p>
+<p>mysql_query(&ldquo;SET NAMES &lsquo;gb2312&rsquo;&rdquo;);</p>
+<p>即可指定查询的时候传送的字符编码是gb2312</p>
+<p><a href="http://www.xxlinux.com/">Linux联盟</a>收集整理</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+<div>
+  <div class="side side-left"><h3>Author&#39;s bio</h3></div>
+  <div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2007-11-05-1.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Citation</h3></div>
+  <p>For attribution, please cite this work as</p>
+  <pre><code>gaoch (2007). Apache的编码问题分析. Hugo Prose. /post/2007/11/05/apache%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/</code></pre>
+  <p>BibTeX citation</p>
+  <pre><code>@misc{
+  title = "Apache的编码问题分析",
+  author = "gaoch",
+  year = "2007",
+  journal = "Hugo Prose",
+  note = "/post/2007/11/05/apache%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/"
+}</code></pre>
+</div>
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2007/10/27/%E8%AE%AD%E8%A8%80/" title=Next&#32;post&#32;(older)>训言</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2007/12/02/apache%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-mainfile.php@xoops%E7%AD%89%E7%AD%89/" title=Previous&#32;post&#32;(newer)>Apache访问控制, mainfile.php@xoops等等</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> Perl中的split函数和join函数：不同的参数书写样式 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Perl中的split函数和join函数：不同的参数书写样式"/>
+<meta name="twitter:description" content="这两个函数其实是一对孪生函数，它们的作用是恰恰相反的。而我，就一直以为这两个函数的用法相同，其实它们是有很大的不同的。
+split的用法
+split /PATTERN/,EXPR
+[perl]split(/(?=\w)/, ‘hi there!’);[/perl]
+join的用法
+join EXPR,LIST
+[perl]$rec = join(‘:’, $login,$passwd,$uid,$gid,$gcos,$home,$shell);[/perl]
+呵呵，搞不懂我想说什么。其实只是我在使用join函数的时候，用//把第一个参数圈起来了。
+你有没有犯过这种错误。"/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">Perl中的split函数和join函数：不同的参数书写样式</span></h1>
+
+<h3 class="date">2011-03-13</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics">信息技术 INFORMATICS</a> <a href="/tags/perl">perl</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>这两个函数其实是一对孪生函数，它们的作用是恰恰相反的。而我，就一直以为这两个函数的用法相同，其实它们是有很大的不同的。</p>
+<p>split的用法</p>
+<blockquote>
+<p><strong>split /PATTERN/,EXPR</strong></p>
+</blockquote>
+<p>[perl]split(/(?=\w)/, ‘hi there!’);[/perl]</p>
+<p>join的用法</p>
+<blockquote>
+<p><strong>join EXPR,LIST</strong></p>
+</blockquote>
+<p>[perl]$rec = join(‘:’,
+$login,$passwd,$uid,$gid,$gcos,$home,$shell);[/perl]</p>
+<p>呵呵，搞不懂我想说什么。其实只是我在使用join函数的时候，用//把第一个参数圈起来了。</p>
+<p>你有没有犯过这种错误。</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2011-03-13-perl-split-join.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2011/03/13/2011-03-13-kejigongguan/" title=Next&#32;post&#32;(older)>科技“攻关”还是 科技“公关”</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2011/04/01/2011-04-01-vi-cheatsheet/" title=Previous&#32;post&#32;(newer)>VIM快捷键中英对照图</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

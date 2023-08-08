@@ -1,0 +1,172 @@
+---
+title: DT软件包的使用
+author: gaoch
+date: '2020-02-17'
+slug: library-DT
+categories:
+  - R
+tags:
+  - DT
+---
+
+
+# 基础用法
+
+```{r}
+library(DT)
+datatable(iris)
+```
+
+在上面的表格中，搜索框提供了针对所有数据进行检索的功能，检索词可以是文本、数值或其它任意的数据项。检索结果实时显示，如果没有找到任何结果则显示为空白。
+
+# 语法
+
+`datatable` 的语法如下所示。
+
+
+```{r eval=FALSE}
+datatable(data, options = list(), class = "display",
+    callback = JS("return table;"), rownames, colnames, container,
+    caption = NULL, filter = c("none", "bottom", "top"), escape = TRUE,
+    style = "default", width = NULL, height = NULL, elementId = NULL,
+    fillContainer = getOption("DT.fillContainer", NULL),
+    autoHideNavigation = getOption("DT.autoHideNavigation", NULL),
+    selection = c("multiple", "single", "none"), extensions = list(),
+    plugins = NULL, editable = FALSE)
+```
+
+## 样式和显示相关参数
+
+
+- class：设置原始的类，类名来自于 default.css 或者 bootstrap.css
+
+- style：默认仅支持 default 和 bootstrap 的 CSS 样式表
+
+- rownames：是否显示行名，或者指定行名（向量或者一一对应的列表）
+
+- colnames：是否显示列名，或者指定列名
+
+- caption：表格的标题
+
+- escape：是否转义 HTML 字符（默认为不转义）
+
+bootstrap 样式的名称可以 [在此](http://getbootstrap.com/css/#tables)查询。
+
+需要注意的是 DT 会自动矫正样式名称，使用下面的命令可以查看具体对应的样式。
+此外，样式的实际显示效果与网站采用的基础CSS框架有很大关系，因此每个人运行下列代码得到的最终显示结果可能会有明显差别。
+
+```{r}
+DT:::DT2BSClass('display')
+DT:::DT2BSClass(c('compact', 'cell-border'))
+```
+
+换一个样式看看。
+
+```{r}
+# 使用 bootstrap.css
+datatable(iris, style = 'bootstrap', class = 'table-bordered')
+
+```
+
+再换一个样式看看，同时改变列名，显示caption。
+
+
+```{r}
+# 使用 default.css
+datatable(head(iris), class = 'cell-border stripe', 
+          colnames = c('Another Better Name' = 2, 'Yet Another Name' = 4),
+          caption = 'Table 1: This is a simple caption for the table.')
+
+```
+
+
+当表格内容为 HTML 代码时，可以打开转义设置。
+
+```{r}
+m = matrix(c(
+  '<b>Bold</b>', '<em>Emphasize</em>', '<a href="http://rstudio.com">RStudio</a>',
+  '<a href="#" onclick="alert(\'Hello World\');">Hello</a>'
+), 2)
+colnames(m) = c('<span style="color:red">Column 1</span>', '<em>Column 2</em>')
+datatable(m, escape = FALSE)
+```
+
+
+
+## 实时编辑
+
+- editable：允许双击启用实时编辑。不仅可以接受逻辑值，还可以接受字符和列表（用于配置可编辑的区域）。
+
+编辑可以分为客户端和服务端，在下面的编辑只能保留在客户端。
+
+```{r}
+DT::datatable(head(iris), editable = 'cell')
+```
+
+
+如果需要在服务端写入修改的结果，则需要配置服务端的响应（示例：https://yihui.shinyapps.io/DT-edit/）。
+
+```{r}
+
+```
+
+
+## 过滤数据
+
+- filter：支持实时过滤数据
+
+不同的类型将会以不同的形式提供过滤选项。
+
+  - 数字、时间、日期：显示为滑块，指定范围
+  - 因子：显示为复选框
+  - 文本：显示为文本输入
+  
+```{r}
+d = data.frame(
+  names = rownames(mtcars),
+  date = as.Date('2015-03-23') + 1:32,
+  time = as.POSIXct('2015-03-23 12:00:00', tz = 'UTC') + (1:32) * 5000,
+  stringsAsFactors = FALSE
+)
+str(d)
+datatable(d, filter = 'top', options = list(pageLength = 5))
+```
+
+
+## 指定显示框架
+
+- container：可以将数据填入一个指定的 HTML 框架
+
+```{r}
+# a custom table container
+sketch = htmltools::withTags(table(
+  class = 'display',
+  thead(
+    tr(
+      th(rowspan = 2, 'Species'),
+      th(colspan = 2, 'Sepal'),
+      th(colspan = 2, 'Petal')
+    ),
+    tr(
+      lapply(rep(c('Length', 'Width'), 2), th)
+    )
+  )
+))
+print(sketch)
+```
+
+```{r}
+# use rownames = FALSE here because we did not generate a cell for row names in
+# the header, and the header only contains five columns
+datatable(iris[1:20, c(5, 1:4)], container = sketch, rownames = FALSE)
+```
+
+
+## JS 回调函数
+
+```{r}
+# 初始化后显示第二页
+datatable(head(iris, 30), callback = JS('table.page("next").draw(false);'))
+
+```
+

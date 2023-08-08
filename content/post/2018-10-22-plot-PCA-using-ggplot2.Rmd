@@ -1,0 +1,71 @@
+---
+title: 排序分析结果作图
+author: gaoch
+date: '2018-10-22'
+slug: plot-PCA-using-ggplot2
+categories:
+  - R
+tags:
+  - PCA
+  - ggplot2
+---
+
+# 数据整理
+
+```{r data}
+library(vegan)
+data("varespec")
+pca <- rda(varespec)
+```
+
+首先看一下结果：
+
+```{r}
+summary(pca)
+```
+
+# 绘图
+
+`vegan` 的结果处理成 `data.frame` 才能用于 `ggplot2`。这个过程比较复杂，不过还好有人已经造好了轮子：`ggvegan`[^ggvegan]。
+
+运行下面命令安装这个包。
+
+```{r eval=FALSE}
+devtools::install_github("gavinsimpson/ggvegan")
+```
+
+使用 `autoplot()`。
+
+```{r plot-pca,fig.width=6,fig.asp=0.618}
+library(ggvegan)
+# 使用空白主题
+theme_set(theme_bw())
+
+# 一键绘图
+autoplot(pca)
+
+```
+
+还可以使用 `fortify()` 将对象转变为 `data.frame`，然后再作图。
+
+```{r fortify-plot, fig.width=6,fig.asp=0.618}
+# 生成数据框
+df.pca <- fortify(pca)
+
+# 查看数据
+knitr::kable(df.pca[1:5,1:5])
+
+# 绘图
+require(dplyr)
+ggplot(mapping=aes(PC1,PC2,shape=score,color=score)) +
+  geom_point(data=dplyr::filter(df.pca,score=="sites")) +
+  geom_segment(data=dplyr::filter(df.pca,score=="species"),
+               mapping = aes(x=0,y=0,xend=PC1,yend=PC2),
+               arrow = arrow(length = unit(0.1,"inches")),show.legend = F) +
+  geom_text(mapping = aes(PC1,PC2,label=label),data=filter(df.pca,score=="species"),show.legend = F)
+```
+
+除了PCA分析，`ggvegan`还顺便支持了CCA，RDA，metaMDS等`vegan`的分析结果。
+
+
+[^ggvegan]: ggvegan on GitHub: https://github.com/gavinsimpson/ggvegan

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Hugo Prose</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 renv</title>
+      <link>/post/2021/04/28/using-renv/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/04/28/using-renv/</guid>
+      <description>使用 renv 是为了保证环境的一致。它可以单个项目创建 R 包的管理环境，而不是依赖全局的 R Library。
+R Library 会保存在当前目录下的 renv 目录中，R Session 中的环境变量也会被修改。
+# 本地安装 renv 包install.packages(&amp;quot;renv&amp;quot;)# 记录 renv 的快照renv::snapshot()# 根据快照安装项目依赖的 R 包renv::restore()# 检查renv::status()快照以 renv.lock 的名称保存在根目录。这是一个 JSON 文件，记录包的来源的版本。 更换电脑后，通过读取其中的信息，安装配置一个完全一样的 R 环境。
+我因为在 R 的配置文件中自定义了 .libPaths(&amp;quot;D:/R_LIB_USER&amp;quot;)，所以出了点状况。 将其改为如下的内容即可：
+.libPaths(c(&#39;D:/R_LIBS_USER&#39;,.libPaths()))</description>
+    </item>
+    
+    <item>
+      <title>发布 `ggVennDiagram` 0.5.0</title>
+      <link>/post/2021/03/01/release-ggvenndiagram-0-5-0/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2021/03/01/release-ggvenndiagram-0-5-0/</guid>
+      <description>昨天正式发布了 ggVennDiagram 0.5.0. 上一个在 CRAN 的版本是 0.3，之所以中间跳了 一下，是因为当初自己还不清楚如何更新已经发布在 CRAN 上的 R 包。
+这次是通过 devtools::release() 来自动化发布的。不得不说这个工具的出现，真的大大 方便了 R 包的开发。对包作者的崇敬之情油然而生。
+简单来说还是分成以下几个步骤：
+更新软件包的功能； 按照 release() 函数的指引一步步完成发布前的准备工作，并将其提交到 CRAN； 到作者邮箱中检查 CRAN 发来的确认邮件，确认提交； 如果 CRAN 有邮件回复，解决其提出来的问题； 最后，CRAN 会在 R 包上线后发出一封邮件通知； 这时，回到自己的 GitHub，为新版本创建一个 tag。 新版本刚刚上线，可以看到只有源代码更新了，Windows 等系统下的二进制还没有编译更新。
+到如今，才算是真正走通了 R 包开发的流程。</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2020/12/01/hello-r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2020/12/01/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>在RMarkdown中设定图片大小的方法</title>
+      <link>/post/2020/04/13/ways-to-set-figure-size-in-markdown/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/13/ways-to-set-figure-size-in-markdown/</guid>
+      <description>本文是 英文原文 的翻译。
+使用 YAML 头部文件--- title: &amp;quot;My Document&amp;quot; output: html_document: fig_width: 6 fig_height: 4 --- 统一设置每个图片的宽 6 英寸，高 4 英寸。
+plot(pressure)使用 chunk option这将影响后面所有代码生成图片的大小。
+knitr::opts_chunk$set(fig.width=4, fig.height=4)plot(pressure)如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如{r fig2, fig.height = 8, fig.width = 6, fig.align = &#34;center&#34;}。
+plot(pressure)此外，还有 fig.asp=0.7 和 out.width=&#34;80%&#34; 等参数可供使用。
+out.width使用后对于优化手持设备、PDF文件等的显示很有帮助。
+下面的例子与前面相比就是加入了out.width=&#34;80%&#34;的设置，当用手机浏览时可以看到二者的差别。
+plot(pressure)使用 Pandoc 的 Markdown 语法Rmarkdown 默认使用 Pandoc 来转换，因此可以使用 Pandoc 语法改变图片大小。如上一篇帖子使用的一个图片如果这样设置，会得到下面的结果。 ![](https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png){ width=50% }
+使用 HTML 语法Markdown 天生支持原生的 HTML 语法。因此也可以使用 HTML 来对图片大小进行修改。</description>
+    </item>
+    
+    <item>
+      <title>正态分布的转换</title>
+      <link>/post/2020/04/12/normal-distribution-transformation/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/04/12/normal-distribution-transformation/</guid>
+      <description>数据满足正态分布是进行很多统计分析的前提，如果不符合正态分布，则需要对数据进行转换。常用的转化方式有：
+取根号取对数取倒数今天我们看一看什么条件下应该选用合适的转换方式。
+# 生成正态分布数据normal &amp;lt;- rnorm(100,mean = 5, sd = 2.5)plot(normal)# 从直方图可以看出数据符合正态分布hist(normal)# 从QQ plot也可以看出来qqnorm(normal)对正态数据进行平方运算后，直方图显示数据成了左偏的结构。反过来，意味着如果你正在使用的数据与下面的数据分布类似，则可以尝试用开平方的方法来做数据标准化。
+# 数据的平方根normal_square &amp;lt;- normal ^ 2# 现在的直方图hist(normal_square)对正态数据进行幂值运算后，数值也是一个左偏的分布，但与平方计算的结构有所不同。
+# 数据的幂值normal_exp &amp;lt;- exp(normal)hist(normal_exp)对正态数据进行倒数运算后，数值是一个中间翘起来的分布。
+# 数据的幂值normal_reciprocal &amp;lt;- 1/normalhist(normal_reciprocal)上述3种方法转换正态分布后，都是正偏态数据（偏度Skewness &amp;gt; 0 ）。
+如果是负偏态数据，则需要将负偏态资料进行反转，转换为正偏态，然后再参考正偏态分布资料的转换方法进行转换。
+反转的方法：首先找出该数据系列的最大值max，用max+1，在减去每个数值。
+接下来也用反向转换的方式，看看负偏态数据的分布规律吧。
+# 轻度负偏态normal_square_rev &amp;lt;- max(normal_square)+1-normal_squarehist(normal_square_rev)# 中度负偏态normal_exp_rev &amp;lt;- max(normal_exp)+1-normal_exphist(normal_exp_rev)# 重度负偏态normal_reciprocal_rev &amp;lt;- max(normal_reciprocal) + 1 - normal_reciprocalhist(normal_reciprocal_rev)注意事项：</description>
+    </item>
+    
+    <item>
+      <title>igraph matrices</title>
+      <link>/post/2020/02/26/igraph-matrices/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/02/26/igraph-matrices/</guid>
+      <description>关联矩阵（incidence matrix）我们生成的这个矩阵的原型是一个引证关系矩阵。矩阵中的三行代表3篇文献，四列代表4篇引文。1/2/3/4是在A/B/C前面发表的文献,A/B/C是后来发表的文献。其中文献A引用了3/4，文献B引用了1/2/4，文献C引用了1/2/4。
+library(igraph)library(Matrix)set.seed(3)m &amp;lt;- matrix(data = sample(0:1, 12, replace = TRUE),nrow = 3)rownames(m) &amp;lt;- LETTERS[1:3]colnames(m) &amp;lt;- 1:4m## 1 2 3 4## A 0 0 1 1## B 1 1 0 1## C 1 1 0 1这样的一个引证关系，可以用下面的图表示。
+在bibliometrix::cocMatrix() 中将这种矩阵称为共现矩阵，Co-occurrence Matrix。
+par(mar=c(1,1,1,1))g1 &amp;lt;- graph_from_incidence_matrix(m,directed = TRUE,mode = &amp;quot;out&amp;quot;) plot(g1)上面的矩阵通过矩阵叉乘可以得到不同的邻接矩阵，用于生成新的网络。
+矩阵和向量的计算矩阵的点乘就是矩阵各个对应元素相乘, 这个时候要求两个矩阵必须同样大小。
+https://blog.csdn.net/u013066730/article/details/57462299
+矩阵的叉乘（乘法）就是矩阵A的第一行乘以矩阵B的第一列，各个元素对应相乘然后求和作为第一元素的值。矩阵只有当左边矩阵的列数等于右边矩阵的行数时才可以相乘,乘积矩阵的行数等于左边矩阵的行数,乘积矩阵的列数等于右边矩阵的列数。</description>
+    </item>
+    
+    <item>
+      <title>igraph: 生成网络</title>
+      <link>/post/2020/02/26/igraph-make-graph/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/02/26/igraph-make-graph/</guid>
+      <description>library(igraph)notable_graph &amp;lt;- c(&amp;quot;Bull&amp;quot;, &amp;quot;Chvatal&amp;quot;, &amp;quot;Coxeter&amp;quot;, &amp;quot;Cubical&amp;quot;, &amp;quot;Diamond&amp;quot;, &amp;quot;Dodecahedral&amp;quot;, &amp;quot;Dodecahedron&amp;quot;, &amp;quot;Folkman&amp;quot;, &amp;quot;Franklin&amp;quot;, &amp;quot;Frucht&amp;quot;, &amp;quot;Grotzsch&amp;quot;, &amp;quot;Heawood&amp;quot;, &amp;quot;Herschel&amp;quot;, &amp;quot;House&amp;quot;, &amp;quot;HouseX&amp;quot;, &amp;quot;Icosahedral&amp;quot;, &amp;quot;Icosahedron&amp;quot;, &amp;quot;Krackhardt kite&amp;quot;, &amp;quot;Levi&amp;quot;, &amp;quot;McGee&amp;quot;, &amp;quot;Meredith&amp;quot;, &amp;quot;Noperfectmatching&amp;quot;, &amp;quot;Nonline&amp;quot;, &amp;quot;Octahedral&amp;quot;, &amp;quot;Octahedron&amp;quot;, &amp;quot;Petersen&amp;quot;, &amp;quot;Robertson&amp;quot;, &amp;quot;Smallestcyclicgroup&amp;quot;, &amp;quot;Tetrahedral&amp;quot;, &amp;quot;Tetrahedron&amp;quot;, &amp;quot;Thomassen&amp;quot;, &amp;quot;Tutte&amp;quot;, &amp;quot;Uniquely3colorable&amp;quot;, &amp;quot;Walther&amp;quot;, &amp;quot;Zachary&amp;quot;)graph &amp;lt;- lapply(notable_graph,make_graph)make_graph() 一共支持 35 个内置图形。
+par(mfrow=c(5,7))success &amp;lt;- lapply(notable_graph, function(x){graph &amp;lt;- make_graph(x)par(mar=c(1,1,1,1))plot(graph, main = x)})make_star(10) %&amp;gt;% plotmake_de_bruijn_graph(3,4) %&amp;gt;% plotmake_full_graph(10) %&amp;gt;% plotmake_kautz_graph(3,4) %&amp;gt;% plot</description>
+    </item>
+    
+    <item>
+      <title>DT软件包的使用</title>
+      <link>/post/2020/02/17/library-dt/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/02/17/library-dt/</guid>
+      <description>基础用法library(DT)datatable(iris)在上面的表格中，搜索框提供了针对所有数据进行检索的功能，检索词可以是文本、数值或其它任意的数据项。检索结果实时显示，如果没有找到任何结果则显示为空白。
+语法datatable 的语法如下所示。
+datatable(data, options = list(), class = &amp;quot;display&amp;quot;,callback = JS(&amp;quot;return table;&amp;quot;), rownames, colnames, container,caption = NULL, filter = c(&amp;quot;none&amp;quot;, &amp;quot;bottom&amp;quot;, &amp;quot;top&amp;quot;), escape = TRUE,style = &amp;quot;default&amp;quot;, width = NULL, height = NULL, elementId = NULL,fillContainer = getOption(&amp;quot;DT.fillContainer&amp;quot;, NULL),autoHideNavigation = getOption(&amp;quot;DT.autoHideNavigation&amp;quot;, NULL),selection = c(&amp;quot;multiple&amp;quot;, &amp;quot;single&amp;quot;, &amp;quot;none&amp;quot;), extensions = list(),plugins = NULL, editable = FALSE)样式和显示相关参数class：设置原始的类，类名来自于 default.css 或者 bootstrap.</description>
+    </item>
+    
+    <item>
+      <title>Install sf (classInt)</title>
+      <link>/post/2020/02/10/install-sf-classint/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/02/10/install-sf-classint/</guid>
+      <description>在 Ubuntu 18.04 LTS 上面安装 R 包 sf 卡在了 classInt 上面。提示：
+* installing *source* package ‘classInt’ ... ** package ‘classInt’ successfully unpacked and MD5 sums checked ** libs gfortran -fpic -g -O2 -fdebug-prefix-map=/build/r-base-AitvI6/r-base-3.4.4=. -fstack-protector-strong -c fish1.f -o fish1.o gcc -std=gnu99 -I/usr/share/R/include -DNDEBUG -fpic -g -O2 -fdebug-prefix-map=/build/r-base-AitvI6/r-base-3.4.4=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g -c init.c -o init.o g++ -shared -L/usr/lib/R/lib -Wl,-Bsymbolic-functions -Wl,-z,relro -o classInt.so fish1.o init.o -lgfortran -lm -lquadmath -L/usr/lib/R/lib -lR /usr/bin/ld: cannot find -lgfortran collect2: error: ld returned 1 exit status /usr/share/R/share/make/shlib.</description>
+    </item>
+    
+    <item>
+      <title>为 R 代理</title>
+      <link>/post/2019/10/28/r-proxy/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/10/28/r-proxy/</guid>
+      <description>今天想用 scholar 包抓一下自己的 Google Scholar profile，发现不翻墙打不开。
+要设代理，参考了 @GuangchuangYu 发表的一次解决所有代理问题， 却仍然没有解决自己的问题。
+因为我用的是 Windows，proxychains 却只能用于类 Unix 系统。
+经过 3 个小时的探索，终于发现了一个途径，居然比 proxychains 还要简单很多。
+那就是，设置 Renviron 环境变量的方法。
+新建一个 Renviron 文件，内容如下：
+CURL_SSL_BACKEND=openssl http_proxy=http://127.0.0.1:8080 https_proxy=http://127.0.0.1:8080 这个文件：
+如果放在 &amp;ldquo;~/.Renviorn&amp;rdquo; 下面，那么每次 R 运行的时候都会设置使用相应的代理。 如果放在 R project 文件夹下面（如“/path/to/project/.Renviron”），那么只对相应的项目生效。 如果放在一个普通文件中（如“proxy.Renviron”），则只在调用的时候生效。 采用最后一种方法，在需要设置代理的脚本中，加入一行，就可以确保后续访问网络时使用代理设置。
+readRenviron(&amp;quot;proxy.Renviron&amp;quot;) 说明 网上有很多关于设置 http(s)_proxy 变量来代理上网的方法，但是只设置这项是没有用的。
+这是因为，当 R 从网上下载时，curl 包默认是采用的 Windows Cert Store 的后端，而该后端是不支持 https 协议代理上网的。
+rcurl SSL Backends Secure Channel OpenSSL trust certificates Windows Cert Store curl-ca-bundle.crt file works on corporate networks Usually Yes Maybe not support http proxy server Yes Yes support https proxy server No Yes support client certificate authentication No Yes 因此，需要先设置 CURL_SSL_BACKEND=openssl，然后在设置代理服务器。</description>
+    </item>
+    
+    <item>
+      <title>ANOVA &#43; TurkeyHSD 分析及作图</title>
+      <link>/post/2019/09/24/anova-turkeyhsd-plotting/</link>
+      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/09/24/anova-turkeyhsd-plotting/</guid>
+      <description>先载入一个示例数据。该数据是研究摄入 VC 对小鼠牙齿生长作用的实验结果。VC 给药分成两种方式：VC-给予VC药片；OJ-给予相当量的橙汁。给药的量都包括0.5,1,2等三个梯度。
+从散点图上看，不同给药量之间应该有显著差异。
+data(&amp;quot;ToothGrowth&amp;quot;)head(ToothGrowth)## len supp dose## 1 4.2 VC 0.5## 2 11.5 VC 0.5## 3 7.3 VC 0.5## 4 5.8 VC 0.5## 5 6.4 VC 0.5## 6 10.0 VC 0.5dim(ToothGrowth)## [1] 60 3library(ggplot2)ggplot(ToothGrowth,aes(factor(dose),len)) + geom_boxplot(outlier.shape = NULL) + geom_jitter() +facet_wrap(~supp)单因素方差分析使用 aov() 函数，随后，进一步使用 HSD.test 获取组间差异。 Tukey’s ‘Honest Significant Difference’ method 通常使用 stats::TukeyHSD() 函数， 但在这里，我们使用 HSD.</description>
+    </item>
+    
+    <item>
+      <title>使用 devtools 速写 R 包</title>
+      <link>/post/2019/09/19/using-devtools-in-writing-r-pkgs/</link>
+      <pubDate>Thu, 19 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/09/19/using-devtools-in-writing-r-pkgs/</guid>
+      <description>因为“包治百病”，所以每个人都会到需要写包的时候。作为一个讲原则的开发者，Hadley Wickham 的写包指南还是要看一下的。写包，“so easy！”
+使用 devtools 创建一个 R 包的流程 # 在指定路径创建一个包的骨架，包括文件夹结构和配置文件 create_package(&amp;quot;~/path/to/foofactors&amp;quot;) # 初始化 git use_git() # 在 R 目录下面新建一个 fbind.R 文件 use_r(&amp;quot;fbind&amp;quot;) # 导入编写好的代码（引入fbind函数），测试函数代码 load_all() # 检测包的可用性 check() load_all() 是测试代码的时候用起来非常方便的命令。
+接下来，需要编辑 DESCRIPTION 文件，为包写一个简单的说明（略）。
+# 应用一个开源软件协议 use_mit_license(&amp;quot;Jane Doe&amp;quot;) # 生成帮助文档 document() # 再次检查包的可用性 check() # 安装包 install() 安装完成后，可以使用真实环境测试一下。
+library(foofactors) a &amp;lt;- factor(c(&amp;quot;character&amp;quot;, &amp;quot;hits&amp;quot;, &amp;quot;your&amp;quot;, &amp;quot;eyeballs&amp;quot;)) b &amp;lt;- factor(c(&amp;quot;but&amp;quot;, &amp;quot;integer&amp;quot;, &amp;quot;where it&amp;quot;, &amp;quot;counts&amp;quot;)) fbind(a, b) 到此为止，已经完成了一个包的创建。当然，在实际的开发环境中，代码会不断更新，也需要对包的功能进行测试，还需要写使用文档等内容，这会需要一个 Git、测试和代码托管等操作，下面介绍的命令可以帮助你完成这些任务。
+使用 use_testthat() # 将会生成一个 tests/testthat.</description>
+    </item>
+    
+    <item>
+      <title>升级R到3.6版本后，RStudio使用中出现“option error has NULL value”错误</title>
+      <link>/post/2019/08/26/r-3-6-rstudio-option-error-has-null-value/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/08/26/r-3-6-rstudio-option-error-has-null-value/</guid>
+      <description>这个错误有点怪怪的。打开rmarkdown脚本运行时，会一直出现Error: option error has NULL value的提示，电脑基本也会卡死。
+这个错误是在从R 3.5升级到3.6之后出现的。
+其解决方法也很简单，就是升级RStudio软件。不过，发行版的RStudio软件并没有解决这个问题，需要使用preview版本的。
+Preview版本的链接有点不大好找，在这里：(https://www.rstudio.com/products/rstudio/download/preview/)。
+很多人都遇到了这个问题：(https://community.rstudio.com/t/options-error-in-rmd-code-chunks/30195)。也有人通过其它方法解决了这个问题。</description>
+    </item>
+    
+    <item>
+      <title>ggplot label placement</title>
+      <link>/post/2019/07/17/ggplot-label-placement/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/07/17/ggplot-label-placement/</guid>
+      <description>本文曾经发表在 biobabble 微信公众号 链接
+ggplot在绘制label的时候很容易出现字体溢出，位置难以调整的问题。Y叔曾经在公众号上吐槽过。
+实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“Automatic label placement”就是研究该问题的。
+下面介绍一下如何处理这个标签定位的问题。
+方法一：使用hjust，vjust，nudge_x，nudge_y等参数调整我们从mpg数据集中提取10行数据画图，默认情况下是这样的情况。
+mpg数据集是ggplot2自带的一个234行和11个变量的数据，包含了38种流行车型的燃油经济性数据。
+包括：生产厂家（manufacturer），型号（model），发动机排量（displ，单位为L），生产年份（year），气缸数目（cyl），传动类型（trans），驱动类型（drv，f=前驱，r=后驱，4=四驱），每加仑燃油在城市和高速公路上的里程数（cty和hwy），汽油种类（fl）和汽车类型（class）等。
+library(ggplot2)## 生成数据集set.seed(0)df &amp;lt;- mpg[sample(nrow(mpg),10),]## 发动机排量和良好路况情况下单位耗油所能行驶的里程数ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model))这种情况下，边缘的字符串会溢出。可以添加hjust=&#34;inward&#34;来避免这一情况。
+## hjust=&amp;quot;inward&amp;quot;把左侧的label右对齐，右侧的label左对齐。ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;)但是这种情形仍然会出现point和label重叠的情况。因此需要进一步调节。使用nudge_x和nudge_y可以设置标签显示位置的微小偏移。
+由于标签是水平显示的，左右两侧容易出现溢出，而竖直方向上则一般不会，所以我们将竖直方向设为居中，并微调-0.5，这样就可以保证标签显示比较正常了。
+ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5)hjust, vjust = c(“left”,“right”,“center”,“inward”,“outward”);nudge_x, nudge_y = value.
+如果在Y轴边缘有溢出的话，则在结合调整xlim，ylim可以解决。如下所示：
+ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),size=12,hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5) + xlim(c(0,8))如上图所示，虽然确保了标签没有溢出，但是同时又会有标签重叠的情况。
+也可以参考 vignette(“ggplot2-specs”) 中的部分内容。
+实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“Automatic label placement”就是研究该问题的。</description>
+    </item>
+    
+    <item>
+      <title>Tibble与Data.frame中的group</title>
+      <link>/post/2019/07/17/tibble-data-frame-group/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/07/17/tibble-data-frame-group/</guid>
+      <description>Tibble 和 Data.frame 一般可以通用，但是 Tibble 中含有的分组信息，如果不注意，有时可能会引起错误。
+ggpubr使用grouped tibble时自动添加group的小坑 &amp;gt; error_rate_summary # A tibble: 81 x 8 # Groups: enzyme, nps [27] id enzyme nps rep type Error_Rate mean std &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; 1 NP1 rtaq Fe2O3 rep1 B 0.00141 0.00125 0.000139 2 NP10 extaq Fe2O3 rep1 B 0.00137 0.00138 0.000107 3 NP100 primestar Fe2O3 rep3 Y 0.000908 0.000810 0.0000899 4 NP101 primestar ZnO rep3 Y 0.</description>
+    </item>
+    
+    <item>
+      <title>比较不同差异系数的结果</title>
+      <link>/post/2018/11/20/comparing-dissimilarity-index/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/11/20/comparing-dissimilarity-index/</guid>
+      <description>vegdist 提供了多个计算差异度的算法。这些算法自然是各有各的适用范围。对于同一个数据集，其结果有什么直观上的差异呢？
+library(vegan) library(pheatmap) library(cowplot) data(&amp;quot;varespec&amp;quot;) dist.methods &amp;lt;- c(&amp;quot;manhattan&amp;quot;, &amp;quot;euclidean&amp;quot;, &amp;quot;canberra&amp;quot;, &amp;quot;clark&amp;quot;, &amp;quot;bray&amp;quot;, &amp;quot;kulczynski&amp;quot;, &amp;quot;jaccard&amp;quot;, &amp;quot;gower&amp;quot;, &amp;quot;altGower&amp;quot;, &amp;quot;morisita&amp;quot;, &amp;quot;horn&amp;quot;, &amp;quot;mountford&amp;quot;, &amp;quot;raup&amp;quot;, &amp;quot;binomial&amp;quot;, &amp;quot;chao&amp;quot;, &amp;quot;cao&amp;quot; , &amp;quot;mahalanobis&amp;quot;) 对于这17种方法，分别计算其距离，用 pheatmap() 比较其差异。
+dist.plots &amp;lt;- vector(&amp;quot;list&amp;quot;,length(dist.methods)) for (i in seq_along(dist.methods)){ dist &amp;lt;- vegdist(varespec,method = dist.methods[[i]]) plot &amp;lt;- pheatmap(dist,cluster_cols = F,cluster_rows = F,main = dist.methods[[i]],silent = T) dist.plots[[i]] = plot[[4]] } ## Warning in vegdist(varespec, method = dist.methods[[i]]): results may be ## meaningless with non-integer data in method &amp;quot;morisita&amp;quot; ## Warning in vegdist(varespec, method = dist.</description>
+    </item>
+    
+    <item>
+      <title>RT-PCR数据可视化之一</title>
+      <link>/post/2018/11/13/rt-pcr-data-visualization-one/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/11/13/rt-pcr-data-visualization-one/</guid>
+      <description>QuantStudio Real-Time PCR software 是我们经常使用的 RT-PCR 软件, 它上面的可视化只能简单看看, 不满足发论文的需求. 如果需要得到发表级的图片, 还是需要 用 ggplot 大法加持.
+为了能够使用这些数据, 首先需要导出文件. 为了方便操作, 文件导出时, 选择 *.txt 格式, 每个面板导出成一个单独文件. 将文件放在 data 文件夹中.
+数据预处理 根据文件名后缀找到数据.
+# 数据文件目录 dir &amp;lt;- &amp;quot;data&amp;quot; options(stringsAsFactors = F) # 根据文件名后缀找到对应文件 amplification_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Amplification Data_ViiA7_export.txt&amp;quot;) result_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Results_ViiA7_export.txt&amp;quot;) meltcurve_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;MeltCurve Data_ViiA7_export.txt&amp;quot;) 我们使用 readr 来读取数据. 这个包避免了 R 语言对列名不合时宜的转换.
+每个文件的前面 43 列都是基本描述信息, 选择略过. 读取接下来的数据表格.</description>
+    </item>
+    
+    <item>
+      <title>比较 stats::procmp() 和 vegan::rda() 两种方法</title>
+      <link>/post/2018/11/02/comparison-of-two-pca-methods/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/11/02/comparison-of-two-pca-methods/</guid>
+      <description>上次提及 PCA 分析的方法有很多种。那不同方法之间的得到的结果会有差异吗？
+最近采用 PCA 分析 RNA-seq 样本之间的差异，得到了下面的结果。
+生成示例数据 生成一个含有 1000 个基因, 27 个样品的数据集. 这 27 个样品来自于 3 个基因型(WT, Mutant1, Mutant2), 3 种处理(CK, Trt1, Trt2), 共分为 \(3 * 3 = 9\) 组, 每组 3 个重复, 合计 27 个样品.
+library(DESeq2) library(dplyr) library(ggplot2) theme_set(theme_bw()) dds &amp;lt;- makeExampleDESeqDataSet(n = 1000, m=27) dds$condition &amp;lt;- factor(rep(rep(c(&amp;quot;Ctrl&amp;quot;,&amp;quot;Trt1&amp;quot;,&amp;quot;Trt2&amp;quot;),3), 3)) dds$genotype &amp;lt;- factor(rep(rep(c(&amp;quot;WT&amp;quot;,&amp;quot;MuA&amp;quot;,&amp;quot;MuB&amp;quot;), each=3),3)) # sample table sample_table &amp;lt;- colData(dds) %&amp;gt;% as.data.frame() %&amp;gt;% tibble::rownames_to_column(var=&amp;quot;sample_id&amp;quot;) # 做 log2 变换 rld &amp;lt;- rlog(dds, blind = F) 使用 stats::prcomp() 进行主成分分析 # 运行 PCA pca &amp;lt;- stats::prcomp(t(assay(rld))) # 计算解释度 percent_var &amp;lt;- pca$sdev^2/sum(pca$sdev^2) # 绘图 df &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title>不要在RStudio中使用Git GUI</title>
+      <link>/post/2018/10/24/donot-use-the-git-gui-of-rstudio/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/24/donot-use-the-git-gui-of-rstudio/</guid>
+      <description>有一个数据分析的小项目，使用Git记录分析过程。
+在添加了一些文件、删除了一些文件之后，在RStudio的Git标签页下面点击复选框Stage，界面失去响应。反复重启，仍然如此。
+上网查了一下，确实很多人吐槽类似的问题。
+不过，在当前Git目录下打开Git GUI使用，一切正常。
+RStudio的Git GUI性能确实比较差。</description>
+    </item>
+    
+    <item>
+      <title>常见排序分析方法及R语言实现</title>
+      <link>/post/2018/10/22/ordination-analysis-in-r/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/22/ordination-analysis-in-r/</guid>
+      <description>常用排序分析方法 相信大家在做微生物多样性研究时经常听到PCA分析、PCoA分析，NMDS分析，CCA分析，RDA分析。它们对物种（或基因、功能）的分析具有重要作用，因而频频出现在16S测序及宏基因组测序中。以上分析本质上都属于排序分析（Ordination analysis）。
+排序分析（ordination analysis），最早是生态学（ecology）中研究群落（communities）的一大类多元分析手段，将某个地区调查的不同环境（site）以及所对应的物种组成（species），按照相似度（similarity）或距离（distance）对site在排序轴上（ordination axes）进行排序，将其表示为沿一个或多个排序轴排列的点，从而分析各个site或species与环境因子之间的关系。其目的是把多维空间压缩到低维空间（如二维），并且保证因维数降低而导致的信息量损失尽量少，实体（site或species）按其相似关系重新排列，提高其可理解性（interpretability）；同时，通过统计手段检验排序轴（ordination axes）是否能真正代表环境因子的梯度（gradient）1。
+因此，排序分析的作用可以总结为两个方面：①降维；②探索性分析；
+常用的排序方法如下2：
+排序分析方法 Raw data based （线性模型） Raw data based （单峰模型） Distance based 间接排序法 （非限制性） PCA CA，DCA PCoA，NMDS 直接排序法 （限制性） RDA CCA dbRDA 其中间接排序法包括：
+PCA（principal components analysis，主成分分析） CA（correspondence analysis，对应分析） DCA（Detrended correspondenceanalysis, 去趋势对应分析) PCoA（principal coordinate analysis，主坐标分析） NMDS（non-metric multi-dimensional scaling，非度量多维尺度分析）； 直接排序法包括：
+RDA（Redundancy analysis，冗余分析） CCA（canonical correspondence analysis，典范对应分析） dbRDA（distance based redundancy analysis，基于距离的冗余分析） CAP（canonical analysis of principal coordinates，主要坐标的典型分析） 其中PCA和RDA是基于线性模型（linear model）的，而CA、DCA、CCA、DCCA是基于单峰（unimodal）模型。
+选择单峰模型还是线性模型？ 用DCA（vegan::decorana()）先对数据（site-species）进行分析； 查看结果中的“Axis lengths”的第一轴DCA1的值，根据该值判断该采用线性模型还是单峰模型： 如果大于4.0，就应该选单峰模型； 如果3.0-4.0之间，选线性模型或者单峰模型均可； 如果小于3.0, 线性模型的结果要好于单峰模型 如何选择一种合适的方法？ 排序方法的选择取决于1）您拥有的数据类型，2）您想要/可以使用的相似距离矩阵，以及3）您想说的内容。所有这些排序方法都基于数据构建的相似距离矩阵，使用不同的方法（例如Euclidean，Bray-Curtis，Jaccard等）来计算样本之间的距离。但是，不同方法计算相似度矩阵将不会给出相同的结果。不同的排序方法使用不同的相似度矩阵，并可能对结果产生显著影响。</description>
+    </item>
+    
+    <item>
+      <title>排序分析结果作图</title>
+      <link>/post/2018/10/22/plot-pca-using-ggplot2/</link>
+      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/22/plot-pca-using-ggplot2/</guid>
+      <description>数据整理 library(vegan) ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.6-4 data(&amp;quot;varespec&amp;quot;) pca &amp;lt;- rda(varespec) 首先看一下结果：
+summary(pca) ## ## Call: ## rda(X = varespec) ## ## Partitioning of variance: ## Inertia Proportion ## Total 1826 1 ## Unconstrained 1826 1 ## ## Eigenvalues, and their contribution to the variance ## ## Importance of components: ## PC1 PC2 PC3 PC4 PC5 PC6 ## Eigenvalue 982.9788 464.3040 132.25052 73.9337 48.41829 37.00937 ## PC7 PC8 PC9 PC10 PC11 PC12 ## Eigenvalue 25.</description>
+    </item>
+    
+    <item>
+      <title>Bray Curtis Dissimilarity</title>
+      <link>/post/2018/10/17/bray-curtis-dissimilarity/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/17/bray-curtis-dissimilarity/</guid>
+      <description>本文介绍 Bray Curtis Dissimilarity 的概念和计算方法。
+Bray Curtis Dissimilarity（Bray-Curtis 相异度）是生态学中用来衡量不同样地物种组成差异的参数。
+其定义和计算公式为：
+$$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
+其中：
+\(i\) 和 \(j\) 是两个样地； \(S_i\) 是样地 \(i\) 中物种的总数； \(S_j\) 是样地 \(j\) 中物种的总数； \(C_{ij}\) 在两块样地中每个物种的较少计数的总和。 简单的例子 有两个水族箱：
+一号：6条金鱼，7条孔雀鱼和4只螃蟹； 二号：10条金鱼和6只螃蟹。 为了计算 Bray-Curtis，首先计算$C_{ij}$。金鱼两个地方都有，较少的是6；孔雀鱼只在一号中有，所以不能添加；螃蟹两个地方都有，较少的是4。因此，$C_{ij}=6+4=10$。
+\(S_i=6+7+4=17\)，而$S_j=10+6=16$。
+因此,
+$$BC_{ij}=1-(2*10)/(17+16)=0.39$$
+Bray-Curtis Dissimilarity 的性质 其取值介于0-1之间。如果是0，则两个样地共享所有相同的物种；如果是1，则它们不共享任何物种。
+还有另外一个 Bray-Curtis index，其取值是 1 - Bray-Curtis dissimilarity。表示两个样地之间的相似程度。
+适用情况 要计算 Bray-Curtis Dissimilarity，必须假设两个样地的面积或体积大小相同（与物种计数相关），否则需要在计算前调整计数。
+R语言实现 vegan提供了vegdist来计算这个数值。
+## 用 vegdist 重复上面的例子 df &amp;lt;- data.frame(goldfish=c(6,10),guppies=c(7,0),crab=c(4,6)) require(&amp;quot;vegan&amp;quot;) ## 载入需要的程辑包：vegan ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.</description>
+    </item>
+    
+    <item>
+      <title>Ordination analysis to assess shifts of niche structure</title>
+      <link>/post/2018/10/17/ordination-analysis-to-assess-shifts-of-niche-structure/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/17/ordination-analysis-to-assess-shifts-of-niche-structure/</guid>
+      <description>本分析方法来在2018年在 ISME J 发表的一篇论文1，原来的分析是用 Mathematica 做的，我尝试在 R 里面实现它。
+Mallon CA et al. (2018). The impact of failure: unsuccessful bacterial invasions steer the soil microbial community away from the invader’s niche. The ISME Journal 1.&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
+    </item>
+    
+    <item>
+      <title>Setup blogdown site</title>
+      <link>/post/2018/10/16/setup-blogdown-site/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/16/setup-blogdown-site/</guid>
+      <description>设置 blogdown 主要参考了 这里，设置 git 认证参考了 这里.
+软件的安装不提，简单的步骤如下：
+在 GitHub 上创建一个 Repository。 在 RStudio 中使用 Git 创建一个 Project，与 GitHub 关联上。 在 RStudio 中新建一个 Project （是的，要创建两次），属性设为 Website from blogdown，目录设置为 Git 项目的本地文件夹。 网站设置完毕。写完新文章之后，可以 Commit，可以 Push 到 GitHub。 托管到 netlify，按照提示一步步进行就可以。 但是要设置一下 HUGO_VERSION = 0.48（ &amp;gt; 0.20 即可，默认的 0.17 是不能编译成功的）。 设置 Git 密钥，添加 public key 到 Github 上面。 设置 Git 参数：git config remote.origin.url git@github.com:your_username/your_project.git。 </description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/post/2015/07/23/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+  </channel>
+</rss>

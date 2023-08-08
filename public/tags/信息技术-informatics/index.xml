@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信息技术 INFORMATICS on Hugo Prose</title>
+    <link>/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/</link>
+    <description>Recent content in 信息技术 INFORMATICS on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>无缝切换到DISQUS评论系统</title>
+      <link>/post/2019/02/15/2019-02-15-switch-to-disqus/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/02/15/2019-02-15-switch-to-disqus/</guid>
+      <description>今天发表评论的时候发现服务器报错HTTP ERROR 405，查了一下Google没发现什么解决办法。索性就坡下驴，转换为DISQUS评论系统。
+在插件中搜索Disqus，安装之。随后在后台菜单侧栏会出现Disqus标签（我在设置里面找了半天会告诉你吗），然后根据向导操作即可。
+安装完成后，自动取代WordPress自带的评论功能，还可以一键导入WordPress已有评论，简直不能太方便。
+OK，就这样。</description>
+    </item>
+    
+    <item>
+      <title>MatLab中国地图进阶：以不同的颜色表示各省数据的差异</title>
+      <link>/post/2012/06/05/2012-06-05-matlab-chinamap-coloring/</link>
+      <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/06/05/2012-06-05-matlab-chinamap-coloring/</guid>
+      <description>使用MatLab绘制中国地图十分方便，我在前文中已经有相应阐述。实际应用中，我们常常需要将不同的区域以不同的颜色展示出来，这就是本文要阐述的内容。
+本文使用MatLab将各省人口数据展示出来，人口越多颜色越黄，人口越少颜色越绿。最终结果如下图所示（点击看大图）。
+绘制过程如下：
+%-- 分省中国地图在MATLAB中的画法 --% % Author: gaospecial@gmail.com % Date: 2012-6-5 14:04:01 % 地图数据来源：国家基础地理信息系统网站 % 人口数据来源：国家统计年鉴2011版 载入地图数据 载入各省的多边形数据
+sheng=shaperead(&#39;maps/bou2_4p.shp&#39;, &#39;UseGeoCoords&#39;, true); % 省 % 检查数据发现中午名称为乱码，可能是由于字符编码引起的，需要纠正文件导入时出现的乱码 % 中文名称记录在相应的dbf文件中，可以使用Excel打开，并且不会出现乱码，截取其中的中文保存为文本文件 % 然后在导入工作区，并将其保存为*.mat格式文件，随用随取。 % 依次替换sheng数据中的乱码【算是变通之法，有谁知道更好的方法一定告诉我哦】 load chinese_name.mat% 省，省会，主要城市的正确中文 for i=1:length(sheng) sheng(i).NAME=sheng_chinese_name{i}; % 纠正中文显示错误 end unique(sheng_chinese_name) % 含有34个省（直辖市）的数据 length(sheng) % 共分为925个区块 ans = &#39;上海市&#39; &#39;云南省&#39; &#39;内蒙古自治区&#39; &#39;北京市&#39; &#39;台湾省&#39; &#39;吉林省&#39; &#39;四川省&#39; &#39;天津市&#39; &#39;宁夏回族自治区&#39; &#39;安徽省&#39; &#39;山东省&#39; &#39;山西省&#39; &#39;广东省&#39; &#39;广西壮族自治区&#39; &#39;新疆维吾尔自治区&#39; &#39;江苏省&#39; &#39;江西省&#39; &#39;河北省&#39; &#39;河南省&#39; &#39;浙江省&#39; &#39;海南省&#39; &#39;湖北省&#39; &#39;湖南省&#39; &#39;甘肃省&#39; &#39;福建省&#39; &#39;空&#39; &#39;西藏自治区&#39; &#39;贵州省&#39; &#39;辽宁省&#39; &#39;重庆市&#39; &#39;陕西省&#39; &#39;青海省&#39; &#39;香港特别行政区&#39; &#39;黑龙江省&#39; ans = 925 导入2011年各省人口数据 使用importdata向导导入2011年全国31个省的人口数据：data为人口数目 textdata为省名称</description>
+    </item>
+    
+    <item>
+      <title>the_content()和the_excerpt()</title>
+      <link>/post/2012/06/05/2012-06-05-the_content-the_excerpt/</link>
+      <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/06/05/2012-06-05-the_content-the_excerpt/</guid>
+      <description>这是wordpress中用以提取post内容的常用函数。它们用法基本相同，很多时候可以相互取代，分别用于显示post全部内容和post摘要。
+然而，事实上在应用中它们最大的区别在于，前者输出格式化的内容，而后者则输出文字（格式错乱，没有超链接，换行，样式定义等）。所以，大多数时候，我只用前一个函数。
+有些主题作者喜欢用the_excerpt()（特别是在分类列表中），我常常将其改为the_content()。
+the_content Display the post content.
+void the_content ([string $more_link_text = null], [bool $stripteaser = false])
+string $more_link_text: Optional. Content for when there is more text.
+bool $stripteaser: Optional. Strip teaser content before the more text. Default is false.
+the_excerpt Display the post excerpt.
+uses: apply_filters() – Calls ‘the_excerpt’ hook on post excerpt.
+void the_excerpt ()</description>
+    </item>
+    
+    <item>
+      <title>删除Zotero自动生成的Tags或关键词</title>
+      <link>/post/2012/03/14/2012-03-14-delete-zotero-autotags/</link>
+      <pubDate>Wed, 14 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/03/14/2012-03-14-delete-zotero-autotags/</guid>
+      <description>添加项目时，Zotero默认将关键词以Tag的形式加入，这样可以快速的查看与某一关键词相关的条目。可是自动加入的Tag或关键词有太多太多，时间一长，Zotero数据库中会产生成百上千个关键词或Tag，导致其失去了便于检索的应用价值。
+所以，建议在取消该选项，而改为人工添加更加简单易记的关键词或Tag。
+那么，对于已经存在的Tag如何一下子全部删除呢？按照下面的步骤操作即可。
+打开Zotero配置页面，选择高级（Advanced），点击“打开数据名录”（Show data directory）； 关闭Firefox，关闭之前将本文用IE打开，或复制到一个文档中，以便随时参考； 复制“数据目录”中的“zotero.sqlite”为“zotero.sqlite.bak”，即备份Zotero数据库； 下面对Zotero数据库进行查询，可以使用任何熟悉的数据库工具，这里以“SharpPlus SQlite Developer”，操作如下： 注册数据库，根据向导选择zotero.sqlite文件。 双击导入的数据库。 选择“工具”-“SQL编辑器”，在其中输入以下代码：
+[cc lang=”sql”]delete from itemTags where itemTags.tagID in (select
+tags.TagID from tags where type = 1);
+delete from tags where type = 1;[/cc] 选择“运行”，即窗口中第一个图标。 这时候，窗口下半部分应当有信息出现“Query OK…”等等。 关闭该工具，重新打开Firefox。 完成。 Refer：http://forums.zotero.org/discussion/4051/remove-all-tags/</description>
+    </item>
+    
+    <item>
+      <title>使用正则表达式匹配DOI</title>
+      <link>/post/2012/03/10/2012-03-10-using-regex-match-doi/</link>
+      <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/03/10/2012-03-10-using-regex-match-doi/</guid>
+      <description>先看几个DOI的例子：
+10.1093/nar/gkh458 10.1146/annurev.micro.112408.134233 10.1183/09031936.02.00400202 可以看出，DOI的编码以“10”开始，可以含有数字]0-9]，小数点，斜杠等分隔，但是其中不会出现空格。鉴于此，在perl中使用以下正则表达式匹配：
+[cc lang=”perl”]
+$str1 =~ /10\.[^\s\/]+\/[^\s]+/; # borrowed from Zotero
+$str2 =~ /\b(10\.\d+\/[^\s]+)\b/; # another one
+[/cc]</description>
+    </item>
+    
+    <item>
+      <title>解决Windows XP SP3系统中播放flash没有声音的故障</title>
+      <link>/post/2012/03/07/2012-03-07-win-sound-error/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/03/07/2012-03-07-win-sound-error/</guid>
+      <description>这是一个很诡异的故障，我在网络上查探了多日，中英文解决方案参考了无数，却仍然没有解决。最终，通过自己的实践，发现了一个简单的解决方案。
+故障的情形如下：
+在系统中使用Media player播放音乐，使用射手影音播放器播放视频均有声音。 使用电话会议功能也正常。 网页中播放Flash没有声音。 系统自带录音机不能使用。 音量图标始终不能显示在托盘中。 既然你来到这里，肯定参考了网络上广为流传的关于在注册表中添加一个项目“msacm32.drv”的文章，我也是在相应的位置：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Drivers32 上面添加了名为“wavemapper”的项目，可是仍然没有解决。
+我于是怀疑这里指定的文件是否丢失了，于是在System32文件夹中查找“msacm32.drv”，发现同名文件也还存在。
+我觉得事已至此，应当尝试一下替换该文件，于是从网上下载了原始的“msacm32.drv”文件，文件大小20kB。与我机子上原有的同名文件差别巨大，原有文件大小为848KB。将原有文件备份，将原始文件复制到System32文件夹中，重启计算机，一切正常了。
+故障原因分析：系统文件损坏造成的。
+故障解决方案：使用原始系统文件替换即可。</description>
+    </item>
+    
+    <item>
+      <title>使用poEdit汉化wordpress插件、主题攻略</title>
+      <link>/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/</link>
+      <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/</guid>
+      <description>关于“.pot”文档、“.po”文档和“*.mo”文档的来历见上面图片。
+简而言之，这是一个开源软件本地化（或者国际化）的系统。而且是一个能够自动化运行的系统。使用该系统仅仅需要一个前提，就是在调用文本相关的函数时遵循一个特定的约定。例如WordPress 使用 _e 和 __ 函数来本地化。如下所示：
+[cc lang=”php”][/cc]
+现在要汉化一个插件或者主题，就打开源文件，看看是否存在这样的语句。如果存在，则进入下一步。
+先简介一下（http://www.jinbo123.com/2503.html）：
+一、三种文件
+.po文件，.mo文件，.pot文件是由gettext程序生成或者使用的源代码和编译结果。
+1、.pot文件
+是一种模板文件，其实质与.po文件一样，其中包含了从源代码中提取所有的翻译字符串的列表。
+2、.po文件
+各语言对应的po文件，比如中文就是zh_CN.po，法语就是fr.po文件。
+PO是Portable Object（可移植对象）的缩写形式，它是面向翻译人员的、提取于源代码的一种资源文件。
+.po文件可以用任何编辑器如poEdit，vi，Emacs，editplus打开，交给翻译人员来将其中的文字翻译成本国语言。
+3.mo文件
+mo文件是一个二进制文件，不能直接编辑。
+MO是Machine Object（机器对象）的缩写形式，它是面向计算机的、由.po文件通过GNU gettext工具包编译而成的二进制文件，应用程序通过读取.mo文件使自身的界面转换成用户使用的语言，如简体中文。
+可以用工具如msgunfmt命令将.mo文件反编译为.po文件。
+一般情况下，我们在汉化的时候会碰上如下几种情况：
+二、几种情形
+1、如果程序本身提供了.po文件，直接使用poEdit汉化，并自动生成.mo文件。
+2、如果程序提供了.pot文件，复制一份并更改后缀名为.po，再使用poEdit汉化，最后生成.mo文件。
+3、程序既没有提供.po文件，也没有提供.pot文件，只提供了.mo文件，那么将.mo文件转换成.po文件。
+汉化需要用到的软件就是PoEdit（http://www.poedit.net/）。参见http://laycher.com/?p=738
+将汉化的文档命名为“zh_CN.po”和“zh_CN.mo”，复制到插件或主题中的“languages”文件夹中，如没有该文件夹，则新建一个。
+然后，刷新一下，就会看到主题被汉化了（注意：wordpress设置的语言需为zh_CN）。</description>
+    </item>
+    
+    <item>
+      <title>WordPress开发实录</title>
+      <link>/post/2012/02/25/2012-02-25-wordpress-diy/</link>
+      <pubDate>Sat, 25 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/25/2012-02-25-wordpress-diy/</guid>
+      <description>如果遇到后台编辑文件时没有发现“更新文件”菜单时，可能是文件没有权限被“www-data”用户修改造成的；
+WordPress主题的执行顺序，见：http://ihacklog.com/php/wordpress/dig-into-wordpress/the-wordpress-theme-files-execution-hierarchy.html
+更改一个主题CSS文件时，新建一个CSS文档，然后import到主题默认CSS文档中。由于CSS定义中“后来居上”，所以应当插入在最后面，以免引起冲突。如果冲突，可以尝试加入“!important”来提升优先级。
+关于wordpress插件form-manager的使用，不要使用其“condition”，而应当自行编写脚本。可以使用jQuery，然后将脚本作为Note添加（插入一个script区块）。同时将用到的CSS也作为一个Note添加（CSS其实最好位于Header中，据说这样可以加快网页的渲染速度，而js则可以放在最后）。这样做的结果就是只有在有form的页面中，才会需要载入相应的js库，减少对其它页面载入速度的影响。
+form-manager模板函数中的利用nickname获取数值函数很好用。然而对于文件上传来说，得到的是一个含有文件名和其它信息的数组，可以使用以下语句得到想要的东西。
+http://wordpress.org/support/topic/plugin-wordpress-form-manager-get-image-into-template
+[cc lang=”php”]</description>
+    </item>
+    
+    <item>
+      <title>在 Fedora 14 上配置 putty 自动认证</title>
+      <link>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</guid>
+      <description>配置要点：
+在Fedora（服务器）端生成公钥和私钥； 设置公钥和私钥的权限； 下载或者拷贝私钥到要运行 putty 的电脑上（客户端）； 导入私钥到putty中，保存配制； 完成。 具体操作
+以下在服务器端完成。
+[cc lang=”bash”]
+ssh-keygen -t rsa
+cp .ssh/id_rsa.pub .ssh/authorized_keys
+chmod go-w .ssh
+chmod go-w .ssh/authorized_keys
+[/cc]
+将私钥拷贝到客户端计算机上，也可以使用“PSFTP”下载到客户端上，然后依下列操作导入密钥
+打开“PUTTYGEN.EXE”以便导入私钥。
+将私钥导出为putty使用的“*.ppk”格式文件
+退出该软件，打开putty配置文件
+在“Private key for authorization”项目下面选择刚才生成的ppk文档。
+保存配置文件。
+打开putty，便可以不再输入密码而直接通过认证了。</description>
+    </item>
+    
+    <item>
+      <title>在windowsXP中建立隐藏账户</title>
+      <link>/post/2011/12/28/2011-12-28-creat-winxp-hidden-user/</link>
+      <pubDate>Wed, 28 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/12/28/2011-12-28-creat-winxp-hidden-user/</guid>
+      <description>在XP中设置隐藏账户
+所谓隐藏账户，是指不会显示在欢迎屏幕上，需要输入用户名和密码才可以进入。在公用计算机上建立隐藏账户是保护自己隐私的一个小伎俩。
+设置隐藏账户的方法，先使用Administrator登录（可能需要进安全模式）：
+1,“ 开始→运行”中输入并打开“cmd”。
+2,输入“net user ABC 123 /add”这样就建立了一个名为“ABC”密码为“123”的受限制用户。
+3,再输入“net localgroup administrators ABC/add”将“ABC”的权限提升为管理员。
+4,输入“regedit”打开注册列表。
+5,在目录“HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\ SpecialAccounts\UserList”下建立一个与该目录下文件类型相同的文件并以刚才创建的用户“ABC”的名字“ABC”命名(如果已经存在该文件就不用再创建了)，再将参数改为“0”
+6,这样就建立了一个隐藏用户。
+7,最后再说以下，如果要删除这个隐藏用户就将那个参数改为“1”，再用“开始-运行”输入并打开“cmd”后输入“net user ABC /del”这样一来就把用户“ABC”给删除了。</description>
+    </item>
+    
+    <item>
+      <title>NOD32更新病毒库失败，提示“打开套接字错误”的解决办法</title>
+      <link>/post/2011/12/13/2011-12-13-rest-winsock/</link>
+      <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/12/13/2011-12-13-rest-winsock/</guid>
+      <description>方法如下：
+按住“Win徽标键 + R”； 在打开的“运行”窗口中输入“cmd”； 在新打开的“命令提示符”中输入“netsh winsock reset”； 重新启动计算机； 如果问题已经解决，那么恭喜你！
+如果本文帮到了你，欢迎留言参与讨论！
+以上方法可能还适用于以下几种情况：
+在Windows7和以前的windows版本中重新安装TCP/IP协议； 网络连接正常，但是不能正常上网浏览的故障； Ping 路由器可以 ping 的通，但是不能联网； =============== 万能的分割线 ================
+下面解释一下原因：
+什么是“套接字”？
+套接字，是支持TCP/IP的网络通信的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端面点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程
+非常非常简单的举例说明下:Socket=Ip address+ TCP/UDP port. that’s all~
+通过以上的例子，我们可以将套接字看成是一种网络通信过程中的封装过程。计算机中有很多的应用程序，每个应用程序的网络请求可以指派一个 Port，网络的响应后，将相应的响应再返回给以上指定的 Port，从而使得各个网络应用各得其所，不会出现信息传递的错误。
+当我重置了系统，或者是其它软件操作，人为操作造成系统的 TCP/IP 协议改动，就会出现莫名其妙的故障。
+我的故障是：可以正常连接无线路由器；也可以看到网上邻居中的计算机；Ping 路由器的IP 192.168.1.1 也有相应；但是无法打开网页；无法登陆QQ等等。
+通过以上的操作，我们实际上重装了 TCP/IP 协议（所以我们还有别的很多方法来解决这一故障），于是问题便解决了。</description>
+    </item>
+    
+    <item>
+      <title>荐：Ubuntu（linux），Windows和Android操作系统中的磁盘使用分析软件</title>
+      <link>/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</link>
+      <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</guid>
+      <description>使用分析软件分析磁盘应用，在整理硬盘的时候很有用，对各个文件夹所占用的空间可以做到一目了然。你所需要的，正是下面所列出的小程序。
+Ubuntu：系统自带“磁盘使用分析程序“，第一次用这个软件，就会喜欢上它。
+Windows： 推荐 RidNacs
+Android：磁盘详情 DiskUsage
+Ubuntu系统自带“磁盘使用分析程序“，图示清晰明了。
+Windows 推荐 RidNacs
+挺好用的一个小软件，就是图表有些看不懂。
+Android：磁盘详情 DiskUsage
+选择想查看的分区。
+速度很快，马上出来相应的图表。</description>
+    </item>
+    
+    <item>
+      <title>处理设计引物时候的PRIMER_ERROR=Missing SEQUENCE tag错误</title>
+      <link>/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</link>
+      <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</guid>
+      <description>Update：You May directly use our Massive RT-PCR Primer Designer from Jan 16, 2016. ————————————————————————————————————-
+我先前曾经写过一个设计RT-PCR引物的脚本，当初运行良好，所以把它给分享了出来（在这里）。最近又用发现会有错误，“Missing SEQUENCE tag”，经过分析，最终解决了这个问题。
+方法如下：
+[cc lang=’bash’]sudo gedit /usr/local/share/perl/5.10.1/Bio/PrimerDesigner/primer3.pm[/cc]
+将其中的SEQUENCE换成SEQUENCE_TEMPLATE即可。总共要换三四个位置。
+造成这一错误的原因在于Primer3和Bio::PrimerDesigner的API不兼容。 前者使用“SEQUENCE_TEMPLATE”作为引物的模板，而后者确传递给primer3引物设计程序一个“SEQUENCE”参数，从而造成引物设计上的失败。</description>
+    </item>
+    
+    <item>
+      <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+      <link>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+      <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+      <description>使用UUID的方法挂载分区
+打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo umount -a”命令全部卸载，然好再使用“sudo mount -a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+/dev/sda7 /var/ftp ext3 relatime 0 2
+怎么办？
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。
+一组 UUID，系由一串 16 位组（亦称 16 字节，或 128 位）的16进位数字所构成，是故UUID理论上的总数为216 x 8=2128，约等于3.4 x 1038。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。
+输入命令，得到各设备的UUID。
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]
+根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：
+# /etc/fstab: static file system information.
+#
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt; &amp;lt;type&amp;gt; &amp;lt;options&amp;gt; &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;
+# /dev/sda7
+UUID=d51b2056-6825-456c-957d-ebb16edd349d /var/ftp ext3 relatime 0 2</description>
+    </item>
+    
+    <item>
+      <title>使用BioEdit生成和绘制蛋白质进化树</title>
+      <link>/post/2011/07/20/2011-07-20-bioedit-tree/</link>
+      <pubDate>Wed, 20 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/20/2011-07-20-bioedit-tree/</guid>
+      <description>BioEdit是一个功能很强大的生物学软件，整合了很多常用的生物信息工具。如：多序列比对，质粒图谱的绘制，查看DNA序列的酶切位点等等。
+使用BioEdit可以方便的生成和绘制进化树。（另请参考：进化树大杀器MEGA的使用）
+首先，打开序列。我们这里是一个含有6个蛋白质的Fasta格式的文件。如下所示：
+然后从菜单中选择“ClustalW多序列比对”，会弹出下一个对话框，设置一些程序运行的参数。
+我们这里采用了默认配置，直接点击“Run ClustalW”按钮。ClustalW程序会以命令行的形式运行，程序运行会在多序列比对完成之后，显示多序列比对的结果，并生成进化树。
+“进化树”呢？别着急，进化树已经生成了。现在，我们关闭BioEdit软件。进化树已经在它该在的地方了，我们这就去把它挖出来。
+我们来到了BioEdit的安装目录（通常是“C:\BioEdit”），这里有一个Temp临时文件夹，打开临时文件夹，里面就要我们要的东西了。
+我这里有5个文件，你那里说不定会有别的临时文件。如果无法确定，不妨把这些文件都删除了，重头运行一遍，就这剩下这5个文件了。
+正如文件名昭示的那样，第一个文件是一个log文件，第二个文件时程序运行的参数设置，第三个文件是多序列比对的结果，第四个文件时我们的蛋白质序列的一份拷贝，最后一个就是我们需要的进化树了。
+这几个文件其实都是文本文件，可以用“记事本”之类的软件打开的。最后一个进化树用TreeView软件打开，就会得到这样的结果。
+这是一棵什么树？叶子的标示都不对啊。不好意思，忘记告诉你了，这个dnd文件需要修改一下。将这些“0000000XX”的编号改成我们的序列名称“Seq1，Seq2”等等。用文本编辑器打开最前面和最后面的那个文件。按照log文件中的指示，把dnd文件中的编号改过来吧。
+会变成这个样子。
+这是你想要的结果吗？
+我们还有一下几种展示方案，敬请选择。
+好了，就这样结束了。如果觉得有问题，请留言吧。BioEdit的，进化树的都可以。
+对了，忘记告诉你，如何安装Treeview这个软件了。BioEdit附带了这个软件，不过默认似乎没有安装，在BioEdit的安装目录，有安装包，自行安装一下吧。
+注意：以上内容在WindowsXP中测试通过，Win7什么的，不能保证哦！</description>
+    </item>
+    
+    <item>
+      <title>使用shell删除文本中的重复行</title>
+      <link>/post/2011/07/16/2011-07-16-remove-dup-lines/</link>
+      <pubDate>Sat, 16 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/16/2011-07-16-remove-dup-lines/</guid>
+      <description>使用uniq命令得到不重复的行
+现有文件如下：
+—————————————————
+my friends, chenhong
+my friends, chenhong
+my friends, chenhong
+my teacher, liyong
+my teacher, liyong
+my teacher, liyong
+my father, wuzhongyi
+my father, wuzhongyi
+my father, wuzhongyi
+my sister, wushiying
+my sister, wushiying
+my sister, wushiying
+—————————————————
+现在欲把文件变成如下：
+—————————————————
+my friends, chenhong
+my teacher, liyong
+my father, wuzhongyi
+my sister, wushiying
+—————————————————
+命令：
+[cc lang=”bash”]uniq file[/cc]
+使用sort和awk删除存在特定列重复的行
+有文件如下：
+———————-
+aa cc dd ee
+11 34 45 22</description>
+    </item>
+    
+    <item>
+      <title>使用Matlab画中国地图</title>
+      <link>/post/2011/06/28/2011-06-28-print_china_map/</link>
+      <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/06/28/2011-06-28-print_china_map/</guid>
+      <description>使用Matlab绘制中国地图十分方便，使用Mapping工具箱中的几条命令。
+介绍如下：
+设置坐标轴：setm命令。
+因为地球是圆的，所以地图的绘制涉及到投影的问题，跟普通的2-D或者3-D作图差别明显。setm命令专门用来设置map axis。例如：
+[cc lang=”matlab”]
+ax=worldmap(‘china’); %worldmap命令生成一个map axis，其各项属性可以用getm(ax)来获得
+setm(ax,’grid’,’off’) % 关闭grid，其实就是经线和纬线
+setm(ax,’frame’,’off’) % 关闭边框
+setm(ax,’parallellabel’,’off’) % 关闭坐标轴标记，相当于X轴
+setm(ax,’meridianlabel’,’off’) % 关闭坐标轴标记，相当于Y轴
+[/cc]
+绘制地图：geoshow或者mapshow
+这两个命令差别不大，系统在判断参数的时候会自动在二者之间切换。不过他们其实还是有差别的。geoshow会根据经度和纬度来作图，如果我们的坐标轴以经纬度来标记，那么用mapshow图像就会不正确。
+例如：
+[cc lang=”matlab”]
+geoshow(file) % 可以直接读取文件中数据作图
+[/cc]
+[cc lang=”matlab”]
+mapshow(file) % 可以直接读取文件中数据作图
+[/cc]
+地图数据下载
+中国的地图数据可以从国家基础地理信息系统的网站上下载，网址是http://nfgis.nsdi.gov.cn/。
+地图数据说明
+从国家基础地理信息系统的网站上下载得到的数据，分为两种：一种以“l”结尾，经过笔者的考虑，应当是line（线，曲线）的缩写，这些数据是线性的数据，描述了边界。另外一些数据，以“p”结尾，应当是polygon（多边形）的意思，这些数据描述了不同的区块。
+另外，每组数据都有3个文件，分别以“shp”，“dbf”，“shx”为扩展名。需要注意的是，虽然我们在作图时只用到了“shp”数据，但是显然这样的一组数据才是完整的数据。
+图片如下：
+国家基础地理信息系统版权所有
+这是一个以bou1_4l为基础的作图，可以看到南海的断续线。图内没有填充。
+这是一个以bou1_4p为基础的作图，不可以看到南海的断续线。图内有填充。
+这显然是由于曲线没有面积造成的。
+参考资料：
+MATLAB绘制中国地图 http://blog.sciencenet.cn/home.php?mod=space&amp;amp;uid=428536&amp;amp;do=blog&amp;amp;id=307997</description>
+    </item>
+    
+    <item>
+      <title>在MATLAB中创建色彩绚丽的柱状图</title>
+      <link>/post/2011/06/25/2011-06-25-matlab-colourful-barplot/</link>
+      <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/06/25/2011-06-25-matlab-colourful-barplot/</guid>
+      <description>首先，看一下效果图。
+默认条件下的柱状图
+漂亮的柱状图
+渐变着色的柱状图
+代码如下：
+[cc lang=”matlab”]
+% 彩色柱状图
+%% 用到的数据
+n = 13;
+Z = rand(n,1);
+%% 默认图片
+bar(Z);
+%% 简单的作图
+% 这个图根据数据列中值的大小着色。每列中的
+% 值越大，颜色越突出
+figure
+h=bar(Z);
+colormap(summer(n));
+ch = get(h,’Children’);
+fvd = get(ch,’Faces’);
+fvcd = get(ch,’FaceVertexCData’);
+[~, izs] = sortrows(Z,1);
+for i = 1:n
+row = izs(i);
+fvcd(fvd(row,:)) = i;
+end
+set(ch,’FaceVertexCData’,fvcd)
+%% 更加漂亮的图片
+% 图片会以渐变的方式着色，效果非常不错
+figure
+h=bar(Z);
+ch = get(h,’Children’);
+fvd = get(ch,’Faces’);
+fvcd = get(ch,’FaceVertexCData’);
+[zs, izs] = sortrows(Z,1);</description>
+    </item>
+    
+    <item>
+      <title>在windows中获得Linux使用环境</title>
+      <link>/post/2011/06/25/2011-06-25-linux-in-windows/</link>
+      <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/06/25/2011-06-25-linux-in-windows/</guid>
+      <description>http://www.virtualbox.org/
+http://www.cygwin.com/
+http://unxutils.sourceforge.net/
+Linux系统中的一些优越性特别是bash的优越性是windows系统不具备的。然而Linux运行在PC上，却又无法提供如Windows般的优越的用户界面，特别是office之类的常用软件。
+为了同时得到Windows和Linux提供给我们的便利，有很多种方法。比如，你可以安装双系统，双系统带来的是“实质性”的体验。然而，为了能随时在“系统”之间切换，我会选择安装一个虚拟机。那么，VirtualBox是个不错的选择。
+VirtualBox的性能与“实体机”十分相似，界面友好，速度很快。值得推荐。
+慢慢的，你会觉得虚拟机用起来还是不太方便。你不得不打开虚拟机软件，运行你的“虚拟机”，内存慢慢的不足，系统反应变慢。渐渐地，我觉得不应该这么对待我的老爷机了。寻找别的方法吧。
+于是安装了cygwin。该软件在windows系统中构建一个完整的Linux命令提示符，甚至还可以安装图形界面。
+不过呢，我发觉大部分用到Linux的时候，仅仅是为了适应grep，awk等命令。于是我就单纯的把这么几个可执行程序放到了Windows系统中了。于是下载了unxutils。该程序只有1M多哦，只有1M多。安装之后，提供了34个常用命令。
+遗憾地是，失去了对管道的支持了。
+以上3种方法，各有优略，视情况各取所需吧。</description>
+    </item>
+    
+    <item>
+      <title>“破解”zotero：打开zotero查找重复的功能</title>
+      <link>/post/2011/05/09/2011-05-09-zotero-dup-remove/</link>
+      <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/05/09/2011-05-09-zotero-dup-remove/</guid>
+      <description>在文献管理软件EndNote中，有一项功能“查找重复”，个人觉得很有用。但是你一旦发现作为一个后期之秀，免费开源的文献管理软件——zotero，却没有这个功能，很纠结对不？
+我是很纠结。所以我一发现可以打开zotero的查找重复功能之后，马上分享给大家。
+在查看zotero的源代码的时候，我发现zotero本身带有“Show Duplicates”的菜单项，只是被开发者隐藏了。可能是正在开发中，但是我发现这个功能其实是可用的。我打开“Show Duplicates”的功能之后，可以正确的在库中找到重复的文献，并列出来。
+说了这么多废话，下面介绍一下怎么做：
+首先，找到你的firefox的profile文件夹，具体可以参看：http://support.mozilla.com/en-US/kb/Profiles。
+在windows系统中，按住“win徽标键+R”，打开运行命令框，输入“%APPDATA%\Mozilla\Firefox\Profiles\”，回车就会打开profile文件夹。
+然后，进入profile文件夹。通常只会有一个以“.default”结尾的文件夹，依次打开p8oh3vmw.default 》 extensions 》 zotero@chnm.gmu.edu 》chrome文件夹，会发现一个文件 zotero.jar 。这是一个zip格式压缩的文件，将该文件用winrar解压缩（到当前文件夹即可）。
+接着，进入 content 》 zotero 文件，用文本编辑器打开 zoteroPane.xul 文件，找到下面一行：
+&amp;lt;menuitem id=”zotero-tb-actions-showDuplicates” label=”Show Duplicates” oncommand=”ZoteroPane_Local.showDuplicates()” hidden=”true”/&amp;gt;
+将其改为：
+&amp;lt;menuitem id=”zotero-tb-actions-showDuplicates” label=”Show Duplicates” oncommand=”ZoteroPane_Local.showDuplicates()” hidden=”false”/&amp;gt;
+然后，返回上级目录，将整个原来解压缩出来的东西重新打包，命名为zotero.jar，并替换掉相应的原文件。
+恭喜你，成功了！
+现在重新打开firefox试一试。你会发现在zotero的齿轮图标下面，多了一个”Show duplicates“的项目，点点，看是不是你想要的。
+备注：
+本操作在zotero 2.1.6版本上实验成功，与2.1以下版本可能并不兼容。
+如果觉得麻烦，可以找我要改好的zotero文件，请自行查毒。</description>
+    </item>
+    
+    <item>
+      <title>全宋词词频统计：东风何处是人间</title>
+      <link>/post/2011/04/11/2011-04-11-song-ci-stats/</link>
+      <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/04/11/2011-04-11-song-ci-stats/</guid>
+      <description>东风何处是人间 « Yixuan’s Blog
+对全宋词中词频统计之后的结果很有意思。
+不知各位看官看到上面这些既熟悉又悠远的话语又将作何感想？或许，她们就是我们千百年来的精神寄托吧。
+结果（排在第一的是无效字符，这跟数据源有关）：
+Word Freq Word Freq 1 1485 51 天上 368 2 东风 1382 52 杨柳 362 3 何处 1230 53 西湖 356 4 人间 1202 54 桃花 354 5 风流 857 55 扁舟 353 6 归去 812 56 消息 351 7 春风 802 57 憔悴 344 8 西风 779 58 何事 339 9 归来 771 59 芙蓉 338 10 江南 765 60 神仙 334 11 相思 753 61 一片 334 12 梅花 732 62 桃李 333 13 千里 676 63 人生 332 14 回首 656 64 十分 331 15 明月 651 65 心事 329 16 多少 648 66 黄花 328 17 如今 642 67 一声 325 18 阑干 630 68 佳人 324 19 年年 613 69 长安 321 20 万里 590 70 东君 319 21 一笑 582 71 断肠 316 22 黄昏 550 72 而今 315 23 当年 542 73 鸳鸯 314 24 天涯 537 74 为谁 313 25 相逢 528 75 十年 310 26 芳草 527 76 去年 309 27 尊前 516 77 少年 308 28 一枝 512 78 海棠 307 29 风雨 505 79 寂寞 306 30 流水 472 80 无情 306 31 依旧 472 81 不是 305 32 风吹 471 82 时候 304 33 风月 461 83 肠断 303 34 多情 457 84 富贵 303 35 故人 451 85 蓬莱 303 36 当时 450 86 昨夜 303 37 无人 445 87 行人 302 38 斜阳 438 88 今夜 301 39 不知 430 89 谁知 300 40 不见 429 90 不似 299 41 深处 422 91 江上 298 42 时节 403 92 悠悠 296 43 平生 398 93 几度 295 44 凄凉 398 94 青山 295 45 春色 394 95 何时 294 46 匆匆 383 96 天气 293 47 功名 383 97 惟有 293 48 一点 378 98 一曲 291 49 无限 377 99 月明 291 50 今日 369 100 往事 290 </description>
+    </item>
+    
+    <item>
+      <title>Windows7下移动硬盘只读，不能写，处于写保护状态的故障解决办法</title>
+      <link>/post/2011/04/05/2011-04-05-win7-usb-disk-readonly-error/</link>
+      <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/04/05/2011-04-05-win7-usb-disk-readonly-error/</guid>
+      <description>移动硬盘在win7系统中，处于只读状态。打开文件夹，不能新建文件，也不能粘贴文件，相关的菜单没有显示。发送文件到硬盘中时，提示“硬盘处于写保护状态”。在系统磁盘管理器中，右键单击磁盘，选择属性，会有硬盘只读的提示。
+硬盘一直能够正常运行，而且在别的电脑中均使用正常，不管是win7,windowsXP或者是linux系统。仅仅一台电脑不能正常使用而已。所以说不是硬件的问题，只能是系统配置或设置的问题。
+在google中查找解决方案，也没有可行的措施，虽然有人说重装系统可以解决这个问题，但是成本太高了。
+最后，自己尝试在windows设备管理器中操作，从而解决了这个问题。具体方法如下：
+在设备管理器的目录中找到自己不能正常使用的硬盘，单击右键，选择卸载，从而将这个设备卸载。然后，选择刷新设备，让windows再重新查找这个硬盘。系统会找到USB移动硬盘，并且安装驱动程序。至此，硬盘可以正常工作了。
+至于故障产生的原因，可能跟USB移动硬盘没有被安全移除有关系。windows系统中有时候莫名其妙的不能安全删除硬件，所以就直接拔掉走人了。于是便有了这种莫名其妙的故障。</description>
+    </item>
+    
+    <item>
+      <title>VIM快捷键中英对照图</title>
+      <link>/post/2011/04/01/2011-04-01-vi-cheatsheet/</link>
+      <pubDate>Fri, 01 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/04/01/2011-04-01-vi-cheatsheet/</guid>
+      <description>两张VIM快捷键的图，一个是英文原版一个是中文翻译的。
+附加 VI tutorial 完整版。
+http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html</description>
+    </item>
+    
+    <item>
+      <title>Perl中的split函数和join函数：不同的参数书写样式</title>
+      <link>/post/2011/03/13/2011-03-13-perl-split-join/</link>
+      <pubDate>Sun, 13 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/03/13/2011-03-13-perl-split-join/</guid>
+      <description>这两个函数其实是一对孪生函数，它们的作用是恰恰相反的。而我，就一直以为这两个函数的用法相同，其实它们是有很大的不同的。
+split的用法
+split /PATTERN/,EXPR
+[perl]split(/(?=\w)/, ‘hi there!’);[/perl]
+join的用法
+join EXPR,LIST
+[perl]$rec = join(‘:’, $login,$passwd,$uid,$gid,$gcos,$home,$shell);[/perl]
+呵呵，搞不懂我想说什么。其实只是我在使用join函数的时候，用//把第一个参数圈起来了。
+你有没有犯过这种错误。</description>
+    </item>
+    
+    <item>
+      <title>Linux grep的用法</title>
+      <link>/post/2011/03/11/2011-03-11-linux-grep-usage/</link>
+      <pubDate>Fri, 11 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/03/11/2011-03-11-linux-grep-usage/</guid>
+      <description>在文件夹中搜索其中的js文件
+[bash]grep function *.js[/bash]
+在当前文件夹和子文件夹中搜索所有文件
+[bash]grep -d recurse -i ‘function_input’ *[/bash]
+注意，在此处使用*.*和*，结果会有所不同。
+从文件中读取**Pattern**
+[bash]grep -f pattern_file search_file[/bash]
+需要注意的是，在pattern_file中，不能有空行存在，如果有空行存在，得不到想要的结果。这个bug困扰了我好久啊。</description>
+    </item>
+    
+    <item>
+      <title>matlab 怎样去掉矩阵中的零元素</title>
+      <link>/post/2011/02/19/2011-02-19-matlab-cleanup/</link>
+      <pubDate>Sat, 19 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/02/19/2011-02-19-matlab-cleanup/</guid>
+      <description>这个问题问的有点问题。 如果是一维的，a(a==0) = [] 就能解决问题 如果是多维的，a(a==0) = [] 会把a变成一维的，然后结果类似于上面的结果。原因是每行每列中的0的个数不同，无法保持多维的样子，只能拉长了当成一维处理。 a = 4 4 4 2 2 4 0 3 2 2 2 1 2 4 3 3 0 5 4 4 1 0 0 1 4 &amp;gt;&amp;gt; a(a==0)=[] a = Columns 1 through 20 4 4 2 3 1 4 1 4 3 2 5 2 2 4 4 1 2 2 3 4 Column 21 4 </description>
+    </item>
+    
+    <item>
+      <title>matlab中如何删除矩阵的某一列元素</title>
+      <link>/post/2011/02/19/2011-02-19-matlab-del-col/</link>
+      <pubDate>Sat, 19 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/02/19/2011-02-19-matlab-del-col/</guid>
+      <description>A为M行N列矩阵，删除第i列(1&amp;lt;=i&amp;lt;=N)，则：
+B=[A(:,1:i-1),A(:,i+1:N)];
+或直接在A上修改，
+A(:,i)=[];
+http://topic.csdn.net/u/20080725/17/b30c6b03-12c6-4022-9df9-de7fd5e0cb4c.html</description>
+    </item>
+    
+    <item>
+      <title>在MATLAB中创建带有误差线（误差标记）的柱状图</title>
+      <link>/post/2011/02/18/2011-02-18-bar-with-errorbar/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/02/18/2011-02-18-bar-with-errorbar/</guid>
+      <description>在MATLAB中，使用一个函数errorbar来定义图形中的误差线。可以用于折线图，柱状图等各种图形。实例如下：
+[cc lang=”matlab”]
+% 生成示例数据
+x=1:10;
+y=cumsum(randn(1,10));
+lower = y – (rand(1,10));
+upper = y + (rand(1,10));
+% 由于errorbar函数使用相对差值在图形上绘图，所以
+% 需要将绝对差值转变为相对差值。
+L = y – lower;
+U = upper -y;
+% 绘图时需要设定 hold on
+% 柱状图
+clf;
+figure(1);
+hold on;
+bar(x,y);
+% 此处需要隐藏折线
+errorbar(x,y,L,U,’Marker’,’none’,’LineStyle’,’none’);
+% 折线图
+figure(2);
+hold(‘on’);
+plot( x, y);
+errorbar( x, y, L, U);
+[/cc]
+效果如下图所示：
+refer：http://stackoverflow.com/questions/3748310/how-to-define-error-bar-in-matlab</description>
+    </item>
+    
+    <item>
+      <title>今天又发现了一个好的Blog客户端：Scribefire</title>
+      <link>/post/2010/12/31/2010-12-31-scribefire/</link>
+      <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/31/2010-12-31-scribefire/</guid>
+      <description>这个客户端以Firefox插件的形式安装，使用方便。它可以上传图片，可以设置永久链接，似乎比Gscribble要强大不是一点点，而这正是我需要的功能。
+Scribefire: Fire up your blogging
+ScribeFire</description>
+    </item>
+    
+    <item>
+      <title>如何在移动硬盘中安装windows7</title>
+      <link>/post/2010/12/31/2010-12-31-win7-on-usb/</link>
+      <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/31/2010-12-31-win7-on-usb/</guid>
+      <description>正常情况下，当你使用windows安装程序安装windows7的时候，程序会提示你“系统不能安装到移动硬盘上”。但是，其实win7是可以安装到移动硬盘上面的，而且现在的移动硬盘速度都挺快，系统运行起来与非移动硬盘相比并没有什么可以分辨的出来的差别。
+在移动硬盘中安装系统，需要用到 NT6.X installer 20100103 这个工具。该工具请网上google之。
+此外你还需要win7安装文件，也google之，下载即可。这个较大，有2G多。
+运行 NT6.X installer 这个工具，按照提示操作。安装前的截图是这个样子的：</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu linux下Shell批量重命名文件的实例</title>
+      <link>/post/2010/12/12/2010-12-12-rename-multiple-files/</link>
+      <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/12/2010-12-12-rename-multiple-files/</guid>
+      <description>将当前目录下面的php文件全部改写为html文件
+[bash]
+for it in *.php;
+do
+mv $it “$it.pdf”;
+done
+[/bash]
+将文件名中的URL转义字符%2E修正为点号.
+有时候下载的文件名中含有URL的转义字符，如%2E，%2F等
+参见附录：URL转义字符。
+[bash]
+for it in `ls *.pdf|grep “%2E”`;
+do
+mv $it `echo $it|sed s/%2E/./g`;
+done
+[/bash]
+按照文件大小编号命名
+[bash]
+let i=0;
+for it in `ls -S`;
+do
+mv $it “size${i}.txt”;
+let i=i+1;
+done
+[/bash]
+将当前目录下面的php文件全部改写为html文件-修订版
+上述的命名法仍然保留了php字符，如果想去掉的话，这样：
+[bash]
+for it in `ls *.php`;
+do
+mv $it `echo $it|sed s/.php$/./g`;
+done
+[/bash]
+附录：URL转义字符。
+URL转义字符原理
+为了安全或者网页数据的正常传递，需要将一些特殊的字符转换成ASCII码，格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的ASCII（16进制）码值。例如 空格的编码值是”%20″。
+URL特殊符号及对应的十六进制值编码：
+符号 在URL中的特殊意义 URL转义字符 + URL中+号表示空格 %2B 空格 URL中的空格可以用+号或者编码%20 / 分隔目录和子目录 %2F ?</description>
+    </item>
+    
+    <item>
+      <title>Perl LWP：从“国家地理每日图片”到“Cell最近一期的封面”</title>
+      <link>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</link>
+      <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</guid>
+      <description>在网上看到了一个从国家地理杂志网站下载每日图片的Perl程序。因为网站改版，脚本已经不能正常运行，经过修改后，经测试可以将每日图片下载到当前目录，代码如下：
+#!/usr/bin/perl # author: # Seraphxby # Purpose: # 查看国家地理每日图片的Perl脚本 # history: # v0.1 first draft # 2010-12-8 modified by gaospecial use warnings; use strict; use LWP::Simple; my $url=&#39;http://photography.nationalgeographic.com/photography/photo-of-the-day&#39;; my $content = get( &amp;quot;$url&amp;quot; ) || die &amp;quot;get the page failed!\n&amp;quot;; my $img; if ($content =~ m/(.*?&amp;lt;\/a&amp;gt;)/s) { $content = $1; if($content =~ m/&amp;lt;img.*?src=&amp;quot;([^\t]*?)&amp;quot;/){ # 非贪婪的数量词 *?,匹配中不含有跳格\t $img = $1; if($img =~ m/^(.*?)([^\/]+$)/){ $url = $1; $img = $2; getstore($url.$img,$img) || die &amp;quot;get img failed!</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 10.10环境下安装GScribble</title>
+      <link>/post/2010/10/28/2010-10-28-ubuntu-gscribble/</link>
+      <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/28/2010-10-28-ubuntu-gscribble/</guid>
+      <description>GScibble是Linux下面的优秀的博客程序客户端，比Blogtk界面友好。可以读取Wordpress的分类信息，还可以编辑已发布的条目。
+为了在我的Ubuntu 10.10环境下安装该程序，我还是处理了几个小问题，在这里Mark一下。
+首先，安装过程中的问题。
+安装文件可以从SF下载：http://sourceforge.net/projects/gscribble/
+按照安装文件INSTALL的说明操作即可。
+$ chmod +x setup.py $ sudo ./setup.py install
+我的系统缺少python-gtkhtml2的库，打开新立得软件包管理器，搜索之后安装，即可完成安装。 其次，Python的版本问题。
+我原先的Python版本为2.5。安装之后启动程序不成功。于是我安装了Python2.6,并将默认的Python链接到Python2.6上。
+现在，可以使用GScribble方便的发布更新了。
+小提示：如果程序无法正常启动，可以在终端输入gscribble的方式试试，终端中的错误提示会对你有帮助的。
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>重新安装bioperl</title>
+      <link>/post/2010/10/28/2010-10-28-reinstall-bioperl/</link>
+      <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/28/2010-10-28-reinstall-bioperl/</guid>
+      <description>此文适合一下情况：
+更新BioPerl时，想彻底删除旧版程序，安装一个完整的全新BioPerl；
+安装BioPerl后出错，需要从头安装。
+重新安装时不会自动覆盖老板本，因此需要手动删除以下文件：
+bioperl位于以下目录：
+/usr/local/man/man3/Bio::*
+/usr/local/bin/bp_*
+/usr/local/man/man1/bp_*
+/usr/local/share/perl/5.8.8/Bio/
+然后再进行安装即可。
+&amp;gt;perl Build.PL
+&amp;gt;./Build test
+&amp;gt;./Build install
+If your system is Ubuntu, just type the following command in terminal:
+sudo apt-get install bioperl
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>向量和矩阵有什么区别</title>
+      <link>/post/2010/10/22/2010-10-22-vector-matrix/</link>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/22/2010-10-22-vector-matrix/</guid>
+      <description>向量和矩阵有什么区别
+向量是矩阵的特殊类型，是只有一行或者一列的矩阵。这两种矩阵分别称为行矩阵（行向量）和列矩阵（列向量）。
+另外，矩阵用阶数表示，比如2阶方阵；向量通常用维数表示，比如n维向量。
+总之，向量的本质是矩阵，向量的计算全部参考矩阵计算的运算律。
+Posted from GScribble.</description>
+    </item>
+    
+    <item>
+      <title>测试：使用BloGTK发表文章</title>
+      <link>/post/2010/10/17/2010-10-17-bloggtk-test/</link>
+      <pubDate>Sun, 17 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/10/17/2010-10-17-bloggtk-test/</guid>
+      <description>这是使用BloGTK 1.1发表的文章。
+通过XML-RPC协议，可以方便的发表文章，而不用登录后台。这在网络条件差的时候尤为方便。</description>
+    </item>
+    
+  </channel>
+</rss>

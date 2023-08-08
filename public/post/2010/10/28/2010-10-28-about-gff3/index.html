@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> 关于GFF3格式 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于GFF3格式"/>
+<meta name="twitter:description" content="GFF3是GFF注释文件的新标准。文件中每一行为基因组的一个属性，分为9列，以TAB分开。
+依次是：
+1. reference sequence：参照序列
+指出注释的对象。如一个染色体，克隆或片段。可以有多个参照序列。
+2. source ：来源
+注释的来源。如果未知，则用点（.）代替。
+3. type ：类型
+属性的类型。建议使用符合SO惯例的名称（sequence ontology，参看[[Sequence Ontology Project]]) ,如gene，repeat_region，exon，CDS等。
+4. start position ：起点
+属性对应片段的起点。从1开始计数。
+5. end position ：终点
+属性对应片段的终点。一般比起点的数值要大。
+6. score ：得分
+对于一些可以量化的属性，可以在此设置一个数值以表示程度的不同。如果为空，用点（.）代替。
+7. strand ：链
+“＋”表示正链，“－”表示负链，“.”表示不需要指定正负链。
+8. phase ：步进
+对于编码蛋白质的CDS来说，本列指定下一个密码子开始的位置。可以是0，1或2，表示到达下一个密码子需要跳过的碱基个数。
+对于其它属性，则用点（.）代替。
+9. attributes ：属性
+一个包含众多属性的列表。格式为“标签＝值”（tag=value）。不同属性之间以分号相隔。可以存在空格，不过若有“,=;”则用URL转义（URL escaping rule），同时TAB也需要转换为“%09”表示。
+下列的标签已定义：
+ID
+指定一个唯一的标识。对属性分类是非常好用（例如查找一个转录单位中所以的外显子）。
+Name
+指定属性的名称。展示给用户的就是该属性。
+Alias
+名称的代称或其它。当存在其它名称时使用该属性。
+Note
+描述性的一些说明。
+Alias和Note可以有多个值，不同值之间以逗号分隔。
+如：Alias=M19211,gna-12,GAMMA-GLOBULIN
+Other good stuff can go into the attributes field, as we shall see later."/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">关于GFF3格式</span></h1>
+
+<h3 class="date">2010-10-28</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics">生物信息 BIOINFORMATICS</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology">生物学 BIOLOGY</a> <a href="/tags/gff">GFF</a> <a href="/tags/gff3">GFF3</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p>GFF3是GFF注释文件的新标准。文件中<strong>每一行</strong>为基因组的一个属性，分为<strong>9</strong>列，以TAB分开。</p>
+<p>依次是：</p>
+<p>1. reference sequence：参照序列<br>
+指出注释的对象。如一个染色体，克隆或片段。可以有多个参照序列。</p>
+<p>2. source ：来源<br>
+注释的来源。如果未知，则用点（.）代替。</p>
+<p>3. type ：类型<br>
+属性的类型。建议使用符合SO惯例的名称（sequence
+ontology，参看[[Sequence Ontology Project]])
+,如gene，repeat_region，exon，CDS等。</p>
+<p>4. start position ：起点<br>
+属性对应片段的起点。从1开始计数。</p>
+<p>5. end position ：终点<br>
+属性对应片段的终点。一般比起点的数值要大。</p>
+<p>6. score ：得分<br>
+对于一些可以量化的属性，可以在此设置一个数值以表示程度的不同。如果为空，用点（.）代替。</p>
+<p>7. strand ：链<br>
+“＋”表示正链，“－”表示负链，“.”表示不需要指定正负链。</p>
+<p>8. phase ：步进<br>
+对于编码蛋白质的CDS来说，本列指定下一个密码子开始的位置。可以是0，1或2，表示到达下一个密码子需要跳过的碱基个数。<br>
+对于其它属性，则用点（.）代替。</p>
+<p>9. attributes ：属性<br>
+一个包含众多属性的列表。格式为“标签＝值”（tag=value）。不同属性之间以分号相隔。可以存在空格，不过若有“,=;”则用URL转义（URL
+escaping rule），同时TAB也需要转换为“%09”表示。<br>
+下列的标签已定义：</p>
+<p>ID<br>
+指定一个唯一的标识。对属性分类是非常好用（例如查找一个转录单位中所以的外显子）。<br>
+Name<br>
+指定属性的名称。展示给用户的就是该属性。<br>
+Alias<br>
+名称的代称或其它。当存在其它名称时使用该属性。<br>
+Note<br>
+描述性的一些说明。<br>
+Alias和Note可以有多个值，不同值之间以逗号分隔。<br>
+如：Alias=M19211,gna-12,GAMMA-GLOBULIN</p>
+<p>Other good stuff can go into the attributes field, as we shall see
+later.</p>
+<p>Posted from <a href="http://sourceforge.net/projects/gscribble/">GScribble</a>.</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2010-10-28-about-gff3.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2010/10/28/2010-10-28-reinstall-bioperl/" title=Next&#32;post&#32;(older)>重新安装bioperl</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2010/10/28/2010-10-28-ubuntu-gscribble/" title=Previous&#32;post&#32;(newer)>Ubuntu 10.10环境下安装GScribble</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

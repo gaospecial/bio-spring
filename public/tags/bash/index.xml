@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bash on Hugo Prose</title>
+    <link>/tags/bash/</link>
+    <description>Recent content in bash on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 快速安装 LAMP</title>
+      <link>/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</link>
+      <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</guid>
+      <description>[cc lang=”bash”]
+sudo apt-get install tasksel
+# 任务标记分组
+sudo tasksel install lamp-server
+#安装途中MySQL要求设定账户有密码，这是与操作系统没关系的账户与密码。
+[/cc]</description>
+    </item>
+    
+    <item>
+      <title>在 Fedora 14 上配置 putty 自动认证</title>
+      <link>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</guid>
+      <description>配置要点：
+在Fedora（服务器）端生成公钥和私钥； 设置公钥和私钥的权限； 下载或者拷贝私钥到要运行 putty 的电脑上（客户端）； 导入私钥到putty中，保存配制； 完成。 具体操作
+以下在服务器端完成。
+[cc lang=”bash”]
+ssh-keygen -t rsa
+cp .ssh/id_rsa.pub .ssh/authorized_keys
+chmod go-w .ssh
+chmod go-w .ssh/authorized_keys
+[/cc]
+将私钥拷贝到客户端计算机上，也可以使用“PSFTP”下载到客户端上，然后依下列操作导入密钥
+打开“PUTTYGEN.EXE”以便导入私钥。
+将私钥导出为putty使用的“*.ppk”格式文件
+退出该软件，打开putty配置文件
+在“Private key for authorization”项目下面选择刚才生成的ppk文档。
+保存配置文件。
+打开putty，便可以不再输入密码而直接通过认证了。</description>
+    </item>
+    
+    <item>
+      <title>使用shell删除文本中的重复行</title>
+      <link>/post/2011/07/16/2011-07-16-remove-dup-lines/</link>
+      <pubDate>Sat, 16 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011/07/16/2011-07-16-remove-dup-lines/</guid>
+      <description>使用uniq命令得到不重复的行
+现有文件如下：
+—————————————————
+my friends, chenhong
+my friends, chenhong
+my friends, chenhong
+my teacher, liyong
+my teacher, liyong
+my teacher, liyong
+my father, wuzhongyi
+my father, wuzhongyi
+my father, wuzhongyi
+my sister, wushiying
+my sister, wushiying
+my sister, wushiying
+—————————————————
+现在欲把文件变成如下：
+—————————————————
+my friends, chenhong
+my teacher, liyong
+my father, wuzhongyi
+my sister, wushiying
+—————————————————
+命令：
+[cc lang=”bash”]uniq file[/cc]
+使用sort和awk删除存在特定列重复的行
+有文件如下：
+———————-
+aa cc dd ee
+11 34 45 22</description>
+    </item>
+    
+    <item>
+      <title>Linux下命令行压缩照片或图片的脚本</title>
+      <link>/post/2010/11/17/2010-11-17-linux-image-resize/</link>
+      <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010/11/17/2010-11-17-linux-image-resize/</guid>
+      <description>硬盘空间不足。
+有一些毕业时候拍摄的照片，量很多，每个都有2M多，非常占用空间。在windows下面，常常用光影魔术手进行批处理，在Linux下面，那就用到了imagemagick（翻译过来也是“图片魔术师”——说不定是光影魔术手的祖师爷呢，哈哈）。
+安装imagemagick
+[bash]
+&amp;gt;sudo apt-get install imagemagick
+[/bash]
+压缩图片
+最长边设为700px，并在图片左上角添加风格化的水印。
+然后，删除原来的照片。
+[bash]
+&amp;gt;mkdir to
+&amp;gt;for file in *.JPG; do
+&amp;gt;convert $file -resize 700×700 -pointsize 16 -fill white -stroke black -strokewidth 5 -annotate +20+25 ‘2008 summer’ -stroke none -annotate +20+25 ‘2008 summer’ to/`basename $file`;
+&amp;gt;done
+&amp;gt;rm *.JPG
+[/bash]
+备注
+imagemagick的功能非常强大，在 http://www.imagemagick.org/Usage/resize/ 和http://www.imagemagick.org/Usage/fonts/有很多叹为观止的例子参考。
+Posted from GScribble.</description>
+    </item>
+    
+  </channel>
+</rss>

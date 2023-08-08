@@ -1,0 +1,202 @@
+---
+title: 排序分析结果作图
+author: gaoch
+date: '2018-10-22'
+slug: plot-PCA-using-ggplot2
+categories:
+  - R
+tags:
+  - PCA
+  - ggplot2
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="数据整理" class="section level1">
+<h1>数据整理</h1>
+<pre class="r"><code>library(vegan)</code></pre>
+<pre><code>## 载入需要的程辑包：permute</code></pre>
+<pre><code>## 载入需要的程辑包：lattice</code></pre>
+<pre><code>## This is vegan 2.5-6</code></pre>
+<pre class="r"><code>data(&quot;varespec&quot;)
+pca &lt;- rda(varespec)</code></pre>
+<p>首先看一下结果：</p>
+<pre class="r"><code>summary(pca)</code></pre>
+<pre><code>## 
+## Call:
+## rda(X = varespec) 
+## 
+## Partitioning of variance:
+##               Inertia Proportion
+## Total            1826          1
+## Unconstrained    1826          1
+## 
+## Eigenvalues, and their contribution to the variance 
+## 
+## Importance of components:
+##                            PC1      PC2       PC3     PC4      PC5      PC6
+## Eigenvalue            982.9788 464.3040 132.25052 73.9337 48.41829 37.00937
+## Proportion Explained    0.5384   0.2543   0.07244  0.0405  0.02652  0.02027
+## Cumulative Proportion   0.5384   0.7927   0.86519  0.9057  0.93220  0.95247
+##                            PC7      PC8       PC9      PC10     PC11     PC12
+## Eigenvalue            25.72624 19.70557 12.274191 10.435361 9.350783 2.798400
+## Proportion Explained   0.01409  0.01079  0.006723  0.005716 0.005122 0.001533
+## Cumulative Proportion  0.96657  0.97736  0.984083  0.989799 0.994921 0.996454
+##                           PC13      PC14      PC15      PC16      PC17
+## Eigenvalue            2.327555 1.3917180 1.2057303 0.8147513 0.3312842
+## Proportion Explained  0.001275 0.0007623 0.0006604 0.0004463 0.0001815
+## Cumulative Proportion 0.997729 0.9984910 0.9991515 0.9995977 0.9997792
+##                            PC18      PC19      PC20      PC21      PC22
+## Eigenvalue            0.1866564 1.065e-01 6.362e-02 2.521e-02 1.652e-02
+## Proportion Explained  0.0001022 5.835e-05 3.485e-05 1.381e-05 9.048e-06
+## Cumulative Proportion 0.9998814 9.999e-01 1.000e+00 1.000e+00 1.000e+00
+##                            PC23
+## Eigenvalue            4.590e-03
+## Proportion Explained  2.514e-06
+## Cumulative Proportion 1.000e+00
+## 
+## Scaling 2 for species and site scores
+## * Species are scaled proportional to eigenvalues
+## * Sites are unscaled: weighted dispersion equal on all dimensions
+## * General scaling constant of scores:  14.31485 
+## 
+## 
+## Species scores
+## 
+##                 PC1        PC2        PC3        PC4        PC5        PC6
+## Callvulg -1.470e-01  0.3483315 -2.506e-01  0.6029965  0.3961208 -4.608e-01
+## Empenigr  1.645e-01 -0.3731965 -5.543e-01 -0.7565217 -0.7432702 -3.484e-01
+## Rhodtome -6.787e-02 -0.0810708 -6.464e-02 -0.0963929 -0.1749038 -4.008e-02
+## Vaccmyrt -5.429e-01 -0.7446016  1.973e-01 -0.2791788 -0.5688937 -3.689e-01
+## Vaccviti  9.013e-02 -0.7247759 -6.555e-01 -1.3366155 -0.7107105 -2.615e-01
+## Pinusylv  3.404e-02 -0.0132527  4.465e-04 -0.0079399 -0.0012504  3.800e-03
+## Descflex -7.359e-02 -0.0961364  6.485e-02 -0.0158203 -0.0741307 -5.328e-02
+## Betupube -8.789e-04 -0.0008548 -6.637e-03 -0.0077726 -0.0072147  4.759e-04
+## Vacculig -6.959e-02  0.2123669  6.410e-02  0.0136389 -0.0712061 -1.179e-01
+## Diphcomp  3.807e-03  0.0333497 -1.026e-02 -0.0291455 -0.0086379 -2.263e-02
+## Dicrsp   -4.663e-01 -0.3675288 -1.143e-01 -0.2490898  0.7694280  1.225e+00
+## Dicrfusc -1.176e+00 -0.4484656 -1.338e+00  2.1943059 -0.9187333  4.027e-02
+## Dicrpoly -1.597e-02 -0.0326269 -6.610e-02 -0.1166483 -0.0369723  6.576e-02
+## Hylosple -2.935e-01 -0.4217426  4.523e-01 -0.0656152 -0.0358715 -2.234e-01
+## Pleuschr -3.890e+00 -4.3657447  2.343e+00  0.3747564  0.1476496 -3.060e-01
+## Polypili -5.032e-04  0.0069583  7.660e-03 -0.0005528 -0.0034856  5.849e-03
+## [到达getOption(&quot;max.print&quot;) -- 略过28行]]
+## 
+## 
+## Site scores (weighted sums of species scores)
+## 
+##         PC1      PC2      PC3      PC4       PC5      PC6
+## 18 -1.02674  2.59169 -1.53869 -3.23113 -1.104731 -2.20341
+## 15 -2.64700 -1.62646  1.01889  1.88048  1.152767 -1.41888
+## 24 -2.44595 -2.01412  0.12182 -2.44215  5.875564  8.03640
+## 27 -3.02575 -4.32492  4.44163 -1.54364 -2.466762 -2.57141
+## 23 -1.86899 -0.35380 -1.98920 -4.11912 -2.428561 -0.85734
+## 19 -0.02298 -1.59265 -0.43949 -1.43686  1.058122 -1.18048
+## 22 -2.53975 -1.70578 -4.10001  7.63091 -5.062274 -0.64415
+## 16 -2.08714  0.06163 -2.32296  5.84188 -3.568851  1.63566
+## 28 -3.77083 -5.80241  6.57611  0.02751  0.908046 -3.10610
+## 13 -0.38714  2.82852 -0.32352  2.12507  3.631355 -3.88730
+## 14 -1.75570  0.75366 -5.69429  1.68697  6.098213 -1.28171
+## 20 -1.65653  0.32765 -1.93100 -2.50536  0.065456  1.72887
+## 25 -2.39601 -1.83554 -1.65364  0.24230  1.756334  4.36881
+## 7  -1.08594  5.78134  1.89095 -0.90494 -0.006891 -2.44158
+## 5  -0.80203  6.28624  4.85360  0.70195 -3.707269  5.90752
+## 6  -0.19764  5.11581  1.24710 -0.70641  1.876853 -4.68229
+## [到达getOption(&quot;max.print&quot;) -- 略过8行]]</code></pre>
+</div>
+<div id="绘图" class="section level1">
+<h1>绘图</h1>
+<p><code>vegan</code> 的结果处理成 <code>data.frame</code> 才能用于 <code>ggplot2</code>。这个过程比较复杂，不过还好有人已经造好了轮子：<code>ggvegan</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>。</p>
+<p>运行下面命令安装这个包。</p>
+<pre class="r"><code>devtools::install_github(&quot;gavinsimpson/ggvegan&quot;)</code></pre>
+<p>使用 <code>autoplot()</code>。</p>
+<pre class="r"><code>library(ggvegan)</code></pre>
+<pre><code>## 载入需要的程辑包：ggplot2</code></pre>
+<pre class="r"><code># 使用空白主题
+theme_set(theme_bw())
+
+# 一键绘图
+autoplot(pca)</code></pre>
+<p><img src="/post/2018-10-22-plot-PCA-using-ggplot2_files/figure-html/plot-pca-1.png" width="576" /></p>
+<p>还可以使用 <code>fortify()</code> 将对象转变为 <code>data.frame</code>，然后再作图。</p>
+<pre class="r"><code># 生成数据框
+df.pca &lt;- fortify(pca)
+
+# 查看数据
+knitr::kable(df.pca[1:5,1:5])</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Score</th>
+<th align="left">Label</th>
+<th align="right">PC1</th>
+<th align="right">PC2</th>
+<th align="right">PC3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">species</td>
+<td align="left">Callvulg</td>
+<td align="right">-0.1469634</td>
+<td align="right">0.3483315</td>
+<td align="right">-0.2505840</td>
+</tr>
+<tr class="even">
+<td align="left">species</td>
+<td align="left">Empenigr</td>
+<td align="right">0.1645106</td>
+<td align="right">-0.3731965</td>
+<td align="right">-0.5543083</td>
+</tr>
+<tr class="odd">
+<td align="left">species</td>
+<td align="left">Rhodtome</td>
+<td align="right">-0.0678718</td>
+<td align="right">-0.0810708</td>
+<td align="right">-0.0646412</td>
+</tr>
+<tr class="even">
+<td align="left">species</td>
+<td align="left">Vaccmyrt</td>
+<td align="right">-0.5428697</td>
+<td align="right">-0.7446016</td>
+<td align="right">0.1973452</td>
+</tr>
+<tr class="odd">
+<td align="left">species</td>
+<td align="left">Vaccviti</td>
+<td align="right">0.0901303</td>
+<td align="right">-0.7247759</td>
+<td align="right">-0.6554941</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># 绘图
+require(dplyr)</code></pre>
+<pre><code>## 载入需要的程辑包：dplyr</code></pre>
+<pre><code>## Warning: 程辑包&#39;dplyr&#39;是用R版本4.0.5 来建造的</code></pre>
+<pre><code>## 
+## 载入程辑包：&#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>ggplot(mapping=aes(PC1,PC2,shape=Score,color=Score)) +
+  geom_point(data=filter(df.pca,Score==&quot;sites&quot;)) +
+  geom_segment(data=filter(df.pca,Score==&quot;species&quot;),
+               mapping = aes(x=0,y=0,xend=PC1,yend=PC2),
+               arrow = arrow(length = unit(0.1,&quot;inches&quot;)),show.legend = F) +
+  geom_text(mapping = aes(PC1,PC2,label=Label),data=filter(df.pca,Score==&quot;species&quot;),show.legend = F)</code></pre>
+<p><img src="/post/2018-10-22-plot-PCA-using-ggplot2_files/figure-html/fortify-plot-1.png" width="576" /></p>
+<p>除了PCA分析，<code>ggvegan</code>还顺便支持了CCA，RDA，metaMDS等<code>vegan</code>的分析结果。</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>ggvegan on GitHub: <a href="https://github.com/gavinsimpson/ggvegan" class="uri">https://github.com/gavinsimpson/ggvegan</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>

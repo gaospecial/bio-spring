@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAM on Hugo Prose</title>
+    <link>/tags/sam/</link>
+    <description>Recent content in SAM on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Aug 2012 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sam/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生物信息学中的 SAM 格式介绍</title>
+      <link>/post/2012/08/16/2012-08-16-sam-format/</link>
+      <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/08/16/2012-08-16-sam-format/</guid>
+      <description>Following is a brief description of the SAM format as output by bowtie when the -S/–sam option is specified. For more details, see the SAM format specification.
+When -S/–sam is specified, bowtie prints a SAM header with @HD, @SQ and @PG lines. When one or more –sam-RG arguments are specified, bowtie will also print an @RG line that includes all user-specified –sam-RG tokens separated by tabs.
+Each subsequnt line corresponds to a read or an alignment.</description>
+    </item>
+    
+  </channel>
+</rss>

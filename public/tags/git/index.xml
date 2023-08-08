@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Hugo Prose</title>
+    <link>/tags/git/</link>
+    <description>Recent content in git on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RStudio 中使用 Git push 时要求输入用户名和密码</title>
+      <link>/post/2019/09/20/rstudio-git-push/</link>
+      <pubDate>Fri, 20 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/09/20/rstudio-git-push/</guid>
+      <description>昨天遇到一个怪事，同一个 Git 目录，使用 Git Shell 时，可以直接 Push；而在 RStudio 中 push 时，则会请求输入账户名和密码。
+在 Google 中以 “Rstudio git push need username” 搜索，在第三条结果的第三个高票回答中找到了解决方法。
+git remote show origin # Push URL: https://github.com/username/reponame.git git remote set-url origin git+ssh://git@github.com/username/reponame.git 想起来，似乎是因为设置 usethis &amp;ldquo;options&amp;rdquo; 时候选择了 “usethis.protocol = &amp;ldquo;ssh&amp;rdquo; ” 所致。
+# usethis options options( usethis.full_name = &amp;quot;Chun-Hui Gao&amp;quot;, usethis.description = list( `Authors@R` = &#39;person(&amp;quot;Chun-Hui&amp;quot;, &amp;quot;Gao&amp;quot;, email = &amp;quot;gaospecial@gmail.com&amp;quot;, role = c(&amp;quot;aut&amp;quot;, &amp;quot;cre&amp;quot;), comment = c(ORCID = &amp;quot;0000-0002-1445-7939&amp;quot;))&#39;, License = &amp;quot;GPL3 + file LICENSE&amp;quot;, Version = &amp;quot;0.</description>
+    </item>
+    
+    <item>
+      <title>使用腾讯云开发平台代码托管服务</title>
+      <link>/post/2019/07/08/tencent-dev/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/07/08/tencent-dev/</guid>
+      <description>腾讯云开发平台几大优势：
+国内访问快 免费空间大 仓库私有 用户名好起（gaoch通过了） 对于已有的Git项目，可以通过下列途径关联。
+# 首先在服务器控制面板创建一个同名项目 # 参考这里：https://dev.tencent.com/help/git-import-tencentcloud # 事实上，不用这么麻烦 git remote rm origin git remote add origin https://git.dev.tencent.com/gaoch/myproject.git git push --set-upstream origin master 然后我发现了腾讯云开发平台代码托管服务的一大缺点是：URL太长了。</description>
+    </item>
+    
+    <item>
+      <title>设置私有 Git 服务器</title>
+      <link>/post/2018/12/29/private-git-server/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/12/29/private-git-server/</guid>
+      <description>既然说到 Git，GitHub 你一定是了解的。GitHub 对于私有仓库是收费的。如果你项目还在进行中，需要一个仓库却又不想付高昂的服务费。使用自己的服务器当然也是可以的，而且很方便。
+自己的服务器可以是阿里云这样的主机服务商，也可以是你能访问的任意一台Linux主机。只要能够 SSH 登录即可。
+从服务器中开始 如果你的文件目前存储在服务器端，想在本地开展工作并使用服务器同步更新，可以参考下面的操作。
+服务器端配置 添加一个新用户(也可以使用原有用户). adduser git 在添加用户git时, 会创建 /home/git 目录, 同时还会创建 git 用户组.
+在服务器上创建一个git仓库(&amp;ldquo;sample&amp;rdquo;). cd /home/git mkdir sample.git git init --bare sample.git # 由于使用的是 root 用户新建的文件夹, 需要修订文件夹权限 chown -R git:git sample.git 添加git的ssh认证. mkdir /home/git/.ssh cat ~/.ssh/authorized_keys &amp;lt;&amp;lt; EOF 将你的 ssh.pub 公钥粘贴到这里, 每行一个人. 将合作用户的 公钥粘贴到这里, 每行一个人. EOF 你的 ssh.pub 公钥可以在本地电脑上使用cat ~/.ssh/id_rsa.pub查看.
+客户端操作 从服务器clone repository. git clone git@remote.com:/home/git/sample.git 添加内容, 修改, 更新&amp;hellip;. cd sample cat &amp;gt; README &amp;lt;&amp;lt; EOF This is readme.</description>
+    </item>
+    
+    <item>
+      <title>不要在RStudio中使用Git GUI</title>
+      <link>/post/2018/10/24/donot-use-the-git-gui-of-rstudio/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/24/donot-use-the-git-gui-of-rstudio/</guid>
+      <description>有一个数据分析的小项目，使用Git记录分析过程。
+在添加了一些文件、删除了一些文件之后，在RStudio的Git标签页下面点击复选框Stage，界面失去响应。反复重启，仍然如此。
+上网查了一下，确实很多人吐槽类似的问题。
+不过，在当前Git目录下打开Git GUI使用，一切正常。
+RStudio的Git GUI性能确实比较差。</description>
+    </item>
+    
+  </channel>
+</rss>

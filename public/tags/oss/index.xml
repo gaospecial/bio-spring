@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSS on Hugo Prose</title>
+    <link>/tags/oss/</link>
+    <description>Recent content in OSS on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="/tags/oss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cloudfs无法上传的故障排除</title>
+      <link>/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</link>
+      <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</guid>
+      <description>之前设置WordPress使用阿里云OSS存储图片，今天出问题了。设置方法在这里
+错误提示：cannot access oss: Transport endpoint is not connected
+解决方案如下：
+去除挂载 重启Cloudfs服务 设置权限 [cc lang=”bash”]
+umount /mnt/oss
+service cloudfs restart
+chmod 666 /mnt/oss
+[/cc]</description>
+    </item>
+    
+    <item>
+      <title>整合 OSS 开放存储到 WordPress 系统</title>
+      <link>/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</link>
+      <pubDate>Sun, 23 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</guid>
+      <description>使用 OSS 存储 WordPress 相当于将 云服务器 的存储免费扩大了。
+安装cloudfs -在云市场搜索cloudfs，获取下载链接。
+-将下载的安装包上传至云服务器。
+-安装依赖包。
+-以默认设置安装。
+[cc lang=”bash”]
+# Install dependence
+apt-get install libcurl4-openssl-dev libssl-dev pkg-config libxml2 libxml2-dev libfuse-dev libunwind8-dev
+[/cc]
+配置cloudfs [cc lang=”bash”]
+vi /usr/local/cloudfs/conf/cloudfs.conf
+[/cc]
+需要配置的项目有： HOST 、ID 、KEY 、BUCKET 等 4 项必须；若干可选项。
+测试 [cc lang=”bash”]
+# Start cloudfs
+service cloudfs start
+service cloudfs status
+# 目录和文件测试，在 OSS 控制台会看到相应变化
+mkdir /mnt/oss/test
+touch /mnt/oss/test/test.txt
+[/cc]
+迁移和设置媒体库 [cc lang=”bash”]
+# 设置 WordPress 媒体库位置
+cd /mnt/oss</description>
+    </item>
+    
+  </channel>
+</rss>

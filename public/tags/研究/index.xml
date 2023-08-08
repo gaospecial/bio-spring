@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>研究 on Hugo Prose</title>
+    <link>/tags/%E7%A0%94%E7%A9%B6/</link>
+    <description>Recent content in 研究 on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Sep 2008 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E7%A0%94%E7%A9%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>his-tag组氨酸融合蛋白和GST-tag谷胱甘肽融合蛋白亲和层析的原理</title>
+      <link>/post/2008/09/11/his-tag%E7%BB%84%E6%B0%A8%E9%85%B8%E8%9E%8D%E5%90%88%E8%9B%8B%E7%99%BD%E5%92%8Cgst-tag%E8%B0%B7%E8%83%B1%E7%94%98%E8%82%BD%E8%9E%8D%E5%90%88%E8%9B%8B%E7%99%BD%E4%BA%B2%E5%92%8C%E5%B1%82%E6%9E%90%E7%9A%84%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Thu, 11 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2008/09/11/his-tag%E7%BB%84%E6%B0%A8%E9%85%B8%E8%9E%8D%E5%90%88%E8%9B%8B%E7%99%BD%E5%92%8Cgst-tag%E8%B0%B7%E8%83%B1%E7%94%98%E8%82%BD%E8%9E%8D%E5%90%88%E8%9B%8B%E7%99%BD%E4%BA%B2%E5%92%8C%E5%B1%82%E6%9E%90%E7%9A%84%E5%8E%9F%E7%90%86/</guid>
+      <description>按：本文中，通过图片形象的描述着两种纯化的结合作用力，以及洗脱的原理。希望通过对这些图片的说明，可以帮助了解实验的原理。
+his- tag所用层析凝胶的基质上连接了一个NTA（[=nitrilotriacetic acid]氮基三乙酸），可以与Ni离子结合，而Ni离子与融合蛋白的6Xhis氨基酸之间产生如图的吸引力，从而将带有his-tag组氨酸标签的融合 蛋白与其它蛋白区分开来。
+从图中可以看到，组氨酸残基红色的五元咪唑环是蛋白与Ni离子作用的关键。
+因此当我们用高浓度的咪唑（imidazole）溶液洗脱的时侯（如250mM），咪唑便于蛋白质his-tag的咪唑环竞争结合，最终将融合蛋白从凝胶上洗脱下来。
+===================
+左图是用以纯化GST-tag融合蛋白的凝胶主要结构，凝胶手臂上通过硫键结合一个谷胱甘肽（如右图所示）。
+GST-tag纯化的作用力在于谷胱甘肽与谷胱甘肽转移酶之间酶和底物的特异性的作用力。凝胶上的手臂谷胱甘肽可以与GST-tag融合蛋白以这样的形式作用，从而将带标签的蛋白与其他蛋白分离开。
+左图中中间红色的部分既为谷胱甘肽。
+谷胱甘肽通常有氧化型GSSG和还原型GSH，当我们使用GSH洗脱时，GSH会与凝胶上的谷胱甘肽竞争结合融合蛋白，从而将目标蛋白洗脱。
+注：自上到下，图一来自于Chiagen,图二来自百度百科，图三来自于GE，图四来自于维基百科，图五使用1R5A.pdb，由作者生成图片。</description>
+    </item>
+    
+    <item>
+      <title>候选第二信使</title>
+      <link>/post/2008/09/10/%E5%80%99%E9%80%89%E7%AC%AC%E4%BA%8C%E4%BF%A1%E4%BD%BF/</link>
+      <pubDate>Wed, 10 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2008/09/10/%E5%80%99%E9%80%89%E7%AC%AC%E4%BA%8C%E4%BF%A1%E4%BD%BF/</guid>
+      <description>候选第二信使
+还在不久之前，细菌细胞内的信号传送情景看来似乎是被人遗忘了。特别是传送第二信号的小分子似乎并不常见。它们限于cyclic adenosine 3’,5’-monophosphate (cAMP) ，（即环磷酸腺苷，其功能是发出葡萄糖浓度变化的信号）和guanosine-tetraphosphate (ppGpp) （即 鸟苷四磷酸盐 ，它是在对营养性应激进行反应时产生的 ）。环二核苷酸信号分子 cyclic diguanylic acid (c-di-GMP ，即环二鸟苷酸 ) （其合成受到范围广泛的信号所刺激）现在已经被承认是一种被多种与生物膜形成有关联的细菌所用的第二信使。 在 2008 年 8 月 19 日 刊的一篇 Perspective 中， Römling http://stke.sciencemag.org/cgi/content/abstract/1/33/pe39 着重介绍了一则研究工作 , 该研究表明细菌中存在有另外一个先前未被承认的环二核苷酸信号分子 : 3’-5’-cyclic diadenylic acid or c-di-AMP （即环二腺苷酸）。这一研究显示，在土壤细菌 枯草杆菌中，其 DisA (DNA integrity scanning protein ，即 DNA 完整性审视蛋白，这是细菌在形成孢子时充当 DNA 损伤核查点的一种蛋白 区域具有二腺苷酸环化酶的活性。有趣的是，这种酶活性在当 DisA 与分支 DNA 结合时会消失，这可能是当复制时出现自发性双股 DNA 被打断时所造成的。 c-di-AMP 因而可能充当一种显示 DNA 完整性的信号。在其他细菌和古细菌类蛋白质中存在二腺苷酸环化酶区域表明， c-di-AMP 除了对分支 DNA 之外还充当对多种不同信号进行反应的一种第二信使分子。</description>
+    </item>
+    
+  </channel>
+</rss>

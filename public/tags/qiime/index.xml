@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QIIME on Hugo Prose</title>
+    <link>/tags/qiime/</link>
+    <description>Recent content in QIIME on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/qiime/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>STAMP: unknown error – Unicode encode error</title>
+      <link>/post/2016/05/29/2016-05-29-how-to-mending-stamp-unicode-encode-error/</link>
+      <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/05/29/2016-05-29-how-to-mending-stamp-unicode-encode-error/</guid>
+      <description>STAMP是一个支持Windows、Linux系统的微生物群落分析软件。与Mothur或QIIME相比，感觉它更小巧、轻便。它没有从测序结果（MiSeq/454）出发直到分析结果的一整套流程，但是它具有从OTU Table出发进行统计分析、作图的能力。借助于scipy，numpy，matplotlib等Python库的支持，它的分析、绘图能力达到了一个非常令人满意的程度。相应结果基本可以直接在文章中使用。
+STAMP is a software package for analyzing taxonomic or metabolic profiles that promotes ‘best practices’ in choosing appropriate statistical techniques and reporting results. Statistical hypothesis tests for pairs of samples or groups of samples is support along with a wide range of exploratory plots. STAMP encourages the use of effect sizes and confidence intervals in assessing biological importance. A user friendly, graphical interface permits easy exploration of statistical results and generation of publication quality plots for inferring the biological relevance of features in a metagenomic profile.</description>
+    </item>
+    
+    <item>
+      <title>biom 格式</title>
+      <link>/post/2016/05/26/2016-05-26-biom-format/</link>
+      <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/05/26/2016-05-26-biom-format/</guid>
+      <description>官方网址：http://biom-format.org/index.html
+格式说明：http://biom-format.org/documentation/biom_format.html
+biom 是The Biological Observation Matrix (BIOM) 的缩写。
+概述 这个格式是微生物生态研究中衍生出的文件格式，扩展名建议是*.biom，由 www.biom-format.org 开发。
+开发此文件格式的目的由以下三点：
+存储和操作大规模的生物多样性数据 存储核心的元数据（metadata，如样品，分组等重要的相关信息，这些信息在分析时是必需的。） 统一专有文件格式，促进文件在不同分析工具间的流通。（QIIME，MG-RAST和VAMPS等分析工具都可以支持该文件格式） 版本 目前，biom格式已经有了3个版本。
+版本1.0基于JSON格式开发。
+版本2.0和2.1基于HDF格式开发。
+HDF格式是专门为存储大规模、多对象的科学研究数据开发的。“Solutions to Data Challenges”。
+开发工具 biom格式是纯文本文件，可以用文本编辑器打开（我指的不是Windows的记事本，而是专业一点的开发工具。如Notepad++）。
+Python版工具
+pip install numpy pip install biom-format pip install h5py
+R版工具
+install.packages(&amp;quot;biom&amp;quot;)</description>
+    </item>
+    
+    <item>
+      <title>MetaPhlAn：利用宏基因组分析种群结构</title>
+      <link>/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</link>
+      <pubDate>Sun, 20 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</guid>
+      <description>宏基因组中包含了环境中各种微生物的基因组信息，理论上可以得出种群结构。该如何利用宏基因组高通量测序数据分析种群结构呢？是不是要从中提取16S rRNA的数据， 组装之后使用Mothur或QIIME分析呢？
+MetaPhlAn有一个不一样的想法。
+MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic shotgun sequencing data. MetaPhlAn relies on unique clade-specific marker genes identified from 3,000 reference genomes, allowing:
+up to 25,000 reads-per-second (on one CPU) analysis speed (orders of magnitude faster compared to existing methods); unambiguous taxonomic assignments as the MetaPhlAn markers are clade-specific; accurate estimation of organismal relative abundance (in terms of number of cells rather than fraction of reads); species-level resolution for bacterial and archaeal organisms; extensive validation of the profiling accuracy on several synthetic datasets and on thousands of real metagenomes.</description>
+    </item>
+    
+    <item>
+      <title>mothur and QIIME</title>
+      <link>/post/2016/02/09/2016-02-09-mothur-and-qiime/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/02/09/2016-02-09-mothur-and-qiime/</guid>
+      <description>说明：mothur的官博上比较了mothur和QIIME这两个微生物生态学研究的常用软件之间存在的差异。博主略作整理，以飨读者。
+原文链接在这里：http://blog.mothur.org/2016/01/12/mothur-and-qiime
+以下为原文和大意的翻译。
+译者：这是mothur博客上一篇关于QIIME的文章，作者系统比较了两个工具的不同。
+Despite their differences in philosophy, most of the differences in mothur and QIIME are cosmetic. Both packages have been successful. Having both of them around is good for microbial ecology. Within both packages there are warts – inconveniences to the users and antiquated/bad ideas. Within both packages there are strengths. If you are going to criticize someone for their choice of software, do it for some specific point.</description>
+    </item>
+    
+  </channel>
+</rss>

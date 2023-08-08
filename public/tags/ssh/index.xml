@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Hugo Prose</title>
+    <link>/tags/ssh/</link>
+    <description>Recent content in ssh on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设置VirtualBox Ubuntu虚拟机的SSH登录</title>
+      <link>/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</guid>
+      <description>为什么要设置虚拟机SSH登录？ 我的工作环境是Windows，但要时常用到Linux，于是在VirtualBox中部署了Ubuntu Linux系统。
+以前都是打开虚拟机上使用，但是虚拟机毕竟有桌面，占用资源比较多。窗口切来切去也不方便。
+设置虚拟机SSH登录可以让虚拟机作为一个进程运行在后台，很Linux。
+虚拟机Linux系统的ssh环境配置 要安装SSH server。
+sudo apt-get install openssh-server 生成密钥。公钥用来认证，私钥用来登录。
+密钥的处理参考之前的一篇文章。
+虚拟机的设置 在虚拟机-设置-网络中，添加一个端口转发规则，指向子系统SSH服务端口22。
+参考这里
+Putty的设置 putty的设置也参考之前的一篇文章。
+服务器IP设为127.0.0.1或localhost，端口设为转发端口，用户名设为Linux系统的用户名，密钥选择前面生成的ppk密钥。保存为一个新的session，以后就可以一键登录了。
+后台运行虚拟机 使用VBoxManage命令来管理虚拟机。其在Windows系统下的程序名称为VBoxManage.exe。
+打开命令提示符，进入VirtualBox的安装目录，可以找到该程序。
+cd /d &amp;quot;C:\Program Files\Oracle\VirtualBox&amp;quot; # 列出所有的虚拟机 VBoxManage.exe list vms # 在后台运行选定的虚拟机 VBoxManage.exe startvm &amp;quot;vms Name&amp;quot; -type headless 其它一些有用的命令有：
+# 列出正在运行的虚拟机 VBoxManage.exe list runningvms # 关闭虚拟机 VBoxManage controlvm &amp;lt;vm_name&amp;gt; acpipowerbutton # 强制关闭虚拟机 VBoxManage controlvm &amp;lt;vm_name&amp;gt; poweroff 参考资料</description>
+    </item>
+    
+    <item>
+      <title>在 Fedora 14 上配置 putty 自动认证</title>
+      <link>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/</guid>
+      <description>配置要点：
+在Fedora（服务器）端生成公钥和私钥； 设置公钥和私钥的权限； 下载或者拷贝私钥到要运行 putty 的电脑上（客户端）； 导入私钥到putty中，保存配制； 完成。 具体操作
+以下在服务器端完成。
+[cc lang=”bash”]
+ssh-keygen -t rsa
+cp .ssh/id_rsa.pub .ssh/authorized_keys
+chmod go-w .ssh
+chmod go-w .ssh/authorized_keys
+[/cc]
+将私钥拷贝到客户端计算机上，也可以使用“PSFTP”下载到客户端上，然后依下列操作导入密钥
+打开“PUTTYGEN.EXE”以便导入私钥。
+将私钥导出为putty使用的“*.ppk”格式文件
+退出该软件，打开putty配置文件
+在“Private key for authorization”项目下面选择刚才生成的ppk文档。
+保存配置文件。
+打开putty，便可以不再输入密码而直接通过认证了。</description>
+    </item>
+    
+  </channel>
+</rss>

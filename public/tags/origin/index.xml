@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Origin on Hugo Prose</title>
+    <link>/tags/origin/</link>
+    <description>Recent content in Origin on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/origin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Origin：使用上标、下标、数学公式和希腊字母等特殊格式的文本</title>
+      <link>/post/2017/06/21/2017-06-21-using-text-formatting-commands-in-origin/</link>
+      <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/06/21/2017-06-21-using-text-formatting-commands-in-origin/</guid>
+      <description>Origin是一个优秀的科学作图软件。在实际使用过程中，经常需要在坐标轴标签（Tick Label，axis label）中使用诸如上标、下标等特殊格式的文本。坐标轴标签可以直接用其中的内置编辑器，然而常用的Tick Label则一直不清楚如何设置。
+那么，如何在Tick Label中使用特殊格式的文本呢？答案在于Origin提供的一系列格式化函数中。
+如图所示，Origin提供了诸如上标、下标、上下标、斜体、粗体、希腊字母、指定字体、字号等各种各样的函数。
+例如我们要在Tick Label中使用水（H2O）作为标记，那么只需要在数据表格中填写 H\-(2)O 就会转变为H2O的格式。</description>
+    </item>
+    
+  </channel>
+</rss>

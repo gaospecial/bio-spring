@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NGS on Hugo Prose</title>
+    <link>/tags/ngs/</link>
+    <description>Recent content in NGS on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Feb 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ngs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mothur and QIIME</title>
+      <link>/post/2016/02/09/2016-02-09-mothur-and-qiime/</link>
+      <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016/02/09/2016-02-09-mothur-and-qiime/</guid>
+      <description>说明：mothur的官博上比较了mothur和QIIME这两个微生物生态学研究的常用软件之间存在的差异。博主略作整理，以飨读者。
+原文链接在这里：http://blog.mothur.org/2016/01/12/mothur-and-qiime
+以下为原文和大意的翻译。
+译者：这是mothur博客上一篇关于QIIME的文章，作者系统比较了两个工具的不同。
+Despite their differences in philosophy, most of the differences in mothur and QIIME are cosmetic. Both packages have been successful. Having both of them around is good for microbial ecology. Within both packages there are warts – inconveniences to the users and antiquated/bad ideas. Within both packages there are strengths. If you are going to criticize someone for their choice of software, do it for some specific point.</description>
+    </item>
+    
+    <item>
+      <title>InbR, a TetR family regulator, binds with isoniazid and influences multidrug resistance in Mycobacterium bovis BCG</title>
+      <link>/post/2015/09/11/2015-09-11-inbr-paper/</link>
+      <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/09/11/2015-09-11-inbr-paper/</guid>
+      <description>在Scientific Reports上面的一篇论文昨天（2015-9-10）上线了。我是第二作者，负责了ChIP-seq实验等少部分实验，全部的生物信息学分析，论文撰写、修订和投稿等事宜。该研究最初投稿的是核酸研究杂志，被拒稿后由我接手，转投Scientific Reports，前后耗费了2个多月终于接受。除了正文中，附件也有不少数据，特别是一个大Table。
+http://www.nature.com/articles/srep13969
+论文摘要如下：
+Isoniazid (INH), an anti-tuberculosis (TB) drug, has been widely used for nearly 60 years. However, the pathway through which Mycobacterium tuberculosis responds INH remain largely unclear. In this study, we characterized a novel transcriptional factor, InbR, which is encoded by Rv0275c and belongs to the TetR family, that is directly responsive to INH. Disrupting inbR made mycobacteria more sensitive to INH, whereas overexpressing inbR decreased bacterial susceptibility to the drug.</description>
+    </item>
+    
+    <item>
+      <title>Fix “getopts.pl can not be located in @INC” error in SSPACE_Standard_v3.0.pl</title>
+      <link>/post/2015/08/16/2015-08-16-sspace-getopts-error/</link>
+      <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/08/16/2015-08-16-sspace-getopts-error/</guid>
+      <description>SSPACE是一个常用的Scaffolding软件.当你有新的测序数据时,你可以使用SSPACE将原有的contigs延长,scaffolding等.
+在Ubuntu 14.04系统中运行该软件v3.0会出现错误.谷歌也没有发现好的解决方法,最终通过研究源代码,发现这是一个简单的问题,修订源代码之后,终于能够成功运行.
+两处修订如下:
+[cc lang=”perl”]
+#~ require “getopts.pl”;
+use Getopt::Std;
+[/cc]
+[cc lang=”perl”]
+#~ &amp;amp;Getopts(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);
+getopt(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);
+[/cc]</description>
+    </item>
+    
+  </channel>
+</rss>

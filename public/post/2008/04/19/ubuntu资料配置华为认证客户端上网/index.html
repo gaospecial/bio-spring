@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> [Ubuntu资料］配置华为认证客户端上网 | Hugo Prose</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/css/article.min.css,npm/@xiee/utils/css/heading-anchor.min.css">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Ubuntu资料］配置华为认证客户端上网"/>
+<meta name="twitter:description" content="http://forum.ubuntu.org.cn/viewtopic.php?t=10523
+下载客户端h3c802.1xClient.tar.gz，解压到某一目录，假定是h3c，请阅读一下里面Readme，这里不再赘述里面的内容。
+cd到h3c目录，里面有三个文件需要可执行权限，分别是linux1x、pre.ps、renew.ps，没有的话请给它们加上
+代码: $ sudo chmod a&#43;x linux1x pre.ps renew.ps
+执行里面的pre.ps，把软件安装到系统中去，一般是装到/usr/local/bin
+代码: $ sudo ./pre.ps
+把上网方式改成dhcp，我建议你在图形环境下配置，也可以直接修改/etc/network/interfaces文件，把里面带有eth0的部分改成
+代码: iface eth0 inet dhcp
+auto eth0
+第一行是把eth0改成dhcp方式，第二行是自动激活eth0，eth0代表第一块以太网网卡，可能需要重新启动网络
+代码: $ sudo /etc/init.d/networking restart
+这时候可以试着执行一下linux1x，第一次执行需要输入用户名和密码，以后就不用了
+代码: $ sudo linux1x -d
+-d选项可以让linux1x验证成功后在后台运行
+如果遇到错误提示缺少libstdc&#43;&#43;-libc6.2-2.so.3，就在在 /usr/lib下做一个名为libstdc&#43;&#43;-libc6.2-2.so.3的c&#43;&#43;标准库文件**(这种方法最简单）**
+办法: 在/usr/lib下做一个名为libstdc&#43;&#43;-libc6.2-2.so.3的软链接到高版本的libstdc&#43;&#43;
+代码: $ cd /usr/lib
+$ ls libstdc&#43;&#43;*
+在我的系统上ls命令的结果是 libstdc&#43;&#43;.so.5.0.7 libstdc&#43;&#43;.so.6.0.8
+libstdc&#43;&#43;.so.6.0.8就是我们要找的，给它做个链接
+代码: $ sudo ln -s libstdc&#43;&#43;.so.6.0.8 libstdc&#43;&#43;-libc6.2-2.so.3
+这时候你可以再试一下linux1x命令
+或者直接将libstdc&#43;&#43;.so.x.x.x复制一份到/usr/lib下面，命名为libstdc&#43;&#43;-libc6.2-2.so.3即可。
+代码: $ sudo cp libstdc&#43;&#43;.so.6.0.8 libstdc&#43;&#43;-libc6.2-2.so.3 第一次运行linux1x都提示缺少一个文件（记得好像是以libstdc&#43;&#43;开头的──标准的c&#43;&#43;库。）其实系统中有这个库文件在系统中存在，只是现 在不叫这个名字了而已。你可以使用命令“locate libstdc&#43;&#43;”找到一个与提示中最相近的文件（位于/usr/share/lib下面吧，记不清了），然后在那个文件所在的目录复制一个，命名为提 示中提示的文件名，就可以用了（要用到sudo权限）。"/>
+
+
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="/"><span>Hugo Prose</span></a>
+      </li>
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/sitemap/">Sitemap</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
+      <li>
+        <a href="/index.xml">Subscribe</a>
+      </li>
+      
+    </ul>
+    </nav>
+
+
+<div class="container single">
+<main>
+
+<div class="article-meta">
+<h1><span class="title">[Ubuntu资料］配置华为认证客户端上网</span></h1>
+
+<h3 class="author">
+gaoch
+</h3>
+
+<h3 class="date">2008-04-19</h3>
+<p class="terms">
+  
+  
+  
+  
+  Tags: <a href="/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4">百度空间</a> 
+  
+  
+</p>
+</div>
+
+<div class="article">
+<p><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=10523">http://forum.ubuntu.org.cn/viewtopic.php?t=10523</a></p>
+<p>下载客户端h3c802.1xClient.tar.gz，解压到某一目录，假定是h3c，请阅读一下里面Readme，这里不再赘述里面的内容。</p>
+<p>cd到h3c目录，里面有三个文件需要可执行权限，分别是linux1x、pre.ps、renew.ps，没有的话请给它们加上<br>
+<strong>代码:</strong> $ sudo chmod a+x linux1x pre.ps renew.ps</p>
+<p>执行里面的pre.ps，把软件安装到系统中去，一般是装到/usr/local/bin<br>
+<strong>代码:</strong> $ sudo ./pre.ps</p>
+<p>把上网方式改成dhcp，我建议你在图形环境下配置，也可以直接修改/etc/network/interfaces文件，把里面带有eth0的部分改成<br>
+<strong>代码:</strong> iface eth0 inet dhcp<br>
+auto eth0<br>
+第一行是把eth0改成dhcp方式，第二行是自动激活eth0，eth0代表第一块以太网网卡，可能需要重新启动网络<br>
+<strong>代码:</strong> $ sudo /etc/init.d/networking restart</p>
+<p>这时候可以试着执行一下linux1x，第一次执行需要输入用户名和密码，以后就不用了<br>
+<strong>代码:</strong> $ sudo linux1x -d<br>
+-d选项可以让linux1x验证成功后在后台运行</p>
+<p><u><strong>如果遇到错误提示缺少libstdc++-libc6.2-2.so.3</strong></u>，就在在
+/usr/lib下做一个名为libstdc++-libc6.2-2.so.3的c++标准库文件**<u>(这种方法最简单）</u>**</p>
+<h1 id="代码--sudo-cp-libstdcso608-libstdc-libc62-2so3">办法:
+在/usr/lib下做一个名为libstdc++-libc6.2-2.so.3的软链接到高版本的libstdc++<br>
+<strong>代码:</strong> $ cd /usr/lib<br>
+$ ls libstdc++*<br>
+在我的系统上ls命令的结果是 libstdc++.so.5.0.7 libstdc++.so.6.0.8<br>
+libstdc++.so.6.0.8就是我们要找的，给它做个链接<br>
+<strong>代码:</strong> $ sudo ln -s libstdc++.so.6.0.8 libstdc++-libc6.2-2.so.3<br>
+这时候你可以再试一下linux1x命令<br>
+或者直接将libstdc++.so.x.x.x复制一份到/usr/lib下面，命名为libstdc++-libc6.2-2.so.3即可。<br>
+<strong>代码:</strong> $ sudo cp libstdc++.so.6.0.8 libstdc++-libc6.2-2.so.3</h1>
+<p>第一次运行linux1x都提示缺少一个文件（记得好像是以libstdc++开头的──标准的c++库。）其实系统中有这个库文件在系统中存在，只是现
+在不叫这个名字了而已。你可以使用命令“locate
+libstdc++”找到一个与提示中最相近的文件（位于/usr/share/lib下面吧，记不清了），然后在那个文件所在的目录复制一个，命名为提
+示中提示的文件名，就可以用了（要用到sudo权限）。</p>
+
+</div>
+</main>
+
+<section class="appendix">
+
+
+<div>
+  <div class="side side-left"><h3>Author&#39;s bio</h3></div>
+  <div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  Text and figures are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution CC BY 4.0</a>. The source code is licensed under MIT. The full source is available at <a href="https://github.com/yihui/hugo-prose">https://github.com/yihui/hugo-prose</a>.
+</div>
+
+
+
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  
+  
+  
+    
+    
+  
+  If you find any mistakes (including typos) or want to suggest changes, please feel free to <a href="https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/post/2008-04-19-huawei-client.md" id="edit-link">edit the source file of this page on Github and create a pull request.</a>
+</div>
+
+
+
+
+<div>
+  <div class="side side-left"><h3>Citation</h3></div>
+  <p>For attribution, please cite this work as</p>
+  <pre><code>gaoch (2008). [Ubuntu资料］配置华为认证客户端上网. Hugo Prose. /post/2008/04/19/ubuntu%E8%B5%84%E6%96%99%E9%85%8D%E7%BD%AE%E5%8D%8E%E4%B8%BA%E8%AE%A4%E8%AF%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8A%E7%BD%91/</code></pre>
+  <p>BibTeX citation</p>
+  <pre><code>@misc{
+  title = "[Ubuntu资料］配置华为认证客户端上网",
+  author = "gaoch",
+  year = "2008",
+  journal = "Hugo Prose",
+  note = "/post/2008/04/19/ubuntu%E8%B5%84%E6%96%99%E9%85%8D%E7%BD%AE%E5%8D%8E%E4%B8%BA%E8%AE%A4%E8%AF%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8A%E7%BD%91/"
+}</code></pre>
+</div>
+
+</section>
+
+
+
+<nav class="post-nav">
+  <span class="nav-next">&larr; <a href="/post/2008/04/19/ubuntu%E8%B5%84%E6%96%99%E9%85%8D%E7%BD%AE%E5%BC%95%E5%AF%BC%E8%B5%84%E6%96%99%E4%BB%8Ewindows%E5%90%AF%E5%8A%A8ubuntu-desktop-iso%E5%AE%89%E8%A3%85%E6%88%96%E8%80%85%E4%BD%93%E9%AA%8Cubuntu/" title=Next&#32;post&#32;(older)>[Ubuntu资料］配置引导资料从windows启动Ubuntu Desktop ISO，安装或者体验Ubuntu。</a></span>
+  &hercon;
+  <span class="nav-prev"><a href="/post/2008/04/19/ubuntu%E8%B5%84%E6%96%99windows%E5%92%8Cubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BA%8C/" title=Previous&#32;post&#32;(newer)>[Ubuntu资料］Windows和Ubuntu双系统引导的问题（二）</a> &rarr;</span>
+</nav>
+
+
+
+
+
+</div>
+
+
+  <footer>
+  
+
+
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+
+
+
+  <div class="footer">
+  
+  <ul class="copyright">
+    <li>© <a href="https://en.wikipedia.org/wiki/Seneca_the_Younger">Lucius Annaeus Seneca</a> 4 BC &ndash; AD 65</li>
+  </ul>
+  
+  <ul>
+    
+    <li>
+      <a href="/404.html">Contact</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/categories/">Categories</a>
+    </li>
+    
+    <li class="optional">
+      <a href="/tags/">Tags</a>
+    </li>
+    
+    <li id="menu-edit">
+      <a href="#">Suggest an edit</a>
+    </li>
+    
+    <li>
+      <a href="#">Back to top</a>
+    </li>
+    
+  </ul>
+  </div>
+  
+  </footer>
+  <script src="/js/features.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Win10 on Hugo Prose</title>
+    <link>/tags/win10/</link>
+    <description>Recent content in Win10 on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/win10/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决Windows10卡在登录界面或登录成功后失去响应的问题</title>
+      <link>/post/2017/11/27/2017-11-27-win10-logon-error/</link>
+      <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/11/27/2017-11-27-win10-logon-error/</guid>
+      <description>**症状如下：**电脑自动重启更新，卡在更新界面不能继续。强制重启后，可以正常引导，但是在登录时候容易卡死，随后进去之后，鼠标在任务栏上显示“繁忙”，桌面不能成功加载。可以进安全模式。
+通过查看Windows更新记录，显示Windows Defender更新后，开始出现这一情况，因此决定将Windows Defender禁用。禁用后恢复正常。
+禁用方法如下：
+在安全模式下，打开系统管理员权限的命令提示符，在其中输入reg add “HKLM\SOFTWARE\Microsoft\Windows Defender” /v DisableAntiSpyware /t REG_DWORD /d 1 /f 。
+参考资料：http://tieba.baidu.com/p/3939957170</description>
+    </item>
+    
+    <item>
+      <title>清理Windows 10系统盘</title>
+      <link>/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</guid>
+      <description>Windows最近发了个大更新。自国庆节期间更新系统之后，50G的系统盘已经几乎被填满了。Windows就是这么臃肿，越用越慢。这方面真是大不如Linux。用了几年的Ubuntu根目录才1G左右，简直把Windows吊打的渣都不剩。
+吐槽归吐槽，但是还是不得不着手对系统进行清理。
+首先打开系统自带的磁盘清理工具，19.2G的Windows.old清理之后，感觉清爽了不少。
+其次，打开磁盘占用分析神器 RidNacs 扫描C盘，发现 System32\DriverStore 臃肿的不堪入目。居然占用了15G空间。
+使用 DriverStore Explorer 查看，可以发现，绝大多数都是N卡的显卡驱动。每个驱动400M，总共有好几十个。
+NVIDIA也是个怀旧的公司，每次更新驱动，都会将老版驱动做一个备份，于是这个文件夹就越来越大了。不得不说，在这一点上跟Windows还是挺一致的。
+下一步，准备把所有旧驱动删掉。通过设备管理器确认现在正在使用的显卡驱动就是上面图片中最新的哪一款，于是将其它所有NV驱动选中，使用 DriverStore Explorer 删除。
+此外，还发现一个文件夹非常大。就是这个：C:\Users\All Users\Microsoft\DataMart\PaidWiFi\OffersCache\Offers
+从命名上来看，这纯粹是个广告嘛。于是保留了 zh-cn 以外，其余全部删除。
+http://www.gqgtpc.com/thread-102248-1-1.html</description>
+    </item>
+    
+  </channel>
+</rss>

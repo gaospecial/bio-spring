@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>camera on Hugo Prose</title>
+    <link>/tags/camera/</link>
+    <description>Recent content in camera on Hugo Prose</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="/tags/camera/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>富士卡片机F60fd拆机图片</title>
+      <link>/post/2015/09/06/2015-09-06-fujifilm-f60fd/</link>
+      <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2015/09/06/2015-09-06-fujifilm-f60fd/</guid>
+      <description>友情提示：依本文拆机相机未获修复的，不承担连带责任哦！
+按：我的富士F60fd镜头落地摔歪了，所以才拆机。
+打开外壳 去掉侧面板
+去掉显示屏
+去掉金属板
+拆主板 主板有上下两块，之间由插槽接口连接，小心撬开主板，去掉排线，拿下主板。
+这个是取下的主板。
+取下镜头组件 摘下排线，取下镜头组件。
+这是镜头组件，含有镜头、快门、CCD等元件。
+打开镜头组件 揭下绝缘胶布，漏出盖板。然后取下盖板，漏出CCD等元件。
+这个的背面就是CCD。
+取下CCD之后，漏出透镜。
+需要使用电烙铁，将有些焊点打开，才能继续进行。
+这一部分算是镜头的主要排线，被去掉了。
+最后得到一个裸镜头组。
+分开镜头 取下第三级的合页。
+揭开贴纸，漏出环形卡子。
+拧开盖板，漏出小马达的齿轮。
+将镜头轨道中的针状金属柱用镊子拔出来，剩下的就比较简单了。就可以完全把镜头拆开了。</description>
+    </item>
+    
+  </channel>
+</rss>
