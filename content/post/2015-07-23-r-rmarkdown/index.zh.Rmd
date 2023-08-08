@@ -1,0 +1,49 @@
+---
+title: Hello R Markdown
+author: Frida Gomam
+date: '2015-07-23T21:13:14-05:00'
+categories:
+  - 旧文
+  - WordPress博客
+tags:
+  - R Markdown
+  - plot
+  - regression
+slug: r-rmarkdown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
+
+如果要使用 rmarkdown 输出，则需要将 Rmd，html 和 static 下面的 Rplot 一起 Commit 到 GitHub。
+
+Commit everything you see under content/ and static/, including the .html output files.[^1]
+
+[^1]:https://github.com/rstudio/blogdown/issues/169#issuecomment-321460204
