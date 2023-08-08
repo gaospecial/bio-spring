@@ -1,23 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ggraph on Hugo Prose</title>
-    <link>/tags/ggraph/</link>
-    <description>Recent content in ggraph on Hugo Prose</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 04 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggraph/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>一文读懂 ggraph 的使用</title>
-      <link>/post/2019/12/04/ggraph-manual/</link>
-      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/12/04/ggraph-manual/</guid>
-      <description>ggraph 可用于 网络、图和树状 数据结构的可视化。它扩展了 ggplot2 的 geoms，facets 等功能，并且添加了对 layouts 语法的支持。
-先看一个简单的例子。
-library(ggraph)## 载入需要的程辑包：ggplot2library(tidygraph)## ## 载入程辑包：&amp;#39;tidygraph&amp;#39;## The following object is masked from &amp;#39;package:stats&amp;#39;:## ## filter# Create graph of highschool friendshipsgraph &amp;lt;- as_tbl_graph(highschool) %&amp;gt;% mutate(Popularity = centrality_degree(mode = &amp;#39;in&amp;#39;))这个数据（highschool）包含了学校成员之间的联系。第一列是一个人（from），第二列是另一个人（to），第三列是这个连接（edge）的属性。
-highschool## from to year## 1 1 14 1957## 2 1 15 1957## 3 1 21 1957## 4 1 54 1957## 5 1 55 1957## 6 2 21 1957## 7 2 22 1957## 8 3 9 1957## 9 3 15 1957## 10 4 5 1957## 11 4 18 1957## 12 4 19 1957## 13 4 43 1957## 14 5 19 1957## 15 5 43 1957## 16 6 13 1957## 17 6 20 1957## 18 6 22 1957## 19 7 17 1957## 20 8 14 1957## 21 8 17 1957## 22 9 12 1957## 23 9 20 1957## 24 9 21 1957## 25 9 22 1957## 26 9 51 1957## 27 11 19 1957## 28 11 50 1957## 29 11 52 1957## 30 11 53 1957## 31 12 20 1957## 32 12 21 1957## 33 12 22 1957## [ reached &amp;#39;max&amp;#39; / getOption(&amp;quot;max.</description>
-    </item>
-    
-  </channel>
-</rss>

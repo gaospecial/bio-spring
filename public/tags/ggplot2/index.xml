@@ -1,78 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ggplot2 on Hugo Prose</title>
-    <link>/tags/ggplot2/</link>
-    <description>Recent content in ggplot2 on Hugo Prose</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ANOVA &#43; TurkeyHSD 分析及作图</title>
-      <link>/post/2019/09/24/anova-turkeyhsd-plotting/</link>
-      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/09/24/anova-turkeyhsd-plotting/</guid>
-      <description>先载入一个示例数据。该数据是研究摄入 VC 对小鼠牙齿生长作用的实验结果。VC 给药分成两种方式：VC-给予VC药片；OJ-给予相当量的橙汁。给药的量都包括0.5,1,2等三个梯度。
-从散点图上看，不同给药量之间应该有显著差异。
-data(&amp;quot;ToothGrowth&amp;quot;)head(ToothGrowth)## len supp dose## 1 4.2 VC 0.5## 2 11.5 VC 0.5## 3 7.3 VC 0.5## 4 5.8 VC 0.5## 5 6.4 VC 0.5## 6 10.0 VC 0.5dim(ToothGrowth)## [1] 60 3library(ggplot2)ggplot(ToothGrowth,aes(factor(dose),len)) + geom_boxplot(outlier.shape = NULL) + geom_jitter() +facet_wrap(~supp)单因素方差分析使用 aov() 函数，随后，进一步使用 HSD.test 获取组间差异。 Tukey’s ‘Honest Significant Difference’ method 通常使用 stats::TukeyHSD() 函数， 但在这里，我们使用 HSD.</description>
-    </item>
-    
-    <item>
-      <title>ggplot label placement</title>
-      <link>/post/2019/07/17/ggplot-label-placement/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019/07/17/ggplot-label-placement/</guid>
-      <description>本文曾经发表在 biobabble 微信公众号 链接
-ggplot在绘制label的时候很容易出现字体溢出，位置难以调整的问题。Y叔曾经在公众号上吐槽过。
-实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“Automatic label placement”就是研究该问题的。
-下面介绍一下如何处理这个标签定位的问题。
-方法一：使用hjust，vjust，nudge_x，nudge_y等参数调整我们从mpg数据集中提取10行数据画图，默认情况下是这样的情况。
-mpg数据集是ggplot2自带的一个234行和11个变量的数据，包含了38种流行车型的燃油经济性数据。
-包括：生产厂家（manufacturer），型号（model），发动机排量（displ，单位为L），生产年份（year），气缸数目（cyl），传动类型（trans），驱动类型（drv，f=前驱，r=后驱，4=四驱），每加仑燃油在城市和高速公路上的里程数（cty和hwy），汽油种类（fl）和汽车类型（class）等。
-library(ggplot2)## 生成数据集set.seed(0)df &amp;lt;- mpg[sample(nrow(mpg),10),]## 发动机排量和良好路况情况下单位耗油所能行驶的里程数ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model))这种情况下，边缘的字符串会溢出。可以添加hjust=&#34;inward&#34;来避免这一情况。
-## hjust=&amp;quot;inward&amp;quot;把左侧的label右对齐，右侧的label左对齐。ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;)但是这种情形仍然会出现point和label重叠的情况。因此需要进一步调节。使用nudge_x和nudge_y可以设置标签显示位置的微小偏移。
-由于标签是水平显示的，左右两侧容易出现溢出，而竖直方向上则一般不会，所以我们将竖直方向设为居中，并微调-0.5，这样就可以保证标签显示比较正常了。
-ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5)hjust, vjust = c(“left”,“right”,“center”,“inward”,“outward”);nudge_x, nudge_y = value.
-如果在Y轴边缘有溢出的话，则在结合调整xlim，ylim可以解决。如下所示：
-ggplot(df,aes(displ,hwy)) + geom_point() + geom_text(aes(label=model),size=12,hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5) + xlim(c(0,8))如上图所示，虽然确保了标签没有溢出，但是同时又会有标签重叠的情况。
-也可以参考 vignette(“ggplot2-specs”) 中的部分内容。
-实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“Automatic label placement”就是研究该问题的。</description>
-    </item>
-    
-    <item>
-      <title>RT-PCR数据可视化之一</title>
-      <link>/post/2018/11/13/rt-pcr-data-visualization-one/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018/11/13/rt-pcr-data-visualization-one/</guid>
-      <description>QuantStudio Real-Time PCR software 是我们经常使用的 RT-PCR 软件, 它上面的可视化只能简单看看, 不满足发论文的需求. 如果需要得到发表级的图片, 还是需要 用 ggplot 大法加持.
-为了能够使用这些数据, 首先需要导出文件. 为了方便操作, 文件导出时, 选择 *.txt 格式, 每个面板导出成一个单独文件. 将文件放在 data 文件夹中.
-数据预处理 根据文件名后缀找到数据.
-# 数据文件目录 dir &amp;lt;- &amp;quot;data&amp;quot; options(stringsAsFactors = F) # 根据文件名后缀找到对应文件 amplification_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Amplification Data_ViiA7_export.txt&amp;quot;) result_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Results_ViiA7_export.txt&amp;quot;) meltcurve_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;MeltCurve Data_ViiA7_export.txt&amp;quot;) 我们使用 readr 来读取数据. 这个包避免了 R 语言对列名不合时宜的转换.
-每个文件的前面 43 列都是基本描述信息, 选择略过. 读取接下来的数据表格.</description>
-    </item>
-    
-    <item>
-      <title>排序分析结果作图</title>
-      <link>/post/2018/10/22/plot-pca-using-ggplot2/</link>
-      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2018/10/22/plot-pca-using-ggplot2/</guid>
-      <description>数据整理 library(vegan) ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.6-4 data(&amp;quot;varespec&amp;quot;) pca &amp;lt;- rda(varespec) 首先看一下结果：
-summary(pca) ## ## Call: ## rda(X = varespec) ## ## Partitioning of variance: ## Inertia Proportion ## Total 1826 1 ## Unconstrained 1826 1 ## ## Eigenvalues, and their contribution to the variance ## ## Importance of components: ## PC1 PC2 PC3 PC4 PC5 PC6 ## Eigenvalue 982.9788 464.3040 132.25052 73.9337 48.41829 37.00937 ## PC7 PC8 PC9 PC10 PC11 PC12 ## Eigenvalue 25.</description>
-    </item>
-    
-    <item>
-      <title>ggplot2作图中不使用科学计数法</title>
-      <link>/post/2017/11/16/2017-11-16-ggplot2-no-scinum/</link>
-      <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2017/11/16/2017-11-16-ggplot2-no-scinum/</guid>
-      <description>科学计数法（1E+5）这种形式不适合大多数图片。拒绝使用的方法有很多，一个比较简单粗暴的方法是设置scipen参数：options(scipen = 200) 。
-非常好用。</description>
-    </item>
-    
-  </channel>
-</rss>
