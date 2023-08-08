@@ -1,14 +1,15 @@
 baseurl: "/"
-languageCode: "en-us"
-defaultContentLanguage: "en"
-# defaultContentLanguage: "zh"
-title: "Hugo Prose"
+# languageCode: "en-us"
+# defaultContentLanguage: "en"
+languageCode: "zh-cn"
+defaultContentLanguage: "zh"
+title: "BIO-SPRING"
 theme: "hugo-prose"
 googleAnalytics: ""
 disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 footnotereturnlinkcontents: "↩"
-paginate: 2
+paginate: 10
 
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
@@ -48,7 +49,7 @@ params:
   mainSections: ["post", "work"]
   editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
-  stickyMenu: false
+  stickyMenu: true
   description: >
     A website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
