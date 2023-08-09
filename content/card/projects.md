@@ -1,7 +1,19 @@
 ---
-title: Projects
+title: PROJECTS
 style: 'background: #f7f9fb;'
 weight: 2
 ---
 
-Ten plays are attributed to Seneca, of which most likely eight were written by him. The plays stand in stark contrast to his philosophical works. With their intense emotions, and grim overall tone, the plays seem to represent the antithesis of Seneca's Stoic beliefs. Up to the 16th century it was normal to distinguish between Seneca the moral philosopher and Seneca the dramatist as two separate people. Scholars have tried to spot certain Stoic themes: it is the uncontrolled passions that generate madness, ruination, and self-destruction. This has a cosmic as well as an ethical aspect, and fate is a powerful, albeit rather oppressive, force.
+## 研究项目
+
+- 自然科学基金青年科学基金，初始结构和碳源营养调节合成菌群代谢能力的机制研究（32100090），主持，总经费 30 万（2022-2024）。
+- 教育部产学合作项目，基于微生态原理的有机肥功能强化研究（220903354200718），（2023-03-01 - 2024-03-01），10 万元，在研，主持。
+- 国家重点研发计划子课题，微生物种间相互作用的微生态机制，主持，72.5万（2016-2021），所属课题：农田病原菌污染及其存活与传播机制（2016YFD0800206，总经费 290 万）。
+- 博士后基金面上项目，无序化结构在分枝杆菌广泛调节因子中的功能（2013M541836），主持，5 万（2013-2014）。
+- 武汉市科技攻关项目（2019020701011469），复合微生物肥料中有益微生物互作及调控生物膜形成机制，50 万（2019-2021），参与。
+- 自然科学基金面上项目（42177281），土壤微环境中生物膜自组装过程与抗生素抗性基因接合转移耦合机制，直接经费 56 万（2022-2025），参与。
+
+## 人才项目
+
+- 华中农业大学中央高校优秀青年团队，中央高校优秀青年团队项目，120 万（2023-2024），参与。
+- 土壤生物膜与环境健康，湖北省创新群体项目，50 万（2023-2025），参与。

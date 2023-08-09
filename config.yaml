@@ -20,11 +20,34 @@ outputs:
 # some menu items were added via the `menu` option in YAML in posts
 menu:
   header:
+    - name: Home
+      url: "/"
+      weight: 1
+    - name: Publication
+      url: "/publication/"
+      weight: 2
+    - name: Post
+      url: "/post/"
+      weight: 3
+    - name: Work
+      url: "/work/"
+      weight: 6
+    - name: Subscribe
+      url: "index.xml"
+      weight: 9
+    - name: About
+      url: "/about/"
+      weight: 10
+    - name: CV
+      url: "/cv/"
+      weight: 20
+    - name: Sitemap
+      url: "/sitemap"
+      weight: 30
     - name: Search
       url: "#"
       identifier: menu-search
-    - name: Subscribe
-      url: "index.xml"
+      weight: 99
   footer:
     - name: Contact
       url: "/404.html"

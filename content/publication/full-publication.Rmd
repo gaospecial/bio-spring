@@ -1,0 +1,23 @@
+---
+title: 论文清单
+author: Chun-Hui Gao
+---
+
+**全部论文清单**
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+if (!requireNamespace("scholar")) remotes::install_github("YuLab-SMU/scholar", quiet = TRUE)
+library(scholar)
+
+id = '9hAQ1LYAAAAJ'
+Sys.setenv(HTTP_PROXY="http://127.0.0.1:1081")
+Sys.setenv(HTTPS_PROXY="http://127.0.0.1:1081")
+publication = get_publications(id)
+
+pacman::p_load("DT")
+datatable(publication[,c(1:3,5:6)],
+          rownames = FALSE)
+```
+
+
+> 来源于我的 [Google Scholar 页面](https://scholar.google.com/citations?user=9hAQ1LYAAAAJ)。

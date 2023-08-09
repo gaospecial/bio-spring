@@ -71,7 +71,20 @@ menu:
 
 [^1]: 例如，`pre: "optional"` 将生成菜单项 `<li class="optional">`。这可能是一个不重要的项目，在屏幕显示不完全时将被隐藏。
 
-可通过 `config.yaml` 中的参数 `stickyMenu` 使标题菜单悬停在页面左侧：
+菜单中的链接除了可以在 `menu` 下的 `header` 中定义，还可以在每一个页面的 yaml 头中定义。
+
+``` yaml
+---
+title: About Hugo Prose
+menu:
+  header:
+    name: About
+    weight: 2
+```
+
+如果没有 `name` 参数，则菜单将以 `title` 显示。这个特性可以将任一文档加入菜单中去。在提供了便捷性的同时，对于菜单的维护也造成了一些困扰。
+
+可通过 `config.yaml` 中的参数 `stickyMenu` 使标题菜单悬停在页面上方：
 
 ``` yaml
 params:
