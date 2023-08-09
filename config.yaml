@@ -32,6 +32,10 @@ menu:
     - name: CV
       url: "/cv/"
       weight: 20
+    - name: Search
+      weight: 50
+      url: "#"
+      identifier: menu-search
   footer:
     - name: Contact
       url: "/404.html"
