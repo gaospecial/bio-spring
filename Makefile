@@ -1,5 +1,5 @@
 site:
-	Rscript --quiet -e "blogdown::build_site()"
+	Rscript --quiet -e "blogdown::build_site(baseURL = 'https://bio-spring.top')"
 
 deploy:
 	scp -rpq public/* root@bio-spring.top:/var/www/html/bio-spring.top
