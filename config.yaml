@@ -59,7 +59,7 @@ params:
   authorDelimiter: " / "
   stickyMenu: true
   description: >
-    A website built through Hugo and blogdown with the hugo-prose theme.
+    Chun-Hui Gao's personal website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
     &copy; [Bio-Spring](https://bio-spring.top) 2009 -- 2023
   license: >
