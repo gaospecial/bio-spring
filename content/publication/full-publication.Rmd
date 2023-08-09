@@ -1,9 +1,13 @@
 ---
-title: 论文清单
+title: 全部论文清单
 author: Chun-Hui Gao
+slug: full-publication-list
+menu:
+  header:
+    name: "Publication"
+    weight: 3
 ---
 
-**全部论文清单**
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 if (!requireNamespace("scholar")) remotes::install_github("YuLab-SMU/scholar", quiet = TRUE)
@@ -15,7 +19,7 @@ Sys.setenv(HTTPS_PROXY="http://127.0.0.1:1081")
 publication = get_publications(id)
 
 pacman::p_load("DT")
-datatable(publication[,c(1:3,5:6)],
+datatable(publication[,c(1:3,5:6)] |> dplyr::arrange(desc(year)),
           rownames = FALSE)
 ```
 

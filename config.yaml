@@ -15,7 +15,7 @@ permalinks:
   post: "/post/:year/:month/:day/:slug/"
 
 outputs:
-  home: [html, rss, json]
+  home: [html, json]
 
 # some menu items were added via the `menu` option in YAML in posts
 menu:
@@ -23,31 +23,15 @@ menu:
     - name: Home
       url: "/"
       weight: 1
-    - name: Publication
-      url: "/publication/"
-      weight: 2
-    - name: Post
+    - name: Blog Post
       url: "/post/"
       weight: 3
     - name: Work
       url: "/work/"
       weight: 6
-    - name: Subscribe
-      url: "index.xml"
-      weight: 9
-    - name: About
-      url: "/about/"
-      weight: 10
     - name: CV
       url: "/cv/"
       weight: 20
-    - name: Sitemap
-      url: "/sitemap"
-      weight: 30
-    - name: Search
-      url: "#"
-      identifier: menu-search
-      weight: 99
   footer:
     - name: Contact
       url: "/404.html"
@@ -69,15 +53,15 @@ menu:
 
 params:
   homePosts: 6
+  fuseVersion: 6.6.2
   mainSections: ["post", "work"]
-  editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
+  editLink: "https://github.com/gaospecial/bio-spring/edit/master/content/"
   authorDelimiter: " / "
   stickyMenu: true
   description: >
     A website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
-    &copy; [Lucius Annaeus Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger)
-    4 BC -- AD 65
+    &copy; [Bio-Spring](https://bio-spring.top) 2009 -- 2023
   license: >
     Text and figures are licensed under [Creative Commons Attribution CC BY
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
