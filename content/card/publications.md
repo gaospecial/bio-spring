@@ -14,7 +14,7 @@ weight: 3
 
 <div style="text-align: right">
 
-[查看更多](/Publication/full-publication-list)
+[查看更多](/publication/full-publication-list/)
 
 </div>
 
