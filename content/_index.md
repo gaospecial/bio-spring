@@ -13,7 +13,7 @@ title: Home
 <div style="float:left;margin-right:10px;text-align:center;">
 <p style="margin-top:10px;margin-bottom:0px;width:8em;"> 
 <img src="https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/gaoch-medium.jpg" />
-<i>照片</i>
+<i>近照</i>
 </p>
 </div>
 
