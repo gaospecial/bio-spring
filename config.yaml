@@ -54,7 +54,7 @@ menu:
 params:
   homePosts: 6
   fuseVersion: 6.6.2
-  mainSections: ["post", "work"]
+  mainSections: ["post"]
   editLink: "https://github.com/gaospecial/bio-spring/edit/master/content/"
   authorDelimiter: " / "
   stickyMenu: true

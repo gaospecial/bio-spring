@@ -22,7 +22,7 @@ main {
   flex: 1 0 100%;
 }
 .list main > .post-card {
-  flex: 0 0 calc(50% - .5em);
+  flex: 0 0 100%;
 }
 .menu, .container { padding: 0 1em 0; }
 .post-card { margin-top: 1em; }
@@ -153,11 +153,10 @@ blockquote {
 }
 .article-list h1 a:hover { color: #71a5d4; }
 .article-list h1 {
-  border-bottom: 1px solid #ddd;
   margin: 5px 0px 10px;
 }
-.article-list .side-title { transform: rotate(90deg); }
-.article-list:nth-child(even):not(.post-card) .side-title { transform: rotate(-90deg); }
+.article-list .side-title { transform: rotate(-90deg); }
+
 .article-list table {
   margin: 0;
   border: none;
@@ -172,6 +171,9 @@ blockquote {
 .side-title { width: 3em; }
 .side-title h1 { border: none; }
 .post-card .side-title h1 a, .post-card .spacer-right, .appendix h3 { color: lightslategray; }
+.post-card td:nth-child(1) {width: 15%}
+.post-card td:nth-child(2) {width: 20%}
+
 .appendix h3 { text-align: right; }
 .summary { margin-top: .5em; }
 .summary::first-letter {
@@ -217,6 +219,7 @@ table {
 }
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
+
 
 /* responsive */
 @media (max-width: 1280px) {
