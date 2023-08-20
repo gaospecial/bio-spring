@@ -1,0 +1,51 @@
+{{ if .IsHome }}
+
+{{ partial "header.html" . }}
+
+<div class="container list">
+<main>
+{{ with .Content }}
+<section class="article-list">
+<div>{{ . }}</div>
+</section>
+{{ end }}
+
+{{ range $i, $p := (where .Site.RegularPages "Section" "card") }}
+<section class="article-list"{{ with .Params.style }}{{ printf " style=%q" . | safeHTMLAttr }}{{ end }}>
+  <table>
+    <tbody>
+      <tr>
+      <td class="side-title"><h1>{{ $p.Title }}</h1></td>
+      <td class="spacer spacer-left"></td>
+      <td>{{ $p.Content }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+{{ end }}
+
+{{ $pages := .Pages }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) "Date" "desc") }}
+
+
+{{ range $pages }}
+<section class="article-list post-card{{ if .Draft }} draft{{ end }}">
+  <table>
+    <tbody>
+    <tr>
+    <td>{{ if .Date }}<span>{{ .Date.Format "2006-01-02" }}</span>{{ end }}</td>
+    <td>{{ with .Params.author }}<span>{{ . }}</span>{{ end }}</td>
+    <td><h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1></td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+{{ end }}
+
+{{ partial "disqus.html" . }}
+</main>
+</div>
+
+{{ partial "footer.html" . }}
+
+{{end}}

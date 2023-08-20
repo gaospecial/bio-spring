@@ -53,6 +53,8 @@ menu:
 
 params:
   homePosts: 6
+  # max number of categories displayed in article list
+  numCategories: 3
   fuseVersion: 6.6.2
   mainSections: ["post"]
   editLink: "https://github.com/gaospecial/bio-spring/edit/master/content/"
