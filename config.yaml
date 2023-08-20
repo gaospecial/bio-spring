@@ -32,6 +32,10 @@ menu:
     - name: CV
       url: "/cv/"
       weight: 20
+    - name: Search
+      weight: 50
+      url: "#"
+      identifier: menu-search
   footer:
     - name: Contact
       url: "/404.html"
@@ -63,7 +67,7 @@ params:
   description: >
     Chun-Hui Gao's personal website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
-    &copy; [Bio-Spring](https://bio-spring.top) 2009 -- 2023
+    &copy; [Bio-Spring](https://bio-spring.top) 2006 -- 2023
   license: >
     Text and figures are licensed under [Creative Commons Attribution CC BY
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
