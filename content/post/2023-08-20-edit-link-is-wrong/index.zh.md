@@ -34,7 +34,7 @@ Hugo-Prose 主题中使用 `correction.html` 生成在 GitHub 进行修改的链
 {{ end }}
 ```
 
-在这个文件中，使用 Hugo 变量 `.File.Path` 访问当前文件的目录。
+在这个文件中，使用 Hugo 变量 `.File.Path` 访问当前文件的路径。
 
 通过查阅参考资料，发现 `.File.Path` 变量储存的文件路径中，其分隔符是跟随系统的。
 
