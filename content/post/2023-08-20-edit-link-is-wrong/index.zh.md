@@ -63,4 +63,11 @@ Hugo-Prose 主题中使用 `correction.html` 生成在 GitHub 进行修改的链
 >
 > **See also**: <https://gohugo.io/functions/path.clean/>
 
+
 这样的话，通过 GitHub 修改的功能就更加鲁棒了。
+
+
+这个修改已经 [合并到Hugo-prose](https://github.com/yihui/hugo-prose/pull/46) 源了。
+
+
+
