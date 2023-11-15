@@ -28,4 +28,8 @@ git remote show origin
 
 删掉无用的源
 
-可以直接修改 `.git/config` 文件。
+```bash
+git remote set-url --delete --push origin git@gitee.com:user/repository.git
+```
+
+实在不行，还可以直接修改 `.git/config` 文件。
