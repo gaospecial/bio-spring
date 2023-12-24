@@ -2,1907 +2,1907 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on BIO-SPRING</title>
-    <link>https://gaospecial.github.io/bio-spring/tags/</link>
+    <link>https://gaospecial.github.io/tags/</link>
     <description>Recent content in Tags on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://gaospecial.github.io/bio-spring/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blogdown</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/blogdown/</link>
+      <link>https://gaospecial.github.io/tags/blogdown/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/blogdown/</guid>
+      <guid>https://gaospecial.github.io/tags/blogdown/</guid>
       <description></description>
     </item>
     <item>
       <title>github</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/github/</link>
+      <link>https://gaospecial.github.io/tags/github/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/github/</guid>
+      <guid>https://gaospecial.github.io/tags/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Makefile</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/makefile/</link>
+      <link>https://gaospecial.github.io/tags/makefile/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/makefile/</guid>
+      <guid>https://gaospecial.github.io/tags/makefile/</guid>
       <description></description>
     </item>
     <item>
       <title>shell</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/shell/</link>
+      <link>https://gaospecial.github.io/tags/shell/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/shell/</guid>
+      <guid>https://gaospecial.github.io/tags/shell/</guid>
       <description></description>
     </item>
     <item>
       <title>操作系统 LINUX</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/</link>
+      <link>https://gaospecial.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Matrix</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/matrix/</link>
+      <link>https://gaospecial.github.io/tags/matrix/</link>
       <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/matrix/</guid>
+      <guid>https://gaospecial.github.io/tags/matrix/</guid>
       <description></description>
     </item>
     <item>
       <title>Vector</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/vector/</link>
+      <link>https://gaospecial.github.io/tags/vector/</link>
       <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/vector/</guid>
+      <guid>https://gaospecial.github.io/tags/vector/</guid>
       <description></description>
     </item>
     <item>
       <title>数据结构</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
       <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
       <description></description>
     </item>
     <item>
       <title>git</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/git/</link>
+      <link>https://gaospecial.github.io/tags/git/</link>
       <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/git/</guid>
+      <guid>https://gaospecial.github.io/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Julia</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/julia/</link>
+      <link>https://gaospecial.github.io/tags/julia/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/julia/</guid>
+      <guid>https://gaospecial.github.io/tags/julia/</guid>
       <description></description>
     </item>
     <item>
       <title>R Markdown</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/r-markdown/</link>
+      <link>https://gaospecial.github.io/tags/r-markdown/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/r-markdown/</guid>
+      <guid>https://gaospecial.github.io/tags/r-markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>RStudio</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rstudio/</link>
+      <link>https://gaospecial.github.io/tags/rstudio/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rstudio/</guid>
+      <guid>https://gaospecial.github.io/tags/rstudio/</guid>
       <description></description>
     </item>
     <item>
       <title>科学计算</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/hugo/</link>
+      <link>https://gaospecial.github.io/tags/hugo/</link>
       <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/hugo/</guid>
+      <guid>https://gaospecial.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>theme</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/theme/</link>
+      <link>https://gaospecial.github.io/tags/theme/</link>
       <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/theme/</guid>
+      <guid>https://gaospecial.github.io/tags/theme/</guid>
       <description></description>
     </item>
     <item>
       <title>wordpress</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/wordpress/</link>
+      <link>https://gaospecial.github.io/tags/wordpress/</link>
       <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/wordpress/</guid>
+      <guid>https://gaospecial.github.io/tags/wordpress/</guid>
       <description></description>
     </item>
     <item>
       <title>百度空间</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4/</link>
+      <link>https://gaospecial.github.io/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4/</link>
       <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%99%BE%E5%BA%A6%E7%A9%BA%E9%97%B4/</guid>
       <description></description>
     </item>
     <item>
       <title>ggplot</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ggplot/</link>
+      <link>https://gaospecial.github.io/tags/ggplot/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ggplot/</guid>
+      <guid>https://gaospecial.github.io/tags/ggplot/</guid>
       <description></description>
     </item>
     <item>
       <title>ggVennDiagram</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ggvenndiagram/</link>
+      <link>https://gaospecial.github.io/tags/ggvenndiagram/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ggvenndiagram/</guid>
+      <guid>https://gaospecial.github.io/tags/ggvenndiagram/</guid>
       <description></description>
     </item>
     <item>
       <title>renv</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/renv/</link>
+      <link>https://gaospecial.github.io/tags/renv/</link>
       <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/renv/</guid>
+      <guid>https://gaospecial.github.io/tags/renv/</guid>
       <description></description>
     </item>
     <item>
       <title>R</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/r/</link>
+      <link>https://gaospecial.github.io/tags/r/</link>
       <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/r/</guid>
+      <guid>https://gaospecial.github.io/tags/r/</guid>
       <description></description>
     </item>
     <item>
       <title>plot</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/plot/</link>
+      <link>https://gaospecial.github.io/tags/plot/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/plot/</guid>
+      <guid>https://gaospecial.github.io/tags/plot/</guid>
       <description></description>
     </item>
     <item>
       <title>regression</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/regression/</link>
+      <link>https://gaospecial.github.io/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/regression/</guid>
+      <guid>https://gaospecial.github.io/tags/regression/</guid>
       <description></description>
     </item>
     <item>
       <title>statistics</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/statistics/</link>
+      <link>https://gaospecial.github.io/tags/statistics/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/statistics/</guid>
+      <guid>https://gaospecial.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>igraph</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/igraph/</link>
+      <link>https://gaospecial.github.io/tags/igraph/</link>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/igraph/</guid>
+      <guid>https://gaospecial.github.io/tags/igraph/</guid>
       <description></description>
     </item>
     <item>
       <title>DT</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/dt/</link>
+      <link>https://gaospecial.github.io/tags/dt/</link>
       <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/dt/</guid>
+      <guid>https://gaospecial.github.io/tags/dt/</guid>
       <description></description>
     </item>
     <item>
       <title>sf</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sf/</link>
+      <link>https://gaospecial.github.io/tags/sf/</link>
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sf/</guid>
+      <guid>https://gaospecial.github.io/tags/sf/</guid>
       <description></description>
     </item>
     <item>
       <title>ggraph</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ggraph/</link>
+      <link>https://gaospecial.github.io/tags/ggraph/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ggraph/</guid>
+      <guid>https://gaospecial.github.io/tags/ggraph/</guid>
       <description></description>
     </item>
     <item>
       <title>Chocolatey</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/chocolatey/</link>
+      <link>https://gaospecial.github.io/tags/chocolatey/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/chocolatey/</guid>
+      <guid>https://gaospecial.github.io/tags/chocolatey/</guid>
       <description></description>
     </item>
     <item>
       <title>zotero</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/zotero/</link>
+      <link>https://gaospecial.github.io/tags/zotero/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/zotero/</guid>
+      <guid>https://gaospecial.github.io/tags/zotero/</guid>
       <description></description>
     </item>
     <item>
       <title>proxy</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/proxy/</link>
+      <link>https://gaospecial.github.io/tags/proxy/</link>
       <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/proxy/</guid>
+      <guid>https://gaospecial.github.io/tags/proxy/</guid>
       <description></description>
     </item>
     <item>
       <title>anova</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/anova/</link>
+      <link>https://gaospecial.github.io/tags/anova/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/anova/</guid>
+      <guid>https://gaospecial.github.io/tags/anova/</guid>
       <description></description>
     </item>
     <item>
       <title>ggplot2</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ggplot2/</link>
+      <link>https://gaospecial.github.io/tags/ggplot2/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ggplot2/</guid>
+      <guid>https://gaospecial.github.io/tags/ggplot2/</guid>
       <description></description>
     </item>
     <item>
       <title>Death</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/death/</link>
+      <link>https://gaospecial.github.io/tags/death/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/death/</guid>
+      <guid>https://gaospecial.github.io/tags/death/</guid>
       <description></description>
     </item>
     <item>
       <title>Lucilius</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/lucilius/</link>
+      <link>https://gaospecial.github.io/tags/lucilius/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/lucilius/</guid>
+      <guid>https://gaospecial.github.io/tags/lucilius/</guid>
       <description></description>
     </item>
     <item>
       <title>Seneca</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/seneca/</link>
+      <link>https://gaospecial.github.io/tags/seneca/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/seneca/</guid>
+      <guid>https://gaospecial.github.io/tags/seneca/</guid>
       <description></description>
     </item>
     <item>
       <title>ClusterProfiler</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/clusterprofiler/</link>
+      <link>https://gaospecial.github.io/tags/clusterprofiler/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/clusterprofiler/</guid>
+      <guid>https://gaospecial.github.io/tags/clusterprofiler/</guid>
       <description></description>
     </item>
     <item>
       <title>data.frame</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/data.frame/</link>
+      <link>https://gaospecial.github.io/tags/data.frame/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/data.frame/</guid>
+      <guid>https://gaospecial.github.io/tags/data.frame/</guid>
       <description></description>
     </item>
     <item>
       <title>directlabel</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/directlabel/</link>
+      <link>https://gaospecial.github.io/tags/directlabel/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/directlabel/</guid>
+      <guid>https://gaospecial.github.io/tags/directlabel/</guid>
       <description></description>
     </item>
     <item>
       <title>ggrepel</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ggrepel/</link>
+      <link>https://gaospecial.github.io/tags/ggrepel/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ggrepel/</guid>
+      <guid>https://gaospecial.github.io/tags/ggrepel/</guid>
       <description></description>
     </item>
     <item>
       <title>hisat2</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/hisat2/</link>
+      <link>https://gaospecial.github.io/tags/hisat2/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/hisat2/</guid>
+      <guid>https://gaospecial.github.io/tags/hisat2/</guid>
       <description></description>
     </item>
     <item>
       <title>ht-seq</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ht-seq/</link>
+      <link>https://gaospecial.github.io/tags/ht-seq/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ht-seq/</guid>
+      <guid>https://gaospecial.github.io/tags/ht-seq/</guid>
       <description></description>
     </item>
     <item>
       <title>tibble</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/tibble/</link>
+      <link>https://gaospecial.github.io/tags/tibble/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/tibble/</guid>
+      <guid>https://gaospecial.github.io/tags/tibble/</guid>
       <description></description>
     </item>
     <item>
       <title>PHP</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/php/</link>
+      <link>https://gaospecial.github.io/tags/php/</link>
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/php/</guid>
+      <guid>https://gaospecial.github.io/tags/php/</guid>
       <description></description>
     </item>
     <item>
       <title>网站建设 WEBSITE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE-website/</link>
+      <link>https://gaospecial.github.io/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE-website/</link>
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE-website/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE-website/</guid>
       <description></description>
     </item>
     <item>
       <title>信息技术 INFORMATICS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/</link>
       <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF-informatics/</guid>
       <description></description>
     </item>
     <item>
       <title>enrichplot</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/enrichplot/</link>
+      <link>https://gaospecial.github.io/tags/enrichplot/</link>
       <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/enrichplot/</guid>
+      <guid>https://gaospecial.github.io/tags/enrichplot/</guid>
       <description></description>
     </item>
     <item>
       <title>RT-PCR</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rt-pcr/</link>
+      <link>https://gaospecial.github.io/tags/rt-pcr/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rt-pcr/</guid>
+      <guid>https://gaospecial.github.io/tags/rt-pcr/</guid>
       <description></description>
     </item>
     <item>
       <title>PCA</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/pca/</link>
+      <link>https://gaospecial.github.io/tags/pca/</link>
       <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/pca/</guid>
+      <guid>https://gaospecial.github.io/tags/pca/</guid>
       <description></description>
     </item>
     <item>
       <title>阿里云</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
+      <link>https://gaospecial.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</guid>
+      <guid>https://gaospecial.github.io/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</guid>
       <description></description>
     </item>
     <item>
       <title>原创教程 TUTORIAL</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B-tutorial/</link>
+      <link>https://gaospecial.github.io/tags/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B-tutorial/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B-tutorial/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B-tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>云计算 CLOUD&#43;</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BA%91%E8%AE%A1%E7%AE%97-cloud&#43;/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97-cloud&#43;/</link>
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BA%91%E8%AE%A1%E7%AE%97-cloud&#43;/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97-cloud&#43;/</guid>
       <description></description>
     </item>
     <item>
       <title>microbial ecology</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/microbial-ecology/</link>
+      <link>https://gaospecial.github.io/tags/microbial-ecology/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/microbial-ecology/</guid>
+      <guid>https://gaospecial.github.io/tags/microbial-ecology/</guid>
       <description></description>
     </item>
     <item>
       <title>NMDS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/nmds/</link>
+      <link>https://gaospecial.github.io/tags/nmds/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/nmds/</guid>
+      <guid>https://gaospecial.github.io/tags/nmds/</guid>
       <description></description>
     </item>
     <item>
       <title>PCoA</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/pcoa/</link>
+      <link>https://gaospecial.github.io/tags/pcoa/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/pcoa/</guid>
+      <guid>https://gaospecial.github.io/tags/pcoa/</guid>
       <description></description>
     </item>
     <item>
       <title>ecology</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ecology/</link>
+      <link>https://gaospecial.github.io/tags/ecology/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ecology/</guid>
+      <guid>https://gaospecial.github.io/tags/ecology/</guid>
       <description></description>
     </item>
     <item>
       <title>ssh</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ssh/</link>
+      <link>https://gaospecial.github.io/tags/ssh/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ssh/</guid>
+      <guid>https://gaospecial.github.io/tags/ssh/</guid>
       <description></description>
     </item>
     <item>
       <title>Ubuntu</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ubuntu/</link>
+      <link>https://gaospecial.github.io/tags/ubuntu/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ubuntu/</guid>
+      <guid>https://gaospecial.github.io/tags/ubuntu/</guid>
       <description></description>
     </item>
     <item>
       <title>virtualBox</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/virtualbox/</link>
+      <link>https://gaospecial.github.io/tags/virtualbox/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/virtualbox/</guid>
+      <guid>https://gaospecial.github.io/tags/virtualbox/</guid>
       <description></description>
     </item>
     <item>
       <title>andriod</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/andriod/</link>
+      <link>https://gaospecial.github.io/tags/andriod/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/andriod/</guid>
+      <guid>https://gaospecial.github.io/tags/andriod/</guid>
       <description></description>
     </item>
     <item>
       <title>Lens</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/lens/</link>
+      <link>https://gaospecial.github.io/tags/lens/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/lens/</guid>
+      <guid>https://gaospecial.github.io/tags/lens/</guid>
       <description></description>
     </item>
     <item>
       <title>Office</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/office/</link>
+      <link>https://gaospecial.github.io/tags/office/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/office/</guid>
+      <guid>https://gaospecial.github.io/tags/office/</guid>
       <description></description>
     </item>
     <item>
       <title>生物软件 BIO-SOFTWARE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E8%BD%AF%E4%BB%B6-bio-software/</link>
+      <link>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E8%BD%AF%E4%BB%B6-bio-software/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E8%BD%AF%E4%BB%B6-bio-software/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E8%BD%AF%E4%BB%B6-bio-software/</guid>
       <description></description>
     </item>
     <item>
       <title>Win10</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/win10/</link>
+      <link>https://gaospecial.github.io/tags/win10/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/win10/</guid>
+      <guid>https://gaospecial.github.io/tags/win10/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/windows/</link>
+      <link>https://gaospecial.github.io/tags/windows/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/windows/</guid>
+      <guid>https://gaospecial.github.io/tags/windows/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows10</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/windows10/</link>
+      <link>https://gaospecial.github.io/tags/windows10/</link>
       <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/windows10/</guid>
+      <guid>https://gaospecial.github.io/tags/windows10/</guid>
       <description></description>
     </item>
     <item>
       <title>Aspera</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/aspera/</link>
+      <link>https://gaospecial.github.io/tags/aspera/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/aspera/</guid>
+      <guid>https://gaospecial.github.io/tags/aspera/</guid>
       <description></description>
     </item>
     <item>
       <title>FTP</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ftp/</link>
+      <link>https://gaospecial.github.io/tags/ftp/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ftp/</guid>
+      <guid>https://gaospecial.github.io/tags/ftp/</guid>
       <description></description>
     </item>
     <item>
       <title>NCBI</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ncbi/</link>
+      <link>https://gaospecial.github.io/tags/ncbi/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ncbi/</guid>
+      <guid>https://gaospecial.github.io/tags/ncbi/</guid>
       <description></description>
     </item>
     <item>
       <title>sra</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sra/</link>
+      <link>https://gaospecial.github.io/tags/sra/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sra/</guid>
+      <guid>https://gaospecial.github.io/tags/sra/</guid>
       <description></description>
     </item>
     <item>
       <title>测序</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%B5%8B%E5%BA%8F/</link>
+      <link>https://gaospecial.github.io/tags/%E6%B5%8B%E5%BA%8F/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%B5%8B%E5%BA%8F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%B5%8B%E5%BA%8F/</guid>
       <description></description>
     </item>
     <item>
       <title>生物信息 BIOINFORMATICS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</link>
+      <link>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</link>
       <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</guid>
       <description></description>
     </item>
     <item>
       <title>作图</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BD%9C%E5%9B%BE/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BD%9C%E5%9B%BE/</link>
       <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BD%9C%E5%9B%BE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BD%9C%E5%9B%BE/</guid>
       <description></description>
     </item>
     <item>
       <title>PowerPoint</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/powerpoint/</link>
+      <link>https://gaospecial.github.io/tags/powerpoint/</link>
       <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/powerpoint/</guid>
+      <guid>https://gaospecial.github.io/tags/powerpoint/</guid>
       <description></description>
     </item>
     <item>
       <title>系统清理</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/</link>
+      <link>https://gaospecial.github.io/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/</link>
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%B3%BB%E7%BB%9F%E6%B8%85%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
       <title>aliyun</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/aliyun/</link>
+      <link>https://gaospecial.github.io/tags/aliyun/</link>
       <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/aliyun/</guid>
+      <guid>https://gaospecial.github.io/tags/aliyun/</guid>
       <description></description>
     </item>
     <item>
       <title>ecs</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ecs/</link>
+      <link>https://gaospecial.github.io/tags/ecs/</link>
       <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ecs/</guid>
+      <guid>https://gaospecial.github.io/tags/ecs/</guid>
       <description></description>
     </item>
     <item>
       <title>Origin</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/origin/</link>
+      <link>https://gaospecial.github.io/tags/origin/</link>
       <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/origin/</guid>
+      <guid>https://gaospecial.github.io/tags/origin/</guid>
       <description></description>
     </item>
     <item>
       <title>BioPerl</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bioperl/</link>
+      <link>https://gaospecial.github.io/tags/bioperl/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bioperl/</guid>
+      <guid>https://gaospecial.github.io/tags/bioperl/</guid>
       <description></description>
     </item>
     <item>
       <title>BioPerl BIOPERL</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bioperl-bioperl/</link>
+      <link>https://gaospecial.github.io/tags/bioperl-bioperl/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bioperl-bioperl/</guid>
+      <guid>https://gaospecial.github.io/tags/bioperl-bioperl/</guid>
       <description></description>
     </item>
     <item>
       <title>GenBank</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/genbank/</link>
+      <link>https://gaospecial.github.io/tags/genbank/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/genbank/</guid>
+      <guid>https://gaospecial.github.io/tags/genbank/</guid>
       <description></description>
     </item>
     <item>
       <title>GFF3</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gff3/</link>
+      <link>https://gaospecial.github.io/tags/gff3/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gff3/</guid>
+      <guid>https://gaospecial.github.io/tags/gff3/</guid>
       <description></description>
     </item>
     <item>
       <title>RNA-seq</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rna-seq/</link>
+      <link>https://gaospecial.github.io/tags/rna-seq/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rna-seq/</guid>
+      <guid>https://gaospecial.github.io/tags/rna-seq/</guid>
       <description></description>
     </item>
     <item>
       <title>rsem</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rsem/</link>
+      <link>https://gaospecial.github.io/tags/rsem/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rsem/</guid>
+      <guid>https://gaospecial.github.io/tags/rsem/</guid>
       <description></description>
     </item>
     <item>
       <title>author</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/author/</link>
+      <link>https://gaospecial.github.io/tags/author/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/author/</guid>
+      <guid>https://gaospecial.github.io/tags/author/</guid>
       <description></description>
     </item>
     <item>
       <title>biobliography</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/biobliography/</link>
+      <link>https://gaospecial.github.io/tags/biobliography/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/biobliography/</guid>
+      <guid>https://gaospecial.github.io/tags/biobliography/</guid>
       <description></description>
     </item>
     <item>
       <title>csl</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/csl/</link>
+      <link>https://gaospecial.github.io/tags/csl/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/csl/</guid>
+      <guid>https://gaospecial.github.io/tags/csl/</guid>
       <description></description>
     </item>
     <item>
       <title>journal</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/journal/</link>
+      <link>https://gaospecial.github.io/tags/journal/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/journal/</guid>
+      <guid>https://gaospecial.github.io/tags/journal/</guid>
       <description></description>
     </item>
     <item>
       <title>style</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/style/</link>
+      <link>https://gaospecial.github.io/tags/style/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/style/</guid>
+      <guid>https://gaospecial.github.io/tags/style/</guid>
       <description></description>
     </item>
     <item>
       <title>year</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/year/</link>
+      <link>https://gaospecial.github.io/tags/year/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/year/</guid>
+      <guid>https://gaospecial.github.io/tags/year/</guid>
       <description></description>
     </item>
     <item>
       <title>自做自受 DIY</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</link>
+      <link>https://gaospecial.github.io/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</guid>
       <description></description>
     </item>
     <item>
       <title>biom</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/biom/</link>
+      <link>https://gaospecial.github.io/tags/biom/</link>
       <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/biom/</guid>
+      <guid>https://gaospecial.github.io/tags/biom/</guid>
       <description></description>
     </item>
     <item>
       <title>Microbiome</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/microbiome/</link>
+      <link>https://gaospecial.github.io/tags/microbiome/</link>
       <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/microbiome/</guid>
+      <guid>https://gaospecial.github.io/tags/microbiome/</guid>
       <description></description>
     </item>
     <item>
       <title>mothur</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/mothur/</link>
+      <link>https://gaospecial.github.io/tags/mothur/</link>
       <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/mothur/</guid>
+      <guid>https://gaospecial.github.io/tags/mothur/</guid>
       <description></description>
     </item>
     <item>
       <title>QIIME</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/qiime/</link>
+      <link>https://gaospecial.github.io/tags/qiime/</link>
       <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/qiime/</guid>
+      <guid>https://gaospecial.github.io/tags/qiime/</guid>
       <description></description>
     </item>
     <item>
       <title>STAMP</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/stamp/</link>
+      <link>https://gaospecial.github.io/tags/stamp/</link>
       <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/stamp/</guid>
+      <guid>https://gaospecial.github.io/tags/stamp/</guid>
       <description></description>
     </item>
     <item>
       <title>生物学 BIOLOGY</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/</link>
+      <link>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/</link>
       <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%94%9F%E7%89%A9%E5%AD%A6-biology/</guid>
       <description></description>
     </item>
     <item>
       <title>实验方法 METHODS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-methods/</link>
+      <link>https://gaospecial.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-methods/</link>
       <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-methods/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-methods/</guid>
       <description></description>
     </item>
     <item>
       <title>MetaPhlAn</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/metaphlan/</link>
+      <link>https://gaospecial.github.io/tags/metaphlan/</link>
       <pubDate>Sun, 20 Mar 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/metaphlan/</guid>
+      <guid>https://gaospecial.github.io/tags/metaphlan/</guid>
       <description></description>
     </item>
     <item>
       <title>Poverty</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/poverty/</link>
+      <link>https://gaospecial.github.io/tags/poverty/</link>
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/poverty/</guid>
+      <guid>https://gaospecial.github.io/tags/poverty/</guid>
       <description></description>
     </item>
     <item>
       <title>Reading</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/reading/</link>
+      <link>https://gaospecial.github.io/tags/reading/</link>
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/reading/</guid>
+      <guid>https://gaospecial.github.io/tags/reading/</guid>
       <description></description>
     </item>
     <item>
       <title>Thinker</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/thinker/</link>
+      <link>https://gaospecial.github.io/tags/thinker/</link>
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/thinker/</guid>
+      <guid>https://gaospecial.github.io/tags/thinker/</guid>
       <description></description>
     </item>
     <item>
       <title>Wealth</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/wealth/</link>
+      <link>https://gaospecial.github.io/tags/wealth/</link>
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/wealth/</guid>
+      <guid>https://gaospecial.github.io/tags/wealth/</guid>
       <description></description>
     </item>
     <item>
       <title>NGS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ngs/</link>
+      <link>https://gaospecial.github.io/tags/ngs/</link>
       <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ngs/</guid>
+      <guid>https://gaospecial.github.io/tags/ngs/</guid>
       <description></description>
     </item>
     <item>
       <title>alignment</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/alignment/</link>
+      <link>https://gaospecial.github.io/tags/alignment/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/alignment/</guid>
+      <guid>https://gaospecial.github.io/tags/alignment/</guid>
       <description></description>
     </item>
     <item>
       <title>MEGA</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/mega/</link>
+      <link>https://gaospecial.github.io/tags/mega/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/mega/</guid>
+      <guid>https://gaospecial.github.io/tags/mega/</guid>
       <description></description>
     </item>
     <item>
       <title>Phylogeny</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/phylogeny/</link>
+      <link>https://gaospecial.github.io/tags/phylogeny/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/phylogeny/</guid>
+      <guid>https://gaospecial.github.io/tags/phylogeny/</guid>
       <description></description>
     </item>
     <item>
       <title>Tree</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/tree/</link>
+      <link>https://gaospecial.github.io/tags/tree/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/tree/</guid>
+      <guid>https://gaospecial.github.io/tags/tree/</guid>
       <description></description>
     </item>
     <item>
       <title>多序列比对</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</link>
+      <link>https://gaospecial.github.io/tags/%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/</guid>
       <description></description>
     </item>
     <item>
       <title>进化树</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%BF%9B%E5%8C%96%E6%A0%91/</link>
+      <link>https://gaospecial.github.io/tags/%E8%BF%9B%E5%8C%96%E6%A0%91/</link>
       <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%BF%9B%E5%8C%96%E6%A0%91/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%BF%9B%E5%8C%96%E6%A0%91/</guid>
       <description></description>
     </item>
     <item>
       <title>primer</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/primer/</link>
+      <link>https://gaospecial.github.io/tags/primer/</link>
       <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/primer/</guid>
+      <guid>https://gaospecial.github.io/tags/primer/</guid>
       <description></description>
     </item>
     <item>
       <title>primer design</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/primer-design/</link>
+      <link>https://gaospecial.github.io/tags/primer-design/</link>
       <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/primer-design/</guid>
+      <guid>https://gaospecial.github.io/tags/primer-design/</guid>
       <description></description>
     </item>
     <item>
       <title>primer3</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/primer3/</link>
+      <link>https://gaospecial.github.io/tags/primer3/</link>
       <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/primer3/</guid>
+      <guid>https://gaospecial.github.io/tags/primer3/</guid>
       <description></description>
     </item>
     <item>
       <title>assemble</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/assemble/</link>
+      <link>https://gaospecial.github.io/tags/assemble/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/assemble/</guid>
+      <guid>https://gaospecial.github.io/tags/assemble/</guid>
       <description></description>
     </item>
     <item>
       <title>contig</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/contig/</link>
+      <link>https://gaospecial.github.io/tags/contig/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/contig/</guid>
+      <guid>https://gaospecial.github.io/tags/contig/</guid>
       <description></description>
     </item>
     <item>
       <title>ContigExpress</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/contigexpress/</link>
+      <link>https://gaospecial.github.io/tags/contigexpress/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/contigexpress/</guid>
+      <guid>https://gaospecial.github.io/tags/contigexpress/</guid>
       <description></description>
     </item>
     <item>
       <title>NTI</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/nti/</link>
+      <link>https://gaospecial.github.io/tags/nti/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/nti/</guid>
+      <guid>https://gaospecial.github.io/tags/nti/</guid>
       <description></description>
     </item>
     <item>
       <title>BED</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bed/</link>
+      <link>https://gaospecial.github.io/tags/bed/</link>
       <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bed/</guid>
+      <guid>https://gaospecial.github.io/tags/bed/</guid>
       <description></description>
     </item>
     <item>
       <title>GFF</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gff/</link>
+      <link>https://gaospecial.github.io/tags/gff/</link>
       <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gff/</guid>
+      <guid>https://gaospecial.github.io/tags/gff/</guid>
       <description></description>
     </item>
     <item>
       <title>GTF</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gtf/</link>
+      <link>https://gaospecial.github.io/tags/gtf/</link>
       <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gtf/</guid>
+      <guid>https://gaospecial.github.io/tags/gtf/</guid>
       <description></description>
     </item>
     <item>
       <title>perl</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/perl/</link>
+      <link>https://gaospecial.github.io/tags/perl/</link>
       <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/perl/</guid>
+      <guid>https://gaospecial.github.io/tags/perl/</guid>
       <description></description>
     </item>
     <item>
       <title>OSS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/oss/</link>
+      <link>https://gaospecial.github.io/tags/oss/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/oss/</guid>
+      <guid>https://gaospecial.github.io/tags/oss/</guid>
       <description></description>
     </item>
     <item>
       <title>PubMed</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/pubmed/</link>
+      <link>https://gaospecial.github.io/tags/pubmed/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/pubmed/</guid>
+      <guid>https://gaospecial.github.io/tags/pubmed/</guid>
       <description></description>
     </item>
     <item>
       <title>SCI</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sci/</link>
+      <link>https://gaospecial.github.io/tags/sci/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sci/</guid>
+      <guid>https://gaospecial.github.io/tags/sci/</guid>
       <description></description>
     </item>
     <item>
       <title>InbR</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/inbr/</link>
+      <link>https://gaospecial.github.io/tags/inbr/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/inbr/</guid>
+      <guid>https://gaospecial.github.io/tags/inbr/</guid>
       <description></description>
     </item>
     <item>
       <title>publication</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/publication/</link>
+      <link>https://gaospecial.github.io/tags/publication/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/publication/</guid>
+      <guid>https://gaospecial.github.io/tags/publication/</guid>
       <description></description>
     </item>
     <item>
       <title>结核</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%BB%93%E6%A0%B8/</link>
+      <link>https://gaospecial.github.io/tags/%E7%BB%93%E6%A0%B8/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%BB%93%E6%A0%B8/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%BB%93%E6%A0%B8/</guid>
       <description></description>
     </item>
     <item>
       <title>研究进展 PROGRESS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95-progress/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95-progress/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95-progress/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95-progress/</guid>
       <description></description>
     </item>
     <item>
       <title>camera</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/camera/</link>
+      <link>https://gaospecial.github.io/tags/camera/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/camera/</guid>
+      <guid>https://gaospecial.github.io/tags/camera/</guid>
       <description></description>
     </item>
     <item>
       <title>f60fd</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/f60fd/</link>
+      <link>https://gaospecial.github.io/tags/f60fd/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/f60fd/</guid>
+      <guid>https://gaospecial.github.io/tags/f60fd/</guid>
       <description></description>
     </item>
     <item>
       <title>fujifilm</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/fujifilm/</link>
+      <link>https://gaospecial.github.io/tags/fujifilm/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/fujifilm/</guid>
+      <guid>https://gaospecial.github.io/tags/fujifilm/</guid>
       <description></description>
     </item>
     <item>
       <title>repair</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/repair/</link>
+      <link>https://gaospecial.github.io/tags/repair/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/repair/</guid>
+      <guid>https://gaospecial.github.io/tags/repair/</guid>
       <description></description>
     </item>
     <item>
       <title>数码</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E7%A0%81/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%B0%E7%A0%81/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E7%A0%81/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%B0%E7%A0%81/</guid>
       <description></description>
     </item>
     <item>
       <title>相机</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%9B%B8%E6%9C%BA/</link>
+      <link>https://gaospecial.github.io/tags/%E7%9B%B8%E6%9C%BA/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%9B%B8%E6%9C%BA/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%9B%B8%E6%9C%BA/</guid>
       <description></description>
     </item>
     <item>
       <title>挂载</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%8C%82%E8%BD%BD/</link>
+      <link>https://gaospecial.github.io/tags/%E6%8C%82%E8%BD%BD/</link>
       <pubDate>Sun, 23 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%8C%82%E8%BD%BD/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%8C%82%E8%BD%BD/</guid>
       <description></description>
     </item>
     <item>
       <title>apache2</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/apache2/</link>
+      <link>https://gaospecial.github.io/tags/apache2/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/apache2/</guid>
+      <guid>https://gaospecial.github.io/tags/apache2/</guid>
       <description></description>
     </item>
     <item>
       <title>bash</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bash/</link>
+      <link>https://gaospecial.github.io/tags/bash/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bash/</guid>
+      <guid>https://gaospecial.github.io/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>mysql</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/mysql/</link>
+      <link>https://gaospecial.github.io/tags/mysql/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/mysql/</guid>
+      <guid>https://gaospecial.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     <item>
       <title>RDS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rds/</link>
+      <link>https://gaospecial.github.io/tags/rds/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rds/</guid>
+      <guid>https://gaospecial.github.io/tags/rds/</guid>
       <description></description>
     </item>
     <item>
       <title>云数据库</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description></description>
     </item>
     <item>
       <title>SSPACE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sspace/</link>
+      <link>https://gaospecial.github.io/tags/sspace/</link>
       <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sspace/</guid>
+      <guid>https://gaospecial.github.io/tags/sspace/</guid>
       <description></description>
     </item>
     <item>
       <title>错误</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E9%94%99%E8%AF%AF/</link>
+      <link>https://gaospecial.github.io/tags/%E9%94%99%E8%AF%AF/</link>
       <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E9%94%99%E8%AF%AF/</guid>
+      <guid>https://gaospecial.github.io/tags/%E9%94%99%E8%AF%AF/</guid>
       <description></description>
     </item>
     <item>
       <title>生命</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E5%91%BD/</link>
+      <link>https://gaospecial.github.io/tags/%E7%94%9F%E5%91%BD/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E5%91%BD/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%94%9F%E5%91%BD/</guid>
       <description></description>
     </item>
     <item>
       <title>时事 NEWS</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%97%B6%E4%BA%8B-news/</link>
+      <link>https://gaospecial.github.io/tags/%E6%97%B6%E4%BA%8B-news/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%97%B6%E4%BA%8B-news/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%97%B6%E4%BA%8B-news/</guid>
       <description></description>
     </item>
     <item>
       <title>事故</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BA%8B%E6%95%85/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BA%8B%E6%95%85/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BA%8B%E6%95%85/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BA%8B%E6%95%85/</guid>
       <description></description>
     </item>
     <item>
       <title>随笔 NOTE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E9%9A%8F%E7%AC%94-note/</link>
+      <link>https://gaospecial.github.io/tags/%E9%9A%8F%E7%AC%94-note/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E9%9A%8F%E7%AC%94-note/</guid>
+      <guid>https://gaospecial.github.io/tags/%E9%9A%8F%E7%AC%94-note/</guid>
       <description></description>
     </item>
     <item>
       <title>消防</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%B6%88%E9%98%B2/</link>
+      <link>https://gaospecial.github.io/tags/%E6%B6%88%E9%98%B2/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%B6%88%E9%98%B2/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%B6%88%E9%98%B2/</guid>
       <description></description>
     </item>
     <item>
       <title>自己 SPRING</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E5%B7%B1-spring/</link>
+      <link>https://gaospecial.github.io/tags/%E8%87%AA%E5%B7%B1-spring/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E5%B7%B1-spring/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%87%AA%E5%B7%B1-spring/</guid>
       <description></description>
     </item>
     <item>
       <title>Nature</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/nature/</link>
+      <link>https://gaospecial.github.io/tags/nature/</link>
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/nature/</guid>
+      <guid>https://gaospecial.github.io/tags/nature/</guid>
       <description></description>
     </item>
     <item>
       <title>Time</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/time/</link>
+      <link>https://gaospecial.github.io/tags/time/</link>
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/time/</guid>
+      <guid>https://gaospecial.github.io/tags/time/</guid>
       <description></description>
     </item>
     <item>
       <title>教育</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%99%E8%82%B2/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%99%E8%82%B2/</link>
       <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%99%E8%82%B2/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%99%E8%82%B2/</guid>
       <description></description>
     </item>
     <item>
       <title>言论 VOICE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%A8%80%E8%AE%BA-voice/</link>
+      <link>https://gaospecial.github.io/tags/%E8%A8%80%E8%AE%BA-voice/</link>
       <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%A8%80%E8%AE%BA-voice/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%A8%80%E8%AE%BA-voice/</guid>
       <description></description>
     </item>
     <item>
       <title>apache</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/apache/</link>
+      <link>https://gaospecial.github.io/tags/apache/</link>
       <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/apache/</guid>
+      <guid>https://gaospecial.github.io/tags/apache/</guid>
       <description></description>
     </item>
     <item>
       <title>linux</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/linux/</link>
+      <link>https://gaospecial.github.io/tags/linux/</link>
       <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/linux/</guid>
+      <guid>https://gaospecial.github.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>fastq</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/fastq/</link>
+      <link>https://gaospecial.github.io/tags/fastq/</link>
       <pubDate>Tue, 21 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/fastq/</guid>
+      <guid>https://gaospecial.github.io/tags/fastq/</guid>
       <description></description>
     </item>
     <item>
       <title>formats</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/formats/</link>
+      <link>https://gaospecial.github.io/tags/formats/</link>
       <pubDate>Tue, 21 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/formats/</guid>
+      <guid>https://gaospecial.github.io/tags/formats/</guid>
       <description></description>
     </item>
     <item>
       <title>格式</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%A0%BC%E5%BC%8F/</link>
+      <link>https://gaospecial.github.io/tags/%E6%A0%BC%E5%BC%8F/</link>
       <pubDate>Tue, 21 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%A0%BC%E5%BC%8F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%A0%BC%E5%BC%8F/</guid>
       <description></description>
     </item>
     <item>
       <title>bowtie</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bowtie/</link>
+      <link>https://gaospecial.github.io/tags/bowtie/</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bowtie/</guid>
+      <guid>https://gaospecial.github.io/tags/bowtie/</guid>
       <description></description>
     </item>
     <item>
       <title>dna sequences</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/dna-sequences/</link>
+      <link>https://gaospecial.github.io/tags/dna-sequences/</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/dna-sequences/</guid>
+      <guid>https://gaospecial.github.io/tags/dna-sequences/</guid>
       <description></description>
     </item>
     <item>
       <title>gedit</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gedit/</link>
+      <link>https://gaospecial.github.io/tags/gedit/</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gedit/</guid>
+      <guid>https://gaospecial.github.io/tags/gedit/</guid>
       <description></description>
     </item>
     <item>
       <title>seq</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/seq/</link>
+      <link>https://gaospecial.github.io/tags/seq/</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/seq/</guid>
+      <guid>https://gaospecial.github.io/tags/seq/</guid>
       <description></description>
     </item>
     <item>
       <title>SAM</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sam/</link>
+      <link>https://gaospecial.github.io/tags/sam/</link>
       <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sam/</guid>
+      <guid>https://gaospecial.github.io/tags/sam/</guid>
       <description></description>
     </item>
     <item>
       <title>转载 SHARE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AC%E8%BD%BD-share/</link>
+      <link>https://gaospecial.github.io/tags/%E8%BD%AC%E8%BD%BD-share/</link>
       <pubDate>Thu, 16 Aug 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AC%E8%BD%BD-share/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%BD%AC%E8%BD%BD-share/</guid>
       <description></description>
     </item>
     <item>
       <title>blog</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/blog/</link>
+      <link>https://gaospecial.github.io/tags/blog/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/blog/</guid>
+      <guid>https://gaospecial.github.io/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>china</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/china/</link>
+      <link>https://gaospecial.github.io/tags/china/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/china/</guid>
+      <guid>https://gaospecial.github.io/tags/china/</guid>
       <description></description>
     </item>
     <item>
       <title>map</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/map/</link>
+      <link>https://gaospecial.github.io/tags/map/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/map/</guid>
+      <guid>https://gaospecial.github.io/tags/map/</guid>
       <description></description>
     </item>
     <item>
       <title>MATLAB</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/matlab/</link>
+      <link>https://gaospecial.github.io/tags/matlab/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/matlab/</guid>
+      <guid>https://gaospecial.github.io/tags/matlab/</guid>
       <description></description>
     </item>
     <item>
       <title>post</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/post/</link>
+      <link>https://gaospecial.github.io/tags/post/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/post/</guid>
+      <guid>https://gaospecial.github.io/tags/post/</guid>
       <description></description>
     </item>
     <item>
       <title>地图</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%9C%B0%E5%9B%BE/</link>
+      <link>https://gaospecial.github.io/tags/%E5%9C%B0%E5%9B%BE/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%9C%B0%E5%9B%BE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%9C%B0%E5%9B%BE/</guid>
       <description></description>
     </item>
     <item>
       <title>矩阵实验室 MATLAB</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A9%E9%98%B5%E5%AE%9E%E9%AA%8C%E5%AE%A4-matlab/</link>
+      <link>https://gaospecial.github.io/tags/%E7%9F%A9%E9%98%B5%E5%AE%9E%E9%AA%8C%E5%AE%A4-matlab/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A9%E9%98%B5%E5%AE%9E%E9%AA%8C%E5%AE%A4-matlab/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%9F%A9%E9%98%B5%E5%AE%9E%E9%AA%8C%E5%AE%A4-matlab/</guid>
       <description></description>
     </item>
     <item>
       <title>主题</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%B8%BB%E9%A2%98/</link>
+      <link>https://gaospecial.github.io/tags/%E4%B8%BB%E9%A2%98/</link>
       <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%B8%BB%E9%A2%98/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%B8%BB%E9%A2%98/</guid>
       <description></description>
     </item>
     <item>
       <title>firefox</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/firefox/</link>
+      <link>https://gaospecial.github.io/tags/firefox/</link>
       <pubDate>Wed, 14 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/firefox/</guid>
+      <guid>https://gaospecial.github.io/tags/firefox/</guid>
       <description></description>
     </item>
     <item>
       <title>sqlite</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sqlite/</link>
+      <link>https://gaospecial.github.io/tags/sqlite/</link>
       <pubDate>Wed, 14 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sqlite/</guid>
+      <guid>https://gaospecial.github.io/tags/sqlite/</guid>
       <description></description>
     </item>
     <item>
       <title>自然科学 NATURE &amp; SCIENCE</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6-nature-science/</link>
+      <link>https://gaospecial.github.io/tags/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6-nature-science/</link>
       <pubDate>Wed, 14 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6-nature-science/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%A6-nature-science/</guid>
       <description></description>
     </item>
     <item>
       <title>DOI</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/doi/</link>
+      <link>https://gaospecial.github.io/tags/doi/</link>
       <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/doi/</guid>
+      <guid>https://gaospecial.github.io/tags/doi/</guid>
       <description></description>
     </item>
     <item>
       <title>数据挖掘 DATA MINING</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-data-mining/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-data-mining/</link>
       <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-data-mining/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-data-mining/</guid>
       <description></description>
     </item>
     <item>
       <title>正则表达式</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+      <link>https://gaospecial.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
       <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
       <description></description>
     </item>
     <item>
       <title>Flash</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/flash/</link>
+      <link>https://gaospecial.github.io/tags/flash/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/flash/</guid>
+      <guid>https://gaospecial.github.io/tags/flash/</guid>
       <description></description>
     </item>
     <item>
       <title>SP3</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sp3/</link>
+      <link>https://gaospecial.github.io/tags/sp3/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sp3/</guid>
+      <guid>https://gaospecial.github.io/tags/sp3/</guid>
       <description></description>
     </item>
     <item>
       <title>system32</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/system32/</link>
+      <link>https://gaospecial.github.io/tags/system32/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/system32/</guid>
+      <guid>https://gaospecial.github.io/tags/system32/</guid>
       <description></description>
     </item>
     <item>
       <title>故障</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%85%E9%9A%9C/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%85%E9%9A%9C/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%85%E9%9A%9C/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%85%E9%9A%9C/</guid>
       <description></description>
     </item>
     <item>
       <title>没有声音</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3/</link>
+      <link>https://gaospecial.github.io/tags/%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%B2%A1%E6%9C%89%E5%A3%B0%E9%9F%B3/</guid>
       <description></description>
     </item>
     <item>
       <title>声音</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%A3%B0%E9%9F%B3/</link>
+      <link>https://gaospecial.github.io/tags/%E5%A3%B0%E9%9F%B3/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%A3%B0%E9%9F%B3/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%A3%B0%E9%9F%B3/</guid>
       <description></description>
     </item>
     <item>
       <title>系统文件</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</link>
+      <link>https://gaospecial.github.io/tags/%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</link>
       <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6/</guid>
       <description></description>
     </item>
     <item>
       <title>mo</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/mo/</link>
+      <link>https://gaospecial.github.io/tags/mo/</link>
       <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/mo/</guid>
+      <guid>https://gaospecial.github.io/tags/mo/</guid>
       <description></description>
     </item>
     <item>
       <title>po</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/po/</link>
+      <link>https://gaospecial.github.io/tags/po/</link>
       <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/po/</guid>
+      <guid>https://gaospecial.github.io/tags/po/</guid>
       <description></description>
     </item>
     <item>
       <title>poEdit</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/poedit/</link>
+      <link>https://gaospecial.github.io/tags/poedit/</link>
       <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/poedit/</guid>
+      <guid>https://gaospecial.github.io/tags/poedit/</guid>
       <description></description>
     </item>
     <item>
       <title>汉化</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%B1%89%E5%8C%96/</link>
+      <link>https://gaospecial.github.io/tags/%E6%B1%89%E5%8C%96/</link>
       <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%B1%89%E5%8C%96/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%B1%89%E5%8C%96/</guid>
       <description></description>
     </item>
     <item>
       <title>fedora</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/fedora/</link>
+      <link>https://gaospecial.github.io/tags/fedora/</link>
       <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/fedora/</guid>
+      <guid>https://gaospecial.github.io/tags/fedora/</guid>
       <description></description>
     </item>
     <item>
       <title>putty</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/putty/</link>
+      <link>https://gaospecial.github.io/tags/putty/</link>
       <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/putty/</guid>
+      <guid>https://gaospecial.github.io/tags/putty/</guid>
       <description></description>
     </item>
     <item>
       <title>puttygen</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/puttygen/</link>
+      <link>https://gaospecial.github.io/tags/puttygen/</link>
       <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/puttygen/</guid>
+      <guid>https://gaospecial.github.io/tags/puttygen/</guid>
       <description></description>
     </item>
     <item>
       <title>XP</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/xp/</link>
+      <link>https://gaospecial.github.io/tags/xp/</link>
       <pubDate>Wed, 28 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/xp/</guid>
+      <guid>https://gaospecial.github.io/tags/xp/</guid>
       <description></description>
     </item>
     <item>
       <title>隐私</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E9%9A%90%E7%A7%81/</link>
+      <link>https://gaospecial.github.io/tags/%E9%9A%90%E7%A7%81/</link>
       <pubDate>Wed, 28 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E9%9A%90%E7%A7%81/</guid>
+      <guid>https://gaospecial.github.io/tags/%E9%9A%90%E7%A7%81/</guid>
       <description></description>
     </item>
     <item>
       <title>NOD32</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/nod32/</link>
+      <link>https://gaospecial.github.io/tags/nod32/</link>
       <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/nod32/</guid>
+      <guid>https://gaospecial.github.io/tags/nod32/</guid>
       <description></description>
     </item>
     <item>
       <title>win7</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/win7/</link>
+      <link>https://gaospecial.github.io/tags/win7/</link>
       <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/win7/</guid>
+      <guid>https://gaospecial.github.io/tags/win7/</guid>
       <description></description>
     </item>
     <item>
       <title>windows7</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/windows7/</link>
+      <link>https://gaospecial.github.io/tags/windows7/</link>
       <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/windows7/</guid>
+      <guid>https://gaospecial.github.io/tags/windows7/</guid>
       <description></description>
     </item>
     <item>
       <title>套接字</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%A5%97%E6%8E%A5%E5%AD%97/</link>
+      <link>https://gaospecial.github.io/tags/%E5%A5%97%E6%8E%A5%E5%AD%97/</link>
       <pubDate>Tue, 13 Dec 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%A5%97%E6%8E%A5%E5%AD%97/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%A5%97%E6%8E%A5%E5%AD%97/</guid>
       <description></description>
     </item>
     <item>
       <title>柚子茶</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%9F%9A%E5%AD%90%E8%8C%B6/</link>
+      <link>https://gaospecial.github.io/tags/%E6%9F%9A%E5%AD%90%E8%8C%B6/</link>
       <pubDate>Wed, 30 Nov 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%9F%9A%E5%AD%90%E8%8C%B6/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%9F%9A%E5%AD%90%E8%8C%B6/</guid>
       <description></description>
     </item>
     <item>
       <title>读后感</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</link>
+      <link>https://gaospecial.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</link>
       <pubDate>Wed, 09 Nov 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/</guid>
       <description></description>
     </item>
     <item>
       <title>砒霜</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A0%92%E9%9C%9C/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A0%92%E9%9C%9C/</link>
       <pubDate>Wed, 09 Nov 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A0%92%E9%9C%9C/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A0%92%E9%9C%9C/</guid>
       <description></description>
     </item>
     <item>
       <title>张亭栋</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%BC%A0%E4%BA%AD%E6%A0%8B/</link>
+      <link>https://gaospecial.github.io/tags/%E5%BC%A0%E4%BA%AD%E6%A0%8B/</link>
       <pubDate>Wed, 09 Nov 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%BC%A0%E4%BA%AD%E6%A0%8B/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%BC%A0%E4%BA%AD%E6%A0%8B/</guid>
       <description></description>
     </item>
     <item>
       <title>diskusage</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/diskusage/</link>
+      <link>https://gaospecial.github.io/tags/diskusage/</link>
       <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/diskusage/</guid>
+      <guid>https://gaospecial.github.io/tags/diskusage/</guid>
       <description></description>
     </item>
     <item>
       <title>RidNacs</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/ridnacs/</link>
+      <link>https://gaospecial.github.io/tags/ridnacs/</link>
       <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/ridnacs/</guid>
+      <guid>https://gaospecial.github.io/tags/ridnacs/</guid>
       <description></description>
     </item>
     <item>
       <title>磁盘</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A3%81%E7%9B%98/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A3%81%E7%9B%98/</link>
       <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A3%81%E7%9B%98/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A3%81%E7%9B%98/</guid>
       <description></description>
     </item>
     <item>
       <title>工具</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://gaospecial.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     <item>
       <title>mount</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/mount/</link>
+      <link>https://gaospecial.github.io/tags/mount/</link>
       <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/mount/</guid>
+      <guid>https://gaospecial.github.io/tags/mount/</guid>
       <description></description>
     </item>
     <item>
       <title>分区</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%88%86%E5%8C%BA/</link>
+      <link>https://gaospecial.github.io/tags/%E5%88%86%E5%8C%BA/</link>
       <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%88%86%E5%8C%BA/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%88%86%E5%8C%BA/</guid>
       <description></description>
     </item>
     <item>
       <title>硬盘</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A1%AC%E7%9B%98/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A1%AC%E7%9B%98/</link>
       <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A1%AC%E7%9B%98/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A1%AC%E7%9B%98/</guid>
       <description></description>
     </item>
     <item>
       <title>BioEdit</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bioedit/</link>
+      <link>https://gaospecial.github.io/tags/bioedit/</link>
       <pubDate>Wed, 20 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bioedit/</guid>
+      <guid>https://gaospecial.github.io/tags/bioedit/</guid>
       <description></description>
     </item>
     <item>
       <title>TreeView</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/treeview/</link>
+      <link>https://gaospecial.github.io/tags/treeview/</link>
       <pubDate>Wed, 20 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/treeview/</guid>
+      <guid>https://gaospecial.github.io/tags/treeview/</guid>
       <description></description>
     </item>
     <item>
       <title>实验室设备</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%AE%BE%E5%A4%87/</link>
+      <link>https://gaospecial.github.io/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%AE%BE%E5%A4%87/</link>
       <pubDate>Sun, 17 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%AE%BE%E5%A4%87/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E8%AE%BE%E5%A4%87/</guid>
       <description></description>
     </item>
     <item>
       <title>仪器</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BB%AA%E5%99%A8/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BB%AA%E5%99%A8/</link>
       <pubDate>Sun, 17 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BB%AA%E5%99%A8/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BB%AA%E5%99%A8/</guid>
       <description></description>
     </item>
     <item>
       <title>知识</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A5%E8%AF%86/</link>
+      <link>https://gaospecial.github.io/tags/%E7%9F%A5%E8%AF%86/</link>
       <pubDate>Sun, 17 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A5%E8%AF%86/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%9F%A5%E8%AF%86/</guid>
       <description></description>
     </item>
     <item>
       <title>紫外灯</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%B4%AB%E5%A4%96%E7%81%AF/</link>
+      <link>https://gaospecial.github.io/tags/%E7%B4%AB%E5%A4%96%E7%81%AF/</link>
       <pubDate>Sun, 17 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%B4%AB%E5%A4%96%E7%81%AF/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%B4%AB%E5%A4%96%E7%81%AF/</guid>
       <description></description>
     </item>
     <item>
       <title>cygwin</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/cygwin/</link>
+      <link>https://gaospecial.github.io/tags/cygwin/</link>
       <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/cygwin/</guid>
+      <guid>https://gaospecial.github.io/tags/cygwin/</guid>
       <description></description>
     </item>
     <item>
       <title>unxutils</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/unxutils/</link>
+      <link>https://gaospecial.github.io/tags/unxutils/</link>
       <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/unxutils/</guid>
+      <guid>https://gaospecial.github.io/tags/unxutils/</guid>
       <description></description>
     </item>
     <item>
       <title>虚拟机</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <link>https://gaospecial.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
       <pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
       <description></description>
     </item>
     <item>
       <title>movie</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/movie/</link>
+      <link>https://gaospecial.github.io/tags/movie/</link>
       <pubDate>Tue, 21 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/movie/</guid>
+      <guid>https://gaospecial.github.io/tags/movie/</guid>
       <description></description>
     </item>
     <item>
       <title>电影</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%94%B5%E5%BD%B1/</link>
+      <link>https://gaospecial.github.io/tags/%E7%94%B5%E5%BD%B1/</link>
       <pubDate>Tue, 21 Jun 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%94%B5%E5%BD%B1/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%94%B5%E5%BD%B1/</guid>
       <description></description>
     </item>
     <item>
       <title>文献管理</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</link>
+      <link>https://gaospecial.github.io/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</link>
       <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
       <title>SwissProt</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/swissprot/</link>
+      <link>https://gaospecial.github.io/tags/swissprot/</link>
       <pubDate>Mon, 18 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/swissprot/</guid>
+      <guid>https://gaospecial.github.io/tags/swissprot/</guid>
       <description></description>
     </item>
     <item>
       <title>数据挖掘</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</link>
       <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/</guid>
       <description></description>
     </item>
     <item>
       <title>宋词</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%AE%8B%E8%AF%8D/</link>
+      <link>https://gaospecial.github.io/tags/%E5%AE%8B%E8%AF%8D/</link>
       <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%AE%8B%E8%AF%8D/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%AE%8B%E8%AF%8D/</guid>
       <description></description>
     </item>
     <item>
       <title>团队</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%9B%A2%E9%98%9F/</link>
+      <link>https://gaospecial.github.io/tags/%E5%9B%A2%E9%98%9F/</link>
       <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%9B%A2%E9%98%9F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%9B%A2%E9%98%9F/</guid>
       <description></description>
     </item>
     <item>
       <title>转载</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AC%E8%BD%BD/</link>
+      <link>https://gaospecial.github.io/tags/%E8%BD%AC%E8%BD%BD/</link>
       <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AC%E8%BD%BD/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%BD%AC%E8%BD%BD/</guid>
       <description></description>
     </item>
     <item>
       <title>移动硬盘故障</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E6%95%85%E9%9A%9C/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E6%95%85%E9%9A%9C/</link>
       <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E6%95%85%E9%9A%9C/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E6%95%85%E9%9A%9C/</guid>
       <description></description>
     </item>
     <item>
       <title>移动硬盘写保护</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%86%99%E4%BF%9D%E6%8A%A4/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%86%99%E4%BF%9D%E6%8A%A4/</link>
       <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%86%99%E4%BF%9D%E6%8A%A4/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%86%99%E4%BF%9D%E6%8A%A4/</guid>
       <description></description>
     </item>
     <item>
       <title>移动硬盘只读</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%8F%AA%E8%AF%BB/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%8F%AA%E8%AF%BB/</link>
       <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%8F%AA%E8%AF%BB/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%A1%AC%E7%9B%98%E5%8F%AA%E8%AF%BB/</guid>
       <description></description>
     </item>
     <item>
       <title>vi</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/vi/</link>
+      <link>https://gaospecial.github.io/tags/vi/</link>
       <pubDate>Fri, 01 Apr 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/vi/</guid>
+      <guid>https://gaospecial.github.io/tags/vi/</guid>
       <description></description>
     </item>
     <item>
       <title>grep</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/grep/</link>
+      <link>https://gaospecial.github.io/tags/grep/</link>
       <pubDate>Fri, 11 Mar 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/grep/</guid>
+      <guid>https://gaospecial.github.io/tags/grep/</guid>
       <description></description>
     </item>
     <item>
       <title>标准差</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%A0%87%E5%87%86%E5%B7%AE/</link>
+      <link>https://gaospecial.github.io/tags/%E6%A0%87%E5%87%86%E5%B7%AE/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%A0%87%E5%87%86%E5%B7%AE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%A0%87%E5%87%86%E5%B7%AE/</guid>
       <description></description>
     </item>
     <item>
       <title>数据处理</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
+      <link>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
       <title>误差线</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</link>
+      <link>https://gaospecial.github.io/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</guid>
       <description></description>
     </item>
     <item>
       <title>折线图</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%8A%98%E7%BA%BF%E5%9B%BE/</link>
+      <link>https://gaospecial.github.io/tags/%E6%8A%98%E7%BA%BF%E5%9B%BE/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%8A%98%E7%BA%BF%E5%9B%BE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%8A%98%E7%BA%BF%E5%9B%BE/</guid>
       <description></description>
     </item>
     <item>
       <title>柱状图</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E6%9F%B1%E7%8A%B6%E5%9B%BE/</link>
+      <link>https://gaospecial.github.io/tags/%E6%9F%B1%E7%8A%B6%E5%9B%BE/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E6%9F%B1%E7%8A%B6%E5%9B%BE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E6%9F%B1%E7%8A%B6%E5%9B%BE/</guid>
       <description></description>
     </item>
     <item>
       <title>药物</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%8D%AF%E7%89%A9/</link>
+      <link>https://gaospecial.github.io/tags/%E8%8D%AF%E7%89%A9/</link>
       <pubDate>Thu, 17 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%8D%AF%E7%89%A9/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%8D%AF%E7%89%A9/</guid>
       <description></description>
     </item>
     <item>
       <title>研究生</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/</link>
       <pubDate>Wed, 12 Jan 2011 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/</guid>
       <description></description>
     </item>
     <item>
       <title>perldoc</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/perldoc/</link>
+      <link>https://gaospecial.github.io/tags/perldoc/</link>
       <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/perldoc/</guid>
+      <guid>https://gaospecial.github.io/tags/perldoc/</guid>
       <description></description>
     </item>
     <item>
       <title>XML-RPC</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/xml-rpc/</link>
+      <link>https://gaospecial.github.io/tags/xml-rpc/</link>
       <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/xml-rpc/</guid>
+      <guid>https://gaospecial.github.io/tags/xml-rpc/</guid>
       <description></description>
     </item>
     <item>
       <title>博客客户端</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%8D%9A%E5%AE%A2%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
+      <link>https://gaospecial.github.io/tags/%E5%8D%9A%E5%AE%A2%E5%AE%A2%E6%88%B7%E7%AB%AF/</link>
       <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%8D%9A%E5%AE%A2%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%8D%9A%E5%AE%A2%E5%AE%A2%E6%88%B7%E7%AB%AF/</guid>
       <description></description>
     </item>
     <item>
       <title>rename</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/rename/</link>
+      <link>https://gaospecial.github.io/tags/rename/</link>
       <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/rename/</guid>
+      <guid>https://gaospecial.github.io/tags/rename/</guid>
       <description></description>
     </item>
     <item>
       <title>script</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/script/</link>
+      <link>https://gaospecial.github.io/tags/script/</link>
       <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/script/</guid>
+      <guid>https://gaospecial.github.io/tags/script/</guid>
       <description></description>
     </item>
     <item>
       <title>脚本</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%84%9A%E6%9C%AC/</link>
+      <link>https://gaospecial.github.io/tags/%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%84%9A%E6%9C%AC/</guid>
       <description></description>
     </item>
     <item>
       <title>重命名</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E9%87%8D%E5%91%BD%E5%90%8D/</link>
+      <link>https://gaospecial.github.io/tags/%E9%87%8D%E5%91%BD%E5%90%8D/</link>
       <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E9%87%8D%E5%91%BD%E5%90%8D/</guid>
+      <guid>https://gaospecial.github.io/tags/%E9%87%8D%E5%91%BD%E5%90%8D/</guid>
       <description></description>
     </item>
     <item>
       <title>Cell封面图片</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/cell%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/</link>
+      <link>https://gaospecial.github.io/tags/cell%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/</link>
       <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/cell%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://gaospecial.github.io/tags/cell%E5%B0%81%E9%9D%A2%E5%9B%BE%E7%89%87/</guid>
       <description></description>
     </item>
     <item>
       <title>LWP</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/lwp/</link>
+      <link>https://gaospecial.github.io/tags/lwp/</link>
       <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/lwp/</guid>
+      <guid>https://gaospecial.github.io/tags/lwp/</guid>
       <description></description>
     </item>
     <item>
       <title>imagemagick</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/imagemagick/</link>
+      <link>https://gaospecial.github.io/tags/imagemagick/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/imagemagick/</guid>
+      <guid>https://gaospecial.github.io/tags/imagemagick/</guid>
       <description></description>
     </item>
     <item>
       <title>resize</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/resize/</link>
+      <link>https://gaospecial.github.io/tags/resize/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/resize/</guid>
+      <guid>https://gaospecial.github.io/tags/resize/</guid>
       <description></description>
     </item>
     <item>
       <title>火灾</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%81%AB%E7%81%BE/</link>
+      <link>https://gaospecial.github.io/tags/%E7%81%AB%E7%81%BE/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%81%AB%E7%81%BE/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%81%AB%E7%81%BE/</guid>
       <description></description>
     </item>
     <item>
       <title>上海</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%B8%8A%E6%B5%B7/</link>
+      <link>https://gaospecial.github.io/tags/%E4%B8%8A%E6%B5%B7/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%B8%8A%E6%B5%B7/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%B8%8A%E6%B5%B7/</guid>
       <description></description>
     </item>
     <item>
       <title>压缩图片</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</link>
+      <link>https://gaospecial.github.io/tags/%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87/</guid>
       <description></description>
     </item>
     <item>
       <title>压缩照片</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%8E%8B%E7%BC%A9%E7%85%A7%E7%89%87/</link>
+      <link>https://gaospecial.github.io/tags/%E5%8E%8B%E7%BC%A9%E7%85%A7%E7%89%87/</link>
       <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%8E%8B%E7%BC%A9%E7%85%A7%E7%89%87/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%8E%8B%E7%BC%A9%E7%85%A7%E7%89%87/</guid>
       <description></description>
     </item>
     <item>
       <title>GScribble</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gscribble/</link>
+      <link>https://gaospecial.github.io/tags/gscribble/</link>
       <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gscribble/</guid>
+      <guid>https://gaospecial.github.io/tags/gscribble/</guid>
       <description></description>
     </item>
     <item>
       <title>gtkhtml2</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/gtkhtml2/</link>
+      <link>https://gaospecial.github.io/tags/gtkhtml2/</link>
       <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/gtkhtml2/</guid>
+      <guid>https://gaospecial.github.io/tags/gtkhtml2/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/python/</link>
+      <link>https://gaospecial.github.io/tags/python/</link>
       <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/python/</guid>
+      <guid>https://gaospecial.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Bio-Rad</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/bio-rad/</link>
+      <link>https://gaospecial.github.io/tags/bio-rad/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/bio-rad/</guid>
+      <guid>https://gaospecial.github.io/tags/bio-rad/</guid>
       <description></description>
     </item>
     <item>
       <title>iQ5</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/iq5/</link>
+      <link>https://gaospecial.github.io/tags/iq5/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/iq5/</guid>
+      <guid>https://gaospecial.github.io/tags/iq5/</guid>
       <description></description>
     </item>
     <item>
       <title>Opticon Monitor</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/opticon-monitor/</link>
+      <link>https://gaospecial.github.io/tags/opticon-monitor/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/opticon-monitor/</guid>
+      <guid>https://gaospecial.github.io/tags/opticon-monitor/</guid>
       <description></description>
     </item>
     <item>
       <title>伯乐</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E4%BC%AF%E4%B9%90/</link>
+      <link>https://gaospecial.github.io/tags/%E4%BC%AF%E4%B9%90/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E4%BC%AF%E4%B9%90/</guid>
+      <guid>https://gaospecial.github.io/tags/%E4%BC%AF%E4%B9%90/</guid>
       <description></description>
     </item>
     <item>
       <title>矩阵</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A9%E9%98%B5/</link>
+      <link>https://gaospecial.github.io/tags/%E7%9F%A9%E9%98%B5/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%9F%A9%E9%98%B5/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%9F%A9%E9%98%B5/</guid>
       <description></description>
     </item>
     <item>
       <title>向量</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E5%90%91%E9%87%8F/</link>
+      <link>https://gaospecial.github.io/tags/%E5%90%91%E9%87%8F/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E5%90%91%E9%87%8F/</guid>
+      <guid>https://gaospecial.github.io/tags/%E5%90%91%E9%87%8F/</guid>
       <description></description>
     </item>
     <item>
       <title>Software</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/software/</link>
+      <link>https://gaospecial.github.io/tags/software/</link>
       <pubDate>Wed, 04 Mar 2009 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/software/</guid>
+      <guid>https://gaospecial.github.io/tags/software/</guid>
       <description></description>
     </item>
     <item>
       <title>科学研究</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Thu, 25 Sep 2008 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6/</guid>
       <description></description>
     </item>
     <item>
       <title>软件分享</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
+      <link>https://gaospecial.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</link>
       <pubDate>Sat, 20 Sep 2008 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</guid>
+      <guid>https://gaospecial.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/</guid>
       <description></description>
     </item>
     <item>
       <title>研究</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6/</link>
+      <link>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Thu, 11 Sep 2008 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://gaospecial.github.io/tags/%E7%A0%94%E7%A9%B6/</guid>
       <description></description>
     </item>
     <item>
       <title>appendix</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/appendix/</link>
+      <link>https://gaospecial.github.io/tags/appendix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/appendix/</guid>
+      <guid>https://gaospecial.github.io/tags/appendix/</guid>
       <description></description>
     </item>
     <item>
       <title>citation</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/citation/</link>
+      <link>https://gaospecial.github.io/tags/citation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/citation/</guid>
+      <guid>https://gaospecial.github.io/tags/citation/</guid>
       <description></description>
     </item>
     <item>
       <title>menu</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/menu/</link>
+      <link>https://gaospecial.github.io/tags/menu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/menu/</guid>
+      <guid>https://gaospecial.github.io/tags/menu/</guid>
       <description></description>
     </item>
     <item>
       <title>numbered section</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/numbered-section/</link>
+      <link>https://gaospecial.github.io/tags/numbered-section/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/numbered-section/</guid>
+      <guid>https://gaospecial.github.io/tags/numbered-section/</guid>
       <description></description>
     </item>
     <item>
       <title>sidenote</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/sidenote/</link>
+      <link>https://gaospecial.github.io/tags/sidenote/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/sidenote/</guid>
+      <guid>https://gaospecial.github.io/tags/sidenote/</guid>
       <description></description>
     </item>
     <item>
       <title>TOC</title>
-      <link>https://gaospecial.github.io/bio-spring/tags/toc/</link>
+      <link>https://gaospecial.github.io/tags/toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/tags/toc/</guid>
+      <guid>https://gaospecial.github.io/tags/toc/</guid>
       <description></description>
     </item>
   </channel>

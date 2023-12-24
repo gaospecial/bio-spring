@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BED on BIO-SPRING</title>
-    <link>https://gaospecial.github.io/bio-spring/tags/bed/</link>
+    <link>https://gaospecial.github.io/tags/bed/</link>
     <description>Recent content in BED on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 14 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://gaospecial.github.io/bio-spring/tags/bed/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/tags/bed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Genbank to BED converter</title>
-      <link>https://gaospecial.github.io/bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+      <link>https://gaospecial.github.io/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
       <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+      <guid>https://gaospecial.github.io/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
       <description>Like the previous Genbank -&amp;gt; GTF converter, this script is also depended on BioPerl, so you need firstly get the module installed in your system (Install BioPerl). To check whether BioPerl is ready, just refer to this post: bio-spring.top/check-bioperl/ .&#xA;SYNOPSIS gb2bed.pl [options] filename&#xA;Options:&#xA;&amp;ndash;help -h display this message&#xA;&amp;ndash;input -i NCBI GenBank file&#xA;&amp;ndash;out -o filename of bed output. [STDOUT]&#xA;&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to &amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.</description>
     </item>
   </channel>

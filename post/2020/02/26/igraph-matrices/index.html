@@ -32,27 +32,27 @@ https://blog.csdn.net/u013066730/article/details/57462299
       </li>
       
       <li>
-        <a href="/bio-spring/">Home</a>
+        <a href="/">Home</a>
       </li>
       
       <li>
-        <a href="/bio-spring/post/">Blog Post</a>
+        <a href="/post/">Blog Post</a>
       </li>
       
       <li>
-        <a href="/bio-spring/publication/full-publication-list/">Publication</a>
+        <a href="/publication/full-publication-list/">Publication</a>
       </li>
       
       <li>
-        <a href="/bio-spring/work/">Work</a>
+        <a href="/work/">Work</a>
       </li>
       
       <li>
-        <a href="/bio-spring/cv/">CV</a>
+        <a href="/cv/">CV</a>
       </li>
       
       <li id="menu-search">
-        <a href="/bio-spring/#">Search</a>
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -110,7 +110,7 @@ m
 g1 &lt;- graph_from_incidence_matrix(m,directed = TRUE,mode = &quot;out&quot;) 
 plot(g1)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <p>上面的矩阵通过矩阵叉乘可以得到不同的邻接矩阵，用于生成新的网络。</p>
 <h2 id="矩阵和向量的计算">矩阵和向量的计算</h2>
 <p>矩阵的点乘就是矩阵各个对应元素相乘, 这个时候要求两个矩阵必须同样大小。</p>
@@ -187,7 +187,7 @@ m2
 par(mar=c(1,1,1,1))
 plot(g2,layout=layout_with_kk)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <p>若文献A和文献B引用了相同的参考文献，则它们之间构成耦合关系（coupling）。
 它们所包含相同参考文献的个数成为耦合强度。
 如果两篇文献同时引用了1篇文献，则耦合度为1；若同时引用了3篇文献，则耦合度为3。
@@ -206,7 +206,7 @@ m3
 par(mar=c(1,1,1,1))
 plot(g3)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <p>从文献耦合的概念上看，一个文献引用的参考文献越多，
 那么它将有越多的机会与其它文献建立耦合关系。
 为了消除这种影响，通常需要对原始数据使用 Jaccard 或 Salton 方法进行标准化处理，
@@ -263,7 +263,7 @@ success &lt;- lapply(seq_along(m3_list), function(x){
     plot(main=method[[x]])
 })
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 <p>乍看上去，生成的网络是一样的，但事实上边的属性不一样。
 如果我们把边的宽度映射到“weight”属性，则仍然可以发现文献B和C之间的耦合关系是最强的。</p>
 <pre><code class="language-r">par(mfrow=c(2,3))
@@ -274,12 +274,12 @@ success &lt;- lapply(seq_along(m3_list), function(x){
   plot(g3_weighted, main=method[[x]])
 })
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 <p>对于耦合网络来说，图中的 loop 是没有意义的。可以使用 <code>igraph::simplify()</code> 来去掉。</p>
 <pre><code class="language-r">g4 &lt;- simplify(g3, remove.multiple = FALSE, remove.loops = TRUE)
 plot(g4)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2020/02/26/igraph-matrices/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 </div>
 </main>
@@ -329,14 +329,14 @@ plot(g4)
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2020). igraph matrices. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/</code></pre>
+  <pre><code>gaoch (2020). igraph matrices. BIO-SPRING. https://gaospecial.github.io/post/2020/02/26/igraph-matrices/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "igraph matrices",
   author = "gaoch",
   year = "2020",
   journal = "BIO-SPRING",
-  note = "https://gaospecial.github.io/bio-spring/post/2020/02/26/igraph-matrices/"
+  note = "https://gaospecial.github.io/post/2020/02/26/igraph-matrices/"
 }</code></pre>
 </div>
 
@@ -345,9 +345,9 @@ plot(g4)
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="/bio-spring/post/2020/02/26/igraph-make-graph/" title=下一篇&#32;(旧)>igraph: 生成网络</a></span>
+  <span class="nav-next">&larr; <a href="/post/2020/02/26/igraph-make-graph/" title=下一篇&#32;(旧)>igraph: 生成网络</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/bio-spring/post/2020/04/12/normal-distribution-transformation/" title=上一篇&#32;(新)>正态分布的转换</a> &rarr;</span>
+  <span class="nav-prev"><a href="/post/2020/04/12/normal-distribution-transformation/" title=上一篇&#32;(新)>正态分布的转换</a> &rarr;</span>
 </nav>
 
 
@@ -444,15 +444,15 @@ if (!doNotTrack) {
   <ul>
     
     <li>
-      <a href="/bio-spring/404.html">Contact</a>
+      <a href="/404.html">Contact</a>
     </li>
     
     <li class="optional">
-      <a href="/bio-spring/categories/">Categories</a>
+      <a href="/categories/">Categories</a>
     </li>
     
     <li class="optional">
-      <a href="/bio-spring/tags/">Tags</a>
+      <a href="/tags/">Tags</a>
     </li>
     
     <li id="menu-edit">

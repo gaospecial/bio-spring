@@ -33,27 +33,27 @@ ggVennDiagram(gene_list, category.names = c(&quot;a very long name&quot;,&quot;s
       </li>
       
       <li>
-        <a href="/bio-spring/">Home</a>
+        <a href="/">Home</a>
       </li>
       
       <li>
-        <a href="/bio-spring/post/">Blog Post</a>
+        <a href="/post/">Blog Post</a>
       </li>
       
       <li>
-        <a href="/bio-spring/publication/full-publication-list/">Publication</a>
+        <a href="/publication/full-publication-list/">Publication</a>
       </li>
       
       <li>
-        <a href="/bio-spring/work/">Work</a>
+        <a href="/work/">Work</a>
       </li>
       
       <li>
-        <a href="/bio-spring/cv/">CV</a>
+        <a href="/cv/">CV</a>
       </li>
       
       <li id="menu-search">
-        <a href="/bio-spring/#">Search</a>
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -85,19 +85,19 @@ Chun-Hui Gao
 </div>
 
 <div class="article">
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-binding/plotly.js"></script>
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/typedarray/typedarray.min.js"></script>
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/jquery/jquery.min.js"></script>
-<link href="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-main/plotly-latest.min.js"></script>
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-binding/plotly.js"></script>
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/typedarray/typedarray.min.js"></script>
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/jquery/jquery.min.js"></script>
+<link href="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/plotly-main/plotly-latest.min.js"></script>
 <p><code>ggVennDiagram</code> 是一个用于绘制 Venn 图的 R 语言软件包。最初，我只是在需要画 Venn
 图的时候，发现没有一件趁手的工具，而最终不得不写了一个给自己用的工具。随后，
 抱着试一试的态度发布到了 GitHub 和 CRAN 上面。结果引起了用户持续的关注和好评，
 截止今日已经获得了超过 100 个小星星。</p>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <p>在 CRAN 上面也已经被累计下载了 2 万多次了。</p>
 <p><a href="https://cran.r-project.org/package=ggVennDiagram"><img src="http://cranlogs.r-pkg.org/badges/grand-total/ggVennDiagram" alt=""></a>
 <a href="https://cran.r-project.org/package=ggVennDiagram"><img src="https://www.r-pkg.org/badges/version/ggVennDiagram?color=green" alt=""></a></p>
@@ -124,7 +124,7 @@ library(ggVennDiagram)
               set_size = 6) +
   scale_x_continuous(expand = expansion(mult = .2))
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 <h2 id="显示区域中的成员">显示区域中的成员</h2>
 <p>我们使用 <code>plotly</code> 对区域成员进行了可视化，现在鼠标悬停即可以查看区域成员。
 同时，也支持将成员打印出来。</p>
@@ -138,23 +138,23 @@ library(ggVennDiagram)
 <h2 id="设定区域标签的内容颜色和大小">设定区域标签的内容、颜色和大小</h2>
 <pre><code class="language-r">ggVennDiagram(gene_list, label = &quot;count&quot;, label_color = &quot;blue&quot;, label_size = 4)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <pre><code class="language-r">ggVennDiagram(gene_list, label = &quot;both&quot;, label_percent_digit = 1, label_size = 3)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <h2 id="设定椭圆的边">设定椭圆的边</h2>
 <pre><code class="language-r">ggVennDiagram(gene_list, edge_lty = &quot;dashed&quot;, edge_size = 1)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <h2 id="换一个配色">换一个配色</h2>
 <p>填充色映射到不同的区域中。</p>
 <pre><code class="language-r">ggVennDiagram(gene_list) + scale_fill_distiller(palette = &quot;RdBu&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <p>线条颜色映射到不同的集合上。</p>
 <pre><code class="language-r">ggVennDiagram(gene_list) + scale_color_brewer(palette = &quot;Set1&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 <h2 id="更多维度的-venn-图">更多维度的 Venn 图</h2>
 <p>通过导入另一个 R 包 <code>venn</code> 中的数据集，将 5-7 维度的 Venn 图画法移植了过来。</p>
 <pre><code class="language-r">genes &lt;- paste0(&quot;gene&quot;,1:1000)
@@ -170,13 +170,13 @@ x &lt;- list(A = sample(genes,100),
 <p>由于是用的不规则多边形，所以这些 Venn 图可能辨别起来会比较费劲，但是乍看上去还是蛮漂亮的。</p>
 <pre><code class="language-r">ggVennDiagram(x, label = &quot;none&quot;, edge_size = 2) + scale_fill_distiller(palette = &quot;RdBu&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 <pre><code class="language-r">ggVennDiagram(x[1:6], label = &quot;none&quot;, edge_size = 2) + scale_fill_distiller(palette = &quot;RdBu&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-2.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-2.png" width="672" />
 <pre><code class="language-r">ggVennDiagram(x[1:5], label = &quot;none&quot;, edge_size = 2) + scale_fill_distiller(palette = &quot;RdBu&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-3.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-11-3.png" width="672" />
 <h2 id="自由定制">自由定制</h2>
 <p><code>ggVennDiagram</code> 将 Venn 图分为了 3 个部分，集合的标签，集合的边缘，集合的交叉，
 分别称为 <code>setLabel</code>，<code>setEdge</code> 和 <code>region</code>。我们所做的主要工作是将繁琐的集合间计算
@@ -195,7 +195,7 @@ ggplot() +
   geom_sf_label(aes(label = count), data = venn_region(data)) +
   theme_void()
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 <p>对于熟悉 <code>ggplot</code> 作图的用户来说，他完全可以任意定制作图的格式。</p>
 <pre><code class="language-r">ggplot() +
   # change mapping of color filling
@@ -208,7 +208,7 @@ ggplot() +
   geom_sf_label(aes(label = name), data = venn_region(data), alpha = 0.5) +  
   theme_void()
 </code></pre>
-<img src="https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/index.zh_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <p>新的 <code>ggVennDiagram</code> 更好用，更优雅。每一个绘制 Venn 图的朋友可能都会用得上。</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
@@ -267,14 +267,14 @@ ggplot() +
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>Chun-Hui Gao (2021). ggVennDiagram 的新生. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/</code></pre>
+  <pre><code>Chun-Hui Gao (2021). ggVennDiagram 的新生. BIO-SPRING. https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "ggVennDiagram 的新生",
   author = "Chun-Hui Gao",
   year = "2021",
   journal = "BIO-SPRING",
-  note = "https://gaospecial.github.io/bio-spring/post/2021/05/08/ggvenndiagram-reborn/"
+  note = "https://gaospecial.github.io/post/2021/05/08/ggvenndiagram-reborn/"
 }</code></pre>
 </div>
 
@@ -283,9 +283,9 @@ ggplot() +
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="/bio-spring/post/2021/04/28/using-renv/" title=下一篇&#32;(旧)>使用 renv</a></span>
+  <span class="nav-next">&larr; <a href="/post/2021/04/28/using-renv/" title=下一篇&#32;(旧)>使用 renv</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/bio-spring/post/2023/08/08/tidy-old-blog-post/" title=上一篇&#32;(新)>整理老文章</a> &rarr;</span>
+  <span class="nav-prev"><a href="/post/2023/08/08/tidy-old-blog-post/" title=上一篇&#32;(新)>整理老文章</a> &rarr;</span>
 </nav>
 
 
@@ -379,15 +379,15 @@ if (!doNotTrack) {
   <ul>
     
     <li>
-      <a href="/bio-spring/404.html">Contact</a>
+      <a href="/404.html">Contact</a>
     </li>
     
     <li class="optional">
-      <a href="/bio-spring/categories/">Categories</a>
+      <a href="/categories/">Categories</a>
     </li>
     
     <li class="optional">
-      <a href="/bio-spring/tags/">Tags</a>
+      <a href="/tags/">Tags</a>
     </li>
     
     <li id="menu-edit">
