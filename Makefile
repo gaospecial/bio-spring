@@ -1,5 +1,5 @@
 site:
-	Rscript --quiet -e "blogdown::build_site(baseURL = 'https://bio-spring.top')"
+	Rscript --quiet -e "blogdown::build_site()"
 
 deploy:
 	make site
