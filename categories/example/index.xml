@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Example on BIO-SPRING</title>
-    <link>https://gaospecial.github.io/categories/example/</link>
+    <link>https://gaospecial.github.io/bio-spring/categories/example/</link>
     <description>Recent content in Example on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 30 Jul 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://gaospecial.github.io/categories/example/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/bio-spring/categories/example/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Letter 4: On The Terrors of Death</title>
-      <link>https://gaospecial.github.io/post/2019/07/30/letter-4/</link>
+      <link>https://gaospecial.github.io/bio-spring/post/2019/07/30/letter-4/</link>
       <pubDate>Tue, 30 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/post/2019/07/30/letter-4/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/post/2019/07/30/letter-4/</guid>
       <description>Keep on as you have begun, and make all possible haste, so that you may have longer enjoyment of an improved mind, one that is at peace with itself.&#xA;Doubtless you will derive enjoyment during the time when you are improving your mind and setting it at peace with itself; but quite different is the pleasure which comes from contemplation when one’s mind is so cleansed from every stain that it shines.</description>
     </item>
   </channel>

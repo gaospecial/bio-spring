@@ -29,27 +29,27 @@ highschool ## from to year ## 1 1 14 1957 ## 2 1 15 1957 ## 3 1 21 1957 ## 4 1 5
       </li>
       
       <li>
-        <a href="/">Home</a>
+        <a href="/bio-spring/">Home</a>
       </li>
       
       <li>
-        <a href="/post/">Blog Post</a>
+        <a href="/bio-spring/post/">Blog Post</a>
       </li>
       
       <li>
-        <a href="/publication/full-publication-list/">Publication</a>
+        <a href="/bio-spring/publication/full-publication-list/">Publication</a>
       </li>
       
       <li>
-        <a href="/work/">Work</a>
+        <a href="/bio-spring/work/">Work</a>
       </li>
       
       <li>
-        <a href="/cv/">CV</a>
+        <a href="/bio-spring/cv/">CV</a>
       </li>
       
       <li id="menu-search">
-        <a href="/#">Search</a>
+        <a href="/bio-spring/#">Search</a>
       </li>
       
     </ul>
@@ -163,7 +163,7 @@ ggraph(graph, layout = 'kk') +
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <p>在这里，分两年显示了学生间的亲密关系，与更多人有联系的同学受欢迎程度更大（Popularity），其节点的大小越大。</p>
 <h2 id="核心概念">核心概念</h2>
 <ul>
@@ -185,13 +185,13 @@ ggraph(graph) +
 </code></pre>
 <pre><code>## Using &quot;stress&quot; as default layout
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <p>在 <code>ggraph()</code> 指定布局的同时还可以添加参数。</p>
 <pre><code class="language-r">ggraph(graph, layout = 'kk', maxiter = 100) + 
   geom_edge_link(aes(colour = factor(year))) + 
   geom_node_point()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <p><code>ggraph()</code> 也可以使用预先计算好的布局。这在自定义布局的时候很有用。</p>
 <pre><code class="language-r">layout &lt;- create_layout(graph, layout = 'eigen')
 </code></pre>
@@ -202,7 +202,7 @@ ggraph(graph) +
   geom_edge_link(aes(colour = factor(year))) + 
   geom_node_point()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <p><code>creat_layout()</code> 的结果是一个数据框，包括 node 的位置和属性。当然，图的其它信息也包含在其中。</p>
 <pre><code class="language-r">head(layout)
 </code></pre>
@@ -271,14 +271,14 @@ ggraph(graph, 'partition') +
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 <h5 id="sunburst-plot">Sunburst plot</h5>
 <pre><code class="language-r"># A sunburst plot
 ggraph(graph, 'partition', circular = TRUE) + 
   geom_node_arc_bar(aes(fill = depth), size = 0.25) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 <h5 id="hive-plot">Hive plot</h5>
 <pre><code class="language-r">graph &lt;- as_tbl_graph(highschool) %&gt;% 
   mutate(degree = centrality_degree())
@@ -293,7 +293,7 @@ ggraph(graph, 'hive', axis = friends, sort.by = degree) +
   geom_axis_hive(aes(colour = friends), size = 2, label = FALSE) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 <h5 id="hierarchical-layouts-分层布局">Hierarchical layouts 分层布局</h5>
 <p>** 关于 flare 数据 **</p>
 <blockquote>
@@ -305,18 +305,18 @@ ggraph(graph, 'circlepack', weight = size) +
   geom_node_circle(aes(fill = depth), size = 0.25, n = 50) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 <pre><code class="language-r">set.seed(1)
 ggraph(graph, 'circlepack', weight = size) + 
   geom_edge_link() + 
   geom_node_point(aes(colour = depth)) +
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 <pre><code class="language-r">ggraph(graph, 'tree') + 
   geom_edge_diagonal()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 <h5 id="matrix-layouts-矩阵布局">Matrix Layouts 矩阵布局</h5>
 <p>矩阵布局可以最大程度上减少边的遮盖。</p>
 <pre><code class="language-r">graph &lt;- create_notable('zachary')
@@ -327,7 +327,7 @@ ggraph(graph, 'matrix', sort.by = node_rank_leafsort()) +
 <pre><code>## Warning in .hclust_helper(x, control): control parameter method is deprecated.
 ## Use linkage instead!
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 <h3 id="nodes-节点">Nodes 节点</h3>
 <p><em>Source：<code>vignettes/Nodes.Rmd</code></em></p>
 <p>节点不见得一定是点，也可以是片。</p>
@@ -336,14 +336,14 @@ ggraph(graph, 'matrix', sort.by = node_rank_leafsort()) +
 ggraph(gr, layout = 'partition') + 
   geom_node_tile(aes(y = -y, fill = depth))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 <p>通过对数据进行变换，可以控制上面的图 <strong>Y 数值取负数</strong>，以及下面的图 <strong>只显示叶片</strong>。</p>
 <pre><code class="language-r">ggraph(gr, layout = 'dendrogram', circular = TRUE) + 
   geom_edge_diagonal() + 
   geom_node_point(aes(filter = leaf)) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 <p>最常用的节点 geoms 是 <code>geom_node_point()</code>, <code>geom_node_text()</code> 和 <code>geom_node_label()</code>。</p>
 <p><code>geom_node_text()</code> 和 <code>geom_node_label()</code> 从 <code>ggrepel</code> 包中取得了 <code>repel</code> 参数，当设为 <code>True</code> 的时候，可以避免文字遮盖。</p>
 <p>此外，<code>geom_node_voronio()</code> 也提供了一种避免遮盖的方案。</p>
@@ -356,7 +356,7 @@ ggraph(graph, 'stress') +
   geom_edge_link() + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 <p>还有一些其它的酷图。</p>
 <pre><code class="language-r">l &lt;- ggraph(gr, layout = 'partition', circular = TRUE)
 
@@ -364,13 +364,13 @@ ggraph(graph, 'stress') +
 l + geom_node_arc_bar(aes(fill = depth)) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 <pre><code class="language-r">## 
 l + geom_edge_diagonal() + 
   geom_node_point(aes(colour = depth)) + 
   coord_fixed()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-20-2.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-20-2.png" width="672" />
 <h3 id="edges">Edges</h3>
 <p>用作者的话说，“边不仅仅是两个点之间的一条线段”。<code>ggraph</code> 提供了系列函数来进行边的可视化。</p>
 <p>首先，准备一下示例数据。</p>
@@ -423,7 +423,7 @@ hairball &lt;- as_tbl_graph(highschool) %&gt;%
 ggraph(hairball, layout = 'stress') + 
   geom_edge_fan(aes(colour = year))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 <pre><code class="language-r">## 平行宇宙
 # let's make some of the student love themselves
 loopy_hairball &lt;- hairball %&gt;% 
@@ -432,7 +432,7 @@ ggraph(loopy_hairball, layout = 'stress') +
   geom_edge_link(aes(colour = year), alpha = 0.25) + 
   geom_edge_loop(aes(colour = year))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-2.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-2.png" width="672" />
 <pre><code class="language-r">## 密度图
 ggraph(hairball, layout = 'stress') + 
   geom_edge_density(aes(fill = year)) + 
@@ -445,19 +445,19 @@ ggraph(hairball, layout = 'stress') +
 ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
 ##   variable into a factor?
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-3.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-22-3.png" width="672" />
 <p>关于上面的密度图，可以显示边类型的密度。在上面的图中，如果 1957 年的居多，则显示为偏红色；如果 1958 年的居多，则显示为偏蓝色。</p>
 <h4 id="斜纹和对角线">斜纹和对角线</h4>
 <pre><code class="language-r">## Diagonals
 ggraph(hierarchy, layout = 'dendrogram', height = height) + 
   geom_edge_diagonal()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 <pre><code class="language-r">## Bends
 ggraph(hierarchy, layout = 'dendrogram', height = height) + 
   geom_edge_bend()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-23-2.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/index.zh_files/figure-html/unnamed-chunk-23-2.png" width="672" />
 <h4 id="设定边的细节">设定边的细节</h4>
 <ul>
 <li>使用箭头。</li>
@@ -661,14 +661,14 @@ ggraph(hierarchy, layout = 'dendrogram', height = height) +
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2019). 一文读懂 ggraph 的使用. BIO-SPRING. https://gaospecial.github.io/post/2019/12/04/ggraph-manual/</code></pre>
+  <pre><code>gaoch (2019). 一文读懂 ggraph 的使用. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "一文读懂 ggraph 的使用",
   author = "gaoch",
   year = "2019",
   journal = "BIO-SPRING",
-  note = "https://gaospecial.github.io/post/2019/12/04/ggraph-manual/"
+  note = "https://gaospecial.github.io/bio-spring/post/2019/12/04/ggraph-manual/"
 }</code></pre>
 </div>
 
@@ -677,9 +677,9 @@ ggraph(hierarchy, layout = 'dendrogram', height = height) +
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="/post/2019/11/10/windows-chocolatey-install-hugo/" title=下一篇&#32;(旧)>Windows中使用Chocolatey包管理系统安装Hugo</a></span>
+  <span class="nav-next">&larr; <a href="/bio-spring/post/2019/11/10/windows-chocolatey-install-hugo/" title=下一篇&#32;(旧)>Windows中使用Chocolatey包管理系统安装Hugo</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/post/2020/02/10/install-sf-classint/" title=上一篇&#32;(新)>Install sf (classInt)</a> &rarr;</span>
+  <span class="nav-prev"><a href="/bio-spring/post/2020/02/10/install-sf-classint/" title=上一篇&#32;(新)>Install sf (classInt)</a> &rarr;</span>
 </nav>
 
 
@@ -776,15 +776,15 @@ if (!doNotTrack) {
   <ul>
     
     <li>
-      <a href="/404.html">Contact</a>
+      <a href="/bio-spring/404.html">Contact</a>
     </li>
     
     <li class="optional">
-      <a href="/categories/">Categories</a>
+      <a href="/bio-spring/categories/">Categories</a>
     </li>
     
     <li class="optional">
-      <a href="/tags/">Tags</a>
+      <a href="/bio-spring/tags/">Tags</a>
     </li>
     
     <li id="menu-edit">

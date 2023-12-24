@@ -41,27 +41,27 @@ ggplot(df,aes(displ,hwy)) &#43; geom_point() &#43; geom_text(aes(label=model),si
       </li>
       
       <li>
-        <a href="/">Home</a>
+        <a href="/bio-spring/">Home</a>
       </li>
       
       <li>
-        <a href="/post/">Blog Post</a>
+        <a href="/bio-spring/post/">Blog Post</a>
       </li>
       
       <li>
-        <a href="/publication/full-publication-list/">Publication</a>
+        <a href="/bio-spring/publication/full-publication-list/">Publication</a>
       </li>
       
       <li>
-        <a href="/work/">Work</a>
+        <a href="/bio-spring/work/">Work</a>
       </li>
       
       <li>
-        <a href="/cv/">CV</a>
+        <a href="/bio-spring/cv/">CV</a>
       </li>
       
       <li id="menu-search">
-        <a href="/#">Search</a>
+        <a href="/bio-spring/#">Search</a>
       </li>
       
     </ul>
@@ -115,21 +115,21 @@ ggplot(df,aes(displ,hwy)) +
   geom_point() + 
   geom_text(aes(label=model))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <p>这种情况下，边缘的字符串会溢出。可以添加<code>hjust=&quot;inward&quot;</code>来避免这一情况。</p>
 <pre><code class="language-r">## hjust=&quot;inward&quot;把左侧的label右对齐，右侧的label左对齐。
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
   geom_text(aes(label=model),hjust=&quot;inward&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <p>但是这种情形仍然会出现point和label重叠的情况。因此需要进一步调节。使用<code>nudge_x</code>和<code>nudge_y</code>可以设置标签显示位置的微小偏移。</p>
 <p>由于标签是水平显示的，左右两侧容易出现溢出，而竖直方向上则一般不会，所以我们将竖直方向设为居中，并微调-0.5，这样就可以保证标签显示比较正常了。</p>
 <pre><code class="language-r">ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
   geom_text(aes(label=model),hjust=&quot;inward&quot;,vjust=&quot;center&quot;,nudge_y = -.5)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 <blockquote>
 <p>hjust, vjust = c(&ldquo;left&rdquo;,&ldquo;right&rdquo;,&ldquo;center&rdquo;,&ldquo;inward&rdquo;,&ldquo;outward&rdquo;);
 nudge_x, nudge_y = value.</p>
@@ -140,7 +140,7 @@ nudge_x, nudge_y = value.</p>
   geom_text(aes(label=model),size=12,hjust=&quot;inward&quot;,vjust=&quot;center&quot;,nudge_y = -.5) + 
   xlim(c(0,8))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <p>如上图所示，虽然确保了标签没有溢出，但是同时又会有标签重叠的情况。</p>
 <blockquote>
 <p>也可以参考 vignette(&ldquo;ggplot2-specs&rdquo;) 中的部分内容。</p>
@@ -155,7 +155,7 @@ ggplot(df,aes(displ,hwy)) +
   geom_point() + 
   geom_text_repel(aes(label=model))
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <blockquote>
 <p>更多信息，请参考ggrepel文档中的ggrepel examples</p>
 </blockquote>
@@ -170,20 +170,20 @@ ggplot(df,aes(displ,hwy)) +
   geom_point() + 
   geom_dl(aes(label=model),method = &quot;smart.grid&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 <p>这个smart.grid方法特别适合于point作图中points非常多的情况，避免使用legend，让图片更美观更易读。</p>
 <p>比较一下下面两幅图，显然后者更好。</p>
 <pre><code class="language-r">## 使用legend和颜色
 ggplot(mpg,aes(displ,hwy,color=class)) + 
   geom_point()
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 <pre><code class="language-r">## 使用label和颜色
 ggplot(mpg,aes(displ,hwy,color=class)) + 
   geom_point(show.legend=F) + 
   geom_dl(aes(label=class),method=&quot;smart.grid&quot;)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-2.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-2.png" width="672" />
 <blockquote>
 <p>geom_dl这里有一个method参数，可以有“last.points”，“first.points”，“top.qp”，“first.qp”，“last.qp”，“smart.grid”等不同选择。针对不同的绘图类型会有不同的可选项。</p>
 </blockquote>
@@ -197,13 +197,13 @@ ggplot(df,aes(displ,hwy)) +
   geom_point() + 
   geom_text(aes(label=model),check_overlap=T)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <pre><code class="language-r">## mpg数据集含有234行数据
 ggplot(mpg,aes(displ,hwy)) + 
   geom_point() + 
   geom_text(aes(label=model),check_overlap=T)
 </code></pre>
-<img src="https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-2.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-2.png" width="672" />
 <p>这个参数，label少的时候用不上，label多的时候也不能随便用。食之无味，弃之可惜。鸡肋啊~~</p>
 
 </div>
@@ -254,14 +254,14 @@ ggplot(mpg,aes(displ,hwy)) +
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2019). ggplot label placement. BIO-SPRING. https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/</code></pre>
+  <pre><code>gaoch (2019). ggplot label placement. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "ggplot label placement",
   author = "gaoch",
   year = "2019",
   journal = "BIO-SPRING",
-  note = "https://gaospecial.github.io/post/2019/07/17/ggplot-label-placement/"
+  note = "https://gaospecial.github.io/bio-spring/post/2019/07/17/ggplot-label-placement/"
 }</code></pre>
 </div>
 
@@ -270,9 +270,9 @@ ggplot(mpg,aes(displ,hwy)) +
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="/post/2019/07/17/tibble-data-frame-group/" title=下一篇&#32;(旧)>Tibble与Data.frame中的group</a></span>
+  <span class="nav-next">&larr; <a href="/bio-spring/post/2019/07/17/tibble-data-frame-group/" title=下一篇&#32;(旧)>Tibble与Data.frame中的group</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/post/2019/07/30/letter-4/" title=上一篇&#32;(新)>Letter 4: On The Terrors of Death</a> &rarr;</span>
+  <span class="nav-prev"><a href="/bio-spring/post/2019/07/30/letter-4/" title=上一篇&#32;(新)>Letter 4: On The Terrors of Death</a> &rarr;</span>
 </nav>
 
 
@@ -366,15 +366,15 @@ if (!doNotTrack) {
   <ul>
     
     <li>
-      <a href="/404.html">Contact</a>
+      <a href="/bio-spring/404.html">Contact</a>
     </li>
     
     <li class="optional">
-      <a href="/categories/">Categories</a>
+      <a href="/bio-spring/categories/">Categories</a>
     </li>
     
     <li class="optional">
-      <a href="/tags/">Tags</a>
+      <a href="/bio-spring/tags/">Tags</a>
     </li>
     
     <li id="menu-edit">

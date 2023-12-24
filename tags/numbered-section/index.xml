@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>numbered section on BIO-SPRING</title>
-    <link>https://gaospecial.github.io/tags/numbered-section/</link>
+    <link>https://gaospecial.github.io/bio-spring/tags/numbered-section/</link>
     <description>Recent content in numbered section on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="https://gaospecial.github.io/tags/numbered-section/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/bio-spring/tags/numbered-section/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Hugo Prose</title>
-      <link>https://gaospecial.github.io/about/about.en/</link>
+      <link>https://gaospecial.github.io/bio-spring/about/about.en/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/about/about.en/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/about/about.en/</guid>
       <description>Hugo Prose is a minimalist theme derived from the XMin theme, and inspired by Wowchemy (previously known as the Academic theme), Distill, and tufte.css. This theme itself is completely plain-text and lightweight, and does not use any icons, images, or emojis.1 By default, the theme only uses two JavaScript libraries, MathJax and highlight.js, and they are loaded only when necessary. The rest of JavaScript is written from scratch and also relatively short.</description>
     </item>
     <item>
       <title>主题介绍</title>
-      <link>https://gaospecial.github.io/about/about/</link>
+      <link>https://gaospecial.github.io/bio-spring/about/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/about/about/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/about/about/</guid>
       <description>Hugo Prose 是一个非常轻量级的主题，拥有 Wowchemy、Distill 和 tufte.css 的一些特性。这个主题仅使用了文本元素（不含任何图片、图标和表情）。这个主题默认集成了两个 JavaScript 库，分别是 MathJax 和 highlight.js，用于显示数学公式和代码高亮。除此之外，还手打了几行 JavaScript 代码。该主题使用了 300 行自定义的 CSS，没有使用 CSS 库。&#xA;贫穷的不是拥有太少的人，而是渴望拥有更多的人。&#xA;&amp;mdash; 《道德书简》&#xA;本页将介绍该主题的各种功能，供您摆弄。&#xA;网站设置 以下是您可以为基于此主题的网站配置的选项。&#xA;菜单 每个页面的页眉和页脚都有一个菜单。页眉菜单在 config.yaml 中 menu 下面的 header 选项中定义；页脚菜单在 menu 下面的 footer 选项中定义。&#xA;menu: header: - name: Home url: &amp;quot;/&amp;quot; weight: 1 - name: About url: &amp;quot;/about/&amp;quot; weight: 2 footer: - name: Contact url: &amp;quot;/404.html&amp;quot; weight: 1 - name: Categories url: &amp;quot;/categories/&amp;quot; weight: 2 pre: &amp;quot;optional&amp;quot; 菜单项的 url 既可以相对 URL，也可以是外部链接（例如，url: &amp;quot;https://github.</description>
     </item>
   </channel>
