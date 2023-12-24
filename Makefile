@@ -7,3 +7,8 @@ deploy:
 
 clean:
 	rm -rf public
+
+pages:
+	Rscript --quiet -e "blogdown::build_site(baseURL='https://gaospecial.github.io/bio-spring/')"; \
+	cd gh-pages && git rm -r * && cp -r ../public/* . && git add --all && git commit -m "update site" && git push
+
