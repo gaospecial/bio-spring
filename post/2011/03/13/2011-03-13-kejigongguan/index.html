@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="科技“攻关”还是 科技“公关”"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="科技“攻关”还是 科技“公关”"/>
 <meta name="twitter:description" content="委员建议取消科技进步奖 称奖项评审受公关影响_网易新闻中心
 核心提示：日前，全国政协委员邢新称当前有很多项目公关为自己的项目做各种努力，其经常能接到各种“沟通电话”。更有甚者，参评人拿着材料请他“指教”，带来的材料里经常夹着一定的“东西”。邢新说，这是对我人格的侮辱！由此代表委员们建议取消由评审引发的种种评奖。
 南京大学教授高抒委员就当过“疑似”评审专家。但因为是随机抽取的名单，他真正参加评审的次数并不多。每年一到评审季节，有很多人来送钱、送物。这让他感觉很棘手：对方把钱放在信封里送过来，不收也不行，否则人家会认为这个专家太僵硬，不懂人情。
@@ -55,6 +54,10 @@
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -173,6 +176,51 @@ gaoch
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -185,9 +233,20 @@ gaoch
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -195,7 +254,7 @@ gaoch
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

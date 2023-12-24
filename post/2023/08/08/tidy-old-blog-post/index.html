@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="整理老文章"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="整理老文章"/>
 <meta name="twitter:description" content="今天，花时间整理了一下个人网站，主要做了下面这些工作：
 选择了一个主题 hugo-prose。选择这个主题的原因是它足够简单，体积小，而且拥有不少需要的功能。如导航条、网站地图、目录、卡片、版权、引文等。 整理了之前的老文章。删掉了一些完全没有营养的帖子。大多数予以保留，并添加了 slug 标签，调整目录结构。写了一个脚本完成这项工作。 # find all files files = list.files(path = &quot;content/post/&quot;, pattern = stringr::regex(&quot;*.(md|rmd)&quot;, ignore.case = TRUE), full.names = TRUE) lapply(files, function(file){ # retrieve slug from filename filename = basename(file) ext = xfun::file_ext(file) basename = gsub(paste0(&quot;.&quot;, ext), &quot;&quot;, filename) slug = gsub(&quot;[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}-&quot;, &quot;&quot;, basename) # add tags to those posts header = blogdown:::split_yaml_body(xfun::read_utf8(file))[[&#39;yaml_list&#39;]] header$file = file if (is.null(header[[&#39;slug&#39;]])) header$slug = slug if (is.null(header[[&quot;author&quot;]])) header$author = &quot;gaoch&quot; if (header$date &lt; &quot;2008-11-25&quot;){ header$categories = c(&quot;旧文&quot;,&quot;百度空间&quot;) } else if (header$date &lt; &quot;2018-10-17&quot;){ header$categories = c(&quot;旧文&quot;,&quot;WordPress博客&quot;) } do."/>
 
@@ -45,6 +44,10 @@
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -181,11 +184,56 @@ lapply(files, function(file){
 <nav class="post-nav">
   <span class="nav-next">&larr; <a href="/post/2021/05/08/ggvenndiagram-reborn/" title=下一篇&#32;(旧)>ggVennDiagram 的新生</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/post/2023/08/08/standard-blog-post/" title=上一篇&#32;(新)>Standard blog post</a> &rarr;</span>
+  <span class="nav-prev"><a href="/post/2023/08/20/modifying-blogdown-hugo-theme/" title=上一篇&#32;(新)>更改 blogdown 主题</a> &rarr;</span>
 </nav>
 
 
 
+
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
 
 
 </div>
@@ -202,9 +250,20 @@ lapply(files, function(file){
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -216,7 +275,7 @@ lapply(files, function(file){
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

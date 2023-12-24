@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="KISS V0.2 互联网绿色服务器 PHP&#43;MYSQL&#43;APACHE2"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="KISS V0.2 互联网绿色服务器 PHP&#43;MYSQL&#43;APACHE2"/>
 <meta name="twitter:description" content="@ http://hi.baidu.com/3244/blog/item/73fa57907949ea8da877a423%2Ehtml?tn=mozillacncb&amp;
 有人提到0.2版没有包含phpMyAdmin,这里,解释一下,顺带这说一下其他几个DBMS的在线管理工具.
 PostgreSQL的管理工具是phpPgAdmin,最新版本是4.0.1,支持PostgreSQL 8.1.x及以往的版本,官方站点:http://phppgadmin.sourceforge.net/
@@ -53,6 +52,10 @@ EMS系列和DBManager都是商业软件,EMS的Lite版可以免费使用,DBManage
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -176,6 +179,51 @@ Sybase and Oracle) 的支持,:http://www.dbtools.com.br/EN/index.php</p>
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -191,9 +239,20 @@ Sybase and Oracle) 的支持,:http://www.dbtools.com.br/EN/index.php</p>
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -201,7 +260,7 @@ Sybase and Oracle) 的支持,:http://www.dbtools.com.br/EN/index.php</p>
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="海军舰艇具体命名规定"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="海军舰艇具体命名规定"/>
 <meta name="twitter:description" content="海军舰艇具体命名规定简要如下：巡洋舰以行政省（区）或词组命名，驱逐舰、护卫舰以大、中城市命名，核潜艇以“长征”加序号命名，猎潜艇以“县”命名，船坞登陆舰、坦克登陆舰均以“山”命名，步兵登陆舰以“河”命名，补给舰以湖泊命名。
 此外，在中国海军的舰艇方阵中，还有两艘战舰是用历史人物命名的：一艘是远洋航海训练舰“郑和”舰，另一艘是大型国防动员舰“世昌”（清末海军将领，民 族英雄，北洋舰队巡洋舰“致远号”管带邓世昌）舰。沈俊还指出，尽管中国军舰都有自己的舰名，但并不把舰名漆到船舷上，而是根据国际惯例涂上自己的舷号。"/>
 
@@ -45,6 +44,10 @@
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -154,6 +157,51 @@ gaoch
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -166,9 +214,20 @@ gaoch
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -176,7 +235,7 @@ gaoch
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="igraph: 生成网络"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="igraph: 生成网络"/>
 <meta name="twitter:description" content="library(igraph) notable_graph &lt;- c(&quot;Bull&quot;, &quot;Chvatal&quot;, &quot;Coxeter&quot;, &quot;Cubical&quot;, &quot;Diamond&quot;, &quot;Dodecahedral&quot;, &quot;Dodecahedron&quot;, &quot;Folkman&quot;, &quot;Franklin&quot;, &quot;Frucht&quot;, &quot;Grotzsch&quot;, &quot;Heawood&quot;, &quot;Herschel&quot;, &quot;House&quot;, &quot;HouseX&quot;, &quot;Icosahedral&quot;, &quot;Icosahedron&quot;, &quot;Krackhardt kite&quot;, &quot;Levi&quot;, &quot;McGee&quot;, &quot;Meredith&quot;, &quot;Noperfectmatching&quot;, &quot;Nonline&quot;, &quot;Octahedral&quot;, &quot;Octahedron&quot;, &quot;Petersen&quot;, &quot;Robertson&quot;, &quot;Smallestcyclicgroup&quot;, &quot;Tetrahedral&quot;, &quot;Tetrahedron&quot;, &quot;Thomassen&quot;, &quot;Tutte&quot;, &quot;Uniquely3colorable&quot;, &quot;Walther&quot;, &quot;Zachary&quot;) graph &lt;- lapply(notable_graph,make_graph) make_graph() 一共支持 35 个内置图形。
 par(mfrow=c(5,7)) success &lt;- lapply(notable_graph, function(x){ graph &lt;- make_graph(x) par(mar=c(1,1,1,1)) plot(graph, main = x) }) make_star(10) %&gt;% plot make_de_bruijn_graph(3,4) %&gt;% plot make_full_graph(10) %&gt;% plot make_kautz_graph(3,4) %&gt;% plot "/>
 
@@ -45,6 +44,10 @@ par(mfrow=c(5,7)) success &lt;- lapply(notable_graph, function(x){ graph &lt;- m
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -181,6 +184,51 @@ success &lt;- lapply(notable_graph, function(x){
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -193,9 +241,20 @@ success &lt;- lapply(notable_graph, function(x){
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -207,7 +266,7 @@ success &lt;- lapply(notable_graph, function(x){
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

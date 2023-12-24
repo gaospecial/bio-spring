@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>Posts</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,179 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/git/">git</a>
+    
+      <a href="/categories/zotero/"><span>Zotero</span></a>
+    
     </div>
     
+    <h1><a href="/post/2019/11/10/install-zotero-plugin-in-office-365/">在 Office 365 中设置 Zotero 插件</a></h1>
+    <div>
+      <span>2019-11-10</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      刚换新电脑（我的老爷机终于可以退休了）.新电脑新系统，自带Office 365，于是用上了这个版本的 Word。
+Office 365中的 Word 执行常规的Zotero 插件安装无效。
+[&hellip;] https://forums.zotero.org/discussion/74446/zotero-tab-for-office-365-word-is-missing &hellip;
+      <a href="/post/2019/11/10/install-zotero-plugin-in-office-365/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/10/28/r-proxy/">为 R 代理</a></h1>
+    <div>
+      <span>2019-10-28</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      今天想用 scholar 包抓一下自己的 Google Scholar profile，发现不翻墙打不开。
+要设代理，参考了 @GuangchuangYu 发表的一次解决所有代理问题， 却仍然没有解决自己的问题。
+因为我用的是 Windows，proxychains 却只能用于类 Unix 系统。
+经过 3 个小时的探索，终于发现了一个途径，居然比 proxychains 还要简单很多。
+那就是， &hellip;
+      <a href="/post/2019/10/28/r-proxy/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/09/29/git-github-tutorial/">Git 和 GitHub 使用指北</a></h1>
+    <div>
+      <span>2019-09-29</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      今天小丫画图群里在讨论 GitHub 的使用。大家都说GitHub的使用挺简单的，我觉得也是。但是，要找一个比较系统的介绍的话，我还真没找到。所以，说说自己的使用经历吧。这些都是干货。
+我对 GitHub 的使用时间不长，但是觉得真是个好东西。总的来说，特别适合于存放文本文件，例如代码，markdown写成的文档，rmarkdown写成的书等。
+GitHub其实是支持Git版本控制软件的公共仓库， &hellip;
+      <a href="/post/2019/09/29/git-github-tutorial/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
+      <a href="/categories/ggplot2/"><span>ggplot2</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/09/24/anova-turkeyhsd-plotting/">ANOVA &#43; TurkeyHSD 分析及作图</a></h1>
+    <div>
+      <span>2019-09-24</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      先载入一个示例数据。该数据是研究摄入 VC 对小鼠牙齿生长作用的实验结果。VC 给药分成两种方式：VC-给予VC药片；OJ-给予相当量的橙汁。给药的量都包括0.5,1,2等三个梯度。
+从散点图上看，不同给药量之间应该有显著差异。
+data(&quot;ToothGrowth&quot;) head(ToothGrowth) ## len supp dose ## 1 4.2 VC 0.5 ## 2 &hellip;
+      <a href="/post/2019/09/24/anova-turkeyhsd-plotting/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/09/23/basic-stats-in-r/">常用假设检验方法的R语言实现</a></h1>
+    <div>
+      <span>2019-09-23</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      常用的统计方法见下表所示。
+[&hellip;] Mann-Whitney-Wilcoxon检验也被称为Wilcoxon检验。 In statistics, the Mann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney &hellip;
+      <a href="/post/2019/09/23/basic-stats-in-r/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/09/20/rstudio-git-push/">RStudio 中使用 Git push 时要求输入用户名和密码</a></h1>
     <div>
@@ -95,7 +263,6 @@ git remote show origin # Push URL: &hellip;
       <a href="/post/2019/09/20/rstudio-git-push/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -107,11 +274,11 @@ git remote show origin # Push URL: &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/09/19/using-devtools-in-writing-r-pkgs/">使用 devtools 速写 R 包</a></h1>
     <div>
@@ -128,7 +295,6 @@ git remote show origin # Push URL: &hellip;
       <a href="/post/2019/09/19/using-devtools-in-writing-r-pkgs/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -140,11 +306,11 @@ git remote show origin # Push URL: &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/08/26/r-3-6-rstudio-option-error-has-null-value/">升级R到3.6版本后，RStudio使用中出现“option error has NULL value”错误</a></h1>
     <div>
@@ -163,7 +329,6 @@ Preview版本的链接有点不大好找，在这 &hellip;
       <a href="/post/2019/08/26/r-3-6-rstudio-option-error-has-null-value/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -175,11 +340,13 @@ Preview版本的链接有点不大好找，在这 &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/letter/">Letter</a>
-    </div>
     
+      <a href="/categories/letter/"><span>Letter</span></a>
+    
+      <a href="/categories/example/"><span>Example</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/07/30/letter-4/">Letter 4: On The Terrors of Death</a></h1>
     <div>
@@ -196,7 +363,6 @@ Doubtless you will derive enjoyment during the time &hellip;
       <a href="/post/2019/07/30/letter-4/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -208,11 +374,13 @@ Doubtless you will derive enjoyment during the time &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/ggplot2/">ggplot2</a>
-    </div>
     
+      <a href="/categories/ggplot2/"><span>ggplot2</span></a>
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/07/17/ggplot-label-placement/">ggplot label placement</a></h1>
     <div>
@@ -232,175 +400,10 @@ ggplot在绘制label的时候很容易出现字体溢出，位置难以调整的
       <a href="/post/2019/07/17/ggplot-label-placement/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
-    
-    
-    <h1><a href="/post/2019/07/17/tibble-data-frame-group/">Tibble与Data.frame中的group</a></h1>
-    <div>
-      <span>2019-07-17</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      &Topf;ibble 和 Data.frame 一般可以通用，但是 Tibble 中含有的分组信息，如果不注意，有时可能会引起错误。
-[&hellip;] &gt; error_rate_summary # A tibble: 81 x 8 # Groups: enzyme, nps [27] id enzyme nps rep type Error_Rate mean std &lt;fct&gt; &hellip;
-      <a href="/post/2019/07/17/tibble-data-frame-group/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/rna-seq/">RNA-seq</a>
-    </div>
-    
-    
-    <h1><a href="/post/2019/07/17/rna-seq/">原核转录组分析的原理和流程</a></h1>
-    <div>
-      <span>2019-07-17</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      本文是我在华中农业大学JC Bioinformatics 2018暑期生物信息学培训班上的讲义
-[&hellip;] 原核转录组课程讲授利用RNA-seq方法研究细菌基因组中基因表达差异的原理和方法。课程中不仅介绍了RNA-seq生物信息学分析的内容，还对RNA-seq的原理、文库构建等湿实验进行解读。
-为了降低学习门槛，课程中的实例取自公开发表的细菌基因组，但是这不意味着相关原理和方法不能应用于 &hellip;
-      <a href="/post/2019/07/17/rna-seq/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/wordpress/">WordPress</a>
-    </div>
-    
-    
-    <h1><a href="/post/2019/07/08/wordpress-php7/">WordPress内部错误原是PHP7未配置</a></h1>
-    <div>
-      <span>2019-07-08</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      服务器网页显示：内部错误500，在日志文件中：/var/log/apache2/error.log提示以下错误：
-Invalid command &#39;php_value&#39;, perhaps misspelled or defined by a module not included in the server configuration Google了半天，没有查到可用的解决方案。考虑到之前做了服务 &hellip;
-      <a href="/post/2019/07/08/wordpress-php7/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/git/">git</a>
-    </div>
-    
-    
-    <h1><a href="/post/2019/07/08/tencent-dev/">使用腾讯云开发平台代码托管服务</a></h1>
-    <div>
-      <span>2019-07-08</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      腾讯云开发平台几大优势：
-[&hellip;] 对于已有的Git项目，可以通过下列途径关联。
-# 首先在服务器控制面板创建一个同名项目 # 参考这里：https://dev.tencent.com/help/git-import-tencentcloud # 事实上，不用这么麻烦 git remote rm origin git remote add origin &hellip;
-      <a href="/post/2019/07/08/tencent-dev/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    <h1><a href="/post/2019/02/15/2019-02-15-switch-to-disqus/">无缝切换到DISQUS评论系统</a></h1>
-    <div>
-      <span>2019-02-15</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      今天发表评论的时候发现服务器报错HTTP ERROR 405，查了一下Google没发现什么解决办法。索性就坡下驴，转换为DISQUS评论系统。
-在插件中搜索Disqus，安装之。随后在后台菜单侧栏会出现Disqus标签（我在设置里面找了半天会告诉你吗），然后根据向导操作即可。
-安装完成后，自动取代WordPress自带的评论功能，还可以一键导入WordPress已有评论，简直不能太方便。
-OK， &hellip;
-      <a href="/post/2019/02/15/2019-02-15-switch-to-disqus/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
 
 
 
@@ -437,7 +440,6 @@ OK， &hellip;
 
 
 
-
 </main>
 </div>
 
@@ -449,6 +451,17 @@ OK， &hellip;
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -457,7 +470,7 @@ OK， &hellip;
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -494,4 +507,6 @@ OK， &hellip;
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 

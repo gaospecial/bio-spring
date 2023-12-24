@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>Posts</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,216 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
     </div>
     
+    <h1><a href="/post/2011/07/16/2011-07-16-remove-dup-lines/">使用shell删除文本中的重复行</a></h1>
+    <div>
+      <span>2011-07-16</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      使用uniq命令得到不重复的行
+现有文件如下：
+—————————————————
+my friends, chenhong
+my friends, chenhong
+my friends, chenhong
+my teacher, liyong
+my teacher, liyong
+my teacher, liyong
+my father, wuzhongyi
+my father, &hellip;
+      <a href="/post/2011/07/16/2011-07-16-remove-dup-lines/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2011/06/28/2011-06-28-print_china_map/">使用Matlab画中国地图</a></h1>
+    <div>
+      <span>2011-06-28</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      使用Matlab绘制中国地图十分方便，使用Mapping工具箱中的几条命令。
+介绍如下：
+设置坐标轴：setm命令。
+因为地球是圆的，所以地图的绘制涉及到投影的问题，跟普通的2-D或者3-D作图差别明显。setm命令专门用来设置map axis。例如：
+[cc lang=”matlab”]
+ax=worldmap(‘china’); %worldmap命令生成一个map axis，其各项属性可以 &hellip;
+      <a href="/post/2011/06/28/2011-06-28-print_china_map/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2011/06/25/2011-06-25-matlab-colourful-barplot/">在MATLAB中创建色彩绚丽的柱状图</a></h1>
+    <div>
+      <span>2011-06-25</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      首先，看一下效果图。
+默认条件下的柱状图
+漂亮的柱状图
+渐变着色的柱状图
+代码如下：
+[cc lang=”matlab”]
+% 彩色柱状图
+%% 用到的数据
+n = 13;
+Z = rand(n,1);
+%% 默认图片
+bar(Z);
+%% 简单的作图
+% 这个图根据数据列中值的大小着色。每列中的
+% 值越大，颜色越突出
+figure
+h=bar(Z);
+colormap(summer(n)); &hellip;
+      <a href="/post/2011/06/25/2011-06-25-matlab-colourful-barplot/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2011/06/25/2011-06-25-linux-in-windows/">在windows中获得Linux使用环境</a></h1>
+    <div>
+      <span>2011-06-25</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      &hopf;ttp://www.virtualbox.org/
+http://www.cygwin.com/
+http://unxutils.sourceforge.net/
+Linux系统中的一些优越性特别是bash的优越性是windows系统不具备的。然而Linux运行在PC上，却又无法提供如Windows般的优越的用户界面，特别是office之类的常用软件。
+为了同时得到Windows和Linux提供 &hellip;
+      <a href="/post/2011/06/25/2011-06-25-linux-in-windows/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2011/06/21/2011-06-21-jian-dang-wei-ye/">私密：有见地《建党伟业》影评</a></h1>
+    <div>
+      <span>2011-06-21</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      源地址：http://blog.renren.com/GetEntry.do?id=732997367&amp;owner=262715242
+[&hellip;] 《建党伟业》从开拍到现在都没什么好评，全是调侃和负面的言论吧，15号首映，豆瓣出现大面积的1分评分，大家对于这个电影似乎有着一种本能的敌意。有人给我留言说，不会花钱去看马屁片。
+那么这个是不是一个马屁片呢？ &hellip;
+      <a href="/post/2011/06/21/2011-06-21-jian-dang-wei-ye/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2011/05/09/2011-05-09-zotero-dup-remove/">“破解”zotero：打开zotero查找重复的功能</a></h1>
     <div>
@@ -95,7 +300,6 @@
       <a href="/post/2011/05/09/2011-05-09-zotero-dup-remove/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -107,11 +311,13 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
     
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2011/04/18/2011-04-18-biological-databases-ncbi-swissprot/">Biological DataBases: NCBI与SwissProt</a></h1>
     <div>
@@ -131,7 +337,6 @@
       <a href="/post/2011/04/18/2011-04-18-biological-databases-ncbi-swissprot/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -143,11 +348,13 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
     
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2011/04/11/2011-04-11-song-ci-stats/">全宋词词频统计：东风何处是人间</a></h1>
     <div>
@@ -167,7 +374,6 @@
       <a href="/post/2011/04/11/2011-04-11-song-ci-stats/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -179,11 +385,13 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
     
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2011/04/11/2011-04-11-team-members/">团队中的猪, 鸡, 和鹦鹉</a></h1>
     <div>
@@ -205,7 +413,6 @@
       <a href="/post/2011/04/11/2011-04-11-team-members/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -217,11 +424,13 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
     
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2011/04/05/2011-04-05-win7-usb-disk-readonly-error/">Windows7下移动硬盘只读，不能写，处于写保护状态的故障解决办法</a></h1>
     <div>
@@ -238,189 +447,10 @@
       <a href="/post/2011/04/05/2011-04-05-win7-usb-disk-readonly-error/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
-    
-    
-    <h1><a href="/post/2011/04/01/2011-04-01-vi-cheatsheet/">VIM快捷键中英对照图</a></h1>
-    <div>
-      <span>2011-04-01</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      两张VIM快捷键的图，一个是英文原版一个是中文翻译的。
-附加 VI tutorial 完整版。
-http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html
-
-      <a href="/post/2011/04/01/2011-04-01-vi-cheatsheet/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
-    
-    
-    <h1><a href="/post/2011/03/13/2011-03-13-perl-split-join/">Perl中的split函数和join函数：不同的参数书写样式</a></h1>
-    <div>
-      <span>2011-03-13</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      这两个函数其实是一对孪生函数，它们的作用是恰恰相反的。而我，就一直以为这两个函数的用法相同，其实它们是有很大的不同的。
-split的用法
-[&hellip;] split /PATTERN/,EXPR
-[&hellip;] [perl]split(/(?=\w)/, ‘hi there!’);[/perl]
-join的用法
-[&hellip;] join EXPR,LIST
-[&hellip;] &hellip;
-      <a href="/post/2011/03/13/2011-03-13-perl-split-join/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
-    
-    
-    <h1><a href="/post/2011/03/13/2011-03-13-kejigongguan/">科技“攻关”还是 科技“公关”</a></h1>
-    <div>
-      <span>2011-03-13</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      委员建议取消科技进步奖 称奖项评审受公关影响_网易新闻中心
-核心提示：日前，全国政协委员邢新称当前有很多项目公关为自己的项目做各种努力，其经常能接到各种“沟通电话”。更有甚者，参评人拿着材料请他“指教”，带来的材料里经常夹着一定的“东西”。邢新说，这是对我人格的侮辱！由此代表委员们建议取消由评审引发的种种评奖。
-南京大学教授高抒委员就当过“疑似”评审专家。但因为是随机抽取的名单，他真正参加评审的次 &hellip;
-      <a href="/post/2011/03/13/2011-03-13-kejigongguan/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
-    
-    
-    <h1><a href="/post/2011/03/11/2011-03-11-linux-grep-usage/">Linux grep的用法</a></h1>
-    <div>
-      <span>2011-03-11</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      在文件夹中搜索其中的js文件
-[&hellip;] [bash]grep function *.js[/bash]
-在当前文件夹和子文件夹中搜索所有文件
-[bash]grep -d recurse -i ‘function_input’ *[/bash]
-注意，在此处使用*.*和*，结果会有所不同。
-从文件中读取**Pattern**
-[bash]grep -f pattern_file &hellip;
-      <a href="/post/2011/03/11/2011-03-11-linux-grep-usage/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
-    </div>
-    
-    
-    <h1><a href="/post/2011/02/19/2011-02-19-matlab-cleanup/">matlab 怎样去掉矩阵中的零元素</a></h1>
-    <div>
-      <span>2011-02-19</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      
-      <a href="/post/2011/02/19/2011-02-19-matlab-cleanup/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
 
 
 
@@ -457,7 +487,6 @@ join的用法
 
 
 
-
 </main>
 </div>
 
@@ -469,6 +498,17 @@ join的用法
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -477,7 +517,7 @@ join的用法
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -514,4 +554,6 @@ join的用法
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 

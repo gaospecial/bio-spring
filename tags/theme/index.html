@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="theme"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="theme"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>theme</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,48 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/%E6%97%A7%E6%96%87/">旧文</a>
+    
+      <a href="/categories/blogdown/"><span>blogdown</span></a>
+    
     </div>
     
+    <h1><a href="/post/2023/08/20/modifying-blogdown-hugo-theme/">更改 blogdown 主题</a></h1>
+    <div>
+      <span>2023-08-20</span>
+      <span>Chun-Hui Gao</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      &Hopf;ugo Prose 主题中，网站主页的元素是通过 /themes/hugo-prose/layouts/_default/list.html 生成的。
+有几个地方想改一下：
+[&hellip;] 显示卡片时，标题统一放在左边。原来左一下右一下看起来有点多余。
+[&hellip;] 显示 blog post 时，以一句话标题显示，不使用小卡片的形式。
+[&hellip;] {{ if &hellip;
+      <a href="/post/2023/08/20/modifying-blogdown-hugo-theme/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
     
     <h1><a href="/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/">使用poEdit汉化wordpress插件、主题攻略</a></h1>
     <div>
@@ -96,13 +133,10 @@
       <a href="/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-
 
 
 
@@ -121,6 +155,17 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -129,7 +174,7 @@
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -166,4 +211,6 @@
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 

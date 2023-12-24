@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>Posts</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,169 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/git/">git</a>
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
     </div>
     
+    <h1><a href="/post/2019/07/17/tibble-data-frame-group/">Tibble与Data.frame中的group</a></h1>
+    <div>
+      <span>2019-07-17</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      &Topf;ibble 和 Data.frame 一般可以通用，但是 Tibble 中含有的分组信息，如果不注意，有时可能会引起错误。
+[&hellip;] &gt; error_rate_summary # A tibble: 81 x 8 # Groups: enzyme, nps [27] id enzyme nps rep type Error_Rate mean std &lt;fct&gt; &hellip;
+      <a href="/post/2019/07/17/tibble-data-frame-group/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/rna-seq/"><span>RNA-seq</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/07/17/rna-seq/">原核转录组分析的原理和流程</a></h1>
+    <div>
+      <span>2019-07-17</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      本文是我在华中农业大学JC Bioinformatics 2018暑期生物信息学培训班上的讲义
+[&hellip;] 原核转录组课程讲授利用RNA-seq方法研究细菌基因组中基因表达差异的原理和方法。课程中不仅介绍了RNA-seq生物信息学分析的内容，还对RNA-seq的原理、文库构建等湿实验进行解读。
+为了降低学习门槛，课程中的实例取自公开发表的细菌基因组，但是这不意味着相关原理和方法不能应用于 &hellip;
+      <a href="/post/2019/07/17/rna-seq/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/wordpress/"><span>WordPress</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/07/08/wordpress-php7/">WordPress内部错误原是PHP7未配置</a></h1>
+    <div>
+      <span>2019-07-08</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      服务器网页显示：内部错误500，在日志文件中：/var/log/apache2/error.log提示以下错误：
+Invalid command &#39;php_value&#39;, perhaps misspelled or defined by a module not included in the server configuration Google了半天，没有查到可用的解决方案。考虑到之前做了服务 &hellip;
+      <a href="/post/2019/07/08/wordpress-php7/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
+    
+    <h1><a href="/post/2019/07/08/tencent-dev/">使用腾讯云开发平台代码托管服务</a></h1>
+    <div>
+      <span>2019-07-08</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      腾讯云开发平台几大优势：
+[&hellip;] 对于已有的Git项目，可以通过下列途径关联。
+# 首先在服务器控制面板创建一个同名项目 # 参考这里：https://dev.tencent.com/help/git-import-tencentcloud # 事实上，不用这么麻烦 git remote rm origin git remote add origin &hellip;
+      <a href="/post/2019/07/08/tencent-dev/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <h1><a href="/post/2019/02/15/2019-02-15-switch-to-disqus/">无缝切换到DISQUS评论系统</a></h1>
+    <div>
+      <span>2019-02-15</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      今天发表评论的时候发现服务器报错HTTP ERROR 405，查了一下Google没发现什么解决办法。索性就坡下驴，转换为DISQUS评论系统。
+在插件中搜索Disqus，安装之。随后在后台菜单侧栏会出现Disqus标签（我在设置里面找了半天会告诉你吗），然后根据向导操作即可。
+安装完成后，自动取代WordPress自带的评论功能，还可以一键导入WordPress已有评论，简直不能太方便。
+OK， &hellip;
+      <a href="/post/2019/02/15/2019-02-15-switch-to-disqus/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/12/29/private-git-server/">设置私有 Git 服务器</a></h1>
     <div>
@@ -95,7 +253,6 @@
       <a href="/post/2018/12/29/private-git-server/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -107,11 +264,11 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/ggplot2/">ggplot2</a>
-    </div>
     
+      <a href="/categories/ggplot2/"><span>ggplot2</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/11/26/enrichplot-fancy-label/">在enrichplot中使用更好的Label</a></h1>
     <div>
@@ -128,7 +285,6 @@
       <a href="/post/2018/11/26/enrichplot-fancy-label/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -140,11 +296,11 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/11/20/comparing-dissimilarity-index/">比较不同差异系数的结果</a></h1>
     <div>
@@ -161,7 +317,6 @@ library(vegan) library(pheatmap) library(cowplot) data(&quot;varespec&quot;) dis
       <a href="/post/2018/11/20/comparing-dissimilarity-index/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -173,11 +328,13 @@ library(vegan) library(pheatmap) library(cowplot) data(&quot;varespec&quot;) dis
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/ggplot2/">ggplot2</a>
-    </div>
     
+      <a href="/categories/ggplot2/"><span>ggplot2</span></a>
+    
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/11/13/rt-pcr-data-visualization-one/">RT-PCR数据可视化之一</a></h1>
     <div>
@@ -194,7 +351,6 @@ library(vegan) library(pheatmap) library(cowplot) data(&quot;varespec&quot;) dis
       <a href="/post/2018/11/13/rt-pcr-data-visualization-one/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -206,11 +362,11 @@ library(vegan) library(pheatmap) library(cowplot) data(&quot;varespec&quot;) dis
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/11/02/comparison-of-two-pca-methods/">比较 stats::procmp() 和 vegan::rda() 两种方法</a></h1>
     <div>
@@ -228,180 +384,10 @@ library(vegan) library(pheatmap) library(cowplot) data(&quot;varespec&quot;) dis
       <a href="/post/2018/11/02/comparison-of-two-pca-methods/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
-    
-    
-    <h1><a href="/post/2018/10/24/donot-use-the-git-gui-of-rstudio/">不要在RStudio中使用Git GUI</a></h1>
-    <div>
-      <span>2018-10-24</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      有一个数据分析的小项目，使用Git记录分析过程。
-在添加了一些文件、删除了一些文件之后，在RStudio的Git标签页下面点击复选框Stage，界面失去响应。反复重启，仍然如此。
-上网查了一下，确实很多人吐槽类似的问题。
-不过，在当前Git目录下打开Git GUI使用，一切正常。
-RStudio的Git GUI性能确实比较差。
-
-      <a href="/post/2018/10/24/donot-use-the-git-gui-of-rstudio/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    <h1><a href="/post/2018/10/23/2018-10-23-setup-ssl-in-aliyun/">三分钟在阿里云中用上免费SSL</a></h1>
-    <div>
-      <span>2018-10-23</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      给自己的网站添加SSL证书其实并不复杂，但是关键一点就是首先要拥有一个SSL证书。由于SSL证书价格不菲，很多个人站长会选择放弃使用Https。但是，自从开源、免费的Let’s Encrypt证书出现后，我觉得SSL也是我们草根站长可以玩的了。 https://blog.csdn.net/ithomer/article/details/78075006
-[&hellip;] &hellip;
-      <a href="/post/2018/10/23/2018-10-23-setup-ssl-in-aliyun/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
-    
-    
-    <h1><a href="/post/2018/10/22/ordination-analysis-in-r/">常见排序分析方法及R语言实现</a></h1>
-    <div>
-      <span>2018-10-22</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      相信大家在做微生物多样性研究时经常听到PCA分析、PCoA分析，NMDS分析，CCA分析，RDA分析。它们对物种（或基因、功能）的分析具有重要作用，因而频频出现在16S测序及宏基因组测序中。以上分析本质上都属于排序分析（Ordination analysis）。
-排序分析（ordination analysis），最早是生态学（ecology）中研究群落（communities）的一大类多元分析手 &hellip;
-      <a href="/post/2018/10/22/ordination-analysis-in-r/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
-    
-    
-    <h1><a href="/post/2018/10/22/plot-pca-using-ggplot2/">排序分析结果作图</a></h1>
-    <div>
-      <span>2018-10-22</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      &lopf;ibrary(vegan) ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.6-4 data(&quot;varespec&quot;) pca &lt;- rda(varespec) 首先看一下结果：
-summary(pca) ## ## Call: ## rda(X = varespec) ## ## &hellip;
-      <a href="/post/2018/10/22/plot-pca-using-ggplot2/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    
-    <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
-    
-    
-    <h1><a href="/post/2018/10/17/bray-curtis-dissimilarity/">Bray Curtis Dissimilarity</a></h1>
-    <div>
-      <span>2018-10-17</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      本文介绍 Bray Curtis Dissimilarity 的概念和计算方法。
-Bray Curtis Dissimilarity（Bray-Curtis 相异度）是生态学中用来衡量不同样地物种组成差异的参数。
-其定义和计算公式为：
-$$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
-其中：
-[&hellip;] 有两个水族箱：
-[&hellip;] &hellip;
-      <a href="/post/2018/10/17/bray-curtis-dissimilarity/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
 
 
 
@@ -438,7 +424,6 @@ $$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
 
 
 
-
 </main>
 </div>
 
@@ -450,6 +435,17 @@ $$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -458,7 +454,7 @@ $$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -495,4 +491,6 @@ $$BC_{ij}=1-2C_{ij}/(S_{i}+S_{j})$$
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 

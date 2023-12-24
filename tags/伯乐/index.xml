@@ -6,20 +6,14 @@
     <description>Recent content in 伯乐 on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 22 Oct 2010 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%E4%BC%AF%E4%B9%90/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/%E4%BC%AF%E4%B9%90/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bio-Rad iQ5 vs. Opticon Monitor</title>
       <link>/post/2010/10/22/2010-10-22-bio-rad-iq5-vs-opticon-monitor/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
-      
       <guid>/post/2010/10/22/2010-10-22-bio-rad-iq5-vs-opticon-monitor/</guid>
-      <description>使用 Bio-Rad 两款RT-PCR产品的评价
-最近做了两次RT-PCR实验，实验所用的仪器都是伯乐公司的产品，一个小型点的拥有48孔平板，一个大点的有标准的96孔平板。硬件方面操作不必多说，想不到软件居然也不一样。所以这里单独谈谈软件。这两款软件分别是 iQ5 和 Opticon Monitor 。
-iQ5 的反应缓慢 所用的文件格式很容易损坏 界面也不友好
-Opticon Monitor响应较快 文件格式基于文本文件 界面较友好 但是自动确定的Ct阈值不准确
-同一公司的软件，互补性很强，有点搞笑是不？
-Posted from GScribble.</description>
+      <description>使用 Bio-Rad 两款RT-PCR产品的评价&#xA;最近做了两次RT-PCR实验，实验所用的仪器都是伯乐公司的产品，一个小型点的拥有48孔平板，一个大点的有标准的96孔平板。硬件方面操作不必多说，想不到软件居然也不一样。所以这里单独谈谈软件。这两款软件分别是 iQ5 和 Opticon Monitor 。&#xA;iQ5 的反应缓慢 所用的文件格式很容易损坏 界面也不友好&#xA;Opticon Monitor响应较快 文件格式基于文本文件 界面较友好 但是自动确定的Ct阈值不准确&#xA;同一公司的软件，互补性很强，有点搞笑是不？&#xA;Posted from GScribble.</description>
     </item>
-    
   </channel>
 </rss>

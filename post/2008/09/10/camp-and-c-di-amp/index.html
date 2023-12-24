@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="候选第二信使"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="候选第二信使"/>
 <meta name="twitter:description" content="候选第二信使
 还在不久之前，细菌细胞内的信号传送情景看来似乎是被人遗忘了。特别是传送第二信号的小分子似乎并不常见。它们限于cyclic adenosine 3’,5’-monophosphate (cAMP) ，（即环磷酸腺苷，其功能是发出葡萄糖浓度变化的信号）和guanosine-tetraphosphate (ppGpp) （即 鸟苷四磷酸盐 ，它是在对营养性应激进行反应时产生的 ）。环二核苷酸信号分子 cyclic diguanylic acid (c-di-GMP ，即环二鸟苷酸 ) （其合成受到范围广泛的信号所刺激）现在已经被承认是一种被多种与生物膜形成有关联的细菌所用的第二信使。 在 2008 年 8 月 19 日 刊的一篇 Perspective 中， Römling http://stke.sciencemag.org/cgi/content/abstract/1/33/pe39 着重介绍了一则研究工作 , 该研究表明细菌中存在有另外一个先前未被承认的环二核苷酸信号分子 : 3’-5’-cyclic diadenylic acid or c-di-AMP （即环二腺苷酸）。这一研究显示，在土壤细菌 枯草杆菌中，其 DisA (DNA integrity scanning protein ，即 DNA 完整性审视蛋白，这是细菌在形成孢子时充当 DNA 损伤核查点的一种蛋白 区域具有二腺苷酸环化酶的活性。有趣的是，这种酶活性在当 DisA 与分支 DNA 结合时会消失，这可能是当复制时出现自发性双股 DNA 被打断时所造成的。 c-di-AMP 因而可能充当一种显示 DNA 完整性的信号。在其他细菌和古细菌类蛋白质中存在二腺苷酸环化酶区域表明， c-di-AMP 除了对分支 DNA 之外还充当对多种不同信号进行反应的一种第二信使分子。"/>
 
@@ -45,6 +44,10 @@
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -171,6 +174,51 @@ c-di-AMP 除了对分支 DNA
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -183,9 +231,20 @@ c-di-AMP 除了对分支 DNA
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -193,7 +252,7 @@ c-di-AMP 除了对分支 DNA
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

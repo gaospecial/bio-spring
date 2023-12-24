@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="迈克尔杰克逊因心脏停搏去世终年50岁"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="迈克尔杰克逊因心脏停搏去世终年50岁"/>
 <meta name="twitter:description" content="迈克尔-杰克逊生平简介
 迈克尔-杰克逊全名“迈克尔-约瑟夫-杰克逊”（Michael Joseph Jackson）。1958年8月29日出生于美国印第安纳州（Indiana）的小城盖瑞（Gary），他的父亲约瑟夫与凯瑟琳于1949年结婚，那时 候，年仅21岁的约瑟夫体魄健壮，干劲十足，肩负起了家庭的重担；而18岁的凯瑟琳则是一位贤惠善良的妻子。这对夫妻与其他无数个黑人家庭一样，有着一个 朴素的愿望，那就是生一大堆孩子，然后把他们一个个哺养成人。因此，尽管经常状况并不富裕，但夫妇俩结婚以后，一口气便生了七个孩子，他们分别是：老大： 莫琳，（女）老二：杰基，老三：泰托，老四：杰迈恩，老五：娜托娅（女），老六：马隆，老七：迈克尔。不仅如此，几年后，他们还生下一步了一儿一女，即老 八：兰迪，老九：珍妮特（女）。其中老九珍妮特也成为了一个超级天王歌星。
 约瑟夫出身在阿肯色州的一个路德教牧师家庭，从小就受到严厉的家庭管教。而当他当上父亲以后，也将这种 严格的管教强加于他的孩子身上。他很爱音乐，擅长演奏电吉他，当时经常在一个叫“费肯思”的乐队演出，以赚取一些额外收入，来支撑这个家庭庞大的生活开 支。而作为母亲的凯瑟琳，从小就对音乐表现出强烈的爱好，她不仅会弹钢琴，还会演奏单簧管。
@@ -61,6 +60,10 @@
       
       <li>
         <a href="/cv/">CV</a>
+      </li>
+      
+      <li id="menu-search">
+        <a href="/#">Search</a>
       </li>
       
     </ul>
@@ -214,6 +217,51 @@ Jackson宣称他将重归舞台，进行最后的演出！</p>
 
 
 
+<section class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  
+  };
+  (function() {
+    var inIFrame = function() {
+      var iframe = true;
+      try { iframe = window.self !== window.top; } catch (e) {}
+      return iframe;
+    };
+    if (inIFrame()) return;
+    var disqus_js = '//bio-spring.disqus.com/embed.js';
+    var d = document, s = d.createElement('script');
+    s.src = disqus_js; s.async = true;
+    s.setAttribute('data-timestamp', +new Date());
+    var t = d.getElementById('disqus_thread');
+    var b = false, l = function(scroll) {
+      if (b) return;
+      (d.head || d.body).appendChild(s); b = true;
+      if (scroll) t.scrollIntoView();
+    }
+    s.onerror = function(e) {
+      if (sessionStorage.getItem('failure-note')) return;
+      t.innerText = 'Sorry, but you cannot make comments because Disqus failed to load for some reason. It is known to be blocked in China. If you are sure it is not blocked in your region, please refresh the page. 中国大陆地区读者需要翻墙才能发表评论。';
+      t.style.border = '1px dashed';
+      t.style.padding = '.5em';
+      t.style.background = 'lightyellow';
+      sessionStorage.setItem('failure-note', true);
+    };
+    
+    if (location.hash.match(/^#comment-[0-9]+$/)) return l(true);
+    var c = function() {
+      if (b) return;
+      var rect = t.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) l();
+    };
+    window.addEventListener('load', c);
+    d.addEventListener('scroll', c);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 
 </div>
 
@@ -226,9 +274,20 @@ Jackson宣称他将重归舞台，进行最后的演出！</p>
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
 
 
-<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/combine/npm/@xiee/utils/js/number-sections.min.js,npm/@xiee/utils/js/toc.min.js,npm/@xiee/utils/js/toc-highlight.min.js,npm/@xiee/utils/js/sidenotes.min.js,npm/@xiee/utils/js/right-quote.min.js,npm/@xiee/utils/js/center-img.min.js,npm/@xiee/utils/js/fix-pandoc.min.js,npm/@xiee/utils/js/heading-anchor.min.js" defer></script>
 
 
 
@@ -236,7 +295,7 @@ Jackson宣称他将重归舞台，进行最后的演出！</p>
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>

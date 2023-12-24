@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="git"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="git"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>git</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,44 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/git/">git</a>
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
     </div>
     
+    <h1><a href="/post/2023/09/13/git-add-multiple-remotes/">Git 添加多个 remote</a></h1>
+    <div>
+      <span>2023-09-13</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      在 Git 中设置，从一个源 pull，向多个源 push，实现修改后一键 push 到多个服务器（如 GitHub + Gitee）。
+将 GitHub 作为主源，本地修改同时 push 到 GitHub 和 Gitee。
+git remote add origin git@github.com:user/repository.git git remote set-url --add &hellip;
+      <a href="/post/2023/09/13/git-add-multiple-remotes/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/09/20/rstudio-git-push/">RStudio 中使用 Git push 时要求输入用户名和密码</a></h1>
     <div>
@@ -95,7 +128,6 @@ git remote show origin # Push URL: &hellip;
       <a href="/post/2019/09/20/rstudio-git-push/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -107,11 +139,11 @@ git remote show origin # Push URL: &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/git/">git</a>
-    </div>
     
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
     
     <h1><a href="/post/2019/07/08/tencent-dev/">使用腾讯云开发平台代码托管服务</a></h1>
     <div>
@@ -129,7 +161,6 @@ git remote show origin # Push URL: &hellip;
       <a href="/post/2019/07/08/tencent-dev/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -141,11 +172,11 @@ git remote show origin # Push URL: &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/git/">git</a>
-    </div>
     
+      <a href="/categories/git/"><span>git</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/12/29/private-git-server/">设置私有 Git 服务器</a></h1>
     <div>
@@ -163,7 +194,6 @@ git remote show origin # Push URL: &hellip;
       <a href="/post/2018/12/29/private-git-server/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
@@ -175,11 +205,11 @@ git remote show origin # Push URL: &hellip;
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2018/10/24/donot-use-the-git-gui-of-rstudio/">不要在RStudio中使用Git GUI</a></h1>
     <div>
@@ -200,13 +230,10 @@ RStudio的Git GUI性能确实比较差。
       <a href="/post/2018/10/24/donot-use-the-git-gui-of-rstudio/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-
 
 
 
@@ -225,6 +252,17 @@ RStudio的Git GUI性能确实比较差。
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -233,7 +271,7 @@ RStudio的Git GUI性能确实比较差。
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -270,4 +308,6 @@ RStudio的Git GUI性能确实比较差。
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 

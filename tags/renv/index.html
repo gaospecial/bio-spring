@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/custom.css" />
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="renv"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="renv"/>
 <meta name="twitter:description" content="Chun-Hui Gao&#39;s personal website built through Hugo and blogdown with the hugo-prose theme.
 "/>
 
@@ -47,18 +48,17 @@
         <a href="/cv/">CV</a>
       </li>
       
+      <li id="menu-search">
+        <a href="/#">Search</a>
+      </li>
+      
     </ul>
     </nav>
 
 
 <div class="container list">
 <main>
-
 <h1>renv</h1>
-
-
-
-
 
 
 
@@ -73,11 +73,11 @@
     <tr>
     <td>
     
-    
     <div class="categories">
-      <a href="/categories/r/">R</a>
-    </div>
     
+      <a href="/categories/r/"><span>R</span></a>
+    
+    </div>
     
     <h1><a href="/post/2021/04/28/using-renv/">使用 renv</a></h1>
     <div>
@@ -91,17 +91,14 @@
       
       使用 renv 是为了保证环境的一致。它可以单个项目创建 R 包的管理环境，而不是依赖全局的 R Library。
 R Library 会保存在当前目录下的 renv 目录中，R Session 中的环境变量也会被修改。
-# 本地安装 renv 包install.packages(&quot;renv&quot;)# 记录 renv 的快照renv::snapshot()# 根据快照安装项 &hellip;
+# 本地安装 renv 包 install.packages(&quot;renv&quot;) # 记录 renv 的快照 renv::snapshot() # 根据快照安装项 &hellip;
       <a href="/post/2021/04/28/using-renv/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
-    
     </tr>
     </tbody>
     </table>
   </section>
-
-
 
 
 
@@ -120,6 +117,17 @@ R Library 会保存在当前目录下的 renv 目录中，R Session 中的环境
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-77M8KZTCMR"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-77M8KZTCMR', { 'anonymize_ip': false });
+}
+</script>
+
 
 
 
@@ -128,7 +136,7 @@ R Library 会保存在当前目录下的 renv 目录中，R Session 中的环境
   <div class="footer">
   
   <ul class="copyright">
-    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2009 &ndash; 2023</li>
+    <li>© <a href="https://bio-spring.top">Bio-Spring</a> 2006 &ndash; 2023 <a href="https://beian.miit.gov.cn">豫ICP备2021003240号</a></li>
   </ul>
   
   <ul>
@@ -165,4 +173,6 @@ R Library 会保存在当前目录下的 renv 目录中，R Session 中的环境
   <script src="/js/features.js" defer></script>
   </body>
 </html>
+
+
 
