@@ -100,7 +100,7 @@ fig_height: 4
 <p>统一设置每个图片的宽 6 英寸，高 4 英寸。</p>
 <pre><code class="language-r">plot(pressure)
 </code></pre>
-<img src="bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <ol start="2">
 <li>使用 chunk option</li>
 </ol>
@@ -108,17 +108,17 @@ fig_height: 4
 <pre><code class="language-r">knitr::opts_chunk$set(fig.width=4, fig.height=4)
 plot(pressure)
 </code></pre>
-<img src="bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <p>如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如<code>{r fig2, fig.height = 8, fig.width = 6, fig.align = &quot;center&quot;}</code>。</p>
 <pre><code class="language-r">plot(pressure)
 </code></pre>
-<img src="bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" />
 <p>此外，还有 <code>fig.asp=0.7</code> 和 <code>out.width=&quot;80%&quot;</code> 等参数可供使用。</p>
 <p><strong><code>out.width</code>使用后对于优化手持设备、PDF文件等的显示很有帮助。</strong></p>
 <p>下面的例子与前面相比就是加入了<code>out.width=&quot;80%&quot;</code>的设置，当用手机浏览时可以看到二者的差别。</p>
 <pre><code class="language-r">plot(pressure)
 </code></pre>
-<img src="bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;" />
 <ol start="3">
 <li>使用 Pandoc 的 Markdown 语法</li>
 </ol>
@@ -188,14 +188,14 @@ plot(pressure)
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2020). 在RMarkdown中设定图片大小的方法. BIO-SPRING. bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/</code></pre>
+  <pre><code>gaoch (2020). 在RMarkdown中设定图片大小的方法. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "在RMarkdown中设定图片大小的方法",
   author = "gaoch",
   year = "2020",
   journal = "BIO-SPRING",
-  note = "bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/"
+  note = "https://gaospecial.github.io/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/"
 }</code></pre>
 </div>
 
@@ -204,9 +204,9 @@ plot(pressure)
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="bio-spring/post/2020/04/12/normal-distribution-transformation/" title=下一篇&#32;(旧)>正态分布的转换</a></span>
+  <span class="nav-next">&larr; <a href="/bio-spring/post/2020/04/12/normal-distribution-transformation/" title=下一篇&#32;(旧)>正态分布的转换</a></span>
   &hercon;
-  <span class="nav-prev"><a href="bio-spring/post/2020/11/10/r-markdown-demo/" title=上一篇&#32;(新)>R Markdown Demo</a> &rarr;</span>
+  <span class="nav-prev"><a href="/bio-spring/post/2020/11/10/r-markdown-demo/" title=上一篇&#32;(新)>R Markdown Demo</a> &rarr;</span>
 </nav>
 
 

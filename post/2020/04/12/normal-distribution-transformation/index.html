@@ -98,15 +98,15 @@ gaoch
 normal &lt;- rnorm(100,mean = 5, sd = 2.5)
 plot(normal)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="80%" />
 <pre><code class="language-r"># 从直方图可以看出数据符合正态分布
 hist(normal)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-2.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-2.png" width="80%" />
 <pre><code class="language-r"># 从QQ plot也可以看出来
 qqnorm(normal)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-3.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-1-3.png" width="80%" />
 <p>对正态数据进行平方运算后，直方图显示数据成了左偏的结构。反过来，意味着如果你正在使用的数据与下面的数据分布类似，则可以尝试用开平方的方法来做数据标准化。</p>
 <pre><code class="language-r"># 数据的平方根
 normal_square &lt;- normal ^ 2
@@ -114,21 +114,21 @@ normal_square &lt;- normal ^ 2
 # 现在的直方图
 hist(normal_square)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="80%" />
 <p>对正态数据进行幂值运算后，数值也是一个左偏的分布，但与平方计算的结构有所不同。</p>
 <pre><code class="language-r"># 数据的幂值
 normal_exp &lt;- exp(normal)
 
 hist(normal_exp)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-3-1.png" width="80%" />
 <p>对正态数据进行倒数运算后，数值是一个中间翘起来的分布。</p>
 <pre><code class="language-r"># 数据的幂值
 normal_reciprocal &lt;- 1/normal
 
 hist(normal_reciprocal)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="80%" />
 <p>上述3种方法转换正态分布后，都是正偏态数据（偏度Skewness &gt; 0 ）。</p>
 <img src="https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png" width="60%" />
 <p>如果是负偏态数据，则需要将负偏态资料进行反转，转换为正偏态，然后再参考正偏态分布资料的转换方法进行转换。</p>
@@ -138,17 +138,17 @@ hist(normal_reciprocal)
 normal_square_rev &lt;- max(normal_square)+1-normal_square
 hist(normal_square_rev)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-6-1.png" width="80%" />
 <pre><code class="language-r"># 中度负偏态
 normal_exp_rev &lt;- max(normal_exp)+1-normal_exp
 hist(normal_exp_rev)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="80%" />
 <pre><code class="language-r"># 重度负偏态
 normal_reciprocal_rev &lt;- max(normal_reciprocal) + 1 - normal_reciprocal
 hist(normal_reciprocal_rev)
 </code></pre>
-<img src="bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="80%" />
+<img src="https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="80%" />
 <p><strong>注意事项</strong>：</p>
 <ul>
 <li>不是任何非正态数据都可以进行正态转换；</li>
@@ -208,14 +208,14 @@ hist(normal_reciprocal_rev)
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2020). 正态分布的转换. BIO-SPRING. bio-spring/post/2020/04/12/normal-distribution-transformation/</code></pre>
+  <pre><code>gaoch (2020). 正态分布的转换. BIO-SPRING. https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "正态分布的转换",
   author = "gaoch",
   year = "2020",
   journal = "BIO-SPRING",
-  note = "bio-spring/post/2020/04/12/normal-distribution-transformation/"
+  note = "https://gaospecial.github.io/bio-spring/post/2020/04/12/normal-distribution-transformation/"
 }</code></pre>
 </div>
 
@@ -224,9 +224,9 @@ hist(normal_reciprocal_rev)
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="bio-spring/post/2020/02/26/igraph-matrices/" title=下一篇&#32;(旧)>igraph matrices</a></span>
+  <span class="nav-next">&larr; <a href="/bio-spring/post/2020/02/26/igraph-matrices/" title=下一篇&#32;(旧)>igraph matrices</a></span>
   &hercon;
-  <span class="nav-prev"><a href="bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/" title=上一篇&#32;(新)>在RMarkdown中设定图片大小的方法</a> &rarr;</span>
+  <span class="nav-prev"><a href="/bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/" title=上一篇&#32;(新)>在RMarkdown中设定图片大小的方法</a> &rarr;</span>
 </nav>
 
 

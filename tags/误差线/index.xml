@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>误差线 on BIO-SPRING</title>
-    <link>bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</link>
+    <link>https://gaospecial.github.io/bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/</link>
     <description>Recent content in 误差线 on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 18 Feb 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/bio-spring/tags/%E8%AF%AF%E5%B7%AE%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在MATLAB中创建带有误差线（误差标记）的柱状图</title>
-      <link>bio-spring/post/2011/02/18/2011-02-18-bar-with-errorbar/</link>
+      <link>https://gaospecial.github.io/bio-spring/post/2011/02/18/2011-02-18-bar-with-errorbar/</link>
       <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
-      <guid>bio-spring/post/2011/02/18/2011-02-18-bar-with-errorbar/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/post/2011/02/18/2011-02-18-bar-with-errorbar/</guid>
       <description>在MATLAB中，使用一个函数errorbar来定义图形中的误差线。可以用于折线图，柱状图等各种图形。实例如下：&#xA;[cc lang=”matlab”]&#xA;% 生成示例数据&#xA;x=1:10;&#xA;y=cumsum(randn(1,10));&#xA;lower = y – (rand(1,10));&#xA;upper = y + (rand(1,10));&#xA;% 由于errorbar函数使用相对差值在图形上绘图，所以&#xA;% 需要将绝对差值转变为相对差值。&#xA;L = y – lower;&#xA;U = upper -y;&#xA;% 绘图时需要设定 hold on&#xA;% 柱状图&#xA;clf;&#xA;figure(1);&#xA;hold on;&#xA;bar(x,y);&#xA;% 此处需要隐藏折线&#xA;errorbar(x,y,L,U,’Marker’,’none’,’LineStyle’,’none’);&#xA;% 折线图&#xA;figure(2);&#xA;hold(‘on’);&#xA;plot( x, y);&#xA;errorbar( x, y, L, U);&#xA;[/cc]&#xA;效果如下图所示：&#xA;refer：http://stackoverflow.com/questions/3748310/how-to-define-error-bar-in-matlab</description>
     </item>
   </channel>

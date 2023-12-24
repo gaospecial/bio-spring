@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>shell on BIO-SPRING</title>
-    <link>bio-spring/tags/shell/</link>
+    <link>https://gaospecial.github.io/bio-spring/tags/shell/</link>
     <description>Recent content in shell on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="bio-spring/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://gaospecial.github.io/bio-spring/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Makefile 怎么写</title>
-      <link>bio-spring/post/2023/12/24/makefile-howto/</link>
+      <link>https://gaospecial.github.io/bio-spring/post/2023/12/24/makefile-howto/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>bio-spring/post/2023/12/24/makefile-howto/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/post/2023/12/24/makefile-howto/</guid>
       <description>示例 当一个目标需要执行多个命令时，可以在 Makefile 中为该目标提供多行命令。每一行命令都必须以制表符开始。以下是一个简单的示例：&#xA;all: clean build run clean: rm -f my_program build: gcc -Wall -o my_program main.c util.c run: ./my_program 在这个示例中：&#xA;all 是默认目标，它依赖于 clean、build 和 run。 clean 目标删除 my_program 可执行文件。 build 目标编译源文件生成可执行文件。 run 目标运行可执行文件。 你可以使用以下命令来执行默认目标 all：&#xA;make 或者直接指定目标：&#xA;make build 当你运行 make 命令时，它将按照依赖关系执行目标，确保每个目标都是最新的。在上面的示例中，all 依赖于 clean、build 和 run，因此这些目标将按照指定的顺序执行。&#xA;注意：在 Makefile 中，确保使用制表符而不是空格，因为 Make 工具对此有特殊的要求。&#xA;添加多个命令 如果你想在 clean 目标中添加多个 Shell 命令，可以将它们放在同一行，并使用分号 ; 将它们分隔。下面是一个示例：&#xA;clean: rm -f my_program; \ rm -f *.o; \ echo &amp;quot;Cleanup complete&amp;quot; 在这个例子中，clean 目标包含三个 Shell 命令。每个命令都以分号 ; 结尾，表示命令的结束。使用 \ 来表示命令在多行上续行。</description>
     </item>
     <item>
       <title>使用shell删除文本中的重复行</title>
-      <link>bio-spring/post/2011/07/16/2011-07-16-remove-dup-lines/</link>
+      <link>https://gaospecial.github.io/bio-spring/post/2011/07/16/2011-07-16-remove-dup-lines/</link>
       <pubDate>Sat, 16 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>bio-spring/post/2011/07/16/2011-07-16-remove-dup-lines/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/post/2011/07/16/2011-07-16-remove-dup-lines/</guid>
       <description>使用uniq命令得到不重复的行&#xA;现有文件如下：&#xA;—————————————————&#xA;my friends, chenhong&#xA;my friends, chenhong&#xA;my friends, chenhong&#xA;my teacher, liyong&#xA;my teacher, liyong&#xA;my teacher, liyong&#xA;my father, wuzhongyi&#xA;my father, wuzhongyi&#xA;my father, wuzhongyi&#xA;my sister, wushiying&#xA;my sister, wushiying&#xA;my sister, wushiying&#xA;—————————————————&#xA;现在欲把文件变成如下：&#xA;—————————————————&#xA;my friends, chenhong&#xA;my teacher, liyong&#xA;my father, wuzhongyi&#xA;my sister, wushiying&#xA;—————————————————&#xA;命令：&#xA;[cc lang=”bash”]uniq file[/cc]&#xA;使用sort和awk删除存在特定列重复的行&#xA;有文件如下：&#xA;———————-&#xA;aa cc dd ee&#xA;11 34 45 22</description>
     </item>
     <item>
       <title>Ubuntu linux下Shell批量重命名文件的实例</title>
-      <link>bio-spring/post/2010/12/12/2010-12-12-rename-multiple-files/</link>
+      <link>https://gaospecial.github.io/bio-spring/post/2010/12/12/2010-12-12-rename-multiple-files/</link>
       <pubDate>Sun, 12 Dec 2010 00:00:00 +0000</pubDate>
-      <guid>bio-spring/post/2010/12/12/2010-12-12-rename-multiple-files/</guid>
+      <guid>https://gaospecial.github.io/bio-spring/post/2010/12/12/2010-12-12-rename-multiple-files/</guid>
       <description>将当前目录下面的php文件全部改写为html文件&#xA;[bash]&#xA;for it in *.php;&#xA;do&#xA;mv $it “$it.pdf”;&#xA;done&#xA;[/bash]&#xA;将文件名中的URL转义字符%2E修正为点号.&#xA;有时候下载的文件名中含有URL的转义字符，如%2E，%2F等&#xA;参见附录：URL转义字符。&#xA;[bash]&#xA;for it in `ls *.pdf|grep “%2E”`;&#xA;do&#xA;mv $it `echo $it|sed s/%2E/./g`;&#xA;done&#xA;[/bash]&#xA;按照文件大小编号命名&#xA;[bash]&#xA;let i=0;&#xA;for it in `ls -S`;&#xA;do&#xA;mv $it “size${i}.txt”;&#xA;let i=i+1;&#xA;done&#xA;[/bash]&#xA;将当前目录下面的php文件全部改写为html文件-修订版&#xA;上述的命名法仍然保留了php字符，如果想去掉的话，这样：&#xA;[bash]&#xA;for it in `ls *.php`;&#xA;do&#xA;mv $it `echo $it|sed s/.php$/./g`;&#xA;done&#xA;[/bash]&#xA;附录：URL转义字符。&#xA;URL转义字符原理&#xA;为了安全或者网页数据的正常传递，需要将一些特殊的字符转换成ASCII码，格式为：%加字符的ASCII码，即一个百分号%，后面跟对应字符的ASCII（16进制）码值。例如 空格的编码值是”%20″。&#xA;URL特殊符号及对应的十六进制值编码：&#xA;符号 在URL中的特殊意义 URL转义字符 + URL中+号表示空格 %2B 空格 URL中的空格可以用+号或者编码%20 / 分隔目录和子目录 %2F ?</description>
     </item>
   </channel>
