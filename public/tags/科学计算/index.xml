@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>科学计算 on BIO-SPRING</title>
+    <link>https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/</link>
+    <description>Recent content in 科学计算 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gaospecial.github.io/bio-spring/tags/%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 RStudio 中使用 Julia</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2023/08/23/using-julia-in-rstudio/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2023/08/23/using-julia-in-rstudio/</guid>
+      <description>因为要运行 cNODE 程序，所以接触了一下 Julia 语言。&#xA;Julia 一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满&amp;mdash;&amp;mdash;这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他们想要的是一个开源的软件，它要像C语言一般快速而有拥有如同Ruby的动态性；要具有Lisp般真正的同像性而又有Matlab般熟悉的数学记号；要像Python般通用、像R般在统计分析上得心应手、像Perl般自然地处理字符串、像Matlab般具有强大的线性代数运算能力、像shell般胶水语言的能力，易于学习而又不让真正的黑客感到无聊；还有，它应该是交互式的，同时又是编译型的&amp;hellip;&amp;hellip;&#xA;快！ 由上图可以看出，Julia 的运行速度是除 C 语言以外几乎最快的。&#xA;Julia 一开始就是为高性能而设计的。 Julia 程序通过 LLVM 编译成高效的 多平台 机器码。&#xA;动态 Julia 是动态类型的，使用起来像脚本语言，同时有很好的交互体验。&#xA;可选类型 Julia 有丰富的数据类型描述语言，标注类型声明可以使程序更清晰可靠。&#xA;通用 Julia 使用多分派范式，很容易表达面向对象和函数式编程模式。 同时提供了异步 I/O、调试、日志、性能分析、包管理等工具。&#xA;易用 Julia 拥有高阶的语法，这让具有不同编程语言背景和经验的程序员都能使用它。查看 Julia 的微基准来感受这门语言吧。&#xA;示例 Julia与MATLAB语言较为类似。 function mandelbrot(a) z = 0 for i=1:50 z = z^2 + a end return z end for y=1.0:-0.05:-1.0 for x=-2.0:0.0315:0.5 abs(mandelbrot(complex(x, y))) &amp;lt; 2 ? print(&amp;quot;*&amp;quot;) : print(&amp;quot; &amp;quot;) end println() end # Taken from: https://rosettacode.</description>
+    </item>
+  </channel>
+</rss>
