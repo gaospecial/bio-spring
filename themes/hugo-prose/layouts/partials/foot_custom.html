@@ -1,5 +1,5 @@
 {{ with .Site.Params.fuseVersion }}
-<script src="{{ relURL "/js/fuse.min.js" }}"></script>
+<script src="{{ relURL "js/fuse.min.js" }}"></script>
 {{ end }}
 
 {{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$")) }}
