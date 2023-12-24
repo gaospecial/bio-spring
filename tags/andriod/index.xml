@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>andriod on BIO-SPRING</title>
-    <link>/tags/andriod/</link>
+    <link>bio-spring/tags/andriod/</link>
     <description>Recent content in andriod on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 27 Mar 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/andriod/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="bio-spring/tags/andriod/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>静音Office Lens快门声音</title>
-      <link>/post/2018/03/27/2018-03-27-mute-shutter-voice/</link>
+      <link>bio-spring/post/2018/03/27/2018-03-27-mute-shutter-voice/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>/post/2018/03/27/2018-03-27-mute-shutter-voice/</guid>
+      <guid>bio-spring/post/2018/03/27/2018-03-27-mute-shutter-voice/</guid>
       <description>Office Lens的快门声在一些手机上（比如我的Le2）无法关闭，这严重影响了该软件的使用。在Google上面查找，始终找不到解决方案，而只是一些吐槽。&#xA;大家对微软已经无力吐槽了。&#xA;机智如我，自然要想个办法。经过广泛调研，深入研究，最终得到解决方案。&#xA;具体思路是：将快门声音对应的音频文件设为无法访问。&#xA;安装Root Explorer，定位到/system/media/audio/ui，找到camera_click.ogg文件，将其权限设为000。如下图所示。&#xA;设置完成后，再打开Office Lens，世界清静了。</description>
     </item>
     <item>
       <title>荐：Ubuntu（linux），Windows和Android操作系统中的磁盘使用分析软件</title>
-      <link>/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</link>
+      <link>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</link>
       <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
-      <guid>/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</guid>
+      <guid>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</guid>
       <description>使用分析软件分析磁盘应用，在整理硬盘的时候很有用，对各个文件夹所占用的空间可以做到一目了然。你所需要的，正是下面所列出的小程序。&#xA;Ubuntu：系统自带“磁盘使用分析程序“，第一次用这个软件，就会喜欢上它。&#xA;Windows： 推荐 RidNacs&#xA;Android：磁盘详情 DiskUsage&#xA;Ubuntu系统自带“磁盘使用分析程序“，图示清晰明了。&#xA;Windows 推荐 RidNacs&#xA;挺好用的一个小软件，就是图表有些看不懂。&#xA;Android：磁盘详情 DiskUsage&#xA;选择想查看的分区。&#xA;速度很快，马上出来相应的图表。</description>
     </item>
   </channel>

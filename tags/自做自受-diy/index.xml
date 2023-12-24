@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>自做自受 DIY on BIO-SPRING</title>
-    <link>/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</link>
+    <link>bio-spring/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/</link>
     <description>Recent content in 自做自受 DIY on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 25 Oct 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="bio-spring/tags/%E8%87%AA%E5%81%9A%E8%87%AA%E5%8F%97-diy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>适合制作PowerPoint报告时候使用的Zotero引文样式</title>
-      <link>/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</link>
+      <link>bio-spring/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</guid>
+      <guid>bio-spring/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</guid>
       <description>我定制了一个Zotero样式，特别适合在PPT中使用。分享给大家。具体效果如下图所示。&#xA;在引用时，显示第一作者、期刊和出版年。在引文清单时，最多仅显示3个作者，多余3个将只显示第一作者。同时显示文章标题、期刊和卷、期等信息。&#xA;把这个csl文件拖放到Firefox窗口中即可安装。&#xA;使用时，先选择一个或多个文献条目，然后点击右键，选择“由所选条目创建引文目录…”。&#xA;在打开的窗口中选择author-journal-year引文样式，输出模式“引文”和“引文目录”可选，直接复制在剪贴板中，粘贴到PowerPoint中即可。&#xA;点击下载 author-journal-year.csl Citation Style Language (CSL).</description>
     </item>
     <item>
       <title>富士卡片机F60fd拆机图片</title>
-      <link>/post/2015/09/06/2015-09-06-fujifilm-f60fd/</link>
+      <link>bio-spring/post/2015/09/06/2015-09-06-fujifilm-f60fd/</link>
       <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/post/2015/09/06/2015-09-06-fujifilm-f60fd/</guid>
+      <guid>bio-spring/post/2015/09/06/2015-09-06-fujifilm-f60fd/</guid>
       <description>友情提示：依本文拆机相机未获修复的，不承担连带责任哦！&#xA;按：我的富士F60fd镜头落地摔歪了，所以才拆机。&#xA;打开外壳 去掉侧面板&#xA;去掉显示屏&#xA;去掉金属板&#xA;拆主板 主板有上下两块，之间由插槽接口连接，小心撬开主板，去掉排线，拿下主板。&#xA;这个是取下的主板。&#xA;取下镜头组件 摘下排线，取下镜头组件。&#xA;这是镜头组件，含有镜头、快门、CCD等元件。&#xA;打开镜头组件 揭下绝缘胶布，漏出盖板。然后取下盖板，漏出CCD等元件。&#xA;这个的背面就是CCD。&#xA;取下CCD之后，漏出透镜。&#xA;需要使用电烙铁，将有些焊点打开，才能继续进行。&#xA;这一部分算是镜头的主要排线，被去掉了。&#xA;最后得到一个裸镜头组。&#xA;分开镜头 取下第三级的合页。&#xA;揭开贴纸，漏出环形卡子。&#xA;拧开盖板，漏出小马达的齿轮。&#xA;将镜头轨道中的针状金属柱用镊子拔出来，剩下的就比较简单了。就可以完全把镜头拆开了。</description>
     </item>
   </channel>

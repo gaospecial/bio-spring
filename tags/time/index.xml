@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Time on BIO-SPRING</title>
-    <link>/tags/time/</link>
+    <link>bio-spring/tags/time/</link>
     <description>Recent content in Time on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/time/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="bio-spring/tags/time/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Letter 1: On Saving Time</title>
-      <link>/post/2015/07/23/letter-1/</link>
+      <link>bio-spring/post/2015/07/23/letter-1/</link>
       <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>/post/2015/07/23/letter-1/</guid>
+      <guid>bio-spring/post/2015/07/23/letter-1/</guid>
       <description>Greetings from Seneca to his friend Lucilius.&#xA;Continue to act thus, my dear Lucilius – set yourself free for your own sake; gather and save your time, which till lately has been forced from you, or filched away, or has merely slipped from your hands.&#xA;Make yourself believe the truth of my words, that certain moments are torn from us, that some are gently removed, and that others glide beyond our reach.</description>
     </item>
   </channel>

@@ -28,27 +28,27 @@ data(&quot;ToothGrowth&quot;) head(ToothGrowth) ## len supp dose ## 1 4.2 VC 0.5
       </li>
       
       <li>
-        <a href="/">Home</a>
+        <a href="/bio-spring/">Home</a>
       </li>
       
       <li>
-        <a href="/post/">Blog Post</a>
+        <a href="/bio-spring/post/">Blog Post</a>
       </li>
       
       <li>
-        <a href="/publication/full-publication-list/">Publication</a>
+        <a href="/bio-spring/publication/full-publication-list/">Publication</a>
       </li>
       
       <li>
-        <a href="/work/">Work</a>
+        <a href="/bio-spring/work/">Work</a>
       </li>
       
       <li>
-        <a href="/cv/">CV</a>
+        <a href="/bio-spring/cv/">CV</a>
       </li>
       
       <li id="menu-search">
-        <a href="/#">Search</a>
+        <a href="/bio-spring/#">Search</a>
       </li>
       
     </ul>
@@ -103,7 +103,7 @@ ggplot(ToothGrowth,aes(factor(dose),len)) +
   geom_jitter() +
   facet_wrap(~supp)
 </code></pre>
-<img src="/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 <p>单因素方差分析使用 aov() 函数，随后，进一步使用 HSD.test 获取组间差异。 Tukey’s ‘Honest Significant Difference’ method 通常使用  stats::TukeyHSD() 函数， 但在这里，我们使用 HSD.test() 可以得到分组信息，用于后面的作图。</p>
 <p>这里仅以 VC 给药方式下，不同给药量之间的差异分析为例。</p>
 <pre><code class="language-r">library(dplyr)
@@ -141,7 +141,7 @@ ggplot(data,aes(dose,len)) + geom_boxplot() +
   ylim(min(data$len),max(data$len)+0.1*(max(data$len)-min(data$len))) +
   theme_bw()
 </code></pre>
-<img src="/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="384" />
+<img src="bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="384" />
 <p>此处仅有3个不同处理。从图中可以得知，0.5,1,2分属3个不同的分组，这意味着它们两两之间都存在显著的差异（p.adj &lt; 0.05）。</p>
 <p>这种分析作图方式在 ANOVA 处理特别多的处理时会更好用。</p>
 
@@ -193,14 +193,14 @@ ggplot(data,aes(dose,len)) + geom_boxplot() +
 <div>
   <div class="side side-left"><h3>引用本文</h3></div>
   <p>如果您使用了本文的内容，请按照以下方式引用：</p>
-  <pre><code>gaoch (2019). ANOVA &#43; TurkeyHSD 分析及作图. BIO-SPRING. /post/2019/09/24/anova-turkeyhsd-plotting/</code></pre>
+  <pre><code>gaoch (2019). ANOVA &#43; TurkeyHSD 分析及作图. BIO-SPRING. bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/</code></pre>
   <p>BibTeX citation</p>
   <pre><code>@misc{
   title = "ANOVA &#43; TurkeyHSD 分析及作图",
   author = "gaoch",
   year = "2019",
   journal = "BIO-SPRING",
-  note = "/post/2019/09/24/anova-turkeyhsd-plotting/"
+  note = "bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/"
 }</code></pre>
 </div>
 
@@ -209,9 +209,9 @@ ggplot(data,aes(dose,len)) + geom_boxplot() +
 
 
 <nav class="post-nav">
-  <span class="nav-next">&larr; <a href="/post/2019/09/23/basic-stats-in-r/" title=下一篇&#32;(旧)>常用假设检验方法的R语言实现</a></span>
+  <span class="nav-next">&larr; <a href="bio-spring/post/2019/09/23/basic-stats-in-r/" title=下一篇&#32;(旧)>常用假设检验方法的R语言实现</a></span>
   &hercon;
-  <span class="nav-prev"><a href="/post/2019/09/29/git-github-tutorial/" title=上一篇&#32;(新)>Git 和 GitHub 使用指北</a> &rarr;</span>
+  <span class="nav-prev"><a href="bio-spring/post/2019/09/29/git-github-tutorial/" title=上一篇&#32;(新)>Git 和 GitHub 使用指北</a> &rarr;</span>
 </nav>
 
 
@@ -308,15 +308,15 @@ if (!doNotTrack) {
   <ul>
     
     <li>
-      <a href="/404.html">Contact</a>
+      <a href="/bio-spring/404.html">Contact</a>
     </li>
     
     <li class="optional">
-      <a href="/categories/">Categories</a>
+      <a href="/bio-spring/categories/">Categories</a>
     </li>
     
     <li class="optional">
-      <a href="/tags/">Tags</a>
+      <a href="/bio-spring/tags/">Tags</a>
     </li>
     
     <li id="menu-edit">
