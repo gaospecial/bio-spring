@@ -1,6 +1,6 @@
 ---
 title: Makefile 怎么写
-author: Package Build
+author: gaoch
 date: '2023-12-24'
 slug: makefile-howto
 categories:
@@ -10,6 +10,8 @@ tags:
   - shell
   - 操作系统 LINUX
 ---
+
+## 示例
 
 当一个目标需要执行多个命令时，可以在 Makefile 中为该目标提供多行命令。每一行命令都必须以制表符开始。以下是一个简单的示例：
 
@@ -49,6 +51,8 @@ make build
 
 **注意**：在 Makefile 中，确保使用制表符而不是空格，因为 Make 工具对此有特殊的要求。
 
+## 添加多个命令
+
 如果你想在 `clean` 目标中添加多个 Shell 命令，可以将它们放在同一行，并使用分号 `;` 将它们分隔。下面是一个示例：
 
 ```makefile
@@ -71,7 +75,7 @@ clean:
 
 这样，如果其中一个 `rm` 命令失败，后续的命令将不会执行。
 
-**常见错误**
+## 常见错误
 
 `makefile:8: *** missing separator.  Stop.`
 
