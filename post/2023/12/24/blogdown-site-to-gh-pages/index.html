@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/bio-spring/css/fonts.css" />
     <link rel="stylesheet" href="/bio-spring/css/custom.css" />
     <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="部署网站到 gh-pages"/>
-<meta name="twitter:description" content="在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。
+<meta name="twitter:description" content="relURL 的用法 参见：https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash
+在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。
 在配置文件中添加如下行：
 baseURL = &quot;https://&lt;username&gt;.github.io/&lt;repository-name&gt;/&quot; 确保将 &lt;username&gt; 替换为你的 GitHub 用户名，&lt;repository-name&gt; 替换为你的仓库名称。
 另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：
@@ -83,6 +84,8 @@ gaoch
 </div>
 
 <div class="article">
+<h2 id="relurl-的用法">relURL 的用法</h2>
+<p>参见：<a href="https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash">https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash</a></p>
 <p>在将 <code>blogdown</code> 创建的静态网站部署到 GitHub Pages 时，确保在 <code>config.toml</code> 或 <code>config.yaml</code> 文件中设置了正确的 <code>baseURL</code>。这是指向你的 GitHub Pages 网站的基本 URL。</p>
 <p>在配置文件中添加如下行：</p>
 <pre><code class="language-yaml">baseURL = &quot;https://&lt;username&gt;.github.io/&lt;repository-name&gt;/&quot;
