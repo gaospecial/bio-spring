@@ -6,8 +6,15 @@
     <description>Recent content in 生物信息 BIOINFORMATICS on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub 年度总结</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2023/12/29/github-summary-2023/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2023/12/29/github-summary-2023/</guid>
+      <description>&lt;p&gt;我的 GitHub 年报&lt;/p&gt;</description>
+    </item>
     <item>
       <title>三种向NCBI提交SRA高通量测序原始数据的方法</title>
       <link>https://gaospecial.github.io/bio-spring/post/2017/11/21/2017-11-21-3-methods-in-submitting-sra/</link>

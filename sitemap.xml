@@ -8,16 +8,43 @@
   </url><url>
     <loc>https://gaospecial.github.io/bio-spring/card/publications/</loc>
   </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/categories/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/post/2023/12/29/github-summary-2023/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/post/2023/12/29/mac-os-picgo/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/categories/macos/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/tags/picgo/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/post/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/tags/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/tags/%E9%94%99%E8%AF%AF/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gaospecial.github.io/bio-spring/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2023-12-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/blogdown/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/categories/</loc>
-    <lastmod>2023-12-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/github/</loc>
-    <lastmod>2023-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/makefile/</loc>
@@ -26,13 +53,7 @@
     <loc>https://gaospecial.github.io/bio-spring/post/2023/12/24/makefile-howto/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/post/</loc>
-    <lastmod>2023-12-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/shell/</loc>
-    <lastmod>2023-12-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/tags/</loc>
     <lastmod>2023-12-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaospecial.github.io/bio-spring/post/2023/12/24/blogdown-site-to-gh-pages/</loc>
@@ -443,9 +464,6 @@
     <loc>https://gaospecial.github.io/bio-spring/post/2017/11/21/2017-11-21-3-methods-in-submitting-sra/</loc>
     <lastmod>2017-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF-bioinformatics/</loc>
-    <lastmod>2017-11-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://gaospecial.github.io/bio-spring/post/2017/11/16/2017-11-16-ggplot2-no-scinum/</loc>
     <lastmod>2017-11-16T00:00:00+00:00</lastmod>
   </url><url>
@@ -738,9 +756,6 @@
     <lastmod>2015-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/sspace/</loc>
-    <lastmod>2015-08-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gaospecial.github.io/bio-spring/tags/%E9%94%99%E8%AF%AF/</loc>
     <lastmod>2015-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gaospecial.github.io/bio-spring/tags/%E7%94%9F%E5%91%BD/</loc>

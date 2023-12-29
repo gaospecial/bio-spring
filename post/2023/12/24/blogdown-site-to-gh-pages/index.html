@@ -18,7 +18,7 @@
 baseURL = &quot;https://&lt;username&gt;.github.io/&lt;repository-name&gt;/&quot; 确保将 &lt;username&gt; 替换为你的 GitHub 用户名，&lt;repository-name&gt; 替换为你的仓库名称。
 另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：
 git subtree push --prefix public origin gh-pages 这个命令会将 public 文件夹的内容推送到 gh-pages 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：
-blogdown::build_site() 如果你还是遇到问题，可能需要检查 GitHub Pages 设置，确保正确地选择了 gh-pages 分支作为源。"/>
+blogdown::build_site() "/>
 
 
   </head>
@@ -97,7 +97,6 @@ gaoch
 <p>这个命令会将 <code>public</code> 文件夹的内容推送到 <code>gh-pages</code> 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：</p>
 <pre><code class="language-bash">blogdown::build_site()
 </code></pre>
-<p>如果你还是遇到问题，可能需要检查 GitHub Pages 设置，确保正确地选择了 <code>gh-pages</code> 分支作为源。</p>
 
 </div>
 </main>

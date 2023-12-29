@@ -81,6 +81,88 @@
     
     </div>
     
+    <h1><a href="/bio-spring/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/">在 Fedora 14 上配置 putty 自动认证</a></h1>
+    <div>
+      <span>2012-02-23</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+      配置要点：
+[&hellip;] 具体操作
+以下在服务器端完成。
+[cc lang=”bash”]
+ssh-keygen -t rsa
+cp .ssh/id_rsa.pub .ssh/authorized_keys
+chmod go-w .ssh
+chmod go-w .ssh/authorized_keys
+[/cc]
+将私钥拷贝到客户端计算机上，也可以使用“PSFTP”下载到客户端上，然后依下 &hellip;
+      <a href="/bio-spring/post/2012/02/23/2012-02-23-setup-putty-login-in-fedora/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/bio-spring/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/bio-spring/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
+    <h1><a href="/bio-spring/post/2012/02/20/install-lamp-in-ubuntu/">【转】ubuntu 11.10 安装LAMP</a></h1>
+    <div>
+      <span>2012-02-20</span>
+      <span>gaoch</span>
+    </div>
+    <div class="summary">
+      
+      
+      
+      
+       ubuntu10.10后，在新立得软件包管理器里并没有立得软件包管理器－编辑－－使用任务标记分组软件包－－怎么办？
+实际上只需2条命令即可
+sudo apt-get install tasksel
+任务标记分组
+sudo tasksel install lamp-server
+安装途中MySQL要求设定账户有密码，这是与操作系统没关系的账户与密码。
+怎么样，不错吧。
+
+      <a href="/bio-spring/post/2012/02/20/install-lamp-in-ubuntu/" class="more" title=阅读全文>阅读全文 &rarr;</a>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+  </section>
+
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    
+    <div class="categories">
+    
+      <a href="/bio-spring/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
+    
+      <a href="/bio-spring/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
+    
+    </div>
+    
     <h1><a href="/bio-spring/post/2011/12/28/2011-12-28-creat-winxp-hidden-user/">在windowsXP中建立隐藏账户</a></h1>
     <div>
       <span>2011-12-28</span>
@@ -359,77 +441,6 @@ Android：磁盘详情 DiskUsage
 方法如下：
 [cc lang=’bash’]sudo gedit &hellip;
       <a href="/bio-spring/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    <div class="categories">
-    
-      <a href="/bio-spring/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
-    
-      <a href="/bio-spring/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
-    
-    </div>
-    
-    <h1><a href="/bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/">怎么办，ubuntu系统中的sda变成了sdb了？</a></h1>
-    <div>
-      <span>2011-09-21</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      使用UUID的方法挂载分区
-打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo umount -a”命令全部卸载，然好再使用“sudo mount -a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载 &hellip;
-      <a href="/bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/" class="more" title=阅读全文>阅读全文 &rarr;</a>
-    </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-  </section>
-
-  <section class="article-list post-card">
-    <table>
-    <tbody>
-    <tr>
-    <td>
-    
-    <div class="categories">
-    
-      <a href="/bio-spring/categories/%E6%97%A7%E6%96%87/"><span>旧文</span></a>
-    
-      <a href="/bio-spring/categories/wordpress%E5%8D%9A%E5%AE%A2/"><span>WordPress博客</span></a>
-    
-    </div>
-    
-    <h1><a href="/bio-spring/post/2011/07/20/2011-07-20-bioedit-tree/">使用BioEdit生成和绘制蛋白质进化树</a></h1>
-    <div>
-      <span>2011-07-20</span>
-      <span>gaoch</span>
-    </div>
-    <div class="summary">
-      
-      
-      
-      
-      &Bopf;ioEdit是一个功能很强大的生物学软件，整合了很多常用的生物信息工具。如：多序列比对，质粒图谱的绘制，查看DNA序列的酶切位点等等。
-使用BioEdit可以方便的生成和绘制进化树。（另请参考：进化树大杀器MEGA的使用）
-首先，打开序列。我们这里是一个含有6个蛋白质的Fasta格式的文件。如下所示：
-然后从菜单中选择“ClustalW多序列比对”，会弹出下一个对话框，设置一些程序运行的参数。
- &hellip;
-      <a href="/bio-spring/post/2011/07/20/2011-07-20-bioedit-tree/" class="more" title=阅读全文>阅读全文 &rarr;</a>
     </div>
     </td>
     </tr>

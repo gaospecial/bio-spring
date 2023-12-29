@@ -13,7 +13,7 @@
       <link>https://gaospecial.github.io/bio-spring/post/2023/12/24/blogdown-site-to-gh-pages/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/post/2023/12/24/blogdown-site-to-gh-pages/</guid>
-      <description>relURL 的用法 参见：https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash&#xA;在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。&#xA;在配置文件中添加如下行：&#xA;baseURL = &amp;quot;https://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository-name&amp;gt;/&amp;quot; 确保将 &amp;lt;username&amp;gt; 替换为你的 GitHub 用户名，&amp;lt;repository-name&amp;gt; 替换为你的仓库名称。&#xA;另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：&#xA;git subtree push --prefix public origin gh-pages 这个命令会将 public 文件夹的内容推送到 gh-pages 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：&#xA;blogdown::build_site() 如果你还是遇到问题，可能需要检查 GitHub Pages 设置，确保正确地选择了 gh-pages 分支作为源。</description>
+      <description>relURL 的用法 参见：https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash&#xA;在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。&#xA;在配置文件中添加如下行：&#xA;baseURL = &amp;quot;https://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository-name&amp;gt;/&amp;quot; 确保将 &amp;lt;username&amp;gt; 替换为你的 GitHub 用户名，&amp;lt;repository-name&amp;gt; 替换为你的仓库名称。&#xA;另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：&#xA;git subtree push --prefix public origin gh-pages 这个命令会将 public 文件夹的内容推送到 gh-pages 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：&#xA;blogdown::build_site() </description>
     </item>
     <item>
       <title>更改 blogdown 主题</title>

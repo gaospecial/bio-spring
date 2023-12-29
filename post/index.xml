@@ -6,8 +6,22 @@
     <description>Recent content in Posts on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 24 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gaospecial.github.io/bio-spring/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub 年度总结</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2023/12/29/github-summary-2023/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2023/12/29/github-summary-2023/</guid>
+      <description>&lt;p&gt;我的 GitHub 年报&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mac OS 安装 PicGo 提示“文件已损坏”</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2023/12/29/mac-os-picgo/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2023/12/29/mac-os-picgo/</guid>
+      <description>安装完成后，打开终端，运行下面的命令。&#xA;sudo xattr -d com.apple.quarantine &amp;quot;/Applications/PicGo.app/&amp;quot;&#xA;这个命令的作用是删除指定文件或目录的扩展属性（extended attributes）中的“com.apple.quarantine”属性。在 macOS 中，文件或应用程序首次从互联网上下载并存储在磁盘上时，系统可能会自动添加“com.apple.quarantine”属性，用于标记文件的来源，并在首次运行时显示安全提示。&#xA;具体来说，sudo xattr -d com.apple.quarantine &amp;quot;/Applications/PicGo.app/&amp;quot; 这个命令尝试删除 &amp;ldquo;/Applications/PicGo.app/&amp;rdquo; 目录的 quarantine 属性。这样，当你运行 PicGo 应用程序时，就不会再收到系统的安全提示，因为你已经明确告诉系统这个应用是可信的。</description>
+    </item>
     <item>
       <title>Makefile 怎么写</title>
       <link>https://gaospecial.github.io/bio-spring/post/2023/12/24/makefile-howto/</link>
@@ -20,7 +34,7 @@
       <link>https://gaospecial.github.io/bio-spring/post/2023/12/24/blogdown-site-to-gh-pages/</link>
       <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/post/2023/12/24/blogdown-site-to-gh-pages/</guid>
-      <description>relURL 的用法 参见：https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash&#xA;在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。&#xA;在配置文件中添加如下行：&#xA;baseURL = &amp;quot;https://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository-name&amp;gt;/&amp;quot; 确保将 &amp;lt;username&amp;gt; 替换为你的 GitHub 用户名，&amp;lt;repository-name&amp;gt; 替换为你的仓库名称。&#xA;另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：&#xA;git subtree push --prefix public origin gh-pages 这个命令会将 public 文件夹的内容推送到 gh-pages 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：&#xA;blogdown::build_site() 如果你还是遇到问题，可能需要检查 GitHub Pages 设置，确保正确地选择了 gh-pages 分支作为源。</description>
+      <description>relURL 的用法 参见：https://gohugo.io/functions/urls/relurl/#input-begins-with-a-slash&#xA;在将 blogdown 创建的静态网站部署到 GitHub Pages 时，确保在 config.toml 或 config.yaml 文件中设置了正确的 baseURL。这是指向你的 GitHub Pages 网站的基本 URL。&#xA;在配置文件中添加如下行：&#xA;baseURL = &amp;quot;https://&amp;lt;username&amp;gt;.github.io/&amp;lt;repository-name&amp;gt;/&amp;quot; 确保将 &amp;lt;username&amp;gt; 替换为你的 GitHub 用户名，&amp;lt;repository-name&amp;gt; 替换为你的仓库名称。&#xA;另外，请确保 publishDir（默认是 public 文件夹）的内容正确地推送到 gh-pages 分支。你可以使用如下命令将内容推送到 gh-pages：&#xA;git subtree push --prefix public origin gh-pages 这个命令会将 public 文件夹的内容推送到 gh-pages 分支。确保在推送之前已经生成了静态网站，可以通过以下命令：&#xA;blogdown::build_site() </description>
     </item>
     <item>
       <title>R中的基础数据结构</title>
