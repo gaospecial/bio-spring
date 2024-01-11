@@ -1,0 +1,53 @@
+---
+title: dplyr::filter() 中的表达式
+author: gaoch
+date: '2024-01-11'
+slug: dplyr-filter-expression
+categories:
+  - R
+tags:
+  - dplyr
+  - tidyverse
+---
+
+dplyr 中的骚操作。
+
+<!--more-->
+
+今天遇到的这个问题，让我困惑了好半天。
+
+给出一个 tibble，对它执行 `filter()` 操作。
+
+```{r}
+library(dplyr)
+set.seed(0)
+tbl = tibble(x = sample(letters, 60, TRUE), y = 1:60)
+tbl
+```
+
+如果变量与列名不一样，则结果很正常。
+
+```{r}
+let = c("a","b","c")
+tbl |> filter(x %in% let)
+```
+
+但是，如果变量与列名相同，则会出现意想不到的结果。实际上，它执行了 `filter(tbl, .data$x %in% .data$x)` 的骚操作。
+
+```{r}
+x = c("a","b","c")
+filter(tbl, .data$x %in% x)
+```
+
+那么，该如何避免这个问题呢？
+
+[这里](https://stackoverflow.com/questions/34219912/how-to-use-a-variable-in-dplyrfilter) 给出了很多答案。
+
+```{r}
+filter(tbl, .data$x %in% !!x)
+filter(tbl, .data$x %in% .env$x)
+filter(tbl, .data$x %in% get("x"))
+filter(tbl, .data$x %in% UQ(x))
+```
+
+除了 `get()` 以外，其它的都有效。
