@@ -27,7 +27,7 @@
       <link>https://gaospecial.github.io/bio-spring/post/2018/10/22/plot-pca-using-ggplot2/</link>
       <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/post/2018/10/22/plot-pca-using-ggplot2/</guid>
-      <description>数据整理 library(vegan) ## 载入需要的程辑包：permute ## 载入需要的程辑包：lattice ## This is vegan 2.6-4 data(&amp;quot;varespec&amp;quot;) pca &amp;lt;- rda(varespec) 首先看一下结果：&#xA;summary(pca) ## ## Call: ## rda(X = varespec) ## ## Partitioning of variance: ## Inertia Proportion ## Total 1826 1 ## Unconstrained 1826 1 ## ## Eigenvalues, and their contribution to the variance ## ## Importance of components: ## PC1 PC2 PC3 PC4 PC5 PC6 ## Eigenvalue 982.9788 464.3040 132.25052 73.9337 48.41829 37.00937 ## PC7 PC8 PC9 PC10 PC11 PC12 ## Eigenvalue 25.</description>
+      <description>数据整理 library(vegan) ## Loading required package: permute ## Loading required package: lattice ## This is vegan 2.6-4 data(&amp;quot;varespec&amp;quot;) pca &amp;lt;- rda(varespec) 首先看一下结果：&#xA;summary(pca) ## ## Call: ## rda(X = varespec) ## ## Partitioning of variance: ## Inertia Proportion ## Total 1826 1 ## Unconstrained 1826 1 ## ## Eigenvalues, and their contribution to the variance ## ## Importance of components: ## PC1 PC2 PC3 PC4 PC5 PC6 ## Eigenvalue 982.9788 464.</description>
     </item>
   </channel>
 </rss>

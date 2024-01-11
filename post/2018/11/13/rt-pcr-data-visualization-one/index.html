@@ -101,60 +101,12 @@ meltcurve_file &lt;- list.files(path=dir,full.names = T,pattern = &quot;MeltCurv
 <pre><code class="language-r"># 读取文件
 library(tidyr)
 library(dplyr)
-</code></pre>
-<pre><code>## 
-## 载入程辑包：'dplyr'
-</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-<pre><code class="language-r">library(readr)
+library(readr)
 
 # read
 amplification &lt;- read_delim(amplification_file,&quot;\t&quot;,skip = 43)
-</code></pre>
-<pre><code>## Rows: 15360 Columns: 5
-</code></pre>
-<pre><code>## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;\t&quot;
-## chr (1): Target Name
-## dbl (4): Well, Cycle, Rn, Delta Rn
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-</code></pre>
-<pre><code class="language-r">raw_results &lt;-  read_delim(result_file,&quot;\t&quot;,skip = 43,na = &quot;Undetermined&quot;)
-</code></pre>
-<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame for details,
-## e.g.:
-##   dat &lt;- vroom(...)
-##   problems(dat)
-</code></pre>
-<pre><code>## Rows: 288 Columns: 37
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;\t&quot;
-## chr (11): Well Position, Sample Name, Target Name, Task, Reporter, Quencher,...
-## dbl (10): Well, CT, Ct Mean, Ct SD, Ct Threshold, Baseline Start, Baseline E...
-## lgl (16): Omit, RQ, RQ Min, RQ Max, Quantity, Normalized Quantity, Normalize...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-</code></pre>
-<pre><code class="language-r">meltcurve &lt;-  read_delim(meltcurve_file,&quot;\t&quot;,skip = 43)
-</code></pre>
-<pre><code>## Rows: 54144 Columns: 6
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;\t&quot;
-## chr (1): Well Position
-## dbl (5): Well, Reading, Temperature, Fluorescence, Derivative
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+raw_results &lt;-  read_delim(result_file,&quot;\t&quot;,skip = 43,na = &quot;Undetermined&quot;)
+meltcurve &lt;-  read_delim(meltcurve_file,&quot;\t&quot;,skip = 43)
 </code></pre>
 <p>在 <code>&quot;Results&quot;</code> 文件中, 含有我们定义的 <code>&quot;Sample Name&quot;</code> 和 <code>&quot;Target Name&quot;</code>, 而在另外两个文件中不存在. 为了能够在图中显示这些信息, 我们需要将这些信息提取出来, 并添加到另外两个文件数据中. 添加时, 按照 <code>&quot;Well&quot;</code> 合并即可.</p>
 <pre><code class="language-r"># 修整数据
@@ -162,16 +114,11 @@ meta &lt;- raw_results %&gt;% select(Well, `Sample Name`, `Target Name`)
 amplification &lt;- amplification %&gt;% select(Well,Cycle,Rn,`Delta Rn`) %&gt;%  
   left_join(meta) %&gt;%
   filter(Well&lt;=5)
-</code></pre>
-<pre><code>## Joining with `by = join_by(Well)`
-</code></pre>
-<pre><code class="language-r">meltcurve &lt;- meltcurve %&gt;% 
+meltcurve &lt;- meltcurve %&gt;% 
   select(Well,Reading,Temperature,Fluorescence,Derivative) %&gt;% 
   filter(!is.na(Fluorescence)) %&gt;%
   left_join(meta)%&gt;%
   filter(Well&lt;=5)
-</code></pre>
-<pre><code>## Joining with `by = join_by(Well)`
 </code></pre>
 <h1 id="可视化">可视化</h1>
 <h2 id="扩增曲线">扩增曲线</h2>
@@ -196,13 +143,11 @@ ggplot(amplification,aes(Cycle,Rn,group=Well, color=`Target Name`,shape=`Sample 
   geom_line() +
   scale_y_continuous(labels=fancy_scientific)
 </code></pre>
-<img src="/post/2018-11-13-rt-pcr-melting-curve_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <h2 id="溶解曲线">溶解曲线</h2>
 <p>溶解曲线可以看出扩增产物的特异性.</p>
 <pre><code class="language-r">ggplot(meltcurve,aes(Temperature,Derivative,group=Well,color=`Target Name`)) + 
   geom_line()
 </code></pre>
-<img src="/post/2018-11-13-rt-pcr-melting-curve_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 </div>
 </main>

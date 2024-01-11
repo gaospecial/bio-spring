@@ -194,7 +194,7 @@ typeof(person)  # 返回 &quot;S4&quot;
 x &lt;- c(1, 2, 3)
 obj_addr(x)
 </code></pre>
-<pre><code>## [1] &quot;0x12062fb38&quot;
+<pre><code>## [1] &quot;0x120c30ff8&quot;
 </code></pre>
 <ol start="2">
 <li><strong><code>obj_size()</code> 函数：</strong> 返回对象在内存中占用的空间大小。</li>
@@ -210,24 +210,24 @@ obj_size(y)
 <pre><code class="language-r">z &lt;- list(a = 1, b = 2, c = 3)
 ref(z)
 </code></pre>
-<pre><code>## █ [1:0x12029c7a8] &lt;named list&gt; 
-## ├─a = [2:0x120614928] &lt;dbl&gt; 
-## ├─b = [3:0x1206148f0] &lt;dbl&gt; 
-## └─c = [4:0x1206148b8] &lt;dbl&gt;
+<pre><code>## █ [1:0x1314b1558] &lt;named list&gt; 
+## ├─a = [2:0x15039ad60] &lt;dbl&gt; 
+## ├─b = [3:0x15039ad98] &lt;dbl&gt; 
+## └─c = [4:0x15039add0] &lt;dbl&gt;
 </code></pre>
 <p><code>lobstr</code> 包的这些函数返回一些<strong>底层的、高级的或专业的</strong>信息，帮助用户了解R中对象的内部结构、内存使用情况以及引用计数等方面信息。虽然对于一般的数据分析和编程任务来说可能并不总是必要，但是对于开发者在调试、性能优化或对内存使用进行更深入分析时是非常有帮助的。</p>
 <p>查看 3 个变量的内存地址及占用内存空间大小。</p>
 <pre><code class="language-r">ref(v)
 </code></pre>
-<pre><code>## [1:0x1081830e0] &lt;int&gt;
+<pre><code>## [1:0x13059d690] &lt;int&gt;
 </code></pre>
 <pre><code class="language-r">ref(m)
 </code></pre>
-<pre><code>## [1:0x1203f8828] &lt;int[,6]&gt;
+<pre><code>## [1:0x120aec688] &lt;int[,6]&gt;
 </code></pre>
 <pre><code class="language-r">ref(a)
 </code></pre>
-<pre><code>## [1:0x1202a29b8] &lt;int[,3,4]&gt;
+<pre><code>## [1:0x120b16e18] &lt;int[,3,4]&gt;
 </code></pre>
 <p>从占用空间大小上看，矩阵是最省的。</p>
 <pre><code class="language-r">obj_size(v)

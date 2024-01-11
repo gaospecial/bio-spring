@@ -6,8 +6,15 @@
     <description>Recent content in Categories on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gaospecial.github.io/bio-spring/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>R</title>
+      <link>https://gaospecial.github.io/bio-spring/categories/r/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/categories/r/</guid>
+      <description></description>
+    </item>
     <item>
       <title>MacOS</title>
       <link>https://gaospecial.github.io/bio-spring/categories/macos/</link>
@@ -34,13 +41,6 @@
       <link>https://gaospecial.github.io/bio-spring/categories/blogdown/</link>
       <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/categories/blogdown/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>R</title>
-      <link>https://gaospecial.github.io/bio-spring/categories/r/</link>
-      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/categories/r/</guid>
       <description></description>
     </item>
     <item>

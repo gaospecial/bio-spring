@@ -127,7 +127,7 @@ p1 &lt;- ggplot(df,mapping) +
     
 p1
 </code></pre>
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca1-1.png" width="768" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/02/comparison-of-two-pca-methods/index.zh_files/figure-html/pca1-1.png" width="768" />
 <h1 id="使用-veganrda-做主成分分析">使用 <code>vegan::rda()</code> 做主成分分析</h1>
 <pre><code class="language-r"># rda() 分析
 pca &lt;- vegan::rda(t(assay(rld))) 
@@ -148,12 +148,12 @@ p2 &lt;- ggplot(df,mapping) +
 
 p2
 </code></pre>
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca2-1.png" width="768" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/02/comparison-of-two-pca-methods/index.zh_files/figure-html/pca2-1.png" width="768" />
 <h1 id="放在一起比较一下">放在一起比较一下</h1>
 <p>可以看出，虽然两种方法计算的数值有差异，但是坐标位置是一致。</p>
 <pre><code class="language-r">cowplot::plot_grid(p1,p2,labels = &quot;AUTO&quot;,ncol=1,align = &quot;hv&quot;)
 </code></pre>
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca_plot-1.png" width="768" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/02/comparison-of-two-pca-methods/index.zh_files/figure-html/pca_plot-1.png" width="768" />
 
 </div>
 </main>

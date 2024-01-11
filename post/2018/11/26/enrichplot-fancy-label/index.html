@@ -105,7 +105,7 @@ ego &lt;- enrichGO(gene          = gene,
 <p>这个例子中, 有一个 &ldquo;microtubule cytoskeleton &hellip;&rdquo; 特别长, 事实上有些 GO term 比这还要长很多. 不巧在这个例子中没有出现, 那就拿它开刀吧.</p>
 <pre><code class="language-r">dotplot(ego)
 </code></pre>
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 <p>刀法比较犀利, 主要是定义一个短 label 的函数, 将其传递给 <code>scale_y_discrete()</code> 即可. <strong>在输出ggplot 对象时做修改</strong>.</p>
 <pre><code class="language-r">#' Truncate string vector of ggplot axis label
 #'
@@ -153,7 +153,7 @@ short_label &lt;- function(label, maxLen = 50, maxWord = 5, pattern = &quot; &qu
 <pre><code>## Scale for y is already present.
 ## Adding another scale for y, which will replace the existing scale.
 </code></pre>
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <p>如果最多只显示 3 个单词, 则可以写成这样:</p>
 <pre><code class="language-r">dotplot(ego) + 
   scale_y_discrete(
@@ -163,7 +163,7 @@ short_label &lt;- function(label, maxLen = 50, maxWord = 5, pattern = &quot; &qu
 <pre><code>## Scale for y is already present.
 ## Adding another scale for y, which will replace the existing scale.
 </code></pre>
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 <p><strong>注意</strong>: <code>short_label()</code> 带参数和不带参数时具有不同的调用方法.</p>
 <h1 id="不满意-enrichplot-x轴排序怎么破">不满意 enrichplot x轴排序怎么破?</h1>
 <p>我觉得 compareCluster 的输出可能会更加有比较价值. 但是发现 x 轴的排序有时候会有一些问题.</p>
@@ -185,7 +185,7 @@ names(gcSample)
 <p>比如下面的例子中, 我们是想让 x 轴依数字大小(Time)排序的. 但是由于这个顺序与 <code>list</code> 顺序不同, 导致结果差强人意.</p>
 <pre><code class="language-r">dotplot(ck)
 </code></pre>
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-7-1.png" width="960" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-7-1.png" width="960" />
 <p>这只是一个 <code>list</code> 输入的例子, 可以通过改 name 变更顺序(就行我刚刚做的那样). 但是, 如果数据是放在 <code>data.frame</code> 中的, 存在多个分组条件, 每个条件按因子的 <code>level</code> 排好序.
 那么由于 <code>compareCluster</code> 和 <code>dotplot</code> 操作时会将其转变成 <code>character</code>, 顺序会丢失, 导致最终结果是按照字母顺序输出的.</p>
 <p>这种情况下, 你去改原始数据都是没有用的(需要给程序打补丁).</p>
@@ -195,7 +195,7 @@ names(gcSample)
 
 levels(p$data$Cluster)
 </code></pre>
-<pre><code>## [1] &quot;0\n(403)&quot;  &quot;12\n(192)&quot; &quot;24\n(427)&quot; &quot;4\n(470)&quot;  &quot;16\n(279)&quot; &quot;8\n(323)&quot; 
+<pre><code>## [1] &quot;0\n(406)&quot;  &quot;12\n(193)&quot; &quot;24\n(431)&quot; &quot;4\n(476)&quot;  &quot;16\n(282)&quot; &quot;8\n(323)&quot; 
 ## [7] &quot;28\n(160)&quot;
 </code></pre>
 <pre><code class="language-r">p$data$Cluster &lt;- factor(p$data$Cluster, 
@@ -207,7 +207,7 @@ p + xlab(&quot;Time (h)&quot;) + scale_y_discrete(label=short_label)
 <pre><code>## Scale for y is already present.
 ## Adding another scale for y, which will replace the existing scale.
 </code></pre>
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="https://gaospecial.github.io/bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 <p>这两种&quot;骚操作&quot;, 分别相当于基因表达时&quot;转录后修饰&quot;和&quot;翻译后修饰&quot;. 嗯, 是有这么个意思. 都是在 &ldquo;biobabble&rdquo; 公众号学到的, 结合具体问题分享一下. 共同进步吧!</p>
 
 </div>
