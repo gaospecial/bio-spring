@@ -42,82 +42,12 @@ meltcurve_file <- list.files(path=dir,full.names = T,pattern = "MeltCurve Data_V
 # 读取文件
 library(tidyr)
 library(dplyr)
-```
-
-```
-## 
-## 载入程辑包：'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 library(readr)
 
 # read
 amplification <- read_delim(amplification_file,"\t",skip = 43)
-```
-
-```
-## Rows: 15360 Columns: 5
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: "\t"
-## chr (1): Target Name
-## dbl (4): Well, Cycle, Rn, Delta Rn
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 raw_results <-  read_delim(result_file,"\t",skip = 43,na = "Undetermined")
-```
-
-```
-## Warning: One or more parsing issues, call `problems()` on your data frame for details,
-## e.g.:
-##   dat <- vroom(...)
-##   problems(dat)
-```
-
-```
-## Rows: 288 Columns: 37
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: "\t"
-## chr (11): Well Position, Sample Name, Target Name, Task, Reporter, Quencher,...
-## dbl (10): Well, CT, Ct Mean, Ct SD, Ct Threshold, Baseline Start, Baseline E...
-## lgl (16): Omit, RQ, RQ Min, RQ Max, Quantity, Normalized Quantity, Normalize...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 meltcurve <-  read_delim(meltcurve_file,"\t",skip = 43)
-```
-
-```
-## Rows: 54144 Columns: 6
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: "\t"
-## chr (1): Well Position
-## dbl (5): Well, Reading, Temperature, Fluorescence, Derivative
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 
@@ -131,22 +61,11 @@ meta <- raw_results %>% select(Well, `Sample Name`, `Target Name`)
 amplification <- amplification %>% select(Well,Cycle,Rn,`Delta Rn`) %>%  
   left_join(meta) %>%
   filter(Well<=5)
-```
-
-```
-## Joining with `by = join_by(Well)`
-```
-
-```r
 meltcurve <- meltcurve %>% 
   select(Well,Reading,Temperature,Fluorescence,Derivative) %>% 
   filter(!is.na(Fluorescence)) %>%
   left_join(meta)%>%
   filter(Well<=5)
-```
-
-```
-## Joining with `by = join_by(Well)`
 ```
 
 # 可视化
@@ -178,8 +97,6 @@ ggplot(amplification,aes(Cycle,Rn,group=Well, color=`Target Name`,shape=`Sample 
   scale_y_continuous(labels=fancy_scientific)
 ```
 
-<img src="/post/2018-11-13-rt-pcr-melting-curve_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-
 ## 溶解曲线
 
 溶解曲线可以看出扩增产物的特异性.
@@ -189,6 +106,4 @@ ggplot(amplification,aes(Cycle,Rn,group=Well, color=`Target Name`,shape=`Sample 
 ggplot(meltcurve,aes(Temperature,Derivative,group=Well,color=`Target Name`)) + 
   geom_line()
 ```
-
-<img src="/post/2018-11-13-rt-pcr-melting-curve_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 

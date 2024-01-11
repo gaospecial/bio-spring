@@ -63,15 +63,15 @@ require("vegan")
 ```
 
 ```
-## 载入需要的程辑包：vegan
+## Loading required package: vegan
 ```
 
 ```
-## 载入需要的程辑包：permute
+## Loading required package: permute
 ```
 
 ```
-## 载入需要的程辑包：lattice
+## Loading required package: lattice
 ```
 
 ```
@@ -97,7 +97,7 @@ bc <- vegdist(varespec)
 pheatmap::pheatmap(bc,breaks = seq(0,1,0.01))
 ```
 
-<img src="/post/2018-10-17-bray-curtis-dissimilarity_files/figure-html/vegdist-1.png" width="576" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/vegdist-1.png" width="576" />
 
 ## 延伸阅读
 

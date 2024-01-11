@@ -14,8 +14,8 @@ if (!requireNamespace("scholar")) remotes::install_github("YuLab-SMU/scholar", q
 library(scholar)
 
 id = '9hAQ1LYAAAAJ'
-Sys.setenv(HTTP_PROXY="http://127.0.0.1:1081")
-Sys.setenv(HTTPS_PROXY="http://127.0.0.1:1081")
+#Sys.setenv(HTTP_PROXY="http://127.0.0.1:1081")
+#Sys.setenv(HTTPS_PROXY="http://127.0.0.1:1081")
 publication = get_publications(id)
 
 pacman::p_load("DT")

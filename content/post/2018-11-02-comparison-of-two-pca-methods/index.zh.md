@@ -68,7 +68,7 @@ p1 <- ggplot(df,mapping) +
 p1
 ```
 
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca1-1.png" width="768" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/pca1-1.png" width="768" />
 
 # 使用 `vegan::rda()` 做主成分分析
 
@@ -94,7 +94,7 @@ p2 <- ggplot(df,mapping) +
 p2
 ```
 
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca2-1.png" width="768" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/pca2-1.png" width="768" />
 
 # 放在一起比较一下
 
@@ -105,4 +105,4 @@ p2
 cowplot::plot_grid(p1,p2,labels = "AUTO",ncol=1,align = "hv")
 ```
 
-<img src="/post/2018-11-02-comparison-of-two-pca-methods_files/figure-html/pca_plot-1.png" width="768" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/pca_plot-1.png" width="768" />

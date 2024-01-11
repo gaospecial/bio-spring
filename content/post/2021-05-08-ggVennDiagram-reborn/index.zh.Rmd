@@ -66,6 +66,11 @@ ggplot(data, aes(x=time, y=count)) +
 先生成一个示例数据：
 
 ```{r}
+pak::pak("gaospecial/ggVennDiagram@V1.1")
+```
+
+
+```{r}
 genes <- paste0("gene",1:1000)
 set.seed(20210502)
 gene_list <- list(A = sample(genes,100),

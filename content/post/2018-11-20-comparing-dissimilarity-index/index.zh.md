@@ -55,5 +55,5 @@ for (i in seq_along(dist.methods)){
 plot_grid(plotlist = dist.plots,labels = "AUTO",ncol=4)
 ```
 
-<img src="/post/2018-11-20-comparing-dissimilarity-index_files/figure-html/unnamed-chunk-3-1.png" width="960" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-3-1.png" width="960" />
 

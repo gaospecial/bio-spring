@@ -83,11 +83,11 @@ library("vegan")
 ```
 
 ```
-## 载入需要的程辑包：permute
+## Loading required package: permute
 ```
 
 ```
-## 载入需要的程辑包：lattice
+## Loading required package: lattice
 ```
 
 ```

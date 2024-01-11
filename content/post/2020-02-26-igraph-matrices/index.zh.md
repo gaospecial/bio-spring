@@ -46,6 +46,17 @@ m
 par(mar=c(1,1,1,1))
 
 g1 <- graph_from_incidence_matrix(m,directed = TRUE,mode = "out") 
+```
+
+```
+## Warning: `graph_from_incidence_matrix()` was deprecated in igraph 1.6.0.
+## ℹ Please use `graph_from_biadjacency_matrix()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+```
+
+```r
 plot(g1)
 ```
 

@@ -165,7 +165,7 @@ As you can see above, we generated a `.bib` database with `knitr::write_bib()`.
 Citation entries are displayed in the right margin by default like footnotes. To
 disable this behavior, set `features: [-sidenotes]` in YAML.
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 
 <div id="ref-R-base" class="csl-entry">
 

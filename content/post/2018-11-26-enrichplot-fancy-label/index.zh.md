@@ -44,7 +44,7 @@ ego <- enrichGO(gene          = gene,
 dotplot(ego)
 ```
 
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 
 刀法比较犀利, 主要是定义一个短 label 的函数, 将其传递给 `scale_y_discrete()` 即可. **在输出ggplot 对象时做修改**.
@@ -104,7 +104,7 @@ dotplot(ego) + scale_y_discrete(label=short_label)
 ## Adding another scale for y, which will replace the existing scale.
 ```
 
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 如果最多只显示 3 个单词, 则可以写成这样:
 
@@ -121,7 +121,7 @@ dotplot(ego) +
 ## Adding another scale for y, which will replace the existing scale.
 ```
 
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 **注意**: `short_label()` 带参数和不带参数时具有不同的调用方法.
 
@@ -163,7 +163,7 @@ ck <- compareCluster(geneClusters = gcSample, fun = "enrichKEGG")
 dotplot(ck)
 ```
 
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-7-1.png" width="960" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-7-1.png" width="960" />
 
 这只是一个 `list` 输入的例子, 可以通过改 name 变更顺序(就行我刚刚做的那样). 但是, 如果数据是放在 `data.frame` 中的, 存在多个分组条件, 每个条件按因子的 `level` 排好序. 
 那么由于 `compareCluster` 和 `dotplot` 操作时会将其转变成 `character`, 顺序会丢失, 导致最终结果是按照字母顺序输出的.
@@ -182,7 +182,7 @@ levels(p$data$Cluster)
 ```
 
 ```
-## [1] "0\n(403)"  "12\n(192)" "24\n(427)" "4\n(470)"  "16\n(279)" "8\n(323)" 
+## [1] "0\n(406)"  "12\n(193)" "24\n(431)" "4\n(476)"  "16\n(282)" "8\n(323)" 
 ## [7] "28\n(160)"
 ```
 
@@ -199,6 +199,6 @@ p + xlab("Time (h)") + scale_y_discrete(label=short_label)
 ## Adding another scale for y, which will replace the existing scale.
 ```
 
-<img src="/post/2018-11-26-enrichplot-fancy-label_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 这两种"骚操作", 分别相当于基因表达时"转录后修饰"和"翻译后修饰". 嗯, 是有这么个意思. 都是在 "biobabble" 公众号学到的, 结合具体问题分享一下. 共同进步吧!
