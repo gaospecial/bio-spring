@@ -6,8 +6,15 @@
     <description>Recent content in R on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gaospecial.github.io/bio-spring/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dplyr::filter() 中的表达式</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2024/01/11/dplyr-filter-expression/</link>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2024/01/11/dplyr-filter-expression/</guid>
+      <description>&lt;p&gt;dplyr 中的骚操作。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>一道数学题</title>
       <link>https://gaospecial.github.io/bio-spring/post/2023/12/31/a-math-quiz/</link>

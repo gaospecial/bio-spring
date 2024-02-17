@@ -6,12 +6,19 @@
     <description>Recent content in Categories on BIO-SPRING</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 31 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gaospecial.github.io/bio-spring/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ggplot2</title>
+      <link>https://gaospecial.github.io/bio-spring/categories/ggplot2/</link>
+      <pubDate>Sat, 17 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/categories/ggplot2/</guid>
+      <description></description>
+    </item>
     <item>
       <title>R</title>
       <link>https://gaospecial.github.io/bio-spring/categories/r/</link>
-      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/categories/r/</guid>
       <description></description>
     </item>
@@ -48,13 +55,6 @@
       <link>https://gaospecial.github.io/bio-spring/categories/ggplot/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       <guid>https://gaospecial.github.io/bio-spring/categories/ggplot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ggplot2</title>
-      <link>https://gaospecial.github.io/bio-spring/categories/ggplot2/</link>
-      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://gaospecial.github.io/bio-spring/categories/ggplot2/</guid>
       <description></description>
     </item>
     <item>

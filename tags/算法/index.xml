@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on BIO-SPRING</title>
+    <link>https://gaospecial.github.io/bio-spring/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 17 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gaospecial.github.io/bio-spring/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>猴子吃桃问题</title>
+      <link>https://gaospecial.github.io/bio-spring/post/2024/02/17/monkey-peach/</link>
+      <pubDate>Sat, 17 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://gaospecial.github.io/bio-spring/post/2024/02/17/monkey-peach/</guid>
+      <description>寒假作业上有一道题：一只猴子有很多桃子，每天都吃一半加 1 个，最后在第 4 天的时候只剩下 1 个桃子。问它原来有几个桃子？&#xA;这是一个迭代的问题，往前数第 \(n\) 天的桃子数量是 \(f(n)\)，且 \(f(n) = (f(n-1)+1) * 2\)。若 \(n = 0\)，则 \(f(0) =1\)。可以写成下面的形式。&#xA;taozi = function(n){ if (n == 0) return(1) (taozi(n-1) + 1) * 2 } 如果花了 100 天才剩下 1 个桃子，那么原有的桃子数量将会很多（3.8029518\times 10^{30} 个）。&#xA;x = 1:100 y = sapply(1:100, taozi) library(dplyr, quietly = TRUE) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(ggplot2) df = tibble(day = x, number = y) # 桃子数量 ggplot(df, aes(day, number)) + geom_point() # 对桃子数量进行 log 变换，得到线性关系 ggplot(df, aes(day, number)) + geom_point() + scale_y_log10() 为了更加形象的展示这种变化，不妨祭出 emojifont 软件包，再施加一些魔法，可以得到 1 - 9 天情况下桃子的数量。</description>
+    </item>
+  </channel>
+</rss>
