@@ -1,0 +1,94 @@
+---
+title: Random Surface
+author: gaoch
+date: '2024-08-11'
+slug: random-surface
+categories:
+  - 学习笔记
+tags:
+  - R
+---
+
+在 R 中生成 2 个向量，将其相乘后获得的矩阵，用 3D 绘图出来。生成向量时，加入正弦信号和随机扰动。绘图使用可交互的方式。添加噪声的时候，使用多个不同振幅、频率的正弦信号叠加的方式。
+
+
+## 安装并加载 `plotly` 包
+
+首先，确保你已经安装并加载了 `plotly` 包：
+
+```{r}
+# install.packages("plotly")
+library(plotly)
+```
+
+## 生成带有多个正弦信号和随机噪声信号的向量
+
+我们将生成两个向量，每个向量都包含多个不同振幅和频率的正弦信号，且这些信号的参数是随机生成的。
+
+```{r}
+# 设置随机种子以确保结果可重复
+set.seed(42)
+
+# 生成x和y的基本信号
+x <- seq(0, 2*pi, length.out = 100)
+y <- seq(0, 2*pi, length.out = 100)
+
+# 定义一个函数生成随机频率和振幅的波形信号
+generate_random_signal <- function(x, num_signals = 5) {
+  signal <- rep(0, length(x))
+  for (i in 1:num_signals) {
+    # 随机生成振幅和频率
+    amplitude <- runif(1, min = 0.1, max = 1)
+    frequency <- runif(1, min = 1, max = 5)
+    phase <- runif(1, min = 0, max = 2*pi)
+    
+    # 叠加波形信号
+    signal <- signal + amplitude * sin(frequency * x + phase)
+  }
+  return(signal)
+}
+
+# 为x和y生成带有随机噪声的信号
+signal_with_noise_x <- generate_random_signal(x)
+signal_with_noise_y <- generate_random_signal(y)
+
+# 计算外积，得到矩阵
+z <- outer(signal_with_noise_x, signal_with_noise_y, "*")
+```
+
+## 使用 `plotly` 进行交互式3D绘图
+
+```{r}
+# 创建交互式3D图
+p <- plot_ly(x = ~x, y = ~y, z = ~z) %>% 
+  add_surface() %>% 
+  layout(
+    title = "3D Surface Plot with Multiple Random Sine Signals",
+    scene = list(
+      xaxis = list(title = "X-Axis"),
+      yaxis = list(title = "Y-Axis"),
+      zaxis = list(title = "Z-Axis")
+    )
+  )
+
+# 显示图形
+p
+```
+
+## 代码解释：
+
+- **`generate_random_signal` 函数**:
+  - 该函数生成多个不同频率和振幅的正弦信号。`num_signals` 控制生成多少个叠加信号。
+  - `runif` 函数用于随机生成振幅和频率的值。
+  - 每个正弦信号的相位 (`phase`) 也被随机化。
+
+- **叠加信号**:
+  - `signal_with_noise_x` 和 `signal_with_noise_y` 是通过多个随机振幅和频率的正弦信号叠加生成的。
+
+- **外积**:
+  - 使用 `outer` 函数计算 `signal_with_noise_x` 和 `signal_with_noise_y` 的外积，生成矩阵 `z`。
+
+- **3D绘图**:
+  - `plot_ly` 用于创建交互式的3D曲面图。
+
+运行此代码后，你将看到一个带有多个随机正弦信号叠加的交互式3D曲面图。这些信号不仅在频率和振幅上有所变化，还包含了随机生成的噪声信号。你可以通过交互式操作查看曲面图的不同角度。

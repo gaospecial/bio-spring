@@ -11,6 +11,7 @@ ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\
 footnotereturnlinkcontents: "↩"
 paginate: 10
 
+
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
 
@@ -73,6 +74,8 @@ params:
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
     licensed under MIT. The full source is available at
     https://github.com/yihui/hugo-prose.
+  disable_path: ["categories", "tags"]
+
 
 markup:
   highlight:
