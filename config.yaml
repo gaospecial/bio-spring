@@ -6,10 +6,17 @@ defaultContentLanguage: "zh"
 title: "BIO-SPRING"
 theme: "hugo-prose"
 googleAnalytics: "G-77M8KZTCMR"
-disqusShortname: "bio-spring"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 footnotereturnlinkcontents: "↩"
-paginate: 10
+
+# Use pagination.pagerSize
+pagination:
+  pagerSize: 10
+  
+# Use .Site.Config.Services.Disqus.Shortname
+Services:
+  Disqus:
+    Shortname: "bio-spring"
 
 
 permalinks:
