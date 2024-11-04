@@ -18,8 +18,6 @@ jobs:
       # 检出代码仓库
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0    # 获取完整的git历史
 
       # 设置 R 环境
       - name: Setup R
