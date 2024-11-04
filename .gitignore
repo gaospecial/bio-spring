@@ -1,9 +1,17 @@
+# R相关
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Hugo相关
 /public/
+/resources/
 .hugo_build.lock
+/tmp/hugo_cache/
+
+# 系统相关
 .DS_Store
+Thumbs.db
 themes/hugo-prose.bak/
 .DS_Store

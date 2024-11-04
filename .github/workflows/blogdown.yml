@@ -19,6 +19,15 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
 
+      # 缓存 R 包
+      - name: Cache R packages
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION') }}
+          restore-keys: |
+            ${{ runner.os }}-r-
+
       # 安装系统依赖
       - name: Install system dependencies
         run: |
@@ -36,10 +45,21 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      # 缓存 Hugo 模块
+      - name: Cache Hugo modules
+        uses: actions/cache@v3
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
       # 构建网站
       - name: Build site
         run: |
           Rscript -e 'blogdown::build_site()'
+        env:
+          HUGO_CACHE_DIR: /tmp/hugo_cache
 
       # 部署到 gh-pages 分支
       - name: Deploy to GitHub Pages
