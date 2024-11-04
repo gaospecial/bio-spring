@@ -223,3 +223,7 @@ rsync -av --delete public/ $SITE_DIR/ >> $LOG_FILE 2>&1
 
 echo "Deployment completed at $(date)" >> $LOG_FILE
 ```
+
+## 测试
+
+在 GitHub 仓库中推送代码，应该会看到阿里云服务器上的网站自动更新。同时，GitHub Webhook 的日志中也会记录 delivery 信息。
