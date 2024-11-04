@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zotero on BIO-SPRING</title>
+    <link>bio-spring/categories/zotero/</link>
+    <description>Recent content in Zotero on BIO-SPRING</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/categories/zotero/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Office 365 中设置 Zotero 插件</title>
+      <link>bio-spring/post/2019/11/10/install-zotero-plugin-in-office-365/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>bio-spring/post/2019/11/10/install-zotero-plugin-in-office-365/</guid>
+      <description>&lt;p&gt;刚换新电脑（我的老爷机终于可以退休了）.新电脑新系统，自带Office 365，于是用上了这个版本的 Word。&lt;/p&gt;&#xA;&lt;p&gt;Office 365中的 Word 执行常规的Zotero 插件安装无效。&lt;/p&gt;&#xA;&lt;h2 id=&#34;官方论坛上面&#34;&gt;官方论坛上面，&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://forums.zotero.org/discussion/74446/zotero-tab-for-office-365-word-is-missing&#34;&gt;https://forums.zotero.org/discussion/74446/zotero-tab-for-office-365-word-is-missing&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;和&#34;&gt;和&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.zotero.org/support/word_processor_plugin_manual_installation&#34;&gt;https://www.zotero.org/support/word_processor_plugin_manual_installation&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;提到了修复方法但是没有用&#34;&gt;提到了修复方法，但是没有用。&lt;/h2&gt;&#xA;&lt;h2 id=&#34;办法其实蛮简单&#34;&gt;办法其实蛮简单：&lt;/h2&gt;&#xA;&lt;p&gt;打开“文件”-“选项”-“加载项”，在右侧“管理：”旁边的下拉菜单中选择“Word加载项”，点击“转到&amp;hellip;”按钮，打开一个对话框：&lt;/p&gt;&#xA;&lt;p&gt;在“共用模板及加载项”中选择“添加&amp;hellip;”，把 Zotero 自带的 “Zotero.dotm” 模板添加进来。&lt;/p&gt;&#xA;&lt;p&gt;界面提示“是否加载宏”，选择“是”即可。&lt;/p&gt;&#xA;&lt;p&gt;**Zotero.dotm 是 Word 模板文件，位于Zotero安装目录下面的：&lt;code&gt;.\extensions\zoteroWinWordIntegration@zotero.org\install\Zotero.dotm&lt;/code&gt; 位置。&lt;/p&gt;&#xA;&lt;p&gt;如果你用&lt;strong&gt;Everything&lt;/strong&gt;，搜索文件名一下就可以找到它了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;english-version&#34;&gt;English Version&lt;/h2&gt;&#xA;&lt;p&gt;In Word，open &amp;ldquo;File&amp;rdquo; - &amp;ldquo;Options&amp;rdquo; - &amp;ldquo;Add-ons&amp;rdquo;, select &amp;ldquo;Word Add-ons&amp;rdquo; from the drop-down menu next to &amp;ldquo;Manage:&amp;rdquo; on the right panel, click the &amp;ldquo;Go to&amp;hellip;&amp;rdquo; button to open a dialog box:&lt;/p&gt;&#xA;&lt;p&gt;Select &amp;ldquo;Add&amp;hellip;&amp;rdquo; in &amp;ldquo;Common Templates and Add-ons&amp;rdquo; to enable the Zotero&amp;rsquo;s  &amp;ldquo;Zotero.dotm&amp;rdquo; template.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

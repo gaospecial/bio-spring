@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on BIO-SPRING</title>
+    <link>bio-spring/tags/software/</link>
+    <description>Recent content in Software on BIO-SPRING</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 04 Mar 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Check gmail</title>
+      <link>bio-spring/post/2009/03/04/check-gmail/</link>
+      <pubDate>Wed, 04 Mar 2009 00:00:00 +0000</pubDate>
+      <guid>bio-spring/post/2009/03/04/check-gmail/</guid>
+      <description>&lt;p&gt;checkgmail是一个很好使用的gmail桌面，可以随时监视你的帐号，并提供一些简单的操作，如归档，删除，写信等。&lt;/p&gt;&#xA;&lt;p&gt;推荐使用。&lt;/p&gt;&#xA;&lt;p&gt;在配置中选择24小时制，否则会出现乱码。&lt;/p&gt;&#xA;&lt;img src=&#34;http://hiphotos.baidu.com/spring%5Fgao/pic/item/fa35222d317efe14349bf786.jpg&#34; class=&#34;blogimg&#34; /&gt;&#xA;&lt;h2 id=&#34;gmail中-的-pdf-viewer&#34;&gt;Gmail中 的 PDF viewer&lt;/h2&gt;&#xA;&lt;p&gt;PDF是个有点尴尬的格式，作为网络文档标准，却无法直接在浏览器中方便的查看。借助于Adobe&#xA;Reader的浏览器插件十分的man。&lt;/p&gt;&#xA;&lt;p&gt;而Gmail中的PDF viewer明显是个轻量级的小东西。小而且十分好用。&lt;/p&gt;&#xA;&lt;p&gt;我查看了一下网页源文件发现，PDF viewer&#xA;将PDF转变为PNG图像显示，并且通过javaspcript来添加高亮，并实现放大和翻页效果。&lt;/p&gt;&#xA;&lt;p&gt;如下所示：展示了这个工具的一些基本技术内幕。&lt;br&gt;&#xA;&lt;img src=&#34;http://hiphotos.baidu.com/spring%5Fgao/pic/item/287d941349421ca06538dbae.jpg&#34; class=&#34;blogimg&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;如果google把这个API开放的话，我肯定要给自己安装一个，以方便的查看自己的众多PDF文档。&lt;/p&gt;&#xA;&lt;p&gt;呵呵，另外发现了Gmail中的一个小小的怪事。如下图。&lt;/p&gt;&#xA;&lt;img src=&#34;http://hiphotos.baidu.com/spring%5Fgao/pic/item/c0c3a30fcec72dcdab6457ad.jpg&#34; class=&#34;blogimg&#34; /&gt;</description>
+    </item>
+  </channel>
+</rss>
