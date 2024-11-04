@@ -18,6 +18,9 @@ jobs:
       # 检出代码仓库
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          submodules: recursive  # 递归检出所有子模块
+          fetch-depth: 1  # 限制 git 历史记录深度为 1
 
       # 设置 R 环境
       - name: Setup R
