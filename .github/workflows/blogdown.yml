@@ -65,7 +65,7 @@ jobs:
       # 注意：baseURL 需要与 gh-pages 分支的 URL 一致
       - name: Build site
         run: |
-          Rscript -e 'blogdown::build_site(baseURL = "/bio-spring/", relativeURLs = TRUE)'
+          Rscript -e 'blogdown::build_site(baseURL = "/bio-spring/")'
         env:
           HUGO_CACHE_DIR: /tmp/hugo_cache
           HUGO_BASEURL: "/bio-spring/"
