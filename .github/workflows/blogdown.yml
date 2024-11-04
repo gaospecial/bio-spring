@@ -64,9 +64,10 @@ jobs:
       # 构建网站
       - name: Build site
         run: |
-          Rscript -e 'blogdown::build_site()'
+          Rscript -e 'blogdown::build_site(baseURL = "https://gaospecial.github.io/bio-spring/", relativeURLs = TRUE)'
         env:
           HUGO_CACHE_DIR: /tmp/hugo_cache
+          HUGO_BASEURL: "https://gaospecial.github.io/bio-spring/"
 
       # 部署到 gh-pages 分支
       - name: Deploy to GitHub Pages
