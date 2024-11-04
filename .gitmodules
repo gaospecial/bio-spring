@@ -1,3 +1,4 @@
 [submodule "themes/hugo-prose"]
 	path = themes/hugo-prose
 	url = git@github.com:gaospecial/hugo-prose.git
+	branch = bio-spring
