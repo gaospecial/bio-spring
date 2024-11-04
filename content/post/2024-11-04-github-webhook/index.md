@@ -60,45 +60,45 @@ GitHub Webhook 是一种自动化工具，它允许在 GitHub 仓库发生特定
 
 1. 创建虚拟主机配置文件：
 
-```apache
-<VirtualHost *:443>
-    # 设置服务器名称
-    ServerName webhook.bio-spring.top
-    ServerAlias webhook.bio-spring.top
+    ```apache
+    <VirtualHost *:443>
+        # 设置服务器名称
+        ServerName webhook.bio-spring.top
+        ServerAlias webhook.bio-spring.top
 
-    # 启用 SSL
-    SSLEngine on
-    SSLCertificateFile /etc/letsencrypt/live/webhook.bio-spring.top/fullchain.pem
-    SSLCertificateKeyFile /etc/letsencrypt/live/webhook.bio-spring.top/privkey.pem
+        # 启用 SSL
+        SSLEngine on
+        SSLCertificateFile /etc/letsencrypt/live/webhook.bio-spring.top/fullchain.pem
+        SSLCertificateKeyFile /etc/letsencrypt/live/webhook.bio-spring.top/privkey.pem
 
-    # 设置日志路径
-    ErrorLog ${APACHE_LOG_DIR}/webhook-error.log
-    CustomLog ${APACHE_LOG_DIR}/webhook-access.log combined
+        # 设置日志路径
+        ErrorLog ${APACHE_LOG_DIR}/webhook-error.log
+        CustomLog ${APACHE_LOG_DIR}/webhook-access.log combined
 
-    # 设置文档根目录
-    DocumentRoot /var/www/html/webhook
-</VirtualHost>
-```
+        # 设置文档根目录
+        DocumentRoot /var/www/html/webhook
+    </VirtualHost>
+    ```
 
 2. 重启 Apache 服务：
 
-```bash
-sudo a2ensite webhook.conf
-sudo service apache2 restart
-```
+    ```bash
+    sudo a2ensite webhook.conf
+    sudo service apache2 restart
+    ```
 
 3. 添加 DNS 解析
 
-在 DNS 解析中添加 webhook.bio-spring.top 的解析，指向阿里云服务器的公网 IP 地址。
+    在 DNS 解析中添加 webhook.bio-spring.top 的解析，指向阿里云服务器的公网 IP 地址。
 
 4. 配置 https 证书
 
-在阿里云服务器上安装 certbot 并配置 https 证书。
+    在阿里云服务器上安装 certbot 并配置 https 证书。
 
-```bash
-sudo apt install certbot
-sudo certbot --apache -d webhook.bio-spring.top
-```
+    ```bash
+    sudo apt install certbot
+    sudo certbot --apache -d webhook.bio-spring.top
+    ```
 
 ### 配置 Hook Server 的脚本
 
@@ -227,3 +227,16 @@ echo "Deployment completed at $(date)" >> $LOG_FILE
 ## 测试
 
 在 GitHub 仓库中推送代码，应该会看到阿里云服务器上的网站自动更新。同时，GitHub Webhook 的日志中也会记录 delivery 信息。
+
+**注意**：由于 GitHub Webhook 的超时时间为 10 s，如果超过 10 s 没有响应（脚本没有执行完毕），GitHub 的状态会显示为“time out”。这种情况可以通过异步执行脚本解决。或者也可以忽略。
+
+### 异步执行脚本
+
+在 PHP 中实现异步处理，可以使用 `exec()` 或 `shell_exec()` 命令来启动后台进程。通过在命令末尾添加 `&` 符号，可以让该进程在后台运行，而不阻塞主进程。
+
+```php
+// 异步启动任务
+exec("bash /path/to/deploy-hook.sh &");
+```
+
+以上代码会在后台执行 `deploy-hook.sh`，避免输出内容影响主进程。
