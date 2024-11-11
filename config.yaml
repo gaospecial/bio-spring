@@ -9,6 +9,9 @@ googleAnalytics: "G-77M8KZTCMR"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 footnotereturnlinkcontents: "↩"
 
+# 不检查 hugo 版本
+hugo_version: ""
+
 # Use pagination.pagerSize
 pagination:
   pagerSize: 10
