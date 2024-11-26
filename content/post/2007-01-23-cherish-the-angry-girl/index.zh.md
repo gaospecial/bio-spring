@@ -3,11 +3,10 @@ title: 男人：珍惜你身边那个爱生气的女孩
 date: '2007-01-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: cherish-the-angry-girl
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 男人：珍惜你身边那个爱生气的**女孩**

@@ -3,16 +3,17 @@ title: fastq format – sra format
 date: '2012-08-21'
 slug: 2012-08-21-fastq-format-sra-format
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
   - fastq
   - formats
   - sra
   - 格式
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,12 +3,10 @@ title: 三分钟在阿里云中用上免费SSL
 date: '2018-10-23'
 slug: 2018-10-23-setup-ssl-in-aliyun
 tags:
-  - 云计算 CLOUD+
-  - 原创教程 TUTORIAL
-  - 操作系统 LINUX
-  - 网站建设 WEBSITE
   - 阿里云
 author: gaoch
+categories:
+  - 信息技术
 ---
 
 

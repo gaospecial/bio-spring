@@ -3,11 +3,10 @@ title: “拉尼娜”与“荷叶效应”--God must be crazy!!!
 date: '2008-02-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: climate-changes
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 [专家：中国近期极端天气与拉尼娜现象有关](http://news.xinhuanet.com/tech/2008-02/03/content_7557194.htm)

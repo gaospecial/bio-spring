@@ -3,11 +3,10 @@ title: 看完了电视剧--<<龙虎人生>>
 date: '2007-12-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: review-to-tv-series-longhurensheng
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 这个电视剧总体感觉效果比较一般, 但至少还是有一点精神在里面,

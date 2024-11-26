@@ -3,14 +3,15 @@ title: 关于GFF3格式
 date: '2010-10-28'
 slug: 2010-10-28-about-gff3
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
   - GFF
   - GFF3
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

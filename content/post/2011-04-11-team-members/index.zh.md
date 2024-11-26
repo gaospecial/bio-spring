@@ -3,13 +3,14 @@ title: 团队中的猪, 鸡, 和鹦鹉
 date: '2011-04-11'
 slug: 2011-04-11-team-members
 tags:
-  - 言论 VOICE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - 团队
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

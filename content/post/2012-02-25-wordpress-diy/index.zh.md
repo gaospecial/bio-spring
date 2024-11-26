@@ -3,13 +3,12 @@ title: WordPress开发实录
 date: '2012-02-25'
 slug: 2012-02-25-wordpress-diy
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - wordpress
+  - 旧文
+  - WordPress
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

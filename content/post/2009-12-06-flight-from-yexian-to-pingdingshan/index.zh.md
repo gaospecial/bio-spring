@@ -3,11 +3,12 @@ title: 从叶县坐飞机去平顶山
 date: '2009-12-06'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: flight-from-yexian-to-pingdingshan
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 从叶县坐飞机去平顶山  

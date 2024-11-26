@@ -3,18 +3,18 @@ title: 荐：Ubuntu（linux），Windows和Android操作系统中的磁盘使用
 date: '2011-10-21'
 slug: 2011-10-21-disk-usage-tools-in-different-platform
 tags:
-  - 信息技术 INFORMATICS
-  - andriod
+  - 旧文
+  - WordPress
   - diskusage
   - RidNacs
   - Ubuntu
   - Windows
   - 工具
-  - 磁盘
+  - 硬盘
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

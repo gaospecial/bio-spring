@@ -2,14 +2,14 @@
 title: 更改 blogdown 主题
 author: Chun-Hui Gao
 date: '2023-08-20'
-draft: false
+draft: no
 slug: modifying-blogdown-hugo-theme
 categories:
-  - blogdown
+  - 信息技术
 tags:
   - blogdown
-  - hugo
-  - theme
+  - Hugo
+  - 主题
 ---
 
 Hugo Prose 主题中，网站主页的元素是通过 `/themes/hugo-prose/layouts/_default/list.html` 生成的。

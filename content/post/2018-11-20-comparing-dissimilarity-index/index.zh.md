@@ -4,8 +4,9 @@ author: gaoch
 date: '2018-11-20'
 slug: comparing-dissimilarity-index
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - statistics
 ---
 
@@ -13,7 +14,7 @@ tags:
 
 
 
-```r
+``` r
 library(vegan)
 library(pheatmap)
 library(cowplot)
@@ -24,7 +25,7 @@ dist.methods <- c("manhattan", "euclidean", "canberra", "clark", "bray", "kulczy
 对于这17种方法，分别计算其距离，用 `pheatmap()` 比较其差异。
 
 
-```r
+``` r
 dist.plots <- vector("list",length(dist.methods))
 for (i in seq_along(dist.methods)){
   dist <- vegdist(varespec,method = dist.methods[[i]])
@@ -51,7 +52,7 @@ for (i in seq_along(dist.methods)){
 差距还是挺大的。
 
 
-```r
+``` r
 plot_grid(plotlist = dist.plots,labels = "AUTO",ncol=4)
 ```
 

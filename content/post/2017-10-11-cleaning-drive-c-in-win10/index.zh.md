@@ -3,14 +3,14 @@ title: 清理Windows 10系统盘
 date: '2017-10-11'
 slug: 2017-10-11-cleaning-drive-c-in-win10
 tags:
-  - 原创教程 TUTORIAL
-  - 操作系统 LINUX
-  - Win10
+  - 旧文
+  - WordPress
+  - Windows
   - 系统清理
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

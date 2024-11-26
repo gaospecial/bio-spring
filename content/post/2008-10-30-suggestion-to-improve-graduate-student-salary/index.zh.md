@@ -3,11 +3,10 @@ title: 57位海内外科学家建议国家加强对研究生的支持[转］
 date: '2008-10-30'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: suggestion-to-improve-graduate-student-salary
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 http://blog.sina.com.cn/s/blog\_4abe58910100c2u0.html  

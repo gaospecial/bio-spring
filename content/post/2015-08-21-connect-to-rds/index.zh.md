@@ -3,15 +3,15 @@ title: 如何连接阿里云数据库RDS
 date: '2015-08-21'
 slug: 2015-08-21-connect-to-rds
 tags:
-  - 云计算 CLOUD+
-  - 网站建设 WEBSITE
+  - 旧文
+  - WordPress
   - RDS
   - 云数据库
   - 阿里云
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

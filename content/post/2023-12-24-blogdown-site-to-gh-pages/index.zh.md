@@ -1,13 +1,15 @@
 ---
-title: '部署网站到 gh-pages'
+title: 部署网站到 gh-pages
 author: gaoch
 date: '2023-12-24'
 slug: blogdown-site-to-gh-pages
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - blogdown
-  - github
+  - GitHub
 ---
 
 ## relURL 的用法

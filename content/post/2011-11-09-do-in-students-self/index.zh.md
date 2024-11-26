@@ -3,15 +3,15 @@ title: 让学生去做他们想做的事情zz
 date: '2011-11-09'
 slug: 2011-11-09-do-in-students-self
 tags:
-  - 时事 NEWS
-  - 言论 VOICE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - 教育
   - 读后感
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

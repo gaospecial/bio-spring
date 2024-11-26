@@ -3,19 +3,17 @@ title: 使用poEdit汉化wordpress插件、主题攻略
 date: '2012-02-26'
 slug: 2012-02-26-poedit-wordpress-plugins
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - mo
   - po
   - poEdit
-  - theme
-  - wordpress
   - 主题
   - 汉化
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

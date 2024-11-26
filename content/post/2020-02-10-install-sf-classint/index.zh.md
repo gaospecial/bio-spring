@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-02-10'
 slug: install-sf-classint
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - sf
 ---
 

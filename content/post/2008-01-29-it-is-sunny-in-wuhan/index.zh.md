@@ -3,11 +3,10 @@ title: 武汉的天晴了
 date: '2008-01-29'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: it-is-sunny-in-wuhan
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 早上爬起来, 互见窗外天光大亮, 原来武汉真的天晴了...  

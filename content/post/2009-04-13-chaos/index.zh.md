@@ -3,11 +3,12 @@ title: 乱
 date: '2009-04-13'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: chaos
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 很乱。  

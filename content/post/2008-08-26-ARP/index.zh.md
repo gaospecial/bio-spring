@@ -3,11 +3,10 @@ title: ARP
 date: '2008-08-26'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: ARP
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 三個重要的通訊協定：  

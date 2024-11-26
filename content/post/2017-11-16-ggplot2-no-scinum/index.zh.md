@@ -3,14 +3,15 @@ title: ggplot2作图中不使用科学计数法
 date: '2017-11-16'
 slug: 2017-11-16-ggplot2-no-scinum
 tags:
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - ggplot2
   - R
   - 作图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

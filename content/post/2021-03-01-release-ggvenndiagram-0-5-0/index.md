@@ -1,13 +1,13 @@
 ---
-title: "发布 `ggVennDiagram` 0.5.0"
+title: 发布 `ggVennDiagram` 0.5.0
 author: Chun-Hui Gao
 date: '2021-03-01'
 slug: release-ggvenndiagram-0-5-0
 categories:
-  - R
-  - ggplot2
+  - 信息技术
 tags:
   - R
+  - ggplot2
   - ggVennDiagram
 ---
 

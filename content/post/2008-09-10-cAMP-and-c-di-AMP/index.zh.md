@@ -3,11 +3,12 @@ title: 候选第二信使
 date: '2008-09-10'
 author: gaoch
 tags:
-  - 研究
+  - 旧文
+  - 科学研究
 slug: cAMP-and-c-di-AMP
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
+  - 生物学
 ---
 
 候选第二信使

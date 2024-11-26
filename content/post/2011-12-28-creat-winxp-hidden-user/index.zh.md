@@ -3,15 +3,15 @@ title: 在windowsXP中建立隐藏账户
 date: '2011-12-28'
 slug: 2011-12-28-creat-winxp-hidden-user
 tags:
-  - 信息技术 INFORMATICS
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - Windows
-  - XP
   - 隐私
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

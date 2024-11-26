@@ -3,11 +3,10 @@ title: xampp服务器系统
 date: '2007-09-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: xampp-in-windows
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 xampp就是linux下面的LAMP(linux, apache, mysql,

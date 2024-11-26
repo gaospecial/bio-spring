@@ -3,18 +3,17 @@ title: 使用BioPerl和primer3批量设计RT-PCR引物
 date: '2010-11-12'
 slug: 2010-11-12-rt-primer-bioperl
 tags:
-  - BioPerl BIOPERL
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - BioPerl
-  - primer
   - primer design
-  - primer3
   - RT-PCR
   - Ubuntu
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -4,7 +4,7 @@ author: gaoch
 date: '2018-12-29'
 slug: private-git-server
 categories:
-  - git
+  - 信息技术
 tags:
   - git
 ---

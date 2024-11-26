@@ -3,11 +3,10 @@ title: Photoshop中同时移动几个图层的方法
 date: '2008-08-31'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: move-multiple-layers-in-photoshop
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 将相关图层链接起来  

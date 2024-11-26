@@ -3,11 +3,10 @@ title: 值勤队网站的说明和截图
 date: '2006-10-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: website-of-zhiqindui
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 近日有幸帮忙值勤队改一下网站。由于技术有限，能力不足，再加上电脑也不小心坏了，所以就出现了现在这个样子〉〉

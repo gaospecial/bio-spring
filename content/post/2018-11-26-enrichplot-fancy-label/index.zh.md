@@ -4,8 +4,9 @@ author: gao
 date: '2018-11-26'
 slug: enrichplot-fancy-label
 categories:
-  - ggplot2
+  - 信息技术
 tags:
+  - ggplot2
   - enrichplot
 ---
 
@@ -14,7 +15,7 @@ tags:
 例如下面这个样子:
 
 
-```r
+``` r
 # 可重复运行的代码拿去
 library(clusterProfiler)
 library(org.Hs.eg.db)
@@ -40,7 +41,7 @@ ego <- enrichGO(gene          = gene,
 这个例子中, 有一个 "microtubule cytoskeleton ..." 特别长, 事实上有些 GO term 比这还要长很多. 不巧在这个例子中没有出现, 那就拿它开刀吧. 
 
 
-```r
+``` r
 dotplot(ego)
 ```
 
@@ -50,7 +51,7 @@ dotplot(ego)
 刀法比较犀利, 主要是定义一个短 label 的函数, 将其传递给 `scale_y_discrete()` 即可. **在输出ggplot 对象时做修改**.
 
 
-```r
+``` r
 #' Truncate string vector of ggplot axis label
 #'
 #' @param label    a ordered string vector
@@ -95,7 +96,7 @@ short_label <- function(label, maxLen = 50, maxWord = 5, pattern = " ", dot = TR
 默认最多显示 50 个字符, 5 个单词.
 
 
-```r
+``` r
 dotplot(ego) + scale_y_discrete(label=short_label)
 ```
 
@@ -109,7 +110,7 @@ dotplot(ego) + scale_y_discrete(label=short_label)
 如果最多只显示 3 个单词, 则可以写成这样:
 
 
-```r
+``` r
 dotplot(ego) + 
   scale_y_discrete(
     label=function(x)short_label(x,maxWord = 3)
@@ -132,7 +133,7 @@ dotplot(ego) +
 `compareCluster` 只能根据其本来固有的顺序排序, 这在程序上没有问题. 但用起来可能情况比较复杂.
 
 
-```r
+``` r
 data("gcSample")
 
 names(gcSample)
@@ -142,7 +143,7 @@ names(gcSample)
 ## [1] "X1" "X2" "X3" "X4" "X5" "X6" "X7" "X8"
 ```
 
-```r
+``` r
 set.seed(0)
 names(gcSample) <- sample(seq(0,28,by=4),8)
 names(gcSample)
@@ -152,14 +153,14 @@ names(gcSample)
 ## [1] "20" "0"  "12" "24" "4"  "16" "8"  "28"
 ```
 
-```r
+``` r
 ck <- compareCluster(geneClusters = gcSample, fun = "enrichKEGG")
 ```
 
 比如下面的例子中, 我们是想让 x 轴依数字大小(Time)排序的. 但是由于这个顺序与 `list` 顺序不同, 导致结果差强人意.
 
 
-```r
+``` r
 dotplot(ck)
 ```
 
@@ -175,18 +176,18 @@ dotplot(ck)
 由于 `ggplot` 隐式输出的是一个对象, 其数据可以访问和修改. 出来的图, 先改一下再保存不就可以了吗?
 
 
-```r
+``` r
 p <- dotplot(ck)
 
 levels(p$data$Cluster)
 ```
 
 ```
-## [1] "0\n(406)"  "12\n(193)" "24\n(431)" "4\n(476)"  "16\n(282)" "8\n(323)" 
-## [7] "28\n(160)"
+## [1] "0\n(410)"  "12\n(195)" "24\n(441)" "4\n(481)"  "16\n(286)" "8\n(328)" 
+## [7] "28\n(162)"
 ```
 
-```r
+``` r
 p$data$Cluster <- factor(p$data$Cluster, 
                          levels = c("0\n(245)", "4\n(359)",  "8\n(172)", "12\n(412)", "16\n(157)", "20\n(388)",    "24\n(301)"),
                          labels = c(0,4,8,12,16,20,24))

@@ -3,8 +3,8 @@ title: Ubuntu 10.10环境下安装GScribble
 date: '2010-10-28'
 slug: 2010-10-28-ubuntu-gscribble
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - GScribble
   - gtkhtml2
   - Python
@@ -12,8 +12,8 @@ tags:
   - 博客客户端
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

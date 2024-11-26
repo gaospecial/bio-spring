@@ -3,13 +3,14 @@ title: VIM快捷键中英对照图
 date: '2011-04-01'
 slug: 2011-04-01-vi-cheatsheet
 tags:
-  - 信息技术 INFORMATICS
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - vi
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

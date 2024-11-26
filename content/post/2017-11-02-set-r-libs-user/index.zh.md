@@ -3,12 +3,12 @@ title: Windows系统中固定R的Library目录
 date: '2017-11-02'
 slug: 2017-11-02-set-r-libs-user
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

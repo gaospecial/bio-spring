@@ -3,16 +3,18 @@ title: ContigExpress-Assemble pair-end sequencing fragments
 date: '2016-01-12'
 slug: 2016-01-12-contigexpress-assemble-pair-end-sequencing-fragments
 tags:
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - assemble
   - contig
   - ContigExpress
   - NTI
-  - Vector
+  - 向量
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

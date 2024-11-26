@@ -3,9 +3,10 @@ title: 'Letter 4: On The Terrors of Death'
 author: Lucius Annaeus Seneca
 date: '2019-07-30'
 categories:
+  - 其它
+tags:
   - Letter
   - Example
-tags:
   - Death
   - Seneca
   - Lucilius

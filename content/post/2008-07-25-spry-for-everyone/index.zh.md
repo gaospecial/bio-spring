@@ -3,11 +3,10 @@ title: Ajax for Everyone：Spry
 date: '2008-07-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: spry-for-everyone
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 <http://labs.adobe.com/technologies/spry/home.html>

@@ -3,11 +3,10 @@ title: windows document online && microsoft small business
 date: '2008-03-05'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: microsoft-small-bussiness
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 微软的在线文档和公司服务开放了。我立马去试用了一下，并且，附有截图奉上。  

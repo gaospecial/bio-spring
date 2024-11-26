@@ -3,11 +3,10 @@ title: 实验--->并非原地踏步
 date: '2007-10-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: about-my-experiment
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 注: 真的并非原地踏步, 是绕了一圈, 才回来的……(\*^\_\_^\*) 嘻嘻……  

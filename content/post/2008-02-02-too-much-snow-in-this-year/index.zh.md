@@ -3,11 +3,10 @@ title: 五十年一遇的对吧？
 date: '2008-02-02'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: too-much-snow-in-this-year
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 此次大雪，郴州停水停电停通讯，长达数天！真正验证了那句话，生活在城市中，真的很危险。

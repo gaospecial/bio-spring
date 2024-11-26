@@ -3,11 +3,10 @@ title: 摘抄，嘿嘿——备忘
 date: '2007-05-29'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: classical-poem-about-love
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 中国情诗名句

@@ -3,11 +3,10 @@ title: 病毒中的病毒
 date: '2008-08-08'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: virus-of-virus
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 'Virophage' suggests viruses are alive

@@ -3,11 +3,12 @@ title: 不得不说说的NOD32
 date: '2009-02-15'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: nod32-is-an-outstanding-antivirus-software
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 一直以来被各种病毒弄得叫苦不迭，尤其是以U盘为传播途径的病毒。最后还是不得不装上了杀软。  

@@ -4,7 +4,7 @@ author: gaoch
 date: '2019-07-08'
 slug: tencent-dev
 categories:
-  - git
+  - 信息技术
 tags:
   - git
 ---

@@ -3,11 +3,12 @@ title: 实验室中两位女孩的毕业答辩
 date: '2009-06-05'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: thesis-defense-of-zhanglu-and-guomanman
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 [来源：http://news.hzau.edu.cn/showarticle.php?aid=23010

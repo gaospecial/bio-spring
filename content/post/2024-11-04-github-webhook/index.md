@@ -3,8 +3,14 @@ title: GitHub Webhook
 author: gaoch
 date: '2024-11-04'
 slug: github-webhook
-categories: [计算机技术]
-tags: [GitHub, Webhook, Ubuntu, Apache, PHP]
+categories:
+  - 信息技术
+tags:
+  - GitHub
+  - Webhook
+  - Ubuntu
+  - Apache
+  - PHP
 ---
 
 使用 GitHub Webhook 自动更新个人网站。[bio-spring.top](https://bio-spring.top) 是我的个人网站，其源代码托管在 [GitHub](https://github.com/gaospecial/bio-spring) 上。通过使用 GitHub Actions 可以自动构建网站并部署到 GitHub Pages，实现自动更新网站在 [gaospecial.github.io/bio-spring/](https://gaospecial.github.io/bio-spring/) 上的展示。通过使用 netlify 可以实现自动更新网站在 netlify 服务器上的展示。现在想要自动化部署到我的阿里云服务器上，该如何实现呢？

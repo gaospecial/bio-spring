@@ -3,11 +3,10 @@ title: '[Ubuntu资料]Apt-get使用指南'
 date: '2008-04-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: apt-get-usage
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 Apt-get使用指南 -

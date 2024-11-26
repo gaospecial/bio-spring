@@ -3,16 +3,17 @@ title: mothur and QIIME
 date: '2016-02-09'
 slug: 2016-02-09-mothur-and-qiime
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - ecology
   - mothur
   - NGS
   - QIIME
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

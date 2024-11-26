@@ -3,8 +3,8 @@ title: Fix “getopts.pl can not be located in @INC” error in SSPACE_Standard_
 date: '2015-08-16'
 slug: 2015-08-16-sspace-getopts-error
 tags:
-  - 原创教程 TUTORIAL
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - NGS
   - perl
   - SSPACE
@@ -12,8 +12,9 @@ tags:
   - 错误
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

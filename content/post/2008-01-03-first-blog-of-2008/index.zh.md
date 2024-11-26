@@ -3,11 +3,10 @@ title: 2008开天辟地之作
 date: '2008-01-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: first-blog-of-2008
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 这两天心里很不亢奋, 也许是因为试验进展的不顺利, 因为不顺利,

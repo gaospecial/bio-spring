@@ -3,15 +3,15 @@ title: 在Ubuntu 12.04系统中安装LAMP（网络服务器套件）并设置rew
 date: '2012-08-23'
 slug: 2012-08-23-lamp-in-ubuntu-with-rewrite
 tags:
-  - 操作系统 LINUX
-  - apache
-  - linux
+  - 旧文
+  - WordPress
+  - Apache
   - mysql
   - Ubuntu
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

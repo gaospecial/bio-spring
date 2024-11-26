@@ -3,13 +3,13 @@ title: 科技“攻关”还是 科技“公关”
 date: '2011-03-13'
 slug: 2011-03-13-kejigongguan
 tags:
-  - 时事 NEWS
-  - 言论 VOICE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

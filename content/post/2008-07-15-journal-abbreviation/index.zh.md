@@ -3,11 +3,10 @@ title: SCI收录期刊的缩略名
 date: '2008-07-15'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: journal-abbreviation
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 -----------20090413--------  

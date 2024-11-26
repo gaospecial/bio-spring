@@ -3,17 +3,16 @@ title: 整合 OSS 开放存储到 WordPress 系统
 date: '2015-08-23'
 slug: 2015-08-23-cloudfs-wp-uploads
 tags:
-  - 云计算 CLOUD+
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - OSS
   - Ubuntu
-  - wordpress
   - 挂载
   - 阿里云
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

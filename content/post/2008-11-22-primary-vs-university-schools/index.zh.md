@@ -3,11 +3,10 @@ title: 小学孩子如此舒展--大学才会这样发愤
 date: '2008-11-22'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: primary-vs-university-schools
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 http://www.sciencenet.cn/blog/user\_content.aspx?id=47772  

@@ -3,11 +3,12 @@ title: 从his-tag，GST-tag说开去
 date: '2009-02-15'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: traffic-by-his-tag
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 最近一直没有空登录博客，今天上来看看浏览统计，貌似还有所提高，在最近的60天里，基本有60次以上的访问，最低的一天是59次，超过100的有6天。大部分都是有baidu的搜索引擎带来的——这不奇怪，毕竟这里是baidu的自留地。我倒是特别留意Google来源。  

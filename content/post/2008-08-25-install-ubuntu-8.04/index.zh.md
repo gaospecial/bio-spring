@@ -3,11 +3,10 @@ title: 硬盘安装Ubuntu 8.04
 date: '2008-08-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: install-ubuntu-8.04
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 1 设置Grub  

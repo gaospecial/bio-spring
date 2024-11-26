@@ -3,15 +3,15 @@ title: 向量和矩阵有什么区别
 date: '2010-10-22'
 slug: 2010-10-22-vector-matrix
 tags:
-  - 信息技术 INFORMATICS
-  - Matrix
-  - Vector
-  - 向量
+  - 旧文
+  - WordPress
   - 矩阵
+  - 向量
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

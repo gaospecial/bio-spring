@@ -4,8 +4,7 @@ author: gaoch
 date: '2023-12-29'
 slug: github-summary-2023
 categories: []
-tags:
-  - 生物信息 BIOINFORMATICS
+tags: []
 ---
 
 我的 GitHub 年报 

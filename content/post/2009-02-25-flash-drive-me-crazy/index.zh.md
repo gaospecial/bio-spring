@@ -3,11 +3,12 @@ title: 令人烦恼的firefox flash插件问题
 date: '2009-02-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: flash-drive-me-crazy
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 现在的flash无论如何都播放不了，不知道该怎么办。  

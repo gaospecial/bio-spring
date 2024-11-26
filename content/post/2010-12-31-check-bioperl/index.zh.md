@@ -3,14 +3,15 @@ title: 如何检查BioPerl是否正确安装
 date: '2010-12-31'
 slug: 2010-12-31-check-bioperl
 tags:
-  - BioPerl BIOPERL
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - BioPerl
   - perldoc
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

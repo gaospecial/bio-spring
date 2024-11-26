@@ -3,15 +3,15 @@ title: 重新安装bioperl
 date: '2010-10-28'
 slug: 2010-10-28-reinstall-bioperl
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - BioPerl
   - Ubuntu
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,15 +3,14 @@ title: 静音Office Lens快门声音
 date: '2018-03-27'
 slug: 2018-03-27-mute-shutter-voice
 tags:
-  - 原创教程 TUTORIAL
-  - 生物软件 BIO-SOFTWARE
-  - andriod
+  - 旧文
+  - WordPress
   - Lens
   - Office
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

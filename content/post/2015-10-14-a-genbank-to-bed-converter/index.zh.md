@@ -3,17 +3,18 @@ title: A Genbank to BED converter
 date: '2015-10-14'
 slug: 2015-10-14-a-genbank-to-bed-converter
 tags:
-  - BioPerl BIOPERL
-  - 生物信息 BIOINFORMATICS
-  - BED
+  - 旧文
+  - WordPress
   - BioPerl
+  - BED
   - GenBank
   - NCBI
   - perl
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

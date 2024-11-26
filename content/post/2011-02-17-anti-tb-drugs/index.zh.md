@@ -3,14 +3,16 @@ title: 抗结核新药研发进程
 date: '2011-02-17'
 slug: 2011-02-17-anti-tb-drugs
 tags:
-  - 生物学 BIOLOGY
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - 结核
   - 药物
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

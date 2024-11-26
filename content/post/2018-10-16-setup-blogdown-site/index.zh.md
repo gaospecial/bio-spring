@@ -4,9 +4,11 @@ author: gaoch
 date: '2018-10-16'
 slug: setup-blogdown-site
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 tags:
+  - 旧文
+  - WordPress
   - blogdown
 ---
 

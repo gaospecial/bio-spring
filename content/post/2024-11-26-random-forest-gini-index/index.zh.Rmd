@@ -4,8 +4,10 @@ author: gaoch
 date: '2024-11-26'
 slug: random-forest-gini-index
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - 机器学习
 ---
 

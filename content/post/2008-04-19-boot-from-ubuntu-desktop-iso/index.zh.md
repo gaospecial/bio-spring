@@ -3,11 +3,10 @@ title: '[Ubuntu资料］配置引导资料从windows启动Ubuntu Desktop ISO，�
 date: '2008-04-19'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: boot-from-ubuntu-desktop-iso
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 **<http://forum.ubuntu.org.cn/viewtopic.php?t=26167>  

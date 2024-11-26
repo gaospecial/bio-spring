@@ -3,11 +3,10 @@ title: 试验不能是全部
 date: '2007-12-21'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: experiment-is-not-whole-life
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 这几天, 我一直在想, 一个人天天为了工作, 起早贪黑, 这样肯定是不行的.

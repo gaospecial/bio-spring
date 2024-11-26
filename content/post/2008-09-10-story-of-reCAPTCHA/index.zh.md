@@ -3,11 +3,10 @@ title: 在滤掉垃圾邮件的同时使文本数码化
 date: '2008-09-10'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: story-of-reCAPTCHA
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 在滤掉垃圾邮件的同时使文本数码化

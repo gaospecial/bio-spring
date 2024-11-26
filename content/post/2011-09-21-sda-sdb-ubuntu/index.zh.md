@@ -3,20 +3,16 @@ title: 怎么办，ubuntu系统中的sda变成了sdb了？
 date: '2011-09-21'
 slug: 2011-09-21-sda-sdb-ubuntu
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 操作系统 LINUX
-  - mount
-  - Ubuntu
-  - 分区
+  - 旧文
+  - WordPress
   - 挂载
+  - Ubuntu
   - 硬盘
-  - 磁盘
   - 错误
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

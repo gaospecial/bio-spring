@@ -3,9 +3,11 @@ title: 'Letter 1: On Saving Time'
 author: Lucius Annaeus Seneca
 date: '2015-07-23'
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 tags:
+  - 旧文
+  - WordPress
   - Time
   - Seneca
   - Lucilius

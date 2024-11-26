@@ -3,11 +3,10 @@ title: 仙剑奇侠传98柔情版 完结
 date: '2008-01-21'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: xianjianqixiazhuan-98
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 发现了几个98 版的极品网站:

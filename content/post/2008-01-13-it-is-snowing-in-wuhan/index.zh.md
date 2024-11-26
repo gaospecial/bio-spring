@@ -3,11 +3,10 @@ title: '***雪*** @ 武汉'
 date: '2008-01-13'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: it-is-snowing-in-wuhan
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 武汉下雪了.  

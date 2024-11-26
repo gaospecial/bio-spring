@@ -3,13 +3,12 @@ title: beta半乳糖苷酶活性测定
 date: '2011-02-16'
 slug: 2011-02-16-lacz-fusion-assay
 tags:
-  - 原创教程 TUTORIAL
-  - 实验方法 METHODS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

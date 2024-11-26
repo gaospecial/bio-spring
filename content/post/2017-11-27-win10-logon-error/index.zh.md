@@ -3,14 +3,13 @@ title: 解决Windows10卡在登录界面或登录成功后失去响应的问题
 date: '2017-11-27'
 slug: 2017-11-27-win10-logon-error
 tags:
-  - 原创教程 TUTORIAL
-  - Win10
+  - 旧文
+  - WordPress
   - Windows
-  - Windows10
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

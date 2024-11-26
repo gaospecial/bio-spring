@@ -3,16 +3,16 @@ title: Ubuntu 快速安装 LAMP
 date: '2015-08-21'
 slug: 2015-08-21-ubuntu-install-lamp
 tags:
-  - 操作系统 LINUX
-  - 网站建设 WEBSITE
-  - apache2
+  - 旧文
+  - WordPress
+  - Apache
   - bash
   - mysql
   - Ubuntu
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

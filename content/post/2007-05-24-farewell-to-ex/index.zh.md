@@ -3,11 +3,10 @@ title: Say "goodbye" to windows as well as say "goodbye" to one girl
 date: '2007-05-24'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: farewell-to-ex
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 Lost in the colourful XP system.  

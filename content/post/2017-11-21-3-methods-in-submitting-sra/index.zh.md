@@ -3,8 +3,8 @@ title: 三种向NCBI提交SRA高通量测序原始数据的方法
 date: '2017-11-21'
 slug: 2017-11-21-3-methods-in-submitting-sra
 tags:
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - Aspera
   - FTP
   - NCBI
@@ -12,8 +12,9 @@ tags:
   - 测序
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

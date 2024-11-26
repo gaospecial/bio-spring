@@ -3,14 +3,14 @@ title: 在MATLAB中创建色彩绚丽的柱状图
 date: '2011-06-25'
 slug: 2011-06-25-matlab-colourful-barplot
 tags:
-  - 信息技术 INFORMATICS
-  - 矩阵实验室 MATLAB
+  - 旧文
+  - WordPress
   - MATLAB
   - 作图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

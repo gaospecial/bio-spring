@@ -3,13 +3,14 @@ title: 在阿里云ECS上设置swap分区
 date: '2017-10-10'
 slug: 2017-10-10-enable-swap-in-aliyun-ecs
 tags:
-  - 云计算 CLOUD+
-  - aliyun
+  - 旧文
+  - WordPress
+  - 阿里云
   - ecs
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

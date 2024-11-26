@@ -3,17 +3,15 @@ title: Ubuntu linux下Shell批量重命名文件的实例
 date: '2010-12-12'
 slug: 2010-12-12-rename-multiple-files
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
-  - rename
-  - script
-  - shell
-  - 脚本
+  - 旧文
+  - WordPress
   - 重命名
+  - 脚本
+  - shell
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

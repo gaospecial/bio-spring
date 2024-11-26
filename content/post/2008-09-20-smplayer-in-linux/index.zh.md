@@ -3,11 +3,12 @@ title: Linux下好用的媒体播放器——smplayer
 date: '2008-09-20'
 author: gaoch
 tags:
+  - 旧文
   - 软件分享
 slug: smplayer-in-linux
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
+  - 信息技术
 ---
 
 和 gxine、VLC

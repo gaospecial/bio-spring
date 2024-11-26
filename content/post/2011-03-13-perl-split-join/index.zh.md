@@ -3,12 +3,13 @@ title: Perl中的split函数和join函数：不同的参数书写样式
 date: '2011-03-13'
 slug: 2011-03-13-perl-split-join
 tags:
-  - 信息技术 INFORMATICS
+  - 旧文
+  - WordPress
   - perl
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

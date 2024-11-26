@@ -3,17 +3,15 @@ title: 处理设计引物时候的PRIMER_ERROR=Missing SEQUENCE tag错误
 date: '2011-09-21'
 slug: 2011-09-21-primer_error-missing-sequence-tag
 tags:
-  - BioPerl BIOPERL
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
   - BioPerl
-  - primer
+  - primer design
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,15 +3,16 @@ title: 'Biological DataBases: NCBI与SwissProt'
 date: '2011-04-18'
 slug: 2011-04-18-biological-databases-ncbi-swissprot
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物学 BIOLOGY
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - NCBI
   - SwissProt
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

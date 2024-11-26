@@ -3,11 +3,10 @@ title: 'Look ''n'' Stop: 简洁易用、功能强大的防火墙'
 date: '2008-08-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: look-n-stop-firewall
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 LNS（look ‘n' stop）  

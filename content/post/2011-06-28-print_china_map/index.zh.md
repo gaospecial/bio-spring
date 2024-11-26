@@ -3,17 +3,14 @@ title: 使用Matlab画中国地图
 date: '2011-06-28'
 slug: 2011-06-28-print_china_map
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 矩阵实验室 MATLAB
-  - china
-  - map
+  - 旧文
+  - WordPress
   - MATLAB
   - 地图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

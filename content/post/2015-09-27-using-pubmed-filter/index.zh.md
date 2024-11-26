@@ -3,16 +3,17 @@ title: 使用自定义过滤器筛选PubMed的搜索结果
 date: '2015-09-27'
 slug: 2015-09-27-using-pubmed-filter
 tags:
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - biobliography
   - NCBI
   - PubMed
   - SCI
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,11 +3,10 @@ title: wget 下载 秘笈
 date: '2008-06-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: wget-usage
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 wget 使用技巧 -

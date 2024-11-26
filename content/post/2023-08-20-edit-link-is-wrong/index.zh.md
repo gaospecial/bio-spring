@@ -1,12 +1,13 @@
 ---
 title: Edit link is wrong in Hugo Prose
 author: gaoch
-draft: false
+draft: no
 date: '2023-08-20'
 slug: edit-link-is-wrong-in-hugo-prose
 categories:
-  - blogdown
+  - 信息技术
 tags:
+  - blogdown
   - Hugo
 ---
 

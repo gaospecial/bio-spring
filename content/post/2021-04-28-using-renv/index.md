@@ -4,8 +4,9 @@ author: Chun-Hui Gao
 date: '2021-04-28'
 slug: using-renv
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - renv
 ---
 

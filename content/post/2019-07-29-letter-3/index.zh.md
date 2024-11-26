@@ -3,9 +3,10 @@ title: 'Letter 3: On True and False Friendship'
 author: Lucius Annaeus Seneca
 date: '2019-07-29'
 categories:
+  - 其它
+tags:
   - Letter
   - Example
-tags:
   - Friendship
   - Seneca
   - Lucilius

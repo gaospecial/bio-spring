@@ -4,11 +4,11 @@ author: gaoch
 date: '2023-08-08'
 slug: tidy-old-blog-post
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - blogdown
-  - 百度空间
-  - wordpress
+  - WordPress
 ---
 
 今天，花时间整理了一下个人网站，主要做了下面这些工作：

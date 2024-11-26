@@ -3,11 +3,12 @@ title: 【转】ubuntu 11.10 安装LAMP
 date: '2012-02-20'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: install-lamp-in-ubuntu
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
    

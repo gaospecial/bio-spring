@@ -4,9 +4,9 @@ author: gaoch
 date: '2019-09-24'
 slug: anova-turkeyhsd-plotting
 categories:
-  - R
-  - ggplot2
+  - 信息技术
 tags:
+  - R
   - ggplot2
   - statistics
   - anova
@@ -17,7 +17,7 @@ tags:
 从散点图上看，不同给药量之间应该有显著差异。
 
 
-```r
+``` r
 data("ToothGrowth")
 head(ToothGrowth)
 ```
@@ -32,7 +32,7 @@ head(ToothGrowth)
 ## 6 10.0   VC  0.5
 ```
 
-```r
+``` r
 dim(ToothGrowth)
 ```
 
@@ -40,7 +40,7 @@ dim(ToothGrowth)
 ## [1] 60  3
 ```
 
-```r
+``` r
 library(ggplot2)
 ggplot(ToothGrowth,aes(factor(dose),len)) + 
   geom_boxplot(outlier.shape = NULL) + 
@@ -56,7 +56,7 @@ ggplot(ToothGrowth,aes(factor(dose),len)) +
 这里仅以 VC 给药方式下，不同给药量之间的差异分析为例。
 
 
-```r
+``` r
 library(dplyr)
 ```
 
@@ -77,7 +77,7 @@ library(dplyr)
 ##     intersect, setdiff, setequal, union
 ```
 
-```r
+``` r
 library(agricolae)
 data <- filter(ToothGrowth,supp=="VC")
 model <- aov(len~dose, data = data)
@@ -93,7 +93,7 @@ group_label <- data %>% group_by(dose) %>%
 ## Joining with `by = join_by(dose)`
 ```
 
-```r
+``` r
 dose_level <- sort(as.numeric(unique(as.character(data$dose))))
 data$dose <- factor(data$dose, levels = c(0.5,1,2))
 group_label$dose <- factor(group_label$dose, levels = c(0.5,1,2))

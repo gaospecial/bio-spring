@@ -1,9 +1,11 @@
 ---
-title: "R Markdown Demo"
-author: "Yihui Xie"
+title: R Markdown Demo
+author: Yihui Xie
 date: '2020-11-10'
 slug: r-markdown-demo
 bibliography: packages.bib
+categories: []
+tags: []
 ---
 
 ```{r, setup, include=FALSE}

@@ -3,11 +3,10 @@ title: 很IN的网页设计
 date: '2008-08-28'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: webpage-shortcuts
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 除了最为人所知的AJAX技术，IN的网页设计为网页的任务提供键盘快捷键；  

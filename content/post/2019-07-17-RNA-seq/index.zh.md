@@ -4,8 +4,10 @@ author: gaoch
 date: '2019-07-17'
 slug: RNA-seq
 categories:
-  - RNA-seq
+  - 生物学
+  - 信息技术
 tags:
+  - RNA-seq
   - ht-seq
   - hisat2
   - ClusterProfiler

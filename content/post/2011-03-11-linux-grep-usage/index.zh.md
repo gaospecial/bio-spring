@@ -3,14 +3,13 @@ title: Linux grep的用法
 date: '2011-03-11'
 slug: 2011-03-11-linux-grep-usage
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - grep
-  - linux
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

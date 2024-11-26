@@ -3,15 +3,17 @@ title: 在Ubuntu环境中设置Bowtie
 date: '2012-08-20'
 slug: 2012-08-20-ubuntu-bowtie
 tags:
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - bowtie
   - dna sequences
   - gedit
   - seq
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

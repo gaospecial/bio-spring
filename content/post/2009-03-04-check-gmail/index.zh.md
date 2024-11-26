@@ -3,12 +3,13 @@ title: Check gmail
 date: '2009-03-04'
 author: gaoch
 tags:
-  - 百度空间
-  - Software
+  - 旧文
+  - WordPress
+  - 软件分享
 slug: check-gmail
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 checkgmail是一个很好使用的gmail桌面，可以随时监视你的帐号，并提供一些简单的操作，如归档，删除，写信等。  

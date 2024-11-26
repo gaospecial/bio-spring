@@ -3,11 +3,13 @@ title: Hello R Markdown
 author: Frida Gomam
 date: '2015-07-23T21:13:14-05:00'
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 tags:
+  - 旧文
+  - WordPress
   - R Markdown
-  - plot
+  - 作图
   - regression
 slug: r-rmarkdown
 ---
@@ -21,7 +23,7 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 You can embed an R code chunk like this:
 
 
-```r
+``` r
 summary(cars)
 ##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
@@ -46,7 +48,7 @@ fit
 You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:
 
 
-```r
+``` r
 par(mar = c(0, 1, 0, 1))
 pie(
   c(280, 60, 20),

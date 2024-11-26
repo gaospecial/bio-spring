@@ -3,14 +3,15 @@ title: 一个偏方，一辈子探索 ——记生命科学杰出成就奖获得
 date: '2011-11-09'
 slug: 2011-11-09-zhang-ting-dong
 tags:
-  - 言论 VOICE
+  - 旧文
+  - WordPress
   - 张亭栋
   - 砒霜
   - 读后感
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

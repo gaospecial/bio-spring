@@ -3,11 +3,10 @@ title: autorun病毒攻略
 date: '2008-08-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: the-autorun-virus
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 通过ARP欺骗，利用IE执行病毒文件而染毒。  

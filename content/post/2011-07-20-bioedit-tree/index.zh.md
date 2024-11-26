@@ -3,17 +3,16 @@ title: 使用BioEdit生成和绘制蛋白质进化树
 date: '2011-07-20'
 slug: 2011-07-20-bioedit-tree
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 生物学 BIOLOGY
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - BioEdit
   - TreeView
   - 进化树
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

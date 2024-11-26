@@ -3,13 +3,14 @@ title: 志哀：2010-11-15 上海大火
 date: '2010-11-17'
 slug: 2010-11-17-shanghai-11-15
 tags:
-  - 时事 NEWS
+  - 旧文
+  - WordPress
   - 上海
   - 火灾
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

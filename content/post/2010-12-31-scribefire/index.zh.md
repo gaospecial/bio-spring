@@ -3,14 +3,14 @@ title: 今天又发现了一个好的Blog客户端：Scribefire
 date: '2010-12-31'
 slug: 2010-12-31-scribefire
 tags:
-  - 信息技术 INFORMATICS
-  - blog
+  - 旧文
+  - WordPress
   - XML-RPC
   - 博客客户端
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

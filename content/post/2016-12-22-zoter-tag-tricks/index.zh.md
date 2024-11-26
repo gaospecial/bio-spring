@@ -3,14 +3,13 @@ title: 'Zotero: 标签的使用技巧'
 date: '2016-12-22'
 slug: 2016-12-22-zoter-tag-tricks
 tags:
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
-  - zotero
+  - 旧文
+  - WordPress
+  - Zotero
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

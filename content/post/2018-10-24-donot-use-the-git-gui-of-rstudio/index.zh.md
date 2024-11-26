@@ -4,8 +4,9 @@ author: gaoch
 date: '2018-10-24'
 slug: donot-use-the-git-gui-of-rstudio
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - RStudio
   - git
 ---

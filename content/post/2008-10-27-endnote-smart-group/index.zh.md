@@ -3,11 +3,10 @@ title: EndNote X2 --smart group
 date: '2008-10-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: endnote-smart-group
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 也许你会觉得smart group和user defined group功能重复，其实不然。  

@@ -4,15 +4,17 @@ title: InbR, a TetR family regulator, binds with isoniazid and influences multid
 date: '2015-09-11'
 slug: 2015-09-11-inbr-paper
 tags:
-  - 研究进展 PROGRESS
+  - 旧文
+  - WordPress
   - InbR
   - NGS
   - publication
   - 结核
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

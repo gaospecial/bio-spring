@@ -3,11 +3,10 @@ title: 归来了
 date: '2008-02-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: go-back-to-school
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 昨天晚上做梦在家,想赶往学校却又不能.一路到处是意外.没有公交车了,时间过去了......  

@@ -3,9 +3,8 @@ title: 'RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File'
 date: '2017-06-01'
 slug: 2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file
 tags:
-  - BioPerl BIOPERL
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - BioPerl
   - GenBank
   - GFF3
@@ -13,8 +12,9 @@ tags:
   - rsem
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

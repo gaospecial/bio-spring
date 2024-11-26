@@ -3,11 +3,10 @@ title: EndNote X2 使用笔记
 date: '2008-09-20'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: using-endnote-x2
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 前面一次提到的新版EndNote中令人振奋的获取全文功能，有一点小小的弱智，有的全文明明可以下载下来，它却无能为力。比如说J

@@ -3,11 +3,10 @@ title: Return...
 date: '2007-09-24'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: traffic-of-my-blog
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 以前, 因为在百度的文章莫名其妙的消失, 所以心中甚是苦闷不爽,

@@ -4,86 +4,137 @@ author: gaoch
 date: '2020-02-17'
 slug: library-DT
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - DT
 ---
 
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core-bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core-bootstrap/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core-bootstrap/js/jquery.dataTables.min.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core-bootstrap/js/dataTables.bootstrap.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/nouislider/jquery.nouislider.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/nouislider/jquery.nouislider.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/selectize/selectize.bootstrap3.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/selectize/selectize.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
+
+<link href="{{< blogdown/postref >}}index.zh_files/htmltools-fill/fill.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/htmlwidgets/htmlwidgets.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/datatables-binding/datatables.js"></script>
+
 <script src="{{< blogdown/postref >}}index.zh_files/jquery/jquery-3.6.0.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="{{< blogdown/postref >}}index.zh_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/dt-core/js/jquery.dataTables.min.js"></script>
+
 <link href="{{< blogdown/postref >}}index.zh_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index.zh_files/crosstalk/js/crosstalk.min.js"></script>
 

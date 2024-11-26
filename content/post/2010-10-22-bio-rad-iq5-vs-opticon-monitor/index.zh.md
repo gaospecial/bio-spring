@@ -3,16 +3,17 @@ title: Bio-Rad iQ5 vs. Opticon Monitor
 date: '2010-10-22'
 slug: 2010-10-22-bio-rad-iq5-vs-opticon-monitor
 tags:
-  - 生物学 BIOLOGY
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - Bio-Rad
   - iQ5
   - Opticon Monitor
   - 伯乐
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

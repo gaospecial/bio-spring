@@ -3,16 +3,17 @@ title: biom 格式
 date: '2016-05-26'
 slug: 2016-05-26-biom-format
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - biom
   - Microbiome
   - mothur
   - QIIME
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,11 +3,10 @@ title: linux-打造友好的shell提示符 [原创]
 date: '2007-10-04'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: colorful-shell-prompt
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 首先看一下原本的设来了提示符样子。  

@@ -3,15 +3,16 @@ title: Perl LWP：从“国家地理每日图片”到“Cell最近一期的封�
 date: '2010-12-08'
 slug: 2010-12-08-perl-lwp-image-fetch
 tags:
-  - 信息技术 INFORMATICS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
   - Cell封面图片
   - LWP
   - perl
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -4,13 +4,14 @@ author: gaoch
 date: '2024-11-01'
 slug: posit-conf-2024
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - Posit
   - R
   - Shiny
   - Python
-  - AI
   - 人工智能
 ---
 

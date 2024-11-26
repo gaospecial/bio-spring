@@ -3,14 +3,15 @@ title: 生物信息学中的 SAM 格式介绍
 date: '2012-08-16'
 slug: 2012-08-16-sam-format
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物学 BIOLOGY
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - SAM
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

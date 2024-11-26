@@ -3,11 +3,12 @@ title: his-tag组氨酸融合蛋白和GST-tag谷胱甘肽融合蛋白亲和层�
 date: '2008-09-11'
 author: gaoch
 tags:
-  - 研究
+  - 旧文
+  - 科学研究
 slug: protein-purification
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
+  - 生物学
 ---
 
 按：本文中，通过图片形象的描述着两种纯化的结合作用力，以及洗脱的原理。希望通过对这些图片的说明，可以帮助了解实验的原理。

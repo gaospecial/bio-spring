@@ -3,11 +3,12 @@ title: 迈克尔杰克逊因心脏停搏去世终年50岁
 date: '2009-06-28'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: death-of-michael-jackson
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 **迈克尔-杰克逊生平简介**

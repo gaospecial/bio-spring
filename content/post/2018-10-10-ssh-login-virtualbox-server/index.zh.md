@@ -3,14 +3,15 @@ title: 设置VirtualBox Ubuntu虚拟机的SSH登录
 date: '2018-10-10'
 slug: 2018-10-10-ssh-login-virtualbox-server
 tags:
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - ssh
   - Ubuntu
-  - virtualBox
+  - 虚拟机
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

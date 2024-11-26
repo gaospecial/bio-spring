@@ -4,10 +4,10 @@ author: gaoch
 date: '2019-09-20'
 slug: rstudio-git-push
 categories:
-  - git
+  - 信息技术
 tags:
-  - RStudio
   - git
+  - RStudio
 ---
 
 昨天遇到一个怪事，同一个 Git 目录，使用 Git Shell 时，可以直接 Push；而在 RStudio 中 push 时，则会请求输入账户名和密码。

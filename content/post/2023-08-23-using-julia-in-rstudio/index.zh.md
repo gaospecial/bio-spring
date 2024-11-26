@@ -4,8 +4,10 @@ author: gaoch
 date: '2023-08-23'
 slug: using-julia-in-rstudio
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - Julia
   - R Markdown
   - RStudio

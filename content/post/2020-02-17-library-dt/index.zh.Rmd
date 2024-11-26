@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-02-17'
 slug: library-DT
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - DT
 ---
 

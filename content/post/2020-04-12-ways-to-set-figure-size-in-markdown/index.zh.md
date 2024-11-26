@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-04-13'
 slug: ways-to-set-figure-size-in-markdown
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - R Markdown
 ---
 
@@ -25,7 +26,7 @@ fig_height: 4
 统一设置每个图片的宽 6 英寸，高 4 英寸。
 
 
-```r
+``` r
 plot(pressure)
 ```
 
@@ -37,7 +38,7 @@ plot(pressure)
 这将影响后面所有代码生成图片的大小。
 
 
-```r
+``` r
 knitr::opts_chunk$set(fig.width=4, fig.height=4)
 plot(pressure)
 ```
@@ -47,7 +48,7 @@ plot(pressure)
 如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如`{r fig2, fig.height = 8, fig.width = 6, fig.align = "center"}`。
 
 
-```r
+``` r
 plot(pressure)
 ```
 
@@ -60,7 +61,7 @@ plot(pressure)
 下面的例子与前面相比就是加入了`out.width="80%"`的设置，当用手机浏览时可以看到二者的差别。
 
 
-```r
+``` r
 plot(pressure)
 ```
 
@@ -88,7 +89,7 @@ Markdown 天生支持原生的 HTML 语法。因此也可以使用 HTML 来对�
 这个函数提供了一种统一的语法来使用 chunk option 完成图片大小的设置。如下面的图片使用的参数`{r fig.width=5,fig.height=5,out.width="40%",fig.align="right"}`。
 
 
-```r
+``` r
 knitr::include_graphics("https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png")
 ```
 

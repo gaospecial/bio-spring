@@ -4,7 +4,7 @@ author: gaoch
 date: '2019-10-28'
 slug: r-proxy
 categories:
-  - R
+  - 信息技术
 tags:
   - R
   - proxy

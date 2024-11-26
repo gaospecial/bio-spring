@@ -4,9 +4,9 @@ author: gaoch
 date: '2019-09-24'
 slug: anova-turkeyhsd-plotting
 categories:
-  - R
-  - ggplot2
+  - 信息技术
 tags:
+  - R
   - ggplot2
   - statistics
   - anova

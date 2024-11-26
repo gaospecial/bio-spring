@@ -3,11 +3,13 @@ title: Hello R Markdown
 author: Frida Gomam
 date: '2015-07-23T21:13:14-05:00'
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 tags:
+  - 旧文
+  - WordPress
   - R Markdown
-  - plot
+  - 作图
   - regression
 slug: r-rmarkdown
 ---

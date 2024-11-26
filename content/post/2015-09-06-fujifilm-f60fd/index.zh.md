@@ -3,17 +3,17 @@ title: 富士卡片机F60fd拆机图片
 date: '2015-09-06'
 slug: 2015-09-06-fujifilm-f60fd
 tags:
-  - 自做自受 DIY
-  - camera
+  - 旧文
+  - WordPress
+  - 相机
   - f60fd
   - fujifilm
   - repair
   - 数码
-  - 相机
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

@@ -3,11 +3,10 @@ title: 新东方教育科技集团董事长兼总裁俞敏洪作为北大优秀�
 date: '2008-10-06'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: talk-by-yuminhong
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 新东方教育科技集团董事长兼总裁俞敏洪作为优秀校友代表发言

@@ -3,11 +3,10 @@ title: 抵制 Microsoft's Open XML 成为国际标准
 date: '2008-03-03'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: microsoft-open-xml
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 "Office is a USD$10 billion revenue generator for the company. When ODF

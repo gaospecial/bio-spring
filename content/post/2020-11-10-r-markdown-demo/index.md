@@ -1,9 +1,11 @@
 ---
-title: "R Markdown Demo"
-author: "Yihui Xie"
+title: R Markdown Demo
+author: Yihui Xie
 date: '2020-11-10'
 slug: r-markdown-demo
 bibliography: packages.bib
+categories: []
+tags: []
 ---
 
 ## Floats
@@ -28,6 +30,7 @@ plot(sunspots)
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/sunspots-1.svg" alt="Monthly mean relative sunspot numbers from 1749 to 1983. Collected at Swiss Federal Observatory, Zurich until 1960, then Tokyo Astronomical Observatory." width="1344" />
 <p class="caption">
+
 <span id="fig:sunspots"></span>Figure 1: Monthly mean relative sunspot numbers from 1749 to 1983. Collected at Swiss Federal Observatory, Zurich until 1960, then Tokyo Astronomical Observatory.
 </p>
 
@@ -50,6 +53,7 @@ e.g.,
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/scroll-1.svg" alt="This is a super wide figure that you need to scroll to view it fully." width="2880" />
 <p class="caption">
+
 <span id="fig:scroll"></span>Figure 2: This is a super wide figure that you need to scroll to view it fully.
 </p>
 
@@ -68,6 +72,7 @@ Use a fenced `Div` with the class `embed-left` or `embed-right`, e.g.,
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/embed-plot-1.svg" alt="This is a figure embedded on the right." width="480" />
 <p class="caption">
+
 <span id="fig:embed-plot"></span>Figure 3: This is a figure embedded on the right.
 </p>
 

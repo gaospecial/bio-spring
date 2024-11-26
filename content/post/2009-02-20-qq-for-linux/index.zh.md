@@ -3,11 +3,12 @@ title: QQ for Linux
 date: '2009-02-20'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: qq-for-linux
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 将Ubuntu 7.04 feisty 升级至Ubuntu 8.04 hardy之后，终于用上了QQ for

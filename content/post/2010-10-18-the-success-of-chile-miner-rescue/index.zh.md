@@ -3,12 +3,13 @@ title: '[转载]智利矿工营救：专业精神的胜利'
 date: '2010-10-18'
 slug: 2010-10-18-the-success-of-chile-miner-rescue
 tags:
-  - 言论 VOICE
+  - 旧文
+  - WordPress
   - 转载
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

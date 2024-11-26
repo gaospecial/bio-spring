@@ -4,8 +4,9 @@ author: gaoch
 date: '2018-10-22'
 slug: plot-PCA-using-ggplot2
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - PCA
   - ggplot2
 ---
@@ -13,7 +14,7 @@ tags:
 # 数据整理
 
 
-```r
+``` r
 library(vegan)
 ```
 
@@ -29,7 +30,7 @@ library(vegan)
 ## This is vegan 2.6-4
 ```
 
-```r
+``` r
 data("varespec")
 pca <- rda(varespec)
 ```
@@ -37,7 +38,7 @@ pca <- rda(varespec)
 首先看一下结果：
 
 
-```r
+``` r
 summary(pca)
 ```
 
@@ -166,14 +167,14 @@ summary(pca)
 运行下面命令安装这个包。
 
 
-```r
+``` r
 devtools::install_github("gavinsimpson/ggvegan")
 ```
 
 使用 `autoplot()`。
 
 
-```r
+``` r
 library(ggvegan)
 ```
 
@@ -181,7 +182,7 @@ library(ggvegan)
 ## Loading required package: ggplot2
 ```
 
-```r
+``` r
 # 使用空白主题
 theme_set(theme_bw())
 
@@ -194,7 +195,7 @@ autoplot(pca)
 还可以使用 `fortify()` 将对象转变为 `data.frame`，然后再作图。
 
 
-```r
+``` r
 # 生成数据框
 df.pca <- fortify(pca)
 
@@ -212,7 +213,7 @@ knitr::kable(df.pca[1:5,1:5])
 |species |Vaccmyrt | -0.5428697| -0.7446016|  0.1973452|
 |species |Vaccviti |  0.0901303| -0.7247759| -0.6554941|
 
-```r
+``` r
 # 绘图
 require(dplyr)
 ```
@@ -238,7 +239,7 @@ require(dplyr)
 ##     intersect, setdiff, setequal, union
 ```
 
-```r
+``` r
 ggplot(mapping=aes(PC1,PC2,shape=score,color=score)) +
   geom_point(data=dplyr::filter(df.pca,score=="sites")) +
   geom_segment(data=dplyr::filter(df.pca,score=="species"),

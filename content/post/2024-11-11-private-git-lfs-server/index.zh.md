@@ -4,7 +4,7 @@ author: gaoch
 date: '2024-11-11'
 slug: private-git-lfs-server
 categories:
-  - 计算机技术
+  - 信息技术
 tags:
   - git
   - GitHub

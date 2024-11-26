@@ -4,9 +4,10 @@ author: gaoch
 date: '2019-09-29'
 slug: git-github-tutorial
 categories:
-  - git
+  - 信息技术
 tags:
-  - github
+  - git
+  - GitHub
 ---
 
 今天[小丫画图](https://mp.weixin.qq.com/s?__biz=Mzg3NTA1MTM0NQ==&mid=100000025&idx=1&sn=f060e32833de25870a2a29a47870b643&chksm=4ec6212779b1a8312d1cb4f27823477e3168473ae4058cb89f1e3a6e96793f002e655b6a7407&scene=18&key=5b7091b0813876942fc85075a8cc8f984e6d4d87ecd805316b742ba8b7794eb227a20a153ace81fd88748619448f3068bd5e2e38cc501ad515cb9e6b4bfe1be54018f8e337780e22607fdb65e336bb4d&ascene=1&uin=NDI5ODQ5OTc1&devicetype=Windows+10&version=62060833&lang=zh_CN&pass_ticket=ETbgcY5wOJmK6csItr5E373xuGaeAaR3QUgLT8wGyYhEjdGAp%2FMxQxWTejbUuRqX)群里在讨论 GitHub 的使用。大家都说GitHub的使用挺简单的，我觉得也是。但是，要找一个比较系统的介绍的话，我还真没找到。所以，说说自己的使用经历吧。**这些都是干货。**

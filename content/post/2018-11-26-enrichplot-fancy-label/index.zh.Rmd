@@ -4,8 +4,9 @@ author: gao
 date: '2018-11-26'
 slug: enrichplot-fancy-label
 categories:
-  - ggplot2
+  - 信息技术
 tags:
+  - ggplot2
   - enrichplot
 ---
 

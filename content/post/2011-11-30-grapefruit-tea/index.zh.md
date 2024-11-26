@@ -3,12 +3,14 @@ title: 自制蜂蜜柚子茶
 date: '2011-11-30'
 slug: 2011-11-30-grapefruit-tea
 tags:
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - 柚子茶
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

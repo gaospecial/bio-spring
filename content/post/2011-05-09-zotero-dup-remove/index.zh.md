@@ -3,15 +3,14 @@ title: “破解”zotero：打开zotero查找重复的功能
 date: '2011-05-09'
 slug: 2011-05-09-zotero-dup-remove
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - firefox
-  - zotero
-  - 文献管理
+  - Zotero
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

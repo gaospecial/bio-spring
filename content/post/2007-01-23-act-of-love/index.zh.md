@@ -3,11 +3,10 @@ title: 中华人民共和国恋爱法
 date: '2007-01-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: act-of-love
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 中华人民共和国恋爱法

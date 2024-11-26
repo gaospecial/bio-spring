@@ -3,11 +3,12 @@ title: 在ubuntu中安装Cn3D 4.1
 date: '2009-03-09'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: install-cn3d-in-ubuntu
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 Cn3D依赖以下库，系统默认没有安装。  

@@ -3,9 +3,9 @@ title: ggVennDiagram 的新生
 author: Chun-Hui Gao
 date: '2021-05-08'
 categories:
-  - ggplot
+  - 信息技术
 tags:
-  - ggplot
+  - ggplot2
   - ggVennDiagram
 slug: ggvenndiagram-reborn
 ---
@@ -101,7 +101,7 @@ ggVennDiagram(gene_list,
 我们使用 `plotly` 对区域成员进行了可视化，现在鼠标悬停即可以查看区域成员。
 同时，也支持将成员打印出来。
 
-```{r}
+```{r eval=FALSE}
 ggVennDiagram(gene_list, show_intersect = TRUE)
 ```
 

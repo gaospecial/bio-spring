@@ -3,11 +3,12 @@ title: 100个词阐明科学的内容
 date: '2008-09-25'
 author: gaoch
 tags:
+  - 旧文
   - 科学研究
 slug: 100-words-about-science
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
+  - 生物学
 ---
 
 http://www.nature.com/nature/journal/v455/n7212/full/455460a.html  

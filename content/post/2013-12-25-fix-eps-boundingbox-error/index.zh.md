@@ -3,15 +3,16 @@ title: 修复Bio::Tree::Draw::Cladogram 输出EPS BoundingBox错误的问题
 date: '2013-12-25'
 slug: 2013-12-25-fix-eps-boundingbox-error
 tags:
-  - BioPerl BIOPERL
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - BioPerl
   - perl
   - Tree
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

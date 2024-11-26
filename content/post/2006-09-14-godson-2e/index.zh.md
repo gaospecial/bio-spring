@@ -3,11 +3,10 @@ title: 龙芯2E处理器实物图
 date: '2006-09-14'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: godson-2e
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 一直虚虚实实的"龙芯"终于见到其实物图.**64位龙芯2E处理器主频1GHz,功耗3-8W,采用90nm制程,实测性能相当于1.5GHz

@@ -3,11 +3,10 @@ title: 马太效应
 date: '2008-11-22'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: mattew-effect-in-education-system
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 **参看：http://baike.baidu.com/view/7020.htm  

@@ -3,10 +3,9 @@ title: 无缝切换到DISQUS评论系统
 date: '2019-02-15'
 slug: 2019-02-15-switch-to-disqus
 tags:
-  - 信息技术 INFORMATICS
-  - 网站建设 WEBSITE
-  - wordpress
+  - WordPress
 author: gaoch
+categories: 信息技术
 ---
 
 

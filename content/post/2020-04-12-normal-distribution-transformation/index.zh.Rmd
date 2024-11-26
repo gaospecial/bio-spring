@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-04-12'
 slug: normal-distribution-transformation
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - statistics
 ---
 

@@ -3,13 +3,13 @@ title: 对湖北工业大学校训的理解
 date: '2012-09-05'
 slug: 2012-09-05-hbut
 tags:
-  - 言论 VOICE
-  - 随笔 NOTE
+  - 旧文
+  - WordPress
   - 教育
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

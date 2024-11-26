@@ -4,11 +4,12 @@ author: gaoch
 date: '2023-12-24'
 slug: makefile-howto
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - Makefile
   - shell
-  - 操作系统 LINUX
 ---
 
 ## 示例

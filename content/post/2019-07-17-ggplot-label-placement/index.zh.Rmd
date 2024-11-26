@@ -4,10 +4,10 @@ author: gaoch
 date: '2019-07-17'
 slug: ggplot-label-placement
 categories:
-  - ggplot2
-  - R
+  - 信息技术
 tags:
   - ggplot2
+  - R
   - ggrepel
   - directlabel
 ---

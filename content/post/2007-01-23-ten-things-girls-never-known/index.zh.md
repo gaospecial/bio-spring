@@ -3,11 +3,10 @@ title: 有10件事情，女生永远不知道
 date: '2007-01-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: ten-things-girls-never-known
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 有10件事情，女生永远不知道  

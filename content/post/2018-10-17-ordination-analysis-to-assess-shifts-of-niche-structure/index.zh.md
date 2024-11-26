@@ -4,8 +4,10 @@ author: gaoch
 date: '2018-10-17'
 slug: ordination-analysis-to-assess-shifts-of-niche-structure
 categories:
-  - R
+  - 信息技术
+  - 生物学
 tags:
+  - R
   - microbial ecology
   - ecology
 ---

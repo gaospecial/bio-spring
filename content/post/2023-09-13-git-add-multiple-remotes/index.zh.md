@@ -4,10 +4,10 @@ author: gaoch
 date: '2023-09-13'
 slug: git-add-multiple-remotes
 categories:
-  - git
+  - 信息技术
 tags:
   - git
-  - github
+  - GitHub
 ---
 
 在 Git 中设置，从一个源 pull，向多个源 push，实现修改后一键 push 到多个服务器（如 GitHub + Gitee）。

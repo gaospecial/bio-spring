@@ -3,11 +3,10 @@ title: 雪地里的小鸟
 date: '2008-02-02'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: a-bird-in-the-snow-field
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 几天前发生的一件事情。

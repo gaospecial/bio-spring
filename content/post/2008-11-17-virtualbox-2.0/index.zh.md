@@ -3,11 +3,10 @@ title: 新版虚拟机：VirtualBox 2.0
 date: '2008-11-17'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: virtualbox-2.0
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 更新虚拟机到新版。  

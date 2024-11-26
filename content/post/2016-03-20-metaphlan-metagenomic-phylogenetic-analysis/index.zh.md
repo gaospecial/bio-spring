@@ -3,15 +3,16 @@ title: MetaPhlAn：利用宏基因组分析种群结构
 date: '2016-03-20'
 slug: 2016-03-20-metaphlan-metagenomic-phylogenetic-analysis
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - MetaPhlAn
   - mothur
   - QIIME
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

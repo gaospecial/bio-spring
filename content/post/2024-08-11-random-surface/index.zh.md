@@ -4,8 +4,10 @@ author: gaoch
 date: '2024-08-11'
 slug: random-surface
 categories:
-  - 学习笔记
+  - 其它
+  - 信息技术
 tags:
+  - 学习笔记
   - R
 ---
 

@@ -3,11 +3,12 @@ title: 转载：法学博士清华大学王进文 致工学博士潍坊市长许
 date: '2010-12-08'
 slug: 2010-12-08-wangjinwen
 tags:
-  - 时事 NEWS
+  - 旧文
+  - WordPress
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

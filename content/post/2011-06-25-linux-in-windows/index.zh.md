@@ -3,17 +3,16 @@ title: 在windows中获得Linux使用环境
 date: '2011-06-25'
 slug: 2011-06-25-linux-in-windows
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - cygwin
   - unxutils
-  - virtualBox
-  - Windows
   - 虚拟机
+  - Windows
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

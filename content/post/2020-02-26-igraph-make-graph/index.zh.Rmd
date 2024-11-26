@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-02-26'
 slug: igraph-make-graph
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - igraph
 ---
 

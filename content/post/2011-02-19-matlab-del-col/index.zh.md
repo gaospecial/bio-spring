@@ -3,13 +3,14 @@ title: matlab中如何删除矩阵的某一列元素
 date: '2011-02-19'
 slug: 2011-02-19-matlab-del-col
 tags:
-  - 信息技术 INFORMATICS
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - MATLAB
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

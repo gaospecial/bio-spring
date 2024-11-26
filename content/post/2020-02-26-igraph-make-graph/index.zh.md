@@ -4,14 +4,15 @@ author: gaoch
 date: '2020-02-26'
 slug: igraph-make-graph
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - igraph
 ---
 
 
 
-```r
+``` r
 library(igraph)
 notable_graph <- c("Bull", "Chvatal", "Coxeter", "Cubical", "Diamond", "Dodecahedral", "Dodecahedron", 
                    "Folkman", "Franklin", "Frucht", "Grotzsch", "Heawood", "Herschel", "House", 
@@ -26,7 +27,7 @@ graph <- lapply(notable_graph,make_graph)
 `make_graph()` 一共支持 35 个内置图形。
 
 
-```r
+``` r
 par(mfrow=c(5,7))
 
 success <- lapply(notable_graph, function(x){
@@ -40,25 +41,25 @@ success <- lapply(notable_graph, function(x){
 
 
 
-```r
+``` r
 make_star(10) %>% plot
 ```
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
-```r
+``` r
 make_de_bruijn_graph(3,4) %>% plot
 ```
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-3-2.png" width="672" />
 
-```r
+``` r
 make_full_graph(10) %>% plot
 ```
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-3-3.png" width="672" />
 
-```r
+``` r
 make_kautz_graph(3,4) %>% plot
 ```
 

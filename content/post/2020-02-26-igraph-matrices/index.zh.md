@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-02-26'
 slug: igraph-matrices
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - igraph
 ---
 
@@ -18,7 +19,7 @@ tags:
 其中文献A引用了3/4，文献B引用了1/2/4，文献C引用了1/2/4。
 
 
-```r
+``` r
 library(igraph)
 library(Matrix)
 
@@ -42,7 +43,7 @@ m
 在`bibliometrix::cocMatrix()` 中将这种矩阵称为共现矩阵，Co-occurrence Matrix。
 
 
-```r
+``` r
 par(mar=c(1,1,1,1))
 
 g1 <- graph_from_incidence_matrix(m,directed = TRUE,mode = "out") 
@@ -56,7 +57,7 @@ g1 <- graph_from_incidence_matrix(m,directed = TRUE,mode = "out")
 ## generated.
 ```
 
-```r
+``` r
 plot(g1)
 ```
 
@@ -92,7 +93,7 @@ https://blog.csdn.net/dcrmg/article/details/52416832
 下面的三个个计算结果一样。
 
 
-```r
+``` r
 m %*% t(m)
 ```
 
@@ -103,7 +104,7 @@ m %*% t(m)
 ## C 1 3 3
 ```
 
-```r
+``` r
 crossprod(t(m),t(m))
 ```
 
@@ -114,7 +115,7 @@ crossprod(t(m),t(m))
 ## C 1 3 3
 ```
 
-```r
+``` r
 tcrossprod(m,m)
 ```
 
@@ -128,7 +129,7 @@ tcrossprod(m,m)
 下面的两个结果也一样。
 
 
-```r
+``` r
 t(m) %*% m
 ```
 
@@ -140,7 +141,7 @@ t(m) %*% m
 ## 4 2 2 1 3
 ```
 
-```r
+``` r
 crossprod(m,m)
 ```
 
@@ -156,7 +157,7 @@ crossprod(m,m)
 ## 邻接矩阵（adjacency matrix）
 
 
-```r
+``` r
 m2 <- crossprod(m,m)
 m2
 ```
@@ -182,7 +183,7 @@ m2
 
 
 
-```r
+``` r
 g2 <- graph_from_adjacency_matrix(m2, mode = "undirected")
 par(mar=c(1,1,1,1))
 plot(g2,layout=layout_with_kk)
@@ -199,7 +200,7 @@ plot(g2,layout=layout_with_kk)
 
 
 
-```r
+``` r
 m3 <- crossprod(t(m),t(m))
 m3
 ```
@@ -215,7 +216,7 @@ m3
 
 
 
-```r
+``` r
 g3 <- graph_from_adjacency_matrix(m3, mode = "undirected")
 par(mar=c(1,1,1,1))
 plot(g3)
@@ -231,7 +232,7 @@ plot(g3)
 `bibliometrix::normalizeSimilarity()` 提供了3种方法来标准化耦合矩阵。
 
 
-```r
+``` r
 method <- c("association", "jaccard", "inclusion","salton", "equivalence")
 m3_list <- lapply(method, function(x){
   bibliometrix::normalizeSimilarity(m3,type = x)
@@ -281,7 +282,7 @@ m3_list
 这样，矩阵的强度将会转变为边的属性。
 
 
-```r
+``` r
 par(mfrow=c(2,3))
 success <- lapply(seq_along(m3_list), function(x){
   par(mar=c(1,1,1,1))
@@ -296,7 +297,7 @@ success <- lapply(seq_along(m3_list), function(x){
 如果我们把边的宽度映射到“weight”属性，则仍然可以发现文献B和C之间的耦合关系是最强的。
 
 
-```r
+``` r
 par(mfrow=c(2,3))
 success <- lapply(seq_along(m3_list), function(x){
   par(mar=c(1,1,1,1))
@@ -312,7 +313,7 @@ success <- lapply(seq_along(m3_list), function(x){
 对于耦合网络来说，图中的 loop 是没有意义的。可以使用 `igraph::simplify()` 来去掉。
 
 
-```r
+``` r
 g4 <- simplify(g3, remove.multiple = FALSE, remove.loops = TRUE)
 plot(g4)
 ```

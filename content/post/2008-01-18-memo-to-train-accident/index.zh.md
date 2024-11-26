@@ -3,11 +3,10 @@ title: '[转]五米远，难道这就是生与死的距离吗？'
 date: '2008-01-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: memo-to-train-accident
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 From: http://blog.sina.com.cn/s/blog\_4e4da4990100873w.html  

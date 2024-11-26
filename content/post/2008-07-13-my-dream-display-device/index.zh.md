@@ -3,11 +3,10 @@ title: LG 227WT 22寸宽屏液晶显示器
 date: '2008-07-13'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: my-dream-display-device
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 <img src="http://img.360buy.com/img%5C122266%5C1222661906382424.jpg" class="blogimg" width="200" height="150" />  

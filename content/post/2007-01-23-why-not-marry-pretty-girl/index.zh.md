@@ -3,11 +3,10 @@ title: 不娶漂亮女孩子做老婆的经济学分析
 date: '2007-01-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: why-not-marry-pretty-girl
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 不娶漂亮女孩子做老婆的经济学分析

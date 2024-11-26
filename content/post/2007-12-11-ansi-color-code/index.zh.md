@@ -3,11 +3,10 @@ title: 再续-linux shell 提示符---ANSI颜色码
 date: '2007-12-11'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: ansi-color-code
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 上一次的shell提示符文章好像已经被多处转载了,虽然没有注明出处,但是俺还是很高兴,所以再来补充一下.  

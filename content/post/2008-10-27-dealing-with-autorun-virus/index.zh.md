@@ -3,11 +3,10 @@ title: AutoRun病毒必杀技
 date: '2008-10-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: dealing-with-autorun-virus
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 Look 'n' Stop防火墙 + AutoGuarder  

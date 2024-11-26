@@ -3,14 +3,14 @@ title: 作图神器PowerPoint：三角瓶
 date: '2016-03-22'
 slug: 2016-03-22-drawing-conical-flask-with-powerpoint
 tags:
-  - 实验方法 METHODS
-  - 生物学 BIOLOGY
+  - 旧文
+  - WordPress
   - PowerPoint
   - 作图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

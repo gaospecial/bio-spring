@@ -3,17 +3,14 @@ title: Windows7下移动硬盘只读，不能写，处于写保护状态的故�
 date: '2011-04-05'
 slug: 2011-04-05-win7-usb-disk-readonly-error
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - win7
-  - windows7
-  - 移动硬盘写保护
-  - 移动硬盘只读
+  - 旧文
+  - WordPress
+  - Windows
   - 移动硬盘故障
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

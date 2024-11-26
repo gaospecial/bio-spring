@@ -3,11 +3,10 @@ title: 为什么我的EndNote X2不能下载全文
 date: '2008-10-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: fulltext-retrieval-in-endnote-x2
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 首先，请注意，EndNote下载全文的功能受你的权限限制。即如果你没有权限取得数据库公司的全文访问权，是无法下载下来的。  

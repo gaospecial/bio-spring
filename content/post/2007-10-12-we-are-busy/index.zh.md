@@ -3,11 +3,10 @@ title: We are busy...
 date: '2007-10-12'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: we-are-busy
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 今天看书, 看到这么一句话, 让我感触颇深..  

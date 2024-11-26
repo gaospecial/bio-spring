@@ -3,11 +3,10 @@ title: '[Ubuntu资料］Windows和Ubuntu双系统引导的问题（二）'
 date: '2008-04-19'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: dual-system-boot
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 有时候我们找不到Ubuntu，有时候又没有了Windows。这里说一下如何在Windows界面下，使用windows的引导文件配置引导Linux。  

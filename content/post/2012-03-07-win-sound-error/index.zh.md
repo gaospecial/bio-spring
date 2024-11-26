@@ -3,20 +3,19 @@ title: 解决Windows XP SP3系统中播放flash没有声音的故障
 date: '2012-03-07'
 slug: 2012-03-07-win-sound-error
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - Flash
   - SP3
   - system32
   - Windows
   - 声音
   - 故障
-  - 没有声音
   - 系统文件
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

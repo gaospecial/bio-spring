@@ -3,11 +3,12 @@ title: 终于，京东商城武汉分公司开业了
 date: '2009-05-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: jd-in-wuhan
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 在沿海留连，万众瞩目之下，终于在武汉开了个小店。这样以后就可以省运费了。  

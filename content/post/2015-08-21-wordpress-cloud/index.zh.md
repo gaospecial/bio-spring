@@ -3,16 +3,14 @@ title: 将 WordPress 迁移到 阿里云
 date: '2015-08-21'
 slug: 2015-08-21-wordpress-cloud
 tags:
-  - 云计算 CLOUD+
-  - 原创教程 TUTORIAL
-  - 网站建设 WEBSITE
+  - 旧文
+  - WordPress
   - Ubuntu
-  - wordpress
   - 阿里云
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

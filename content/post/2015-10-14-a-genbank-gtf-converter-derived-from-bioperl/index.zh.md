@@ -3,16 +3,17 @@ title: A Genbank –> GTF converter derived from BioPerl
 date: '2015-10-14'
 slug: 2015-10-14-a-genbank-gtf-converter-derived-from-bioperl
 tags:
-  - BioPerl BIOPERL
-  - 生物信息 BIOINFORMATICS
+  - 旧文
+  - WordPress
   - BioPerl
   - GenBank
   - GFF
   - GTF
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

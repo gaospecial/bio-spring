@@ -3,16 +3,15 @@ title: 全宋词词频统计：东风何处是人间
 date: '2011-04-11'
 slug: 2011-04-11-song-ci-stats
 tags:
-  - 信息技术 INFORMATICS
-  - 数据挖掘 DATA MINING
-  - 转载 SHARE
-  - 宋词
+  - 旧文
+  - WordPress
   - 数据挖掘
   - 转载
+  - 宋词
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

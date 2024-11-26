@@ -3,11 +3,12 @@ title: 唐僧师徒一行经历九九八十一难终于见到了如来佛
 date: '2009-02-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: joke-of-xiyou
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 唐僧师徒一行经历九九八十一难终于见到了如来佛求取真经  

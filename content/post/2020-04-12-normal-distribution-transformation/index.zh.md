@@ -4,8 +4,9 @@ author: gaoch
 date: '2020-04-12'
 slug: normal-distribution-transformation
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - statistics
 ---
 
@@ -22,7 +23,7 @@ tags:
 今天我们看一看什么条件下应该选用合适的转换方式。
 
 
-```r
+``` r
 # 生成正态分布数据
 normal <- rnorm(100,mean = 5, sd = 2.5)
 plot(normal)
@@ -30,14 +31,14 @@ plot(normal)
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-1-1.png" width="80%" />
 
-```r
+``` r
 # 从直方图可以看出数据符合正态分布
 hist(normal)
 ```
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-1-2.png" width="80%" />
 
-```r
+``` r
 # 从QQ plot也可以看出来
 qqnorm(normal)
 ```
@@ -48,7 +49,7 @@ qqnorm(normal)
 对正态数据进行平方运算后，直方图显示数据成了左偏的结构。反过来，意味着如果你正在使用的数据与下面的数据分布类似，则可以尝试用开平方的方法来做数据标准化。
 
 
-```r
+``` r
 # 数据的平方根
 normal_square <- normal ^ 2
 
@@ -61,7 +62,7 @@ hist(normal_square)
 对正态数据进行幂值运算后，数值也是一个左偏的分布，但与平方计算的结构有所不同。
 
 
-```r
+``` r
 # 数据的幂值
 normal_exp <- exp(normal)
 
@@ -73,7 +74,7 @@ hist(normal_exp)
 对正态数据进行倒数运算后，数值是一个中间翘起来的分布。
 
 
-```r
+``` r
 # 数据的幂值
 normal_reciprocal <- 1/normal
 
@@ -98,7 +99,7 @@ hist(normal_reciprocal)
 接下来也用反向转换的方式，看看负偏态数据的分布规律吧。
 
 
-```r
+``` r
 # 轻度负偏态
 normal_square_rev <- max(normal_square)+1-normal_square
 hist(normal_square_rev)
@@ -108,7 +109,7 @@ hist(normal_square_rev)
 
 
 
-```r
+``` r
 # 中度负偏态
 normal_exp_rev <- max(normal_exp)+1-normal_exp
 hist(normal_exp_rev)
@@ -117,7 +118,7 @@ hist(normal_exp_rev)
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-7-1.png" width="80%" />
 
 
-```r
+``` r
 # 重度负偏态
 normal_reciprocal_rev <- max(normal_reciprocal) + 1 - normal_reciprocal
 hist(normal_reciprocal_rev)

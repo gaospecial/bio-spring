@@ -3,21 +3,20 @@ title: 适合制作PowerPoint报告时候使用的Zotero引文样式
 date: '2016-10-25'
 slug: 2016-10-25-zotero-author-journal-year-style
 tags:
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
-  - 自做自受 DIY
+  - 旧文
+  - WordPress
   - author
   - biobliography
   - csl
   - journal
   - style
   - year
-  - zotero
+  - Zotero
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

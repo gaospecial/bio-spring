@@ -4,10 +4,10 @@ author: gaoch
 date: '2019-07-17'
 slug: ggplot-label-placement
 categories:
-  - ggplot2
-  - R
+  - 信息技术
 tags:
   - ggplot2
+  - R
   - ggrepel
   - directlabel
 ---
@@ -31,7 +31,7 @@ ggplot在绘制label的时候很容易出现字体溢出，位置难以调整的
 
 
 
-```r
+``` r
 library(ggplot2)
 ## 生成数据集
 set.seed(0)
@@ -48,7 +48,7 @@ ggplot(df,aes(displ,hwy)) +
 这种情况下，边缘的字符串会溢出。可以添加`hjust="inward"`来避免这一情况。
 
 
-```r
+``` r
 ## hjust="inward"把左侧的label右对齐，右侧的label左对齐。
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
@@ -62,7 +62,7 @@ ggplot(df,aes(displ,hwy)) +
 由于标签是水平显示的，左右两侧容易出现溢出，而竖直方向上则一般不会，所以我们将竖直方向设为居中，并微调-0.5，这样就可以保证标签显示比较正常了。
 
 
-```r
+``` r
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
   geom_text(aes(label=model),hjust="inward",vjust="center",nudge_y = -.5)
@@ -77,7 +77,7 @@ ggplot(df,aes(displ,hwy)) +
 
 
 
-```r
+``` r
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
   geom_text(aes(label=model),size=12,hjust="inward",vjust="center",nudge_y = -.5) + 
@@ -100,8 +100,15 @@ ggrepel包就是为了处理ggplot label而开发的。
 
 
 
-```r
+``` r
 library(ggrepel)
+```
+
+```
+## Warning: package 'ggrepel' was built under R version 4.3.3
+```
+
+``` r
 ## 使用geom_text_repel可以一步完成上面类似的操作
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
@@ -119,7 +126,7 @@ directlabels则是另外一个选择。这个包不仅能够用于ggplot图，�
 
 
 
-```r
+``` r
 ## 安装和载入
 # install.packages("directlabels")
 library("directlabels")
@@ -137,7 +144,7 @@ ggplot(df,aes(displ,hwy)) +
 比较一下下面两幅图，显然后者更好。
 
 
-```r
+``` r
 ## 使用legend和颜色
 ggplot(mpg,aes(displ,hwy,color=class)) + 
   geom_point()
@@ -145,7 +152,7 @@ ggplot(mpg,aes(displ,hwy,color=class)) +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
-```r
+``` r
 ## 使用label和颜色
 ggplot(mpg,aes(displ,hwy,color=class)) + 
   geom_point(show.legend=F) + 
@@ -167,7 +174,7 @@ ggplot(mpg,aes(displ,hwy,color=class)) +
 
 
 
-```r
+``` r
 ## df数据集含有mpg中的十行数据
 ggplot(df,aes(displ,hwy)) + 
   geom_point() + 
@@ -176,7 +183,7 @@ ggplot(df,aes(displ,hwy)) +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
-```r
+``` r
 ## mpg数据集含有234行数据
 ggplot(mpg,aes(displ,hwy)) + 
   geom_point() + 

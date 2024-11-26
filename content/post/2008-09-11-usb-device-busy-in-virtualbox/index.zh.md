@@ -3,11 +3,10 @@ title: Not permitted to open the USB device, check usbfs options
 date: '2008-09-11'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: usb-device-busy-in-virtualbox
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 source:<http://www.giannistsakiris.com/index.php/2007/10/16/not-permitted-to-open-the-usb-device-check-usbfs-options/>

@@ -3,11 +3,10 @@ title: <<shes ,the man>>
 date: '2007-05-28'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: movie-shes-the-man
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 Well, I mean, speaking as a completely objective third-party outsider

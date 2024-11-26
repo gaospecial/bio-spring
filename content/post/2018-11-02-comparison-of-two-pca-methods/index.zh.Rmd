@@ -4,8 +4,9 @@ author: Gao
 date: '2018-11-02'
 slug: comparison-of-two-pca-methods
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - PCA
   - statistics
 ---

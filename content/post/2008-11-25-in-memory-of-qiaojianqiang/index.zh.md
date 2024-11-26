@@ -3,11 +3,12 @@ title: 纪念桥坚强
 date: '2008-11-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: in-memory-of-qiaojianqiang
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 **纪念桥坚强**

@@ -3,11 +3,10 @@ title: EndNote X2可以自动下载全文了
 date: '2008-08-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: endnote-x2
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 EndNote X2与EndNote X1相比，有巨大的改变。  

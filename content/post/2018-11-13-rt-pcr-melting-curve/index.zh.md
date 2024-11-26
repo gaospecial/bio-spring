@@ -4,10 +4,11 @@ author: gaoch
 date: '2018-11-13'
 slug: rt-pcr-data-visualization-one
 categories:
-  - ggplot2
-  - R
+  - 信息技术
+  - 生物学
 tags:
   - ggplot2
+  - R
   - RT-PCR
 ---
 
@@ -20,7 +21,7 @@ QuantStudio Real-Time PCR software 是我们经常使用的 RT-PCR 软件, 它�
 根据文件名后缀找到数据.
 
 
-```r
+``` r
 # 数据文件目录
 dir <- "data"
 options(stringsAsFactors = F)
@@ -38,7 +39,7 @@ meltcurve_file <- list.files(path=dir,full.names = T,pattern = "MeltCurve Data_V
 在 `results` 文件中, CT 值的缺失值用 `"Undermined"` 表示. 另外, 该文件末尾的也需要检查一下, 如果有非数据信息要删掉. 否则读取文件会报错.
 
 
-```r
+``` r
 # 读取文件
 library(tidyr)
 library(dplyr)
@@ -55,7 +56,7 @@ meltcurve <-  read_delim(meltcurve_file,"\t",skip = 43)
 
 
 
-```r
+``` r
 # 修整数据
 meta <- raw_results %>% select(Well, `Sample Name`, `Target Name`)
 amplification <- amplification %>% select(Well,Cycle,Rn,`Delta Rn`) %>%  
@@ -75,7 +76,7 @@ meltcurve <- meltcurve %>%
 首先绘制扩增曲线. 扩增曲线描述 RT-PCR 荧光信号随循环数的变化情况.
 
 
-```r
+``` r
 library(ggplot2)
 
 # 更好看的科学计数法
@@ -102,7 +103,7 @@ ggplot(amplification,aes(Cycle,Rn,group=Well, color=`Target Name`,shape=`Sample 
 溶解曲线可以看出扩增产物的特异性.
 
 
-```r
+``` r
 ggplot(meltcurve,aes(Temperature,Derivative,group=Well,color=`Target Name`)) + 
   geom_line()
 ```

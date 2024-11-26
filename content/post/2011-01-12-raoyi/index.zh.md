@@ -3,14 +3,15 @@ title: '饶毅: 再生型梯队与研究生培养'
 date: '2011-01-12'
 slug: 2011-01-12-raoyi
 tags:
-  - 言论 VOICE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - 教育
   - 研究生
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 <http://www.sciencenet.cn/m/user_content.aspx?id=402656>

@@ -3,11 +3,10 @@ title: 2006中国互联网大会于今日上午召开 精彩图片先睹为快
 date: '2006-09-21'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: internet-conference-2006
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 今日上午2006中国互联网大会将召开,**地点:北京国际会议中心　

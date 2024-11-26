@@ -3,11 +3,12 @@ title: 三鹿曝光前被遮蔽的十个月
 date: '2009-01-12'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: sanlu-crisis
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 在对三鹿的审判中，那些被遮蔽的日子也渐次显露。

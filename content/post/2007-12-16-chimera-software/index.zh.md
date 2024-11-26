@@ -3,11 +3,10 @@ title: chimera----生物软件
 date: '2007-12-16'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: chimera-software
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 chimera----结构生物学软件  

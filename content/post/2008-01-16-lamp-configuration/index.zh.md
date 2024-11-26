@@ -3,11 +3,10 @@ title: LAMP Project[part A]-概述:使用Linux,apache,mySQL和Perl创建cgi动�
 date: '2008-01-16'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: lamp-configuration
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 最近几天,

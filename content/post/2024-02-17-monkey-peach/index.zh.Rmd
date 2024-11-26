@@ -4,8 +4,9 @@ author: gaoch
 date: '2024-02-17'
 slug: monkey-peach
 categories:
-  - ggplot2
+  - 信息技术
 tags:
+  - ggplot2
   - 算法
 ---
 

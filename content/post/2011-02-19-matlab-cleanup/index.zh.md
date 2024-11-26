@@ -3,13 +3,14 @@ title: matlab 怎样去掉矩阵中的零元素
 date: '2011-02-19'
 slug: 2011-02-19-matlab-cleanup
 tags:
-  - 信息技术 INFORMATICS
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - MATLAB
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

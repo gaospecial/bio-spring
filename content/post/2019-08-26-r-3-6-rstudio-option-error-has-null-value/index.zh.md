@@ -4,8 +4,9 @@ author: gaoch
 date: '2019-08-26'
 slug: r-3-6-rstudio-option-error-has-null-value
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - RStudio
 ---
 

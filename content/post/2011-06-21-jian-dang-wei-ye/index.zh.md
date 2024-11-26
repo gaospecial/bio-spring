@@ -3,15 +3,14 @@ title: 私密：有见地《建党伟业》影评
 date: '2011-06-21'
 slug: 2011-06-21-jian-dang-wei-ye
 tags:
-  - 时事 NEWS
-  - 言论 VOICE
-  - 转载 SHARE
-  - movie
+  - 旧文
+  - WordPress
+  - 转载
   - 电影
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

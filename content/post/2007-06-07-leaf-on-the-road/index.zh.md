@@ -3,11 +3,10 @@ title: 马路上，叶子追逐风的足迹?
 date: '2007-06-07'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: leaf-on-the-road
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 马路上，汽车驰过，一片法国梧桐的黄页随着风前行……  

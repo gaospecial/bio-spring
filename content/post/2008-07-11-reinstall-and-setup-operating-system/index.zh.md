@@ -3,11 +3,10 @@ title: 重装windows系统后需要安装的软件
 date: '2008-07-11'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: reinstall-and-setup-operating-system
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 重装windows系统后需要安装的软件  

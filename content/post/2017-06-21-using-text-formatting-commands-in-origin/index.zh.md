@@ -3,13 +3,14 @@ title: Origin：使用上标、下标、数学公式和希腊字母等特殊格�
 date: '2017-06-21'
 slug: 2017-06-21-using-text-formatting-commands-in-origin
 tags:
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - Origin
   - 作图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

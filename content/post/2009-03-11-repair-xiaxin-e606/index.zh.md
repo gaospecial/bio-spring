@@ -3,11 +3,12 @@ title: 刷机更正夏新E606的日期错误
 date: '2009-03-11'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
+  - WordPress
 slug: repair-xiaxin-e606
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 新年第一天，就发现了自己的夏新双核智能NewPlus手机上面的日期显示不正确。在两个多月后的某一天周末，我决定通过刷机来解决这个问题。  

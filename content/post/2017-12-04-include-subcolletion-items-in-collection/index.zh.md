@@ -3,13 +3,13 @@ title: Zotero中分类包含子分类
 date: '2017-12-04'
 slug: 2017-12-04-include-subcolletion-items-in-collection
 tags:
-  - 原创教程 TUTORIAL
-  - 生物软件 BIO-SOFTWARE
-  - zotero
+  - 旧文
+  - WordPress
+  - Zotero
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

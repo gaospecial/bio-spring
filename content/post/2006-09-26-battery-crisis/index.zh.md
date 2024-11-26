@@ -3,11 +3,10 @@ title: 还有谁是安全的?HP笔记本发生电池爆炸
 date: '2006-09-26'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: battery-crisis
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 **在最近的“电池门”事件中,笔记本三大巨头的Dell、Toshiba、Lenovo

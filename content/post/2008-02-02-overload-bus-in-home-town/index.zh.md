@@ -3,11 +3,10 @@ title: 严禁超载？！
 date: '2008-02-02'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: overload-bus-in-home-town
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 家里的公共汽车真挤啊！19人的小少林客车，居然塞了四五十人。而车内写着：超载，举报电话XXXXXXXX。

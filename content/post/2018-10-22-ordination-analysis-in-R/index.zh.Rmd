@@ -4,8 +4,10 @@ author: gaoch
 date: '2018-10-22'
 slug: ordination-analysis-in-R
 categories:
-  - R
+  - 信息技术
+  - 生物学
 tags:
+  - R
   - PCA
   - PCoA
   - NMDS

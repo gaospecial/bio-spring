@@ -3,11 +3,10 @@ title: 训言
 date: '2007-10-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: twenty-motto
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 1. Sleep now, Dream will come out; Study now, Dream will come true  

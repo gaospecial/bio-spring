@@ -3,11 +3,10 @@ title: about:blank.la/g? o.exe msrs.exe 5.pif病毒
 date: '2008-07-31'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: fight-computer-virus
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 <img src="http://hiphotos.baidu.com/spring%5Fgao/pic/item/96bb9623e2edfe53ad34ded0.jpg" class="blogimg" />

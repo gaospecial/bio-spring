@@ -3,11 +3,10 @@ title: 心疼女孩的12种方法
 date: '2007-01-23'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: how-to-take-care-of-your-girlfriend
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
   

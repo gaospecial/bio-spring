@@ -3,11 +3,10 @@ title: LAMP Project[part B]-解析cgi动态网页项目源代码(下部)
 date: '2008-01-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: lamp-cgi-project
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 这里是该项目的完整代码,在本机上运行正确,

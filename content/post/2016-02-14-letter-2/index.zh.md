@@ -3,9 +3,11 @@ title: 'Letter 2: On Discursiveness in Reading'
 author: Lucius Annaeus Seneca
 date: '2016-02-14'
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 tags:
+  - 旧文
+  - WordPress
   - Reading
   - Seneca
   - Lucilius

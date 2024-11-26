@@ -3,16 +3,15 @@ title: NOD32更新病毒库失败，提示“打开套接字错误”的解决�
 date: '2011-12-13'
 slug: 2011-12-13-rest-winsock
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - NOD32
-  - win7
-  - windows7
+  - Windows
   - 套接字
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

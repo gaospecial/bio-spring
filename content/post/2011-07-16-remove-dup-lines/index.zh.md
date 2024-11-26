@@ -3,14 +3,14 @@ title: 使用shell删除文本中的重复行
 date: '2011-07-16'
 slug: 2011-07-16-remove-dup-lines
 tags:
-  - 信息技术 INFORMATICS
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - bash
   - shell
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

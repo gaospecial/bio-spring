@@ -3,19 +3,15 @@ title: 在MATLAB中创建带有误差线（误差标记）的柱状图
 date: '2011-02-18'
 slug: 2011-02-18-bar-with-errorbar
 tags:
-  - 信息技术 INFORMATICS
-  - 矩阵实验室 MATLAB
+  - 旧文
+  - WordPress
   - MATLAB
   - 作图
-  - 折线图
   - 数据处理
-  - 柱状图
-  - 标准差
-  - 误差线
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

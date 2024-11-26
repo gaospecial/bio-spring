@@ -3,11 +3,10 @@ title: KISS V0.2 互联网绿色服务器 PHP+MYSQL+APACHE2
 date: '2007-05-30'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: kiss-the-web-server
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
   

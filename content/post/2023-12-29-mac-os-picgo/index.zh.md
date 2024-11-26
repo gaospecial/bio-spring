@@ -4,8 +4,9 @@ author: gaoch
 date: '2023-12-29'
 slug: mac-os-picgo
 categories:
-  - MacOS
+  - 信息技术
 tags:
+  - MacOS
   - 错误
   - PicGo
   - 图床

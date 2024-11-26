@@ -3,11 +3,10 @@ title: 2006(首届)Web2.0十大创新品牌揭晓
 date: '2006-09-16'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: top-ten-valuable-companies-of-web2.0
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
     

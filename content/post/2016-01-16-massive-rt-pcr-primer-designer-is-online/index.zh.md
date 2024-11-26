@@ -3,18 +3,16 @@ title: Massive RT-PCR Primer Designer is online
 date: '2016-01-16'
 slug: 2016-01-16-massive-rt-pcr-primer-designer-is-online
 tags:
-  - BioPerl BIOPERL
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - BioPerl
-  - primer
   - primer design
-  - primer3
   - RT-PCR
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

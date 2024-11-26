@@ -4,8 +4,9 @@ author: gaoch
 date: '2019-11-10'
 slug: windows-chocolatey-install-hugo
 categories:
-  - Windows
+  - 信息技术
 tags:
+  - Windows
   - Hugo
   - Chocolatey
 ---

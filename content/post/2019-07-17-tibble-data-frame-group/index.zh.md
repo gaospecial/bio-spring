@@ -4,8 +4,9 @@ author: gaoch
 date: '2019-07-17'
 slug: tibble-data-frame-group
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - tibble
   - data.frame
 ---

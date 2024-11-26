@@ -3,16 +3,16 @@ title: 使用正则表达式匹配DOI
 date: '2012-03-10'
 slug: 2012-03-10-using-regex-match-doi
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 数据挖掘 DATA MINING
+  - 旧文
+  - WordPress
+  - 数据挖掘
   - DOI
   - perl
   - 正则表达式
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

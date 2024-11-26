@@ -3,17 +3,14 @@ title: the_content()和the_excerpt()
 date: '2012-06-05'
 slug: 2012-06-05-the_content-the_excerpt
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 网站建设 WEBSITE
-  - blog
+  - 旧文
+  - WordPress
   - post
-  - wordpress
   - 主题
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

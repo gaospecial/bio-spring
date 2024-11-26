@@ -4,8 +4,9 @@ author: gaoch
 date: '2019-07-08'
 slug: wordpress-php7
 categories:
-  - WordPress
+  - 信息技术
 tags:
+  - WordPress
   - PHP
 ---
 

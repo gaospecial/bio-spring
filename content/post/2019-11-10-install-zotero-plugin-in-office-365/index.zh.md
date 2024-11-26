@@ -4,7 +4,7 @@ author: gaoch
 date: '2019-11-10'
 slug: install-zotero-plugin-in-office-365
 categories:
-  - Zotero
+  - 信息技术
 tags:
   - Zotero
 ---

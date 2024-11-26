@@ -3,16 +3,16 @@ title: 紫外线灯管（紫外线杀菌灯）的构成和原理
 date: '2011-07-17'
 slug: 2011-07-17-uv-lamp
 tags:
-  - 生物学 BIOLOGY
-  - 自然科学 NATURE & SCIENCE
-  - 仪器
+  - 旧文
+  - WordPress
   - 实验室设备
   - 知识
   - 紫外灯
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

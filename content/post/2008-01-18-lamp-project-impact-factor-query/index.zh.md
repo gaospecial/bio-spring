@@ -3,11 +3,10 @@ title: LAMP Project[part Final]-展示效果图
 date: '2008-01-18'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: lamp-project-impact-factor-query
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 这个东西使用的匹配方式是mysql基本的正则表达式方法,

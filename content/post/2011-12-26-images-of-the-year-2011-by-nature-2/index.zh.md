@@ -3,12 +3,13 @@ title: 《自然》评出年度最佳图片 最轻材料让人印象深刻
 date: '2011-12-26'
 slug: 2011-12-26-images-of-the-year-2011-by-nature-2
 tags:
-  - 自然科学 NATURE & SCIENCE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

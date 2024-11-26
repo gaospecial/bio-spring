@@ -3,11 +3,10 @@ title: kinston datatravellar 4G
 date: '2008-08-01'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: kingston-datatravellar-4g
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 <img src="http://hiphotos.baidu.com/spring%5Fgao/pic/item/a36d263fcff90bfb55e7231f.jpg" class="blogimg" />

@@ -3,11 +3,10 @@ title: 今天申请了一个免费的论坛空间
 date: '2006-09-17'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: free-chatspace
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 地址是:http://spring.digi.topzj.com/index.php

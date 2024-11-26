@@ -3,14 +3,15 @@ title: cloudfs无法上传的故障排除
 date: '2015-09-27'
 slug: 2015-09-27-cloudfs-upload-failed
 tags:
-  - 云计算 CLOUD+
+  - 旧文
+  - WordPress
   - OSS
   - Ubuntu
   - 阿里云
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

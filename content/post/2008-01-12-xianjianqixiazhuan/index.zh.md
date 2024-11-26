@@ -3,11 +3,10 @@ title: 仙剑奇侠传98柔情版
 date: '2008-01-12'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: xianjianqixiazhuan
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 最近CT在玩仙剑奇侠传四, 天天津津乐道,搞的我也心内痒痒.

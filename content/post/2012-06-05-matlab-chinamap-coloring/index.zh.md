@@ -3,17 +3,14 @@ title: MatLab中国地图进阶：以不同的颜色表示各省数据的差异
 date: '2012-06-05'
 slug: 2012-06-05-matlab-chinamap-coloring
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 矩阵实验室 MATLAB
-  - china
-  - map
+  - 旧文
+  - WordPress
   - MATLAB
   - 地图
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

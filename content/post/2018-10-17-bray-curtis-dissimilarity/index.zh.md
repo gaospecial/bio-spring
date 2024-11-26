@@ -4,8 +4,9 @@ author: gaoch
 date: '2018-10-17'
 slug: bray-curtis-dissimilarity
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - statistics
 ---
 
@@ -56,7 +57,7 @@ Bray Curtis Dissimilarity（Bray-Curtis 相异度）是生态学中用来衡量�
 `vegan`提供了`vegdist`来计算这个数值。
 
 
-```r
+``` r
 ## 用 vegdist 重复上面的例子
 df <- data.frame(goldfish=c(6,10),guppies=c(7,0),crab=c(4,6))
 require("vegan")
@@ -78,7 +79,7 @@ require("vegan")
 ## This is vegan 2.6-4
 ```
 
-```r
+``` r
 vegdist(df,method = "bray") # 这个值跟前面人脑计算的一致
 ```
 
@@ -87,7 +88,7 @@ vegdist(df,method = "bray") # 这个值跟前面人脑计算的一致
 ## 2 0.3939394
 ```
 
-```r
+``` r
 ## 计算群落数据
 data("varespec")
 ## 计算不同样地两两之间的差异度

@@ -3,11 +3,10 @@ title: 奥运成了条狗[转]
 date: '2008-07-15'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: olympic-is-a-dog
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 http://www.ideaz.cn/blog/article.asp?id=185  

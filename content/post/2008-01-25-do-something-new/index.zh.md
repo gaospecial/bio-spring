@@ -3,11 +3,10 @@ title: 要勇于做创造性的工作
 date: '2008-01-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: do-something-new
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 以我个人看来, 所谓"自主创新"已经越来越凸显出重要性了.  

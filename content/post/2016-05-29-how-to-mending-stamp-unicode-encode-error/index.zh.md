@@ -3,9 +3,8 @@ title: 'STAMP: unknown error – Unicode encode error'
 date: '2016-05-29'
 slug: 2016-05-29-how-to-mending-stamp-unicode-encode-error
 tags:
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - biom
   - Microbiome
   - mothur
@@ -13,8 +12,9 @@ tags:
   - STAMP
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

@@ -3,11 +3,10 @@ title: 改头换面了
 date: '2008-01-06'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: change-my-face-icon
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 其实很喜欢小孩荡秋千的标志的, 这个东西已经用了大约2年了, 有一次换了,

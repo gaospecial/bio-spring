@@ -3,11 +3,10 @@ title: 一MM写的如何追女孩子(转载)
 date: '2006-09-14'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: how-to-chase-girl
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 我是女生，看到有的男生想追自己喜欢的女孩子又不敢追，还想人家倒追她，我很反感.

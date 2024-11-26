@@ -3,11 +3,10 @@ title: 在firefox中屏蔽flash动画
 date: '2008-10-27'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: block-flash-in-firefox
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 电脑有点不堪重负，特别是遇到满屏的乱七八糟的flash动画，CPU常常占用到100%。  

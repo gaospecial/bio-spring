@@ -3,18 +3,15 @@ title: 删除Zotero自动生成的Tags或关键词
 date: '2012-03-14'
 slug: 2012-03-14-delete-zotero-autotags
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
-  - 自然科学 NATURE & SCIENCE
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
   - firefox
   - sqlite
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

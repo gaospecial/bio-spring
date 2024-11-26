@@ -3,11 +3,10 @@ title: 仙剑奇侠传98柔情版 名言佳句
 date: '2008-06-30'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: xianjianqixiazhuan
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 逍遥哥哥,我在你心里到底是什么呢?  

@@ -4,10 +4,13 @@ author: Package Build
 date: '2023-12-04'
 slug: data-structure-in-R
 categories:
-  - 学习笔记
+  - 其它
+  - 生物学
+  - 信息技术
 tags:
-  - Matrix
-  - Vector
+  - 学习笔记
+  - 矩阵
+  - 向量
   - 数据结构
 ---
 

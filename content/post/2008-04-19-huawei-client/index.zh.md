@@ -3,11 +3,10 @@ title: '[Ubuntu资料］配置华为认证客户端上网'
 date: '2008-04-19'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: huawei-client
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 <http://forum.ubuntu.org.cn/viewtopic.php?t=10523>  

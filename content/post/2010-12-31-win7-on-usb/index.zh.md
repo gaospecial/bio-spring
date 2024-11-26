@@ -3,12 +3,13 @@ title: 如何在移动硬盘中安装windows7
 date: '2010-12-31'
 slug: 2010-12-31-win7-on-usb
 tags:
-  - 信息技术 INFORMATICS
-  - 转载 SHARE
+  - 旧文
+  - WordPress
+  - 转载
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

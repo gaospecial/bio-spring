@@ -3,11 +3,10 @@ title: 图书馆一游
 date: '2007-09-25'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: a-visit-to-university-library
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 由于昨天的热火劲,今天特意到图书馆转了一圈;  

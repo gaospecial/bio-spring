@@ -4,8 +4,9 @@ author: Gao
 date: '2018-11-02'
 slug: comparison-of-two-pca-methods
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - PCA
   - statistics
 ---
@@ -22,7 +23,7 @@ tags:
 每组 3 个重复, 合计 27 个样品.
 
 
-```r
+``` r
 library(DESeq2)
 library(dplyr)
 library(ggplot2)
@@ -44,7 +45,7 @@ rld <- rlog(dds, blind = F)
 # 使用 `stats::prcomp()` 进行主成分分析
 
 
-```r
+``` r
 # 运行 PCA
 pca <- stats::prcomp(t(assay(rld)))
 
@@ -73,7 +74,7 @@ p1
 # 使用 `vegan::rda()` 做主成分分析
 
 
-```r
+``` r
 # rda() 分析
 pca <- vegan::rda(t(assay(rld))) 
 
@@ -101,7 +102,7 @@ p2
 可以看出，虽然两种方法计算的数值有差异，但是坐标位置是一致。
 
 
-```r
+``` r
 cowplot::plot_grid(p1,p2,labels = "AUTO",ncol=1,align = "hv")
 ```
 

@@ -3,17 +3,16 @@ title: Linux下命令行压缩照片或图片的脚本
 date: '2010-11-17'
 slug: 2010-11-17-linux-image-resize
 tags:
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - bash
   - imagemagick
-  - resize
   - 压缩图片
-  - 压缩照片
   - 脚本
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

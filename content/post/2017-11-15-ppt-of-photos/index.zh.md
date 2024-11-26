@@ -3,12 +3,13 @@ title: 从一组照片创建PPT
 date: '2017-11-15'
 slug: 2017-11-15-ppt-of-photos
 tags:
-  - 原创教程 TUTORIAL
+  - 旧文
+  - WordPress
   - PowerPoint
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

@@ -4,8 +4,9 @@ author: gaoch
 date: '2019-09-23'
 slug: basic-stats-in-R
 categories:
-  - R
+  - 信息技术
 tags:
+  - R
   - statistics
   - ggplot2
 ---

@@ -3,11 +3,10 @@ title: 图书馆：是避暑胜地，还是难民营？
 date: '2007-07-09'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: library-incident-of-hzau
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 图书馆：是避暑胜地，还是难民营？  

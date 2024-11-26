@@ -4,7 +4,7 @@ author: gaoch
 date: '2019-12-04'
 slug: ggraph-manual
 categories:
-  - ggraph
+  - 信息技术
 tags:
   - ggraph
 ---

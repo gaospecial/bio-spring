@@ -3,8 +3,8 @@ title: 'MEGA6: Constructing a Phylogenetic Tree on Multiple Sequences'
 date: '2016-01-19'
 slug: 2016-01-19-mega6-constructing-a-phylogenetic-tree-on-multiple-sequences
 tags:
-  - 生物信息 BIOINFORMATICS
-  - 生物软件 BIO-SOFTWARE
+  - 旧文
+  - WordPress
   - alignment
   - MEGA
   - Phylogeny
@@ -13,8 +13,9 @@ tags:
   - 进化树
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
+  - 生物学
 ---
 
 

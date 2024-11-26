@@ -3,11 +3,10 @@ title: 什么是 Load ? 什么是 Load Average ?
 date: '2008-09-17'
 author: gaoch
 tags:
-  - 百度空间
+  - 旧文
 slug: load-and-load-average
 categories:
-  - 旧文
-  - 百度空间
+  - 其它
 ---
 
 什么是 Load ? 什么是 Load Average ?

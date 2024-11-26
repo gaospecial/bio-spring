@@ -4,8 +4,8 @@ author: gaoch
 date: '2023-12-31'
 slug: a-math-quiz
 categories:
-  - R
-tags: []
+  - 信息技术
+tags: R
 ---
 
 用编程方法硬解小学奥赛题。

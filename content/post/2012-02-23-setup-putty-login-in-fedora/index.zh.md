@@ -3,19 +3,15 @@ title: 在 Fedora 14 上配置 putty 自动认证
 date: '2012-02-23'
 slug: 2012-02-23-setup-putty-login-in-fedora
 tags:
-  - 信息技术 INFORMATICS
-  - 原创教程 TUTORIAL
-  - 操作系统 LINUX
+  - 旧文
+  - WordPress
   - bash
-  - fedora
-  - linux
   - putty
-  - puttygen
   - ssh
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

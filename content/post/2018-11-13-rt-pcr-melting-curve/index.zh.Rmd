@@ -4,10 +4,11 @@ author: gaoch
 date: '2018-11-13'
 slug: rt-pcr-data-visualization-one
 categories:
-  - ggplot2
-  - R
+  - 信息技术
+  - 生物学
 tags:
   - ggplot2
+  - R
   - RT-PCR
 ---
 

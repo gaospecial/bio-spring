@@ -3,16 +3,15 @@ title: 致哀：天津保税区危化品爆炸事故
 date: '2015-08-14'
 slug: 2015-08-14-tianjin-8-12
 tags:
-  - 时事 NEWS
-  - 自己 SPRING
-  - 随笔 NOTE
+  - 旧文
+  - WordPress
   - 事故
   - 消防
   - 生命
 author: gaoch
 categories:
-  - 旧文
-  - WordPress博客
+  - 其它
+  - 信息技术
 ---
 
 

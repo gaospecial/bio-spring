@@ -4,7 +4,7 @@ author: gaoch
 date: '2019-12-04'
 slug: ggraph-manual
 categories:
-  - ggraph
+  - 信息技术
 tags:
   - ggraph
 ---
@@ -19,7 +19,7 @@ ggraph 可用于 **网络、图和树状** 数据结构的可视化。它扩展�
 
 
 
-```r
+``` r
 library(ggraph)
 ```
 
@@ -27,7 +27,7 @@ library(ggraph)
 ## Loading required package: ggplot2
 ```
 
-```r
+``` r
 library(tidygraph)
 ```
 
@@ -42,7 +42,7 @@ library(tidygraph)
 ##     filter
 ```
 
-```r
+``` r
 # Create graph of highschool friendships
 graph <- as_tbl_graph(highschool) %>% 
     mutate(Popularity = centrality_degree(mode = 'in'))
@@ -51,7 +51,7 @@ graph <- as_tbl_graph(highschool) %>%
 这个数据（`highschool`）包含了学校成员之间的联系。第一列是一个人（from），第二列是另一个人（to），第三列是这个连接（edge）的属性。
 
 
-```r
+``` r
 highschool
 ```
 
@@ -569,7 +569,7 @@ highschool
 
 
 
-```r
+``` r
 graph
 ```
 
@@ -607,7 +607,7 @@ graph
 使用 `ggraph` 等函数可以将这个一个图可视化。
 
 
-```r
+``` r
 # plot using ggraph
 ggraph(graph, layout = 'kk') + 
     geom_edge_fan(aes(alpha = stat(index)), show.legend = FALSE) + 
@@ -619,14 +619,6 @@ ggraph(graph, layout = 'kk') +
 ```
 ## Warning: `stat(index)` was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `after_stat(index)` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.
-```
-
-```
-## Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
-## ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.
@@ -652,7 +644,7 @@ ggraph(graph, layout = 'kk') +
 默认情况下，会调用 `auto` 布局。
 
 
-```r
+``` r
 set_graph_style(plot_margin = margin(1,1,1,1))
 graph <- as_tbl_graph(highschool)
 
@@ -672,7 +664,7 @@ ggraph(graph) +
 
 
 
-```r
+``` r
 ggraph(graph, layout = 'kk', maxiter = 100) + 
   geom_edge_link(aes(colour = factor(year))) + 
   geom_node_point()
@@ -684,7 +676,7 @@ ggraph(graph, layout = 'kk', maxiter = 100) +
 
 
 
-```r
+``` r
 layout <- create_layout(graph, layout = 'eigen')
 ```
 
@@ -693,7 +685,7 @@ layout <- create_layout(graph, layout = 'eigen')
 ## directed. undirected version is used for the layout.
 ```
 
-```r
+``` r
 ggraph(layout) + 
   geom_edge_link(aes(colour = factor(year))) + 
   geom_node_point()
@@ -705,21 +697,23 @@ ggraph(layout) +
 
 
 
-```r
+``` r
 head(layout)
 ```
 
 ```
-##              x           y circular .ggraph.orig_index .ggraph.index
-## 1 -0.044663781 -0.15559667    FALSE                  1             1
-## 2 -0.037385404 -0.20774400    FALSE                  2             2
-## 3 -0.056485523 -0.29917717    FALSE                  3             3
-## 4  0.179811980  0.03475970    FALSE                  4             4
-## 5  0.176570267 -0.01218347    FALSE                  5             5
-## 6  0.009982631 -0.19472509    FALSE                  6             6
+## # A tibble: 6 × 5
+##          x       y circular .ggraph.orig_index .ggraph.index
+##      <dbl>   <dbl> <lgl>                 <int>         <int>
+## 1 -0.0447  -0.156  FALSE                     1             1
+## 2 -0.0374  -0.208  FALSE                     2             2
+## 3 -0.0565  -0.299  FALSE                     3             3
+## 4  0.180    0.0348 FALSE                     4             4
+## 5  0.177   -0.0122 FALSE                     5             5
+## 6  0.00998 -0.195  FALSE                     6             6
 ```
 
-```r
+``` r
 attributes(layout)
 ```
 
@@ -734,26 +728,27 @@ attributes(layout)
 ## [51] 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70
 ## 
 ## $class
-## [1] "layout_tbl_graph" "layout_ggraph"    "data.frame"      
+## [1] "layout_tbl_graph" "layout_ggraph"    "tbl_df"           "tbl"             
+## [5] "data.frame"      
 ## 
 ## $graph
 ## # A tbl_graph: 70 nodes and 506 edges
 ## #
 ## # A directed multigraph with 1 component
 ## #
-## # Node Data: 70 × 1 (active)
-##    .ggraph.orig_index
-##                 <int>
-##  1                  1
-##  2                  2
-##  3                  3
-##  4                  4
-##  5                  5
-##  6                  6
-##  7                  7
-##  8                  8
-##  9                  9
-## 10                 10
+## # Node Data: 70 × 3 (active)
+##    .ggraph.orig_index .ggraph_layout_x .ggraph_layout_y
+##                 <int>            <dbl>            <dbl>
+##  1                  1         -0.0447           -0.156 
+##  2                  2         -0.0374           -0.208 
+##  3                  3         -0.0565           -0.299 
+##  4                  4          0.180             0.0348
+##  5                  5          0.177            -0.0122
+##  6                  6          0.00998          -0.195 
+##  7                  7         -0.0137           -0.252 
+##  8                  8         -0.0138           -0.230 
+##  9                  9         -0.0200           -0.139 
+## 10                 10          0.104             0.0548
 ## # ℹ 60 more rows
 ## #
 ## # Edge Data: 506 × 3
@@ -777,7 +772,7 @@ attributes(layout)
 ##### 分区表
 
 
-```r
+``` r
 graph <- tbl_graph(flare$vertices, flare$edges)
 # An icicle plot
 ggraph(graph, 'partition') + 
@@ -802,7 +797,7 @@ ggraph(graph, 'partition') +
 
 
 
-```r
+``` r
 # A sunburst plot
 ggraph(graph, 'partition', circular = TRUE) + 
   geom_node_arc_bar(aes(fill = depth), size = 0.25) + 
@@ -815,7 +810,7 @@ ggraph(graph, 'partition', circular = TRUE) +
 ##### Hive plot
 
 
-```r
+``` r
 graph <- as_tbl_graph(highschool) %>% 
   mutate(degree = centrality_degree())
 
@@ -839,7 +834,7 @@ ggraph(graph, 'hive', axis = friends, sort.by = degree) +
 > This dataset contains the graph that describes the class hierarchy for the Flare ActionScript visualization library. It contains both the class hierarchy as well as the import connections between classes. This dataset has been used extensively in the D3.js documentation and examples and are included here to make it easy to redo the examples in ggraph.
 
 
-```r
+``` r
 graph <- tbl_graph(flare$vertices, flare$edges)
 set.seed(1)
 ggraph(graph, 'circlepack', weight = size) + 
@@ -851,7 +846,7 @@ ggraph(graph, 'circlepack', weight = size) +
 
 
 
-```r
+``` r
 set.seed(1)
 ggraph(graph, 'circlepack', weight = size) + 
   geom_edge_link() + 
@@ -863,7 +858,7 @@ ggraph(graph, 'circlepack', weight = size) +
 
 
 
-```r
+``` r
 ggraph(graph, 'tree') + 
   geom_edge_diagonal()
 ```
@@ -876,7 +871,7 @@ ggraph(graph, 'tree') +
 
 
 
-```r
+``` r
 graph <- create_notable('zachary')
 ggraph(graph, 'matrix', sort.by = node_rank_leafsort()) + 
   geom_edge_point(mirror = TRUE) + 
@@ -898,7 +893,7 @@ ggraph(graph, 'matrix', sort.by = node_rank_leafsort()) +
 
 
 
-```r
+``` r
 gr <- tbl_graph(flare$vertices, flare$edges)
 
 ggraph(gr, layout = 'partition') + 
@@ -910,7 +905,7 @@ ggraph(gr, layout = 'partition') +
 通过对数据进行变换，可以控制上面的图 **Y 数值取负数**，以及下面的图 **只显示叶片**。
 
 
-```r
+``` r
 ggraph(gr, layout = 'dendrogram', circular = TRUE) + 
   geom_edge_diagonal() + 
   geom_node_point(aes(filter = leaf)) + 
@@ -927,7 +922,7 @@ ggraph(gr, layout = 'dendrogram', circular = TRUE) +
 
 
 
-```r
+``` r
 graph <- create_notable('meredith') %>% 
   mutate(group = sample(c('A', 'B'), n(), TRUE))
 
@@ -944,7 +939,7 @@ ggraph(graph, 'stress') +
 
 
 
-```r
+``` r
 l <- ggraph(gr, layout = 'partition', circular = TRUE)
 
 ## 分区表图
@@ -954,7 +949,7 @@ l + geom_node_arc_bar(aes(fill = depth)) +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
-```r
+``` r
 ## 
 l + geom_edge_diagonal() + 
   geom_node_point(aes(colour = depth)) + 
@@ -971,11 +966,15 @@ l + geom_edge_diagonal() +
 
 
 
-```r
+``` r
 library(ggraph)
 library(tidygraph)
 library(purrr)
 library(rlang)
+```
+
+```
+## Warning: package 'rlang' was built under R version 4.3.3
 ```
 
 ```
@@ -990,7 +989,7 @@ library(rlang)
 ##     flatten_raw, invoke, splice
 ```
 
-```r
+``` r
 set_graph_style(plot_margin = margin(1,1,1,1))
 hierarchy <- as_tbl_graph(hclust(dist(iris[, 1:4]))) %>% 
   mutate(Class = map_bfs_back_chr(node_is_root(), .f = function(node, path, ...) {
@@ -1026,7 +1025,7 @@ hairball <- as_tbl_graph(highschool) %>%
 #### 常规类型
 
 
-```r
+``` r
 ## 纺锤体
 ggraph(hairball, layout = 'stress') + 
   geom_edge_fan(aes(colour = year))
@@ -1034,7 +1033,7 @@ ggraph(hairball, layout = 'stress') +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
-```r
+``` r
 ## 平行宇宙
 # let's make some of the student love themselves
 loopy_hairball <- hairball %>% 
@@ -1046,7 +1045,7 @@ ggraph(loopy_hairball, layout = 'stress') +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-22-2.png" width="672" />
 
-```r
+``` r
 ## 密度图
 ggraph(hairball, layout = 'stress') + 
   geom_edge_density(aes(fill = year)) + 
@@ -1054,8 +1053,8 @@ ggraph(hairball, layout = 'stress') +
 ```
 
 ```
-## Warning: The following aesthetics were dropped during statistical transformation: xend,
-## yend
+## Warning: The following aesthetics were dropped during statistical transformation: xend
+## and yend.
 ## ℹ This can happen when ggplot fails to infer the correct grouping structure in
 ##   the data.
 ## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
@@ -1069,7 +1068,7 @@ ggraph(hairball, layout = 'stress') +
 #### 斜纹和对角线
 
 
-```r
+``` r
 ## Diagonals
 ggraph(hierarchy, layout = 'dendrogram', height = height) + 
   geom_edge_diagonal()
@@ -1077,7 +1076,7 @@ ggraph(hierarchy, layout = 'dendrogram', height = height) +
 
 <img src="{{< blogdown/postref >}}index.zh_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 
-```r
+``` r
 ## Bends
 ggraph(hierarchy, layout = 'dendrogram', height = height) + 
   geom_edge_bend()
