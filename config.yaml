@@ -40,9 +40,6 @@ menu:
     - name: Work
       url: "/work/"
       weight: 6
-    - name: CV
-      url: "/cv/"
-      weight: 20
     - name: Search
       weight: 50
       url: "#"
