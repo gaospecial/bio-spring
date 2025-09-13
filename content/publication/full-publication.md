@@ -8,6 +8,15 @@ menu:
     weight: 3
 ---
 
+## 2025
+
+* 方临川#; 胡紫莹; 崔庆亮; 杨阳; 梁玉婷; 蔡鹏; 渠晨晨; **高春辉**; 焦硕; 刘玉荣; 黄巧云; 谭文峰. [合成菌群构建与应用: 提升土壤健康新策略]( http://pedologica.issas.ac.cn/trxb/article/abstract/trxb202410120392). 土壤学报 2025.
+* Xu, S.; Wang, Q.; Wen, S.; Li, J.; He, N.; Li, M.; Hackl, T.; Wang, R.; Zeng, D.; Wang, S.; Li, S.; **Gao, C.-H.**; Zhou, L.; Tao, S.; Xie, Z.; Deng, L.; Yu, G#. [Aplot: Simplifying the Creation of Complex Graphs to Visualize Associations across Diverse Data Types]( https://doi.org/10.1016/j.xinn.2025.100958). The Innovation 2025, 0 (0).
+* Wei, W.; **Gao, C.-H.**; Jiang, X.; Qiao, J.; Zhang, L.; Yan, Y.; Zhao, G.; Yang, K.; Yan, J.; Yang, M#. [CARF-Dependent Preferential RNA Cleavage by Csm6 Increases Drug Susceptibility of Mycobacteria]( https://doi.org/10.1093/nar/gkaf622). Nucleic Acids Research 2025, 53 (12), gkaf622.
+* Fu, C.; Wu, Y.; Sørensen, S. J.; Zhang, M.; Dai, K.; **Gao, C.**; Qu, C.; Huang, Q.; Cai, P#. [The Mitigation of Spatial Constraint in Porous Environments Enhances Biofilm Phylogenetic and Functional Diversity]( https://doi.org/10.1186/s40168-025-02075-0). Microbiome 2025, 13 (1), 84.
+* Chen, Y.; Luo, X.; Wu, Y.; Zhang, M.; Dai, K.; **Gao, C.**; Qu, C.; Huang, Q.; Cai, P#. [Quantifying the Trade-off between Yield and Contamination in Soil EPS Extraction Using Cation Exchange Resin]( https://doi.org/10.1007/s11368-025-04063-1). Journal of Soils and Sediments 2025.
+
+
 ## 2024
 
 -   **高春辉**; 杨宁; 王创; 侯时季; 严建兵; 郑金水; 李锦; 吴尘聊; 蔡鹏#. [有涌现性功能的合成菌群在作物育种上的应用前景](https://doi.org/10.12211/2096-8280.2023-073). 合成生物学 2024, 5 (1), 144.
