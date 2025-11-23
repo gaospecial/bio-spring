@@ -5,7 +5,7 @@ date: '2023-12-31'
 slug: a-math-quiz
 categories:
   - 信息技术
-tags: R
+tags: [R]
 ---
 
 用编程方法硬解小学奥赛题。
@@ -18,7 +18,7 @@ tags: R
 老师让菲菲从 1 ~ 9 这9个数字中选取 4 个不同的数字，组成一个四位数，使得这个四位数能被所有她没有选中的数整除，但不能被选中的任一个数字整除。那么，菲菲组成的四位数是_____。
 
 
-```r
+``` r
 for (num in seq(1234, 9876)){
     contained = strsplit(as.character(num), split = "")[[1]]  |>
      unique() |> 

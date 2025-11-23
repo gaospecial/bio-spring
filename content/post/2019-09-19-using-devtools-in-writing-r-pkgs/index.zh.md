@@ -5,7 +5,7 @@ date: '2019-09-19'
 slug: using-devtools-in-writing-r-pkgs
 categories:
   - 信息技术
-tags: R
+tags: [R]
 ---
 
 因为“包治百病”，所以每个人都会到需要写包的时候。作为一个讲原则的开发者，Hadley Wickham 的[写包指南](https://r-pkgs.org/index.html)还是要看一下的。写包，“so easy！”

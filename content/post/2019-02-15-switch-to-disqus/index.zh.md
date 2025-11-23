@@ -5,7 +5,8 @@ slug: 2019-02-15-switch-to-disqus
 tags:
   - WordPress
 author: gaoch
-categories: 信息技术
+categories: 
+  - 信息技术
 ---
 
 
