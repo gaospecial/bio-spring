@@ -1,5 +1,5 @@
 ---
-title: Posit::conf(2025) 精选辑 - 人工智能部分
+title: Posit::conf(2025) 精选辑 - 人工智能
 author: gaoch
 date: '2025-11-26'
 slug: posit-conf-2025-ai
