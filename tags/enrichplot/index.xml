@@ -1,0 +1,153 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enrichplot on BIO-SPRING</title>
+    <link>bio-spring/tags/enrichplot/</link>
+    <description>Recent content in Enrichplot on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/enrichplot/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>在enrichplot中使用更好的Label</title>
+        <link>bio-spring/post/2018/11/26/enrichplot-fancy-label/</link>
+        <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+        <author>gao</author>
+        <guid>bio-spring/post/2018/11/26/enrichplot-fancy-label/</guid>
+        <description>
+          &lt;h1 id=&#34;go-term-太长-enrichplot-好局促怎么办&#34;&gt;GO term 太长, enrichplot 好局促怎么办?&lt;/h1&gt;
+&lt;p&gt;例如下面这个样子:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 可重复运行的代码拿去
+library(clusterProfiler)
+library(org.Hs.eg.db)
+library(ggplot2)
+
+data(geneList, package = &amp;quot;DOSE&amp;quot;)
+gene &amp;lt;- names(geneList)[abs(geneList)&amp;gt;3]
+gene.df &amp;lt;- bitr(gene, fromType = &amp;quot;ENTREZID&amp;quot;,
+        toType = c(&amp;quot;ENSEMBL&amp;quot;, &amp;quot;SYMBOL&amp;quot;),
+        OrgDb = org.Hs.eg.db)
+
+ego &amp;lt;- enrichGO(gene          = gene,
+                universe      = names(geneList),
+                OrgDb         = org.Hs.eg.db,
+                ont           = &amp;quot;BP&amp;quot;,
+                pAdjustMethod = &amp;quot;BH&amp;quot;,
+                pvalueCutoff  = 0.01,
+                qvalueCutoff  = 0.05,
+                readable      = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个例子中, 有一个 &amp;ldquo;microtubule cytoskeleton &amp;hellip;&amp;rdquo; 特别长, 事实上有些 GO term 比这还要长很多. 不巧在这个例子中没有出现, 那就拿它开刀吧.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dotplot(ego)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;刀法比较犀利, 主要是定义一个短 label 的函数, 将其传递给 &lt;code&gt;scale_y_discrete()&lt;/code&gt; 即可. &lt;strong&gt;在输出ggplot 对象时做修改&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;#&#39; Truncate string vector of ggplot axis label
+#&#39;
+#&#39; @param label    a ordered string vector
+#&#39; @param maxLen   max length of character (nchar) to show in label
+#&#39; @param maxWord  max count of words allowed to show in label
+#&#39; @param pattern  Word separater
+#&#39; @param dot      If true, three dots will added to truncated label
+#&#39;
+#&#39; @return a vector of truncated strings
+#&#39; @export
+#&#39;
+#&#39; @examples
+short_label &amp;lt;- function(label, maxLen = 50, maxWord = 5, pattern = &amp;quot; &amp;quot;, dot = TRUE){
+  l &amp;lt;- strsplit(label, pattern)
+  short_label &amp;lt;- vector(&amp;quot;character&amp;quot;,length(l))
+  
+  for (i in seq_along(l)){
+    truncated &amp;lt;- FALSE
+    s &amp;lt;- l[[i]]
+    if (length(s) &amp;gt; maxWord){
+      ll &amp;lt;- paste(s[1:maxWord], collapse = &amp;quot; &amp;quot;)
+      truncated &amp;lt;- TRUE
+    }
+    else{
+      ll &amp;lt;- paste(s, collapse = &amp;quot; &amp;quot;)
+    }
+    
+    if (nchar(ll) &amp;gt; maxLen){
+      ll &amp;lt;- substr(ll, 1, maxLen)
+      truncated &amp;lt;- TRUE
+    }
+    
+    if (dot &amp;amp; truncated) ll &amp;lt;- paste(ll, &amp;quot;...&amp;quot;,sep = &amp;quot; &amp;quot;)
+    
+    short_label[[i]] &amp;lt;- ll
+  }
+  attr(short_label, &amp;quot;pos&amp;quot;) &amp;lt;- attr(label,&amp;quot;pos&amp;quot;)
+  return(short_label)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;默认最多显示 50 个字符, 5 个单词.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dotplot(ego) + scale_y_discrete(label=short_label)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;如果最多只显示 3 个单词, 则可以写成这样:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dotplot(ego) + 
+  scale_y_discrete(
+    label=function(x)short_label(x,maxWord = 3)
+    )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;: &lt;code&gt;short_label()&lt;/code&gt; 带参数和不带参数时具有不同的调用方法.&lt;/p&gt;
+&lt;h1 id=&#34;不满意-enrichplot-x轴排序怎么破&#34;&gt;不满意 enrichplot x轴排序怎么破?&lt;/h1&gt;
+&lt;p&gt;我觉得 compareCluster 的输出可能会更加有比较价值. 但是发现 x 轴的排序有时候会有一些问题.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;compareCluster&lt;/code&gt; 只能根据其本来固有的顺序排序, 这在程序上没有问题. 但用起来可能情况比较复杂.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data(&amp;quot;gcSample&amp;quot;)
+
+names(gcSample)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;X1&amp;quot; &amp;quot;X2&amp;quot; &amp;quot;X3&amp;quot; &amp;quot;X4&amp;quot; &amp;quot;X5&amp;quot; &amp;quot;X6&amp;quot; &amp;quot;X7&amp;quot; &amp;quot;X8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;set.seed(0)
+names(gcSample) &amp;lt;- sample(seq(0,28,by=4),8)
+names(gcSample)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;20&amp;quot; &amp;quot;0&amp;quot;  &amp;quot;12&amp;quot; &amp;quot;24&amp;quot; &amp;quot;4&amp;quot;  &amp;quot;16&amp;quot; &amp;quot;8&amp;quot;  &amp;quot;28&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ck &amp;lt;- compareCluster(geneClusters = gcSample, fun = &amp;quot;enrichKEGG&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;比如下面的例子中, 我们是想让 x 轴依数字大小(Time)排序的. 但是由于这个顺序与 &lt;code&gt;list&lt;/code&gt; 顺序不同, 导致结果差强人意.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dotplot(ck)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;960&#34; /&gt;
+&lt;p&gt;这只是一个 &lt;code&gt;list&lt;/code&gt; 输入的例子, 可以通过改 name 变更顺序(就行我刚刚做的那样). 但是, 如果数据是放在 &lt;code&gt;data.frame&lt;/code&gt; 中的, 存在多个分组条件, 每个条件按因子的 &lt;code&gt;level&lt;/code&gt; 排好序.
+那么由于 &lt;code&gt;compareCluster&lt;/code&gt; 和 &lt;code&gt;dotplot&lt;/code&gt; 操作时会将其转变成 &lt;code&gt;character&lt;/code&gt;, 顺序会丢失, 导致最终结果是按照字母顺序输出的.&lt;/p&gt;
+&lt;p&gt;这种情况下, 你去改原始数据都是没有用的(需要给程序打补丁).&lt;/p&gt;
+&lt;p&gt;为了解决这个问题, 强行在 &lt;strong&gt;在已经输出的ggplot 对象上修改&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;由于 &lt;code&gt;ggplot&lt;/code&gt; 隐式输出的是一个对象, 其数据可以访问和修改. 出来的图, 先改一下再保存不就可以了吗?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;p &amp;lt;- dotplot(ck)
+
+levels(p$data$Cluster)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;0\n(410)&amp;quot;  &amp;quot;12\n(195)&amp;quot; &amp;quot;24\n(441)&amp;quot; &amp;quot;4\n(481)&amp;quot;  &amp;quot;16\n(286)&amp;quot; &amp;quot;8\n(328)&amp;quot; 
+## [7] &amp;quot;28\n(162)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;p$data$Cluster &amp;lt;- factor(p$data$Cluster, 
+                         levels = c(&amp;quot;0\n(245)&amp;quot;, &amp;quot;4\n(359)&amp;quot;,  &amp;quot;8\n(172)&amp;quot;, &amp;quot;12\n(412)&amp;quot;, &amp;quot;16\n(157)&amp;quot;, &amp;quot;20\n(388)&amp;quot;,    &amp;quot;24\n(301)&amp;quot;),
+                         labels = c(0,4,8,12,16,20,24))
+
+p + xlab(&amp;quot;Time (h)&amp;quot;) + scale_y_discrete(label=short_label)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Scale for y is already present.
+## Adding another scale for y, which will replace the existing scale.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2018/11/26/enrichplot-fancy-label/index.zh_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;这两种&amp;quot;骚操作&amp;quot;, 分别相当于基因表达时&amp;quot;转录后修饰&amp;quot;和&amp;quot;翻译后修饰&amp;quot;. 嗯, 是有这么个意思. 都是在 &amp;ldquo;biobabble&amp;rdquo; 公众号学到的, 结合具体问题分享一下. 共同进步吧!&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

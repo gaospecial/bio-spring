@@ -1,0 +1,1819 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WordPress on BIO-SPRING</title>
+    <link>bio-spring/tags/wordpress/</link>
+    <description>Recent content in WordPress on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/wordpress/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>整理老文章</title>
+        <link>bio-spring/post/2023/08/08/tidy-old-blog-post/</link>
+        <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2023/08/08/tidy-old-blog-post/</guid>
+        <description>
+          &lt;p&gt;今天，花时间整理了一下个人网站，主要做了下面这些工作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选择了一个主题 hugo-prose。选择这个主题的原因是它足够简单，体积小，而且拥有不少需要的功能。如导航条、网站地图、目录、卡片、版权、引文等。&lt;/li&gt;
+&lt;li&gt;整理了之前的老文章。删掉了一些完全没有营养的帖子。大多数予以保留，并添加了 slug 标签，调整目录结构。写了一个脚本完成这项工作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# find all files
+files = list.files(path = &amp;quot;content/post/&amp;quot;, pattern = stringr::regex(&amp;quot;*.(md|rmd)&amp;quot;, ignore.case = TRUE), full.names = TRUE)
+lapply(files, function(file){
+  # retrieve slug from filename
+  filename = basename(file)
+  ext = xfun::file_ext(file)
+  basename = gsub(paste0(&amp;quot;.&amp;quot;, ext), &amp;quot;&amp;quot;, filename)
+  slug = gsub(&amp;quot;[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}-&amp;quot;, &amp;quot;&amp;quot;, basename)
+
+  # add tags to those posts
+  header = blogdown:::split_yaml_body(xfun::read_utf8(file))[[&#39;yaml_list&#39;]]
+  header$file = file
+  if (is.null(header[[&#39;slug&#39;]])) header$slug = slug
+  if (is.null(header[[&amp;quot;author&amp;quot;]])) header$author = &amp;quot;gaoch&amp;quot;
+  if (header$date &amp;lt; &amp;quot;2008-11-25&amp;quot;){
+    header$categories = c(&amp;quot;旧文&amp;quot;,&amp;quot;百度空间&amp;quot;)
+  } else if (header$date &amp;lt; &amp;quot;2018-10-17&amp;quot;){
+    header$categories = c(&amp;quot;旧文&amp;quot;,&amp;quot;WordPress博客&amp;quot;)
+  } 
+  
+  do.call(blogdown:::modify_yaml, header)
+  
+  # move post to new place
+  path = paste0(&amp;quot;content/post/&amp;quot;, basename)
+  dir.create(path)
+  success = file.copy(from = file,
+            to = paste(path, paste0(&amp;quot;index.zh.&amp;quot;, ext), sep = &amp;quot;/&amp;quot;))
+  if(success){
+    file.remove(file)
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>WordPress内部错误原是PHP7未配置</title>
+        <link>bio-spring/post/2019/07/08/wordpress-php7/</link>
+        <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2019/07/08/wordpress-php7/</guid>
+        <description>
+          &lt;p&gt;服务器网页显示：&lt;strong&gt;内部错误500&lt;/strong&gt;，在日志文件中：&lt;code&gt;/var/log/apache2/error.log&lt;/code&gt;提示以下错误：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Invalid command &#39;php_value&#39;, perhaps misspelled or defined by a module not included in the server configuration
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Google了半天，没有查到可用的解决方案。考虑到之前做了服务器或者WordPress升级，参考其中一些信息，提示可能是 PHP5 升级到 PHP7 的兼容性问题。&lt;/p&gt;
+&lt;p&gt;PHP7对性能提升很大。而我的服务器还没有安装 PHP7。
+先安装 PHP7。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-get install php7.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装后，前台不再提示“内部错误”。而是提示：&lt;strong&gt;您的PHP似乎没有安装运行WordPress所必需的MySQL扩展。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;查阅WordPress需要的系统配置，得到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP version 5.2.4 or higher.&lt;/li&gt;
+&lt;li&gt;MySQL version 5.0 or higher.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Recommendations&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP version 7.2 or higher.&lt;/li&gt;
+&lt;li&gt;MySQL version 5.6 or higher.&lt;/li&gt;
+&lt;li&gt;The mod_rewrite Apache module.&lt;/li&gt;
+&lt;li&gt;HTTPS support.&lt;/li&gt;
+&lt;li&gt;A link to wordpress.org on your site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那所谓的 PHP MySQL扩展在哪里呢？再安装一个：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-get install php7.2-mysql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;搞定了！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;果然，治病救人，确定病根很重要。&lt;/strong&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>无缝切换到DISQUS评论系统</title>
+        <link>bio-spring/post/2019/02/15/2019-02-15-switch-to-disqus/</link>
+        <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2019/02/15/2019-02-15-switch-to-disqus/</guid>
+        <description>
+          &lt;p&gt;今天发表评论的时候发现服务器报错HTTP ERROR
+405，查了一下Google没发现什么解决办法。索性就坡下驴，转换为DISQUS评论系统。&lt;/p&gt;
+&lt;p&gt;在插件中搜索Disqus，安装之。随后在后台菜单侧栏会出现Disqus标签（我在设置里面找了半天会告诉你吗），然后根据向导操作即可。&lt;/p&gt;
+&lt;p&gt;安装完成后，自动取代WordPress自带的评论功能，还可以一键导入WordPress已有评论，简直不能太方便。&lt;/p&gt;
+&lt;p&gt;OK，就这样。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Setup blogdown site</title>
+        <link>bio-spring/post/2018/10/16/setup-blogdown-site/</link>
+        <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2018/10/16/setup-blogdown-site/</guid>
+        <description>
+          &lt;p&gt;设置 blogdown 主要参考了 &lt;a href=&#34;https://cosx.org/2018/01/build-blog-with-blogdown-hugo-netlify-github/&#34;&gt;这里&lt;/a&gt;，设置 git 认证参考了 &lt;a href=&#34;https://www.r-bloggers.com/rstudio-pushing-to-github-with-ssh-authentication/&#34;&gt;这里&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;软件的安装不提，简单的步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在 GitHub 上创建一个 Repository。&lt;/li&gt;
+&lt;li&gt;在 RStudio 中使用 Git 创建一个 Project，与 GitHub 关联上。&lt;/li&gt;
+&lt;li&gt;在 RStudio 中新建一个 Project （是的，要创建两次），属性设为 Website from blogdown，目录设置为 Git 项目的本地文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网站设置完毕&lt;/strong&gt;。写完新文章之后，可以 Commit，可以 Push 到 GitHub。&lt;/li&gt;
+&lt;li&gt;托管到 netlify，按照提示一步步进行就可以。&lt;/li&gt;
+&lt;li&gt;但是要设置一下 &lt;code&gt;HUGO_VERSION = 0.48&lt;/code&gt;（ &amp;gt; 0.20 即可，默认的 0.17 是不能编译成功的）。&lt;/li&gt;
+&lt;li&gt;设置 Git 密钥，添加 public key 到 Github 上面。&lt;/li&gt;
+&lt;li&gt;设置 Git 参数：&lt;code&gt;git config remote.origin.url git@github.com:your_username/your_project.git&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>设置VirtualBox Ubuntu虚拟机的SSH登录</title>
+        <link>bio-spring/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</link>
+        <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</guid>
+        <description>
+          &lt;h2 id=&#34;为什么要设置虚拟机ssh登录&#34;&gt;为什么要设置虚拟机SSH登录？&lt;/h2&gt;
+&lt;p&gt;我的工作环境是Windows，但要时常用到Linux，于是在VirtualBox中部署了Ubuntu
+Linux系统。&lt;/p&gt;
+&lt;p&gt;以前都是打开虚拟机上使用，但是虚拟机毕竟有桌面，占用资源比较多。窗口切来切去也不方便。&lt;/p&gt;
+&lt;p&gt;设置虚拟机SSH登录可以让虚拟机作为一个进程运行在后台，很Linux。&lt;/p&gt;
+&lt;h2 id=&#34;虚拟机linux系统的ssh环境配置&#34;&gt;虚拟机Linux系统的ssh环境配置&lt;/h2&gt;
+&lt;p&gt;要安装SSH server。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;sudo apt-get install openssh-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成密钥。公钥用来认证，私钥用来登录。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bio-spring.top/setup-putty-login-in-fedora/&#34;&gt;密钥的处理参考之前的一篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;虚拟机的设置&#34;&gt;虚拟机的设置&lt;/h2&gt;
+&lt;p&gt;在虚拟机-设置-网络中，添加一个端口转发规则，指向子系统SSH服务端口22。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/lxg0/p/6413965.html&#34;&gt;参考这里&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;putty的设置&#34;&gt;Putty的设置&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://bio-spring.top/setup-putty-login-in-fedora/&#34;&gt;putty的设置也参考之前的一篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;服务器IP设为127.0.0.1或localhost，端口设为转发端口，用户名设为Linux系统的用户名，密钥选择前面生成的ppk密钥。保存为一个新的session，以后就可以一键登录了。&lt;/p&gt;
+&lt;h2 id=&#34;后台运行虚拟机&#34;&gt;后台运行虚拟机&lt;/h2&gt;
+&lt;p&gt;使用VBoxManage命令来管理虚拟机。其在Windows系统下的程序名称为VBoxManage.exe。&lt;/p&gt;
+&lt;p&gt;打开命令提示符，进入VirtualBox的安装目录，可以找到该程序。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;cd /d &amp;quot;C:\Program Files\Oracle\VirtualBox&amp;quot;
+# 列出所有的虚拟机
+VBoxManage.exe list vms
+
+# 在后台运行选定的虚拟机
+VBoxManage.exe startvm &amp;quot;vms Name&amp;quot; -type headless
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其它一些有用的命令有：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;# 列出正在运行的虚拟机
+VBoxManage.exe list runningvms
+
+# 关闭虚拟机
+VBoxManage controlvm &amp;lt;vm_name&amp;gt; acpipowerbutton
+
+
+# 强制关闭虚拟机
+VBoxManage controlvm &amp;lt;vm_name&amp;gt; poweroff
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/kl28978113/article/details/54340683&#34;&gt;参考资料&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>静音Office Lens快门声音</title>
+        <link>bio-spring/post/2018/03/27/2018-03-27-mute-shutter-voice/</link>
+        <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2018/03/27/2018-03-27-mute-shutter-voice/</guid>
+        <description>
+          &lt;p&gt;Office
+Lens的快门声在一些手机上（比如我的Le2）无法关闭，这严重影响了该软件的使用。在Google上面查找，始终找不到解决方案，而只是一些吐槽。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/office-lens-500x350.jpg&#34; class=&#34;alignnone size-medium wp-image-929&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/office-lens-500x350.jpg 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/office-lens.jpg 690w&#34; width=&#34;500&#34; height=&#34;350&#34; /&gt;
+&lt;p&gt;大家对微软已经无力吐槽了。&lt;/p&gt;
+&lt;p&gt;机智如我，自然要想个办法。经过广泛调研，深入研究，最终得到解决方案。&lt;/p&gt;
+&lt;p&gt;具体思路是：&lt;strong&gt;将快门声音对应的音频文件设为无法访问。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;安装Root
+Explorer，定位到/system/media/audio/ui，找到camera_click.ogg文件，将其权限设为000。如下图所示。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camer-click-file-authority-396x500.jpg&#34; class=&#34;alignnone size-medium wp-image-930&#34; sizes=&#34;(max-width: 396px) 100vw, 396px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camer-click-file-authority-396x500.jpg 396w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camer-click-file-authority.jpg 767w&#34; width=&#34;396&#34; height=&#34;500&#34; /&gt;
+&lt;p&gt;设置完成后，再打开Office Lens，世界清静了。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camera-click-480x500.jpg&#34; class=&#34;alignnone size-medium wp-image-928&#34; sizes=&#34;(max-width: 480px) 100vw, 480px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camera-click-480x500.jpg 480w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camera-click-768x799.jpg 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camera-click-984x1024.jpg 984w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2018/03/camera-click.jpg 1080w&#34; width=&#34;480&#34; height=&#34;500&#34; /&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Zotero中分类包含子分类</title>
+        <link>bio-spring/post/2017/12/04/2017-12-04-include-subcolletion-items-in-collection/</link>
+        <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/12/04/2017-12-04-include-subcolletion-items-in-collection/</guid>
+        <description>
+          &lt;p&gt;Zotero中可以将不同文献分门别类，放在不同的文件夹中，称为（collection）。同时文件夹中还可以创建子文件夹，称为subcollection。默认情况下，除非你将对应条目添加到父文件夹中，否则子文件夹中的条目在上一级文件夹中并非是可见的。这不符合我们的使用习惯。&lt;/p&gt;
+&lt;p&gt;如何在上一级文件夹中包含下属文件夹中的所有文献信息呢？答案就是设置一个参数。&lt;/p&gt;
+&lt;p&gt;这个参数在高级设置里面。打开方式如下图：&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-500x453.png&#34; class=&#34;alignnone size-medium wp-image-921&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-500x453.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced.png 616w&#34; width=&#34;500&#34; height=&#34;453&#34; /&gt;
+&lt;p&gt;找到 recursiveCollections
+这一行。其默认值是False，双击就可以将其改为True。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-2-500x182.png&#34; class=&#34;alignnone size-medium wp-image-922&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-2-500x182.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-2-768x280.png 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/12/advanced-2.png 931w&#34; width=&#34;500&#34; height=&#34;182&#34; /&gt;
+&lt;p&gt;搞定！&lt;/p&gt;
+&lt;p&gt;Ref: &lt;a href=&#34;https://www.zotero.org/support/preferences/hidden&#34;&gt;https://www.zotero.org/support/preferences/hidden&lt;/a&gt;_preferences&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>解决Windows10卡在登录界面或登录成功后失去响应的问题</title>
+        <link>bio-spring/post/2017/11/27/2017-11-27-win10-logon-error/</link>
+        <pubDate>Mon, 27 Nov 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/11/27/2017-11-27-win10-logon-error/</guid>
+        <description>
+          &lt;p&gt;**症状如下：**电脑自动重启更新，卡在更新界面不能继续。强制重启后，可以正常引导，但是在登录时候容易卡死，随后进去之后，鼠标在任务栏上显示“繁忙”，桌面不能成功加载。可以进安全模式。&lt;/p&gt;
+&lt;p&gt;通过查看Windows更新记录，显示Windows
+Defender更新后，开始出现这一情况，因此决定将Windows
+Defender禁用。禁用后恢复正常。&lt;/p&gt;
+&lt;p&gt;禁用方法如下：&lt;/p&gt;
+&lt;p&gt;在安全模式下，打开系统管理员权限的命令提示符，在其中输入&lt;span
+class=&#34;lang:default decode:true crayon-inline&#34;&gt;reg add
+“HKLM\SOFTWARE\Microsoft\Windows Defender” /v DisableAntiSpyware /t
+REG_DWORD /d 1 /f&lt;/span&gt; 。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;a href=&#34;http://tieba.baidu.com/p/3939957170?traceid=&#34;&gt;http://tieba.baidu.com/p/3939957170&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>三种向NCBI提交SRA高通量测序原始数据的方法</title>
+        <link>bio-spring/post/2017/11/21/2017-11-21-3-methods-in-submitting-sra/</link>
+        <pubDate>Tue, 21 Nov 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/11/21/2017-11-21-3-methods-in-submitting-sra/</guid>
+        <description>
+          &lt;p&gt;将测序原始数据提交到SRA已经逐渐成为投稿的必备条件。对于高通量测序数据来说，动辄几百兆或者更大文件的传输是一个相对比较耗时的部分。NCBI提供了3种方式来提交这部分数据：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网页形式（包括浏览器上传和Aspera Connect插件上传）；&lt;/li&gt;
+&lt;li&gt;Aspera命令行方式提交；&lt;/li&gt;
+&lt;li&gt;FTP方式提交。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload1-500x287.png&#34; class=&#34;alignnone size-medium wp-image-913&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload1-500x287.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload1.png 501w&#34; width=&#34;500&#34; height=&#34;287&#34; /&gt;
+&lt;h2 id=&#34;第一种方式&#34;&gt;第一种方式&lt;/h2&gt;
+&lt;p&gt;网页提交应当是用户最熟悉的方式，跟日常上网的操作一样。但是，如果不使用Aspera
+Connect插件，一次只能提交一个文件。而且整个提交过程中没有进度提示，是最低效率的方式。然而，通过使用Aspera
+Connect插件，可以同时提交多个文件并看到进度。&lt;/p&gt;
+&lt;p&gt;一般情况下，使用Aspera插件在网页上提交是最方便的、推荐的上传方式。&lt;/p&gt;
+&lt;p&gt;不过，有时候由于浏览器、网络等存在问题，浏览器并不能正确调用Aspera软件。那就只能用其它方式传输了。&lt;/p&gt;
+&lt;p&gt;后面两种，都属于先将文件上传到临时文件夹（preloaded），随后再与SRA中的meta
+table中的文件列表一一对应起来的方法。&lt;/p&gt;
+&lt;h2 id=&#34;第二种方式&#34;&gt;第二种方式&lt;/h2&gt;
+&lt;p&gt;第二种方式是我最近一次使用的方式。当时，在浏览器上无法正确启动Aspera软件，并且使用时出现多次蓝屏。当你选择这种方式，需要打开一个命令行，输入网页上提示的命令即可。&lt;/p&gt;
+&lt;p&gt;下图即网页上面的提示。注意你需要下载一个key
+file在命令中使用。同时，还有把所有文件放在一个文件夹中。&lt;strong&gt;相应文件夹中的所有文件都会被上传。&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload5-500x152.png&#34; class=&#34;alignnone size-medium wp-image-912&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload5-500x152.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload5.png 716w&#34; width=&#34;500&#34; height=&#34;152&#34; /&gt;
+&lt;p&gt;命令运行时的界面如下：&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload4-500x69.png&#34; class=&#34;alignnone size-medium wp-image-911&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload4-500x69.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload4-768x106.png 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload4.png 966w&#34; width=&#34;500&#34; height=&#34;69&#34; /&gt;
+&lt;p&gt;这种方式传输速度也很快。我用WIFI是的连接速度在30 Mbps左右。&lt;/p&gt;
+&lt;h2 id=&#34;第三种方式&#34;&gt;第三种方式&lt;/h2&gt;
+&lt;p&gt;第三种方式，应当是最传统的文件传输方式，即FTP方式。选择FTP方式时，网页上会显示FTP服务器的地址、用户名、密码、用户目录等信息。需要注意的是，你并没有服务器根目录的访问权限，因此需要在设置FTP服务器时指定目录（FileZilla）。&lt;/p&gt;
+&lt;p&gt;首先，打开站点管理器，新建站点，填写主机、用户名、密码等信息。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload2-500x424.png&#34; class=&#34;alignnone size-medium wp-image-909&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload2-500x424.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload2.png 529w&#34; width=&#34;500&#34; height=&#34;424&#34; /&gt;
+&lt;p&gt;其次，进入“高级”标签页，在上面把用户目录填写上。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/preload3.png&#34; class=&#34;alignnone size-full wp-image-910&#34; width=&#34;320&#34; height=&#34;295&#34; /&gt;
+&lt;p&gt;这时候就可以连接了。需要注意的是，连接之后，需要在用户目录中新建一个子文件夹（必选操作）。然后才能将文件通过FTP传输到用户目录的新建子文件夹内。&lt;/p&gt;
+&lt;p&gt;根据我的使用情况，FTP传输的速度只有第二种方法的十分之一不到。除非你网络环境很好，否则不值得推荐。&lt;/p&gt;
+&lt;p&gt;===================================&lt;/p&gt;
+&lt;p&gt;综上所述，上传文件首选&lt;strong&gt;带有Aspera插件&lt;/strong&gt;的浏览器模式，其次是Aspera命令行模式，再次FTP模式。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>ggplot2作图中不使用科学计数法</title>
+        <link>bio-spring/post/2017/11/16/2017-11-16-ggplot2-no-scinum/</link>
+        <pubDate>Thu, 16 Nov 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/11/16/2017-11-16-ggplot2-no-scinum/</guid>
+        <description>
+          &lt;p&gt;科学计数法（1E+5）这种形式不适合大多数图片。拒绝使用的方法有很多，一个比较简单粗暴的方法是设置scipen参数：&lt;span
+class=&#34;lang:r decode:true crayon-inline&#34;&gt;options(scipen = 200)&lt;/span&gt; 。&lt;/p&gt;
+&lt;p&gt;非常好用。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>从一组照片创建PPT</title>
+        <link>bio-spring/post/2017/11/15/2017-11-15-ppt-of-photos/</link>
+        <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/11/15/2017-11-15-ppt-of-photos/</guid>
+        <description>
+          &lt;p&gt;每次听讲座时，总是会把感兴趣的内容用手机拍摄下来。随后整理归纳成相应的报告PPT。以前都是一张张添加，今天发现了一种批量添加的方法。&lt;/p&gt;
+&lt;p&gt;新建一个PowerPoint文档，选择插入 –》
+相册，指定目录，导入图片，点击“确定”就一气呵成了。使用图片工具将图片压缩之后，存放备查。十分方便。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/插入相册-500x363.png&#34; class=&#34;alignnone size-medium wp-image-901&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/插入相册-500x363.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/11/插入相册.png 648w&#34; width=&#34;500&#34; height=&#34;363&#34; /&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;参考资料：http://blog.sciencenet.cn/blog-3777-321083.html&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Windows系统中固定R的Library目录</title>
+        <link>bio-spring/post/2017/11/02/2017-11-02-set-r-libs-user/</link>
+        <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/11/02/2017-11-02-set-r-libs-user/</guid>
+        <description>
+          &lt;p&gt;每次R语言版本更新，都在Windows下面新安装一个目录，原来的Library无法继续使用。&lt;/p&gt;
+&lt;p&gt;通过设置R的环境变量，可以实现将R_LIBS_USER固定到一个地方。&lt;/p&gt;
+&lt;p&gt;在Linux系统中，方法很简单，只需要在~/.Rprofile文件中指定&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:sh&#34;&gt;R_LIBS_USER=&#39;~/Library/R&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在Windows下设置R_LIBS_USER的一个途径是在${R_HOME}\etc\Rprofile.site文件中添加一句：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:r&#34;&gt;.libPaths(&amp;quot;D:/R_LIBS_USER&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;别忘了运行下一条命令更新全部的包哦！&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:r&#34;&gt;rv_check::update_all()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>清理Windows 10系统盘</title>
+        <link>bio-spring/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</link>
+        <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/10/11/2017-10-11-cleaning-drive-c-in-win10/</guid>
+        <description>
+          &lt;p&gt;Windows最近发了个大更新。自国庆节期间更新系统之后，50G的系统盘已经几乎被填满了。Windows就是这么臃肿，越用越慢。这方面真是大不如Linux。用了几年的Ubuntu根目录才1G左右，简直把Windows吊打的渣都不剩。&lt;/p&gt;
+&lt;p&gt;吐槽归吐槽，但是还是不得不着手对系统进行清理。&lt;/p&gt;
+&lt;p&gt;首先打开系统自带的磁盘清理工具，19.2G的Windows.old清理之后，感觉清爽了不少。&lt;/p&gt;
+&lt;p&gt;其次，打开磁盘占用分析神器
+&lt;a href=&#34;http://bio-spring.top/disk-usage-tools-in-different-platform/&#34;&gt;RidNacs&lt;/a&gt;
+扫描C盘，发现 System32\DriverStore 臃肿的不堪入目。居然占用了15G空间。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/disk-usage-of-C-500x415.png&#34; class=&#34;alignnone size-medium wp-image-888&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/disk-usage-of-C-500x415.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/disk-usage-of-C.png 603w&#34; width=&#34;500&#34; height=&#34;415&#34; /&gt;
+&lt;p&gt;使用 &lt;a href=&#34;https://github.com/lostindark/DriverStoreExplorer/releases&#34;&gt;DriverStore
+Explorer&lt;/a&gt;
+查看，可以发现，绝大多数都是N卡的显卡驱动。每个驱动400M，总共有好几十个。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/graphic-drivers-500x343.png&#34; class=&#34;alignnone size-medium wp-image-889&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/graphic-drivers-500x343.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/graphic-drivers-768x527.png 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/graphic-drivers.png 945w&#34; width=&#34;500&#34; height=&#34;343&#34; /&gt;
+&lt;p&gt;NVIDIA也是个怀旧的公司，每次更新驱动，都会将老版驱动做一个备份，于是这个文件夹就越来越大了。不得不说，在这一点上跟Windows还是挺一致的。&lt;/p&gt;
+&lt;p&gt;下一步，准备把所有旧驱动删掉。通过设备管理器确认现在正在使用的显卡驱动就是上面图片中最新的哪一款，于是将其它所有NV驱动选中，使用
+DriverStore Explorer 删除。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV0-407x500.png&#34; class=&#34;alignnone size-medium wp-image-891&#34; sizes=&#34;(max-width: 407px) 100vw, 407px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV0-407x500.png 407w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV0.png 479w&#34; width=&#34;407&#34; height=&#34;500&#34; /&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV-358x500.png&#34; class=&#34;alignnone size-medium wp-image-890&#34; sizes=&#34;(max-width: 358px) 100vw, 358px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV-358x500.png 358w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/10/NV.png 408w&#34; width=&#34;358&#34; height=&#34;500&#34; /&gt;
+&lt;p&gt;此外，还发现一个文件夹非常大。就是这个：C:\Users\All
+Users\Microsoft\DataMart\PaidWiFi\OffersCache\Offers&lt;/p&gt;
+&lt;p&gt;从命名上来看，这纯粹是个广告嘛。于是保留了 zh-cn 以外，其余全部删除。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.gqgtpc.com/thread-102248-1-1.html&#34;&gt;http://www.gqgtpc.com/thread-102248-1-1.html&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>在阿里云ECS上设置swap分区</title>
+        <link>bio-spring/post/2017/10/10/2017-10-10-enable-swap-in-aliyun-ecs/</link>
+        <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/10/10/2017-10-10-enable-swap-in-aliyun-ecs/</guid>
+        <description>
+          &lt;p&gt;对于内存比较小的ECS来说，开启swap可以避免偶尔的内存溢出。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:sh&#34;&gt;#查看内存和虚拟分区情况
+free -h
+
+#创建虚拟分区(1GB)
+dd if=/dev/zero of=/mnt/swap bs=1M count=1000
+mkswap /mnt/swap
+
+#启用swap
+swapon /mnt/swap
+echo 10 &amp;gt; /proc/sys/vm/swappiness
+
+#查看swap
+free -h
+
+#写入配置
+echo -e &amp;quot;\n/mnt/swap swap swap defaults 0 0\n&amp;quot; &amp;gt;&amp;gt; /etc/fstab
+vi /etc/sysctl.conf
+# 将其中的对应行的数值从0更改为10,10%剩余内存时使用swap
+# vm.swapiness=10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上的代码将创建1000M的swap分区（bs × count），即时启用。在剩余10%
+（swapiness）物理内存时将会使用swap。&lt;/p&gt;
+&lt;p&gt;同时，将配置写入系统文件。重启之后仍然会使用上述配置。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Origin：使用上标、下标、数学公式和希腊字母等特殊格式的文本</title>
+        <link>bio-spring/post/2017/06/21/2017-06-21-using-text-formatting-commands-in-origin/</link>
+        <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/21/2017-06-21-using-text-formatting-commands-in-origin/</guid>
+        <description>
+          &lt;p&gt;Origin是一个优秀的科学作图软件。在实际使用过程中，经常需要在坐标轴标签（Tick
+Label，axis
+label）中使用诸如上标、下标等特殊格式的文本。坐标轴标签可以直接用其中的内置编辑器，然而常用的Tick
+Label则一直不清楚如何设置。&lt;/p&gt;
+&lt;p&gt;那么，如何在Tick
+Label中使用特殊格式的文本呢？答案在于Origin提供的一系列格式化函数中。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/06/origin-text-formatting-commands-421x500.jpg&#34; class=&#34;alignnone size-medium wp-image-871&#34; sizes=&#34;(max-width: 421px) 100vw, 421px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/06/origin-text-formatting-commands-421x500.jpg 421w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/06/origin-text-formatting-commands-768x913.jpg 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/06/origin-text-formatting-commands-862x1024.jpg 862w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2017/06/origin-text-formatting-commands.jpg 1072w&#34; width=&#34;421&#34; height=&#34;500&#34; /&gt;
+&lt;p&gt;如图所示，Origin提供了诸如上标、下标、上下标、斜体、粗体、希腊字母、指定字体、字号等各种各样的函数。&lt;/p&gt;
+&lt;p&gt;例如我们要在Tick
+Label中使用水（H2O）作为标记，那么只需要在数据表格中填写 &lt;strong&gt;H\-(2)O&lt;/strong&gt;
+就会转变为H&lt;sub&gt;2&lt;/sub&gt;O的格式。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File</title>
+        <link>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</link>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</guid>
+        <description>
+          &lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download Genbank from NCBI;&lt;/li&gt;
+&lt;li&gt;Convert Genbank to GFF3 with
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;BioPerl&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Modify the GFF3 file;&lt;/li&gt;
+&lt;li&gt;Download Fasta from NCBI or use Genbank conversion;&lt;/li&gt;
+&lt;li&gt;Use the modified GFF3 file in rsem-prepare-reference;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;主要代码如下：&lt;br&gt;
+&lt;code&gt; bp_genbank2gff3  --GFF_VERSION 3 file.gb awk &#39;$3!~/pseudo/&#39; file.gb.gff &amp;gt; file.rsem.gff # or more restrictly with only protein coding genes awk &#39;$3~/^(gene|mRNA|exon|polypeptide)$/&#39; file.gb.gff &amp;gt; file.cds.gff # remove the version number in fasta accession if no transcript is extract rsem-prepare-reference file.fasta --gff3 file.rsem.gff reference_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里主要解决了以下错误：&lt;br&gt;
+&lt;strong&gt;Line x does not have attribute Parent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于rsem遵循gene-&amp;gt;transcript-&amp;gt;exon的结构，并利用exon来作为RNA的最后形式（经过剪切和后处理的RNA），要求exon都有(且仅有）一个Parent。而GFF3文件中pseudogene和pseudogenic_exon是没有Parent的。&lt;/p&gt;
+&lt;p&gt;以下为rsem-gff3-to-gtf line
+27-32。细菌基因组的GFF3文件在gene-&amp;gt;transcript-&amp;gt;exon中的映射关系如下：gene
+= type_gene, mRNA(tRNA, etc) = type_transcript, CDS = exon.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; type_gene = [&amp;quot;gene&amp;quot;, &amp;quot;snRNA_gene&amp;quot;, &amp;quot;transposable_element_gene&amp;quot;, &amp;quot;ncRNA_gene&amp;quot;, &amp;quot;telomerase_RNA_gene&amp;quot;,     &amp;quot;rRNA_gene&amp;quot;, &amp;quot;tRNA_gene&amp;quot;, &amp;quot;snoRNA_gene&amp;quot;, &amp;quot;mt_gene&amp;quot;, &amp;quot;miRNA_gene&amp;quot;, &amp;quot;lincRNA_gene&amp;quot;, &amp;quot;RNA&amp;quot;, &amp;quot;VD_gene_segment&amp;quot;] type_transcript = [&amp;quot;transcript&amp;quot;, &amp;quot;primary_transcript&amp;quot;, &amp;quot;mRNA&amp;quot;, &amp;quot;ncRNA&amp;quot;, &amp;quot;tRNA&amp;quot;, &amp;quot;rRNA&amp;quot;, &amp;quot;snRNA&amp;quot;, &amp;quot;snoRNA&amp;quot;, &amp;quot;miRNA&amp;quot;,     &amp;quot;pseudogenic_transcript&amp;quot;, &amp;quot;lincRNA&amp;quot;, &amp;quot;NMD_transcript_variant&amp;quot;, &amp;quot;aberrant_processed_transcript&amp;quot;,     &amp;quot;nc_primary_transcript&amp;quot;, &amp;quot;processed_pseudogene&amp;quot;, &amp;quot;mRNA_TE_gene&amp;quot;] type_exon = [&amp;quot;exon&amp;quot;, &amp;quot;CDS&amp;quot;, &amp;quot;five_prime_UTR&amp;quot;, &amp;quot;three_prime_UTR&amp;quot;, &amp;quot;UTR&amp;quot;, &amp;quot;noncoding_exon&amp;quot;, &amp;quot;pseudogenic_exon&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Zotero: 标签的使用技巧</title>
+        <link>bio-spring/post/2016/12/22/2016-12-22-zoter-tag-tricks/</link>
+        <pubDate>Thu, 22 Dec 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/12/22/2016-12-22-zoter-tag-tricks/</guid>
+        <description>
+          &lt;h2 id=&#34;一次将多个条目加入同一个标签中&#34;&gt;一次将多个条目加入同一个标签中&lt;/h2&gt;
+&lt;p&gt;选中多个条目，拖动到左侧标签列表中即可。&lt;/p&gt;
+&lt;h2 id=&#34;对标签使用颜色和快捷键&#34;&gt;对标签使用颜色和快捷键&lt;/h2&gt;
+&lt;p&gt;用鼠标右键单击任一标签，选择设置颜色，可以为标签设置一个颜色和快捷键。快捷键最多可以有6个，分别是数字1-6。设置之后，可以点击数字1-6将选中条目设为所用标签，非常方便。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>适合制作PowerPoint报告时候使用的Zotero引文样式</title>
+        <link>bio-spring/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</link>
+        <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/10/25/2016-10-25-zotero-author-journal-year-style/</guid>
+        <description>
+          &lt;p&gt;我定制了一个Zotero样式，特别适合在PPT中使用。分享给大家。具体效果如下图所示。&lt;/p&gt;
+&lt;p&gt;在引用时，显示第一作者、期刊和出版年。在引文清单时，最多仅显示3个作者，多余3个将只显示第一作者。同时显示文章标题、期刊和卷、期等信息。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-1-500x127.png&#34; class=&#34;alignnone size-medium wp-image-838&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-1-500x127.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-1-768x195.png 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-1-1024x260.png 1024w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-1.png 1075w&#34; width=&#34;500&#34; height=&#34;127&#34; alt=&#34;author-journal-year-1&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;把这个csl文件拖放到Firefox窗口中即可安装。&lt;/p&gt;
+&lt;p&gt;使用时，先选择一个或多个文献条目，然后点击右键，选择“由所选条目创建引文目录…”。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-2.png&#34; class=&#34;alignnone size-full wp-image-839&#34; width=&#34;348&#34; height=&#34;317&#34; alt=&#34;author-journal-year-2&#34; /&gt;
+&lt;p&gt;在打开的窗口中选择author-journal-year引文样式，输出模式“引文”和“引文目录”可选，直接复制在剪贴板中，粘贴到PowerPoint中即可。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/10/author-journal-year-3.png&#34; class=&#34;alignnone size-medium wp-image-840&#34; width=&#34;444&#34; height=&#34;495&#34; alt=&#34;author-journal-year-3&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击下载
+&lt;a href=&#34;https://www.jianguoyun.com/p/DSfTqakQ1KCEBhiV_R0&#34;&gt;author-journal-year.csl&lt;/a&gt;
+Citation Style Language (CSL).&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>STAMP: unknown error – Unicode encode error</title>
+        <link>bio-spring/post/2016/05/29/2016-05-29-how-to-mending-stamp-unicode-encode-error/</link>
+        <pubDate>Sun, 29 May 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/05/29/2016-05-29-how-to-mending-stamp-unicode-encode-error/</guid>
+        <description>
+          &lt;p&gt;&lt;a href=&#34;http://kiwi.cs.dal.ca/Software/STAMP&#34;&gt;STAMP&lt;/a&gt;是一个支持Windows、Linux系统的微生物群落分析软件。与&lt;a href=&#34;http://bio-spring.top/mothur-and-qiime/&#34;&gt;Mothur或QIIME&lt;/a&gt;相比，感觉它更小巧、轻便。它没有从测序结果（MiSeq/454）出发直到分析结果的一整套流程，但是它具有从OTU
+Table出发进行统计分析、作图的能力。借助于&lt;a href=&#34;http://www.scipy.org/&#34;&gt;scipy&lt;/a&gt;，&lt;a href=&#34;http://www.numpy.org/&#34;&gt;numpy&lt;/a&gt;，&lt;a href=&#34;http://matplotlib.org/&#34;&gt;matplotlib&lt;/a&gt;等Python库的支持，它的分析、绘图能力达到了一个非常令人满意的程度。相应结果基本可以直接在文章中使用。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;STAMP is a software package for analyzing taxonomic or metabolic
+profiles that promotes ‘best practices’ in choosing appropriate
+&lt;strong&gt;statistical&lt;/strong&gt; techniques and &lt;strong&gt;reporting results&lt;/strong&gt;. Statistical
+hypothesis tests for pairs of samples or groups of samples is support
+along with a wide range of exploratory plots. STAMP encourages the use
+of effect sizes and confidence intervals in assessing biological
+importance. &lt;strong&gt;A user friendly, graphical interface&lt;/strong&gt; permits easy
+exploration of statistical results and generation of &lt;strong&gt;publication
+quality plots&lt;/strong&gt; for inferring the biological relevance of features in
+a metagenomic profile. STAMP is open source, extensible via a plugin
+framework, and available for all major platforms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它需要的数据有两个：Profile和metadata，分别由两个文件提供。profile是OTU
+table等核心数据的来源，metadata则包含样品的分组、属性等实验关键设计。&lt;/p&gt;
+&lt;p&gt;profile文件可以由&lt;a href=&#34;http://bio-spring.top/biom-format/&#34;&gt;biom&lt;/a&gt;等文件格式转换。&lt;/p&gt;
+&lt;p&gt;在转换过程中出现了下图所示的UnicodeEncodeError：‘ascii’ codec can’t
+encode character in position 25-31: ordinal not in
+range(128)错误。经查是由于文件路径带非ascii字符（中文）造成的。将文件放在全英文的路径中就可以解决这一问题了。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/05/STAMP_unknown-error-500x197.png&#34; class=&#34;alignnone size-medium wp-image-822&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/05/STAMP_unknown-error-500x197.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/05/STAMP_unknown-error.png 506w&#34; width=&#34;500&#34; height=&#34;197&#34; alt=&#34;STAMP_unknown error&#34; /&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>biom 格式</title>
+        <link>bio-spring/post/2016/05/26/2016-05-26-biom-format/</link>
+        <pubDate>Thu, 26 May 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/05/26/2016-05-26-biom-format/</guid>
+        <description>
+          &lt;p&gt;官方网址：&lt;a href=&#34;http://biom-format.org/index.html&#34;&gt;http://biom-format.org/index.html&lt;/a&gt;&lt;br&gt;
+格式说明：&lt;a href=&#34;http://biom-format.org/documentation/biom_format.html&#34;&gt;http://biom-format.org/documentation/biom_format.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;biom 是&lt;strong&gt;The Biological Observation Matrix (BIOM)&lt;/strong&gt; 的缩写。&lt;/p&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
+&lt;p&gt;这个格式是微生物生态研究中衍生出的文件格式，扩展名建议是*.biom，由
+&lt;a href=&#34;https://www.biom-format.org&#34;&gt;www.biom-format.org&lt;/a&gt; 开发。&lt;/p&gt;
+&lt;p&gt;开发此文件格式的目的由以下三点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;存储和操作大规模的生物多样性数据&lt;/li&gt;
+&lt;li&gt;存储核心的元数据（metadata，如样品，分组等重要的相关信息，这些信息在分析时是必需的。）&lt;/li&gt;
+&lt;li&gt;统一专有文件格式，促进文件在不同分析工具间的流通。（QIIME，MG-RAST和VAMPS等分析工具都可以支持该文件格式）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;版本&#34;&gt;版本&lt;/h2&gt;
+&lt;p&gt;目前，biom格式已经有了3个版本。&lt;/p&gt;
+&lt;p&gt;版本1.0基于&lt;strong&gt;JSON&lt;/strong&gt;格式开发。&lt;br&gt;
+版本2.0和2.1基于&lt;a href=&#34;http://www.nsmc.cma.gov.cn/NSMC_EN/CMACast/docs/HDF5.0_chinese.pdf&#34;&gt;&lt;strong&gt;HDF格式&lt;/strong&gt;&lt;/a&gt;开发。&lt;/p&gt;
+&lt;p&gt;HDF格式是专门为存储大规模、多对象的科学研究数据开发的。“Solutions to
+Data Challenges”。&lt;/p&gt;
+&lt;h2 id=&#34;开发工具&#34;&gt;开发工具&lt;/h2&gt;
+&lt;p&gt;biom格式是纯文本文件，可以用文本编辑器打开（我指的不是Windows的记事本，而是专业一点的开发工具。如Notepad++）。&lt;/p&gt;
+&lt;p&gt;Python版工具&lt;br&gt;
+&lt;code&gt; pip install numpy pip install biom-format pip install h5py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;R版工具&lt;br&gt;
+&lt;code&gt; install.packages(&amp;quot;biom&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>作图神器PowerPoint：三角瓶</title>
+        <link>bio-spring/post/2016/03/22/2016-03-22-drawing-conical-flask-with-powerpoint/</link>
+        <pubDate>Tue, 22 Mar 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/03/22/2016-03-22-drawing-conical-flask-with-powerpoint/</guid>
+        <description>
+          &lt;p&gt;PowerPoint其实是一个作图神器，加上一点技巧，加上一点耐心，可以作出高水平的科技图片。&lt;/p&gt;
+&lt;p&gt;PowerPoint
+2010版本以后，隐藏了一个“强悍的形状工具”，使得我们可以通过烧脑想想，动手作出很多实用的形状来。打开方法在这里：&lt;a href=&#34;http://jingyan.baidu.com/article/4f34706ed01613e387b56da8.html&#34;&gt;百度经验&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/2.png&#34; class=&#34;size-full wp-image-801 aligncenter&#34; width=&#34;212&#34; height=&#34;71&#34; alt=&#34;2&#34; /&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;如下图所示，便是绘制一个三角瓶的主要步骤。&lt;/p&gt;
+&lt;p&gt; &lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/flask-500x292.png&#34; class=&#34;wp-image-805 size-medium aligncenter&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/flask-500x292.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/flask-768x448.png 768w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/flask-1024x597.png 1024w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/03/flask.png 1360w&#34; width=&#34;500&#34; height=&#34;292&#34; /&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;很好很强大，是不是？&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>MetaPhlAn：利用宏基因组分析种群结构</title>
+        <link>bio-spring/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</link>
+        <pubDate>Sun, 20 Mar 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</guid>
+        <description>
+          &lt;p&gt;宏基因组中包含了环境中各种微生物的基因组信息，理论上可以得出种群结构。该如何利用宏基因组高通量测序数据分析种群结构呢？是不是要从中提取16S
+rRNA的数据，
+组装之后使用&lt;a href=&#34;http://bio-spring.top/mothur-and-qiime/&#34;&gt;Mothur或QIIME&lt;/a&gt;分析呢？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://huttenhower.sph.harvard.edu/metaphlan&#34;&gt;MetaPhlAn&lt;/a&gt;有一个不一样的想法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MetaPhlAn is a computational tool for profiling the composition of
+microbial communities from metagenomic shotgun sequencing data.
+MetaPhlAn relies on &lt;strong&gt;unique clade-specific marker genes&lt;/strong&gt; identified
+from 3,000 reference genomes, allowing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;up to 25,000 reads-per-second (on one CPU) analysis speed (orders
+of magnitude faster compared to existing methods);&lt;/li&gt;
+&lt;li&gt;unambiguous taxonomic assignments as the MetaPhlAn markers are
+clade-specific;&lt;/li&gt;
+&lt;li&gt;accurate estimation of organismal relative abundance (in terms of
+number of cells rather than fraction of reads);&lt;/li&gt;
+&lt;li&gt;species-level resolution for bacterial and archaeal organisms;&lt;/li&gt;
+&lt;li&gt;extensive validation of the profiling accuracy on several
+synthetic datasets and on thousands of real metagenomes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;它使用&lt;strong&gt;物种特异性的标记基因&lt;/strong&gt;来进行分析，并且能够得到很好的种群分析结果。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Letter 2: On Discursiveness in Reading</title>
+        <link>bio-spring/post/2016/02/14/letter-2/</link>
+        <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+        <author>Lucius Annaeus Seneca</author>
+        <guid>bio-spring/post/2016/02/14/letter-2/</guid>
+        <description>
+          &lt;p&gt;Judging by what you write me, and by what I hear, I am forming a good opinion regarding your future.&lt;/p&gt;
+&lt;p&gt;You do not run hither and thither and distract yourself by changing your abode; for such restlessness is the sign of a disordered spirit.&lt;/p&gt;
+&lt;p&gt;The primary indication, to my thinking, of a well-ordered mind is a man’s ability to remain in one place and linger in his own company.&lt;/p&gt;
+&lt;p&gt;Be careful, however, lest this reading of many authors and books of every sort may tend to make you discursive and unsteady.&lt;/p&gt;
+&lt;p&gt;You must linger among a limited number of master thinkers, and digest their works, if you would derive ideas which shall win firm hold in your mind.&lt;/p&gt;
+&lt;p&gt;Everywhere means nowhere.&lt;/p&gt;
+&lt;p&gt;When a person spends all his time in foreign travel, he ends by having many acquaintances, but no friends.&lt;/p&gt;
+&lt;p&gt;And the same thing must hold true of men who seek intimate acquaintance with no single author, but visit them all in a hasty and hurried manner.&lt;/p&gt;
+&lt;p&gt;Food does no good and is not assimilated into the body if it leaves the stomach as soon as it is eaten; nothing hinders a cure so much as frequent change of medicine; no wound will heal when one salve is tried after another; a plant which is often moved can never grow strong.&lt;/p&gt;
+&lt;p&gt;There is nothing so efficacious that it can be helpful while it is being shifted about. And in reading of many books is distraction.&lt;/p&gt;
+&lt;p&gt;Accordingly, since you cannot read all the books which you may possess, it is enough to possess only as many books as you can read.&lt;/p&gt;
+&lt;p&gt;“But,” you reply, “I wish to dip first into one book and then into another.”&lt;/p&gt;
+&lt;p&gt;I tell you that it is the sign of an overnice appetite to toy with many dishes; for when they are manifold and varied, they cloy but do not nourish.&lt;/p&gt;
+&lt;p&gt;So you should always read standard authors; and when you crave a change, fall back upon those whom you read before.&lt;/p&gt;
+&lt;p&gt;Each day acquire something that will fortify you against poverty, against death, indeed against other misfortunes as well; and after you have run over many thoughts, select one to be thoroughly digested that day.&lt;/p&gt;
+&lt;p&gt;This is my own custom; from the many things which I have read, I claim some one part for myself.&lt;/p&gt;
+&lt;p&gt;The thought for today is one which I discovered in Epicurus; for I am wont to cross over even into the enemy’s camp, – not as a deserter, but as a scout.&lt;/p&gt;
+&lt;p&gt;He says: “Contented poverty is an honourable estate.” Indeed, if it be contented, it is not poverty at all.&lt;/p&gt;
+&lt;p&gt;It is not the man who has too little, but the man who craves more, that is poor.&lt;/p&gt;
+&lt;p&gt;What does it matter how much a man has laid up in his safe, or in his warehouse, how large are his flocks and how fat his dividends, if he covets his neighbour’s property, and reckons, not his past gains, but his hopes of gains to come?&lt;/p&gt;
+&lt;p&gt;Do you ask what is the proper limit to wealth?&lt;/p&gt;
+&lt;p&gt;It is, first, to have what is necessary, and, second, to have what is enough.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>mothur and QIIME</title>
+        <link>bio-spring/post/2016/02/09/2016-02-09-mothur-and-qiime/</link>
+        <pubDate>Tue, 09 Feb 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/02/09/2016-02-09-mothur-and-qiime/</guid>
+        <description>
+          &lt;p&gt;说明：mothur的官博上比较了mothur和QIIME这两个微生物生态学研究的常用软件之间存在的差异。博主略作整理，以飨读者。&lt;br&gt;
+原文链接在这里：http://blog.mothur.org/2016/01/12/mothur-and-qiime&lt;/p&gt;
+&lt;p&gt;以下为原文和大意的翻译。&lt;/p&gt;
+&lt;div&gt;
+&lt;p&gt;译者：这是mothur博客上一篇关于QIIME的文章，作者系统比较了两个工具的不同。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p&gt;Despite their differences in philosophy,&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;em&gt;most&lt;/em&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;of the differences in mothur and
+QIIME are cosmetic. Both packages have been successful. Having both of
+them around is good for microbial ecology. Within both packages there
+are warts – inconveniences to the users and antiquated/bad ideas. Within
+both packages there are strengths. If you are going to criticize someone
+for their choice of software, do it for some specific point. If you are
+going to campaign for mothur or QIIME, do your best to accurately
+represent the strengths of your pet package.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p&gt;按：尽管设计哲学不同，mothur和QIIME的大部分差异都是表现形式的不同而已。两个工具都已经非常成功。同时拥有它们是微生物生态研究之幸事。二者共存有利也有弊。如果你要苛责用户的选择，最好有针对性的指出。如果你要做一个超越二者的工具，最好准确的呈现你的专长。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;/div&gt;
+&lt;p&gt;When I teach workshops or field users’ questions, I am often asked what
+I think of QIIME. I suspect that because I direct the development of
+mothur, people are expecting me to come out with guns blazing to blow up
+QIIME. In fact, people ask and then kind of step aside to avoid the
+onslaught. Meh. I pause and say it’s a successful program, but that I
+obviously like mothur better. After this non-answer, people then tell me
+the analogies that they use to compare the two: Patagonia vs Columbia,
+Mac vs. PC, or Coke vs. Pepsi are common (it’s never clear or consistent
+which brand is to be preferred or why). I suppose this is fair with the
+caveat that all analogies are limited. I think these analogies reflect
+the point that a lot of the differences are cosmetic. Both programs were
+released within months of each other in 2009 and 2010. I often get the
+impression from reviewers and other software developers that mothur is a
+distant second fiddle to QIIME. Yet, the Web of Science shows that
+mothur has 3,410 citations and QIIME has 2,779 (as of January 8, 2016).
+Although I cite these numbers in grant proposals to sway reviewers that
+mothur is the leading tool used by microbial ecologists to analyze 16S
+rRNA genes, citation counts really say little about quality and once you
+get over a few hundred citations you’re hot stuff.&lt;/p&gt;
+&lt;p&gt;大意：人们常问我QIIME怎么样，我会说“那东西也不错”。人们就说它们就像Mac
+和 PC、百事 和 可口可乐
+一样。二者分别在2009和2010年发布，mothur常常被认为是小跟班。与我来讲，mothur才是主流——因为SCI数据库中引用较多，尽管引用可能并不能说明什么具体问题。&lt;/p&gt;
+&lt;p&gt;I have gotten this question with growing frequency over the past months
+(hence this blog post) and I know that the topic recently came up over
+at the&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://groups.google.com/forum/m/#!topic/qiime-forum/vDuBwVF7rOg&#34;&gt;QIIME
+forum&lt;/a&gt;.
+Often times the person asking the question or making the dogmatic
+statement doesn’t seem to have a full appreciation for the differences
+and similarities and whether the differences are really meaningful. I
+frequently work with researchers to craft rebuttals to reviewers who
+think that an otherwise benign paper is the battle ground for such a
+debate. Take this gem, for example…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Finally, I like mothur for some of its unique features but QIIME is
+better for others and is backed up by a very strong group of
+bioinformatics tools and researchers, in my opinion you should
+consider using QIIME in future studies.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;p&gt;大意：不要再问我QIIME怎么样了。我就是喜欢mothur，它有一些我钟情的因素。QIIME可能更适合你。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;/div&gt;
+&lt;p&gt;It’s really hard to know where to begin with that kind of statement. I
+hope that this would even make the QIIME developers cringe. It would
+make me cringe if the software names were switched. Sadly, this isn’t
+the only example of this that I have seen. Such comments beg the
+question, “Which mothur features were used in this paper that would have
+been better in QIIME?” There may be some, but what is the author to do
+with such a vague comment from the reviewer? How do these types of
+statements help anyone? But I digress… My point is that to this reviewer
+and many others the differences that they think are huge are largely
+cosmetic. For example, I received feedback a year ago that someone
+didn’t like using the mothur wiki site because it had a very modest
+picture of my wife nursing our 4th child, John and that grossed them
+out. For. Reals. Many people are QIIME or mothur people because their PI
+or collaborators are, not for any deep seated philosophical
+justification.&lt;/p&gt;
+&lt;p&gt;So, what are the differences? Are they meaningful or just cosmetic? Is
+this all a matter of personal preference? In full disclosure, my
+experience with QIIME came from a&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;https://peerj.com/articles/1487/&#34;&gt;recent paper I wrote&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;in which we compared various
+clustering algorithms including those implemented in QIIME. I’ve looked
+over their SOPs, talked with a number of QIIME users, and feel that I
+generally have a good sense of what their strategy is about. I’m not
+looking to get into a mothur vs. QIIME debate (note: the title of this
+post is mothur&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;QIIME), but if I misrepresent
+something or am being unfair, please let me know and I’ll edit this
+post. In what follows allow me to lay out what I see as the
+similarities, differences, strengths, and weaknesses of each program. To
+reduce my bias, I’ll leave it to you to determine whether any of it
+matters. I’m happy to extend the list if you think I’m missing something
+critical. My hope is that people getting started in the field and that
+the person that forwarded that reviewer comment to me (and others with
+similar reiviewers) will find the discussion useful.&lt;/p&gt;
+&lt;p&gt;Here’s a list of the topics I’ll cover that are linked so you can jump
+down the list. I summarize everything at the very end with some&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;concluding thoughts…&lt;/p&gt;
+&lt;p&gt;大意：好吧，我们还是来好好谈谈这个问题吧。&lt;/p&gt;
+&lt;div&gt;
+&lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;Development strategy&lt;/li&gt;
+&lt;li&gt;Language&lt;/li&gt;
+&lt;li&gt;Installation&lt;/li&gt;
+&lt;li&gt;Accessibility&lt;/li&gt;
+&lt;li&gt;Openness&lt;/li&gt;
+&lt;li&gt;User community&lt;/li&gt;
+&lt;li&gt;Method transparency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;Reproducibility&lt;/li&gt;
+&lt;li&gt;Data Accessibility&lt;/li&gt;
+&lt;li&gt;Data visualization&lt;/li&gt;
+&lt;li&gt;Clustering / OTU picking&lt;/li&gt;
+&lt;li&gt;Illumina sequence processing&lt;/li&gt;
+&lt;li&gt;Classification&lt;/li&gt;
+&lt;li&gt;Databases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;development-strategy-开发策略&#34;&gt;Development strategy 开发策略&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;When you run a
+function from within mothur, you are running mothur code. When you&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/classify.seqs&#34;&gt;run
+classify.seqs&lt;/a&gt;, you are not
+running the code developed by the RDP. You are running our
+reimplementation of their code. We have done this with several functions
+to make them operating system (OS)-independent, make them open source,
+parallelize them, make them faster, generalize their application, and
+expand their features. Our first draft of any function is to translate
+the code from its original language to C++ and make sure we get the same
+output with the same input. In some cases (e.g.&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/chimera.uchime&#34;&gt;chimera.uchime&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/metastats&#34;&gt;metastats&lt;/a&gt;) the original
+authors have made their C code open and we have directly integrated that
+code into mothur. In most cases, however, you are running code that we
+developed from scratch (e.g.&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/cluster&#34;&gt;chimera.uchime&lt;/a&gt;). This strategy
+has strengths (we think the code is better, more uniform, and easier to
+maintain), but also has weaknesses (it can be hard to incorporate new
+tools if they weren’t written in C/C++). Regardless, we seem to do a
+good job of keeping current with the needs and wants of the community.&lt;/p&gt;
+&lt;p&gt;大意：mothur是从头开发。每一个mothur函数都是基于可移植的C/C++代码。这使得我们的程序可以在各个平台运行、在各种条件下快速、准确的得到一致的结果。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;QIIME is essentially
+a big wrapper that helps users to transition data between independent
+packages. Certainly, a lot of the functionality within QIIME is written
+by the QIIME developers, but much of the heavy lifting (e.g. OTU
+clustering, classification) is from code written by others. In fact, you
+can actually run mothur from within QIIME. It’s a very old version of
+mothur, but you can use mothur to cluster sequences in QIIME. As you
+might expect, the advantage of this approach is that if the developers
+can write a light wrapper for a new package in Python, then it is pretty
+painless to bring in other people’s software. Of course, that software
+comes in warts and all and creates&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Dependency_hell&#34;&gt;dependency hell&lt;/a&gt;.
+When I’ve heard QIIME developers talk at conferences, one comment they
+make is that they allow people to use methods the way it was originally
+implemented. I get that. At the same time, if you told people that you
+had to use Gosset’s original implementation of&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Student%27s_t-test#History&#34;&gt;Student’s
+T-test&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and it couldn’t be ported to SAS,
+SPSS, R, Excel, etc. then you’d rightly be laughed at. I would be
+curious to know how much dead wood exists in QIIME – I could foresee
+functions that were developed by a contributor that then graduate or
+lose interest and there is no one left to maintain or update the code.
+The QIIME development team may have a mechanism to deal with this type
+of problem, but the fact that they are using mothur v1.25, which was
+released in May 2012, suggests that there is some slippage. A big part
+of what we do with mothur development is to modify functions to work
+with bigger and more diverse datasets and we continue to maintain
+everything within mothur.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;大意：QIIME则是一系列工具的“整合”。它甚至不排斥mothur，当需要mothur执行任务时，会调用mothur来完成相应的工作。QIIME实质上应该是一个“调度”工具。尽管QIIME开发人员写了很多代码，但是大部分的核心代码仍然是衍生自其它相关项目。&lt;/p&gt;
+&lt;div&gt;
+&lt;div&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;language-编程语言&#34;&gt;Language 编程语言&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;We write mothur in
+C and C++. C and C++ are compiled languages, which means that once the
+code is compiled, you don’t need another program to run it. Pretty much
+everything you likely have on your computer right now is a compiled
+program. There are a few reasons we do this. First, C/C++ runs much
+faster than other languages including R, Python, Perl, or Java. I
+suppose we could be writing it in Fortran, but I put my last punch card
+in my daughter’s bicycle spokes. Most of the source code has been
+written by Sarah Westcott and myself. It is an open source package that
+others are free to contribute to or build upon for other applications.
+It is somewhat disappointing that we haven’t had more contributions, but
+then again, how many microbiologists know C or C++? If we had written it
+in Python or made it an R package, we would have far more contributors.
+But of course, then we’d have performance issues. We might make an R
+wrapper … wait for it … mothuR, but it will just be wrapping our C++
+code.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;QIIME is written in
+Python, which is a very powerful, popular, and well-developed language.
+I look for reasons not to learn Python (I’m on team R), but deep down
+know that I should learn Python. My kids are learning Python. Through
+the efforts of&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://software-carpentry.org/&#34;&gt;Software
+Carpentry&lt;/a&gt;,&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;https://www.codecademy.com/&#34;&gt;Codecademy&lt;/a&gt;, and other groups, many
+biologists are learning Python. You should definitely learn Python. For
+all of these reasons, I think QIIME has gotten a lot of code
+contributions from their user base. Python is also great for doing light
+lifting functions like wrapping functionality and converting file
+formats. It’s not so great at heavy lifting. Part of this is because it
+is not a compiled language – the language itself is written in C. As an
+example of this consider our aligners, which both implement the NAST
+algorithm. The paper describing QIIME’s Python-based aligner,&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/19914921&#34;&gt;pynast&lt;/a&gt;, states
+that it can align a full-length sequence in 1.46 seconds. In contrast,
+our paper describing mothur’s C++-based aligner,&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20011594&#34;&gt;align.seqs&lt;/a&gt;, could
+align 15 full-length sequences per second (21.9-times faster).&lt;/p&gt;
+&lt;p&gt;大意：mothur主要用C和C++写成，是编译性语言。QIIME用Python写成，是脚本语言。所以，mothur更快。mothur胜。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;installation-安装&#34;&gt;Installation 安装&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Because of our
+overall development strategy we have worked very hard to make mothur a
+standalone software package. When you download mothur, you have mothur.
+All of it. You don’t have to chase down external dependencies or worry
+about software licenses. The only thing you have to go get are the
+databases that are required for aligning or classifying sequences. As
+described above, this is possible because all of the functionality is
+baked into the source code. You can get the executable binaries or the
+source code from our&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;https://github.com/mothur/mothur/releases/latest&#34;&gt;project’s GitHub releases
+page&lt;/a&gt;. You can even
+download the code that we are working on for the next release through
+that GitHub repository.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Installation is one
+of the things that seems to drive people nuts about QIIME and to their
+credit, I think their developers have worked hard to overcome these
+problems. These problems are largely because of their development
+strategy. If you have Python installed and are running it on your local
+computer, a simple&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;code&gt;pip install qiime&lt;/code&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;should suffice to install QIIME. But then you have to get all of
+the guts (admittedly many of the dependencies can be installed using
+an&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;https://github.com/qiime/qiime-deploy&#34;&gt;intaller&lt;/a&gt;. Some of the
+more important guts (e.g. USEARCH) require separate downloads and may be
+proprietary and require you to pay a fee. To overcome some of these
+problems, the developers have created virtual machines and other
+abstractions to make it easier to install. Alas, installing and running
+a virtual machine on one’s computer is not trivial and results in a hit
+in processing speed. Although some of the individual packages within
+QIIME may be closed source and pricey, they make their source code
+available through&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/biocore/qiime&#34;&gt;their
+GitHub repository&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;like we do.&lt;/p&gt;
+&lt;p&gt;大意：mothur安装可以一蹴而就。QIIME则需要安装很多依赖，甚至有些依赖是需要你付报酬的。为了解决这个问题，QIIME有虚拟机形式可以使用。mothur胜。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;accessibility-可移植性&#34;&gt;Accessibility 可移植性&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;When we survey our
+users and run workshops, we consistently find that more than half of
+them are using computers that run the Window’s operating system. Guess
+which operating systems most bioinformatics software packages are
+designed for? Linux and Mac. It has been very important to us to make
+mothur as platform-independent as possible. One advantage of rewriting
+software is that we can make sure it compiles and works in Windows. For
+some reason the same commands run with the same data do run a bit slower
+on a Windows machine than a Mac or Linux. Because of this, we think that
+people will eventually want to move towards a Linux-based cloud
+solution, but we also want to meet people where they are with their
+existing hardware without excluding them because of their choice of
+operating system.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Considering many of
+the tools wrapped within QIIME were designed to run on Linux, QIIME runs
+easiest on a machine running Linux. The developers have made a Mac-based
+port and as mentioned above, they have created virtual machines to run
+on Windows. Difficulties installing and running virtual machines are not
+trivial for people just learning bioinformatics and they will experience
+hits in performance.&lt;/p&gt;
+&lt;p&gt;大意：很多人研究人员用Windows，也有人用Linux和Mac，所以我们竭尽所能使mothur可以在Win、Linux和Mac中运行。QIIME则只能在Linux中运行，开发团队提供一种变通的方法在Windows中使用QIIME（虚拟机）。尽管你可能对虚拟机毫无兴趣抑或不想承担虚拟机带来的性能损失，你还是得接受这个现实。mothur胜。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;openness-开放性&#34;&gt;Openness 开放性&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;All of the
+functionality of mothur is available as source code under the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/mothur/mothur/blob/master/LICENSE.md&#34;&gt;GPL v3
+License&lt;/a&gt;. If
+you want to know how mothur does something (and can read C/C++), its
+right there on our&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/mothur/mothur&#34;&gt;GitHub
+repository&lt;/a&gt;. I suspect that 99% of our
+users have no interest in going through the source code, but it’s there.
+mothur is&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Gratis_versus_libre&#34;&gt;free as in freedom
+as well as beer&lt;/a&gt;. You
+don’t have to pay a dime to use any component of mothur if you are a
+academic, garage scientist, or work for big pharma. This also goes for
+our online materials and technical support.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;For most purposes,
+QIIME is just as free as mothur and is available under the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/biocore/qiime/blob/master/COPYING.txt&#34;&gt;GPL v2
+License&lt;/a&gt;. The
+one caveat is their use of USEARCH. Robert Edgar, the developer of
+USEARCH provides the 32-bit version for free to academics and
+non-profits after registering their use; however, if you’re at a
+for-profit or need the 64-bit version, you’re going to have to pay for
+it. This is not entirely trivial considering the primary clustering
+methods in QIIME are based on USEARCH. I’ve heard that QIIME is working
+towards replacing USEARCH with the free VSEARCH, but I believe this is
+still in the testing stages.&lt;/p&gt;
+&lt;p&gt;大意：mothur使用 GPL V3协议发布，QIIME使用 GPL V2
+协议发布。同样的自由软件，开放源代码。（译者：从版本号上看，mothur胜。）&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;user-community-社区&#34;&gt;User community 社区&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;As indicated by the
+number of citations, both software packages have large and loyal
+followings and some people actually use both on the same project. Both
+groups have discussion lists, user forums, online documentation,
+instructional materials, swag, and devotees. Engaging those devotees and
+potential users to advance the software and surrounding resources is a
+challenge for all open source software efforts. For example, take a look
+at the list of co-authors on the&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/19801464&#34;&gt;mothur paper&lt;/a&gt;.
+There are 15 names, 3 of us (Westcott, Ryabin, Schloss) wrote code and
+most of the wiki (Ryabin was an undergrad). The remaining 12 co-authors
+took me up on an offer to get their name on the paper if they
+contributed a wiki page describing how they used mothur for their
+application. These are the posts on the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://mothur.org/wiki/Analysis_examples&#34;&gt;Analysis Examples wiki
+page&lt;/a&gt;. Unfortunately, none of
+them have been updated since they were posted and having created this
+mechanism to share, no one else has contributed their analysis. On a
+similar note, I will regularly get emails from people telling me that
+there’s a typo on the wiki. Apparently they don’t know that the point of
+a wiki is that anyone can edit it! Oh well. We also have a very active
+user forum where people mostly ask questions and very few people (mostly
+Sarah and I) answer them. Although I’d love for more people to be
+involved in this, I think the questions and answers do provide others a
+form of very useful documentation. Ultimately, the lack of engagement is
+probably more a product of culture that our users aren’t used to. We’re
+open to suggestions. Still it’s pretty awesome what we’ve been able to
+do over the past several years with 1.0 FTE working on mothur.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;a href=&#34;https://groups.google.com/forum/m/#!topic/qiime-forum/vDuBwVF7rOg&#34;&gt;Greg Caporaso rightly
+points&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;out that QIIME has a great
+collaborative network of developers. I think a lot of this is because
+they develop in Python, which a lot of people know and that the strong
+computer science background of Knight, Caporaso, and the other
+developers has collaboration baked into it. I also think that because
+the Knight lab is heavily involved in a lot of big science projects they
+have an amazing list of collaborators that go on to use QIIME, publish
+in high-impact papers, and reinforce collaboration with the QIIME
+developers. What can I say? I’m jealous.&lt;/p&gt;
+&lt;p&gt;大意：mothur有社区、有Wiki，这些都是我们几个人在维护。QIIME则财大气粗，人多势众。Knight
+（QIIME开发者）毕竟大老板，铁血真英雄。我只能嫉妒他们的这一点。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;method-transparency-方法透明度&#34;&gt;Method transparency 方法透明度&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;There are
+currently&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://mothur.org/wiki/Category:Commands&#34;&gt;145 commands in
+mothur&lt;/a&gt;. Many of these
+commands implement various methods to do the same thing while generating
+the same output formats. For example, the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/cluster&#34;&gt;cluster
+command&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;implements three ways of
+clustering sequences into OTUs. To run cluster, you first have to run a
+number of other steps. Each step is a different step in the pipeline. By
+making each step discrete like this, users have very fine control on the
+knobs of their pipeline and they know exactly what is going on. Of
+course, we give people the default parameter values and usually have
+papers to backup the defaults, but people are free to alter the commands
+at each step. This gives users great control, but at the same time can
+be somewhat overwhelming if they feel the need to do something
+different. For example, we have 8 chimera functions that each implement
+a different algorithm – I would only ever suggest using&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/chimera.uchime&#34;&gt;chimera.uchime&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;In contrast to the
+mothur approach, my experience and that of people I’ve talked with is
+that most QIIME users tend to treat functions as a “black box”. If you
+want to use the open reference clustering algorithm that command will
+align, classify, and assign sequences to OTUs. Although it is possible
+to tweak parameters for each of those steps, it isn’t always clear how.
+It’s also not entirely clear how one might add steps for making sure
+sequences overlap the same region or to identify and remove chimeras.&lt;/p&gt;
+&lt;p&gt;大意：mothur现在有145个函数。每个函数都会实现自己的功能，你可以随意组合、随意调整参数，并总能得到相应的结果。QIIME则像一个黑盒，你并不清楚它内部在干些什么，调用了那些命令，设置了那些参数。这些你都不能像在mothur中一样随心所欲。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;reproducibility-再现性&#34;&gt;Reproducibility 再现性&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;An ongoing problem
+in science that has recently gotten a lot of important attention has
+been the ability to reproduce work of other scientists. One place where
+we can hopefully make progress on this is in the world of computational
+analysis. I should be able to take your data and reproduce a figure from
+your paper. Sadly this isn’t always possible or as easy as we think it
+should be. As a reviewer I see this problem frequently where people will
+say they used mothur/QIIME to analyze their data. Um… there are an
+infinite number of permutations of functions and parameter values that
+one could use. Help? We have worked to help users make their results
+more reproducible by outputting log files and posting SOPs. Over the
+last two years we have also worked really hard to put&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/SchlossLab&#34;&gt;all of our data and code
+online&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;for others to reproduce. There are
+currently two primary tools that people use – Jupyter (previously
+IPython Notebooks) and R Markdown documents. We have created a&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/SchlossLab/ipython-mothurmagic&#34;&gt;mothur
+hook&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;for use with IPython notebooks and
+are developing hooks for use with R Markdown documents. I personally
+prefer R Markdown because I can embed results in my text to write a
+paper. In contrast, Jupyter is a notebook, which is useful for
+demonstrating how you did an analysis and the results, but isn’t really
+able to produce a manuscript ready to submit. Needless to say this is an
+area of active development.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Likely because of
+its strong roots in Python, the QIIME developers are making great use of
+Jupyter to demonstrate how to use QIIME and disseminate their methods.
+My understanding is that QIIME v2.0 will make extensive use of this
+format.&lt;/p&gt;
+&lt;p&gt;大意：一篇论文可能告诉你他用了mothur或者QIIME进行了分析，而你事实上并不能重复出相应的结果，因为太多的细节是缺失的，比如命令行的参数等等。mothur和QIIME都在尽可能的把命令和数据同时提供出来，以便后来人重复出相应的结果。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;data-accessibility-数据可获取性&#34;&gt;Data Accessibility 数据可获取性&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Related to the
+previous point, analyses cannot be reproducible if the data are not
+available. Previously, submitting 16S rRNA gene sequences to NCBI’s
+Sequence Read Archive (SRA) has been a pain in the tuckus. This resulted
+in labs posting data to their personal websites or to 3rd party sites
+such as MG-RAST. I’m guilty of the former, although we’re working to
+correct this. The problem with these approaches is that often people are
+not depositing their raw data (i.e. sff and fastq files), only their
+processed data and may not be depositing their metadata. Also, although
+the SRA is difficult to search and access, it is a breeze to use
+compared to MG-RAST. To overcome this problem, we worked with the
+curators at the SRA to develop the&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/make.sra&#34;&gt;make.sra command&lt;/a&gt;, which
+helps to&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/Creating_a_new_submission&#34;&gt;simplify the
+process&lt;/a&gt;. This
+feature has been live since March 2015 and has been widely used by
+microbial ecologists. These are low estimates, but as of the beginning
+of January there have been 86 submission from 61 studies containing 6367
+runs representing 116 GBp submitted using make.sra. There really is no
+excuse at this point to use anything but the SRA for depositing raw
+sequence data. We are also in the process of developing an sra.info
+command that will convert data out of SRA format.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;As an alternative to
+the SRA, the developers of QIIME also developed&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://qiita.ucsd.edu/&#34;&gt;QIITA&lt;/a&gt;.
+QIITA is an online database for storing and analyzing 16S rRNA gene
+sequence data. The goal appears to involve applying a common pipeline to
+datasets so that they can be compared. This makes use of the open and
+closed-reference clustering algorithms that are critiqued below. It also
+provides researchers with the ability to deposit raw data. I recently
+tried to access the Earth Microbiome Project (EMP) data that was used in
+one of their&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/25177538&#34;&gt;open-reference
+clustering papers&lt;/a&gt;. I
+failed. There was no obvious way to download large number of files like
+one can with the SRA. When I asked some of the EMP researchers for help,
+it was clear QIITA is still under development and that it really isn’t
+designed to do what I wanted. My understanding is that they are in the
+process of uploading the data to either the European Nucleotide Archive
+(ENA) or the SRA.&lt;/p&gt;
+&lt;p&gt;大意：问题在于SRA存储的是原始数据，你不能得到其它的相关信息，它远非一个完整的信息。鉴于此，mothur开发了一个make.sra的命令用以生成sra并在其中嵌入相关的必要信息。QIIME曾建立了一个QIITA服务来自行组织16S
+rRNA的基因序列。不过现在好像有点坚持不下去了。orz。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;data-visualization-数据可视化&#34;&gt;Data visualization 数据可视化&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;We initially
+attempted to develop functions that would build heatmaps and venn
+diagrams as SVG files. Although these data visualization tools are
+useful, I don’t feel like we did a great job of making the output from
+these functions as elegant as they could be. After experimenting a bit,
+we decided we would never be able to generate figures as nice as one
+could in R or Python using the extensive codebase that has been
+developed there. Instead, we focus on outputting data in formats that
+people can manipulate in other packages. To that end, all of our output
+files are text files and we can output a shared file as a BIOM-formatted
+file for integration with other microbial ecology tools that use that
+format.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;I applaud the QIIME
+developers efforts to build data visualization tools for analyzing
+microbial ecology data. I’m not personally a big fan of their black
+background ordinations or 2D depictions of 3D ordinations. The demos
+I’ve seen do a nice job of showing how users can re-color points in
+ordinations by metadata. Of course, this is something you can also do in
+R, but you need to know R first.&lt;/p&gt;
+&lt;p&gt;大意：mothur曾试图直接输出可视化结果，但后来放弃了。目前，我们主张通过数据交换来使用其它相应的工具（R等）来完成可视化。QIIME这一点做的非常好（此处应有掌声）。这一点QIIME胜。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;clustering--otu-picking-聚类otu选取&#34;&gt;Clustering / OTU picking 聚类/OTU选取&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;We got started with
+creating DOTUR, which was the first open source tool for assigning
+sequences to OTUs. The plan for mothur was to make DOTUR able to process
+454 data, but then we got to having so much fun… mothur currently
+implements hierarchical clustering algorithms in the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/cluster&#34;&gt;cluster
+command&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;including the average (the
+default), weighted, nearest, and furthest neighbor. We also have&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/cluster.split&#34;&gt;cluster.split&lt;/a&gt;, which
+is a way of dividing your data by taxonomy and then clustering. The
+output of cluster.split is the same as cluster, but it is faster and can
+be parallelized. We have done&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;em&gt;a lot&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;of
+benchmarking to show that the average neighbor clustering algorithm
+gives the best clusters. It may be slower than other methods, but the
+data suggest it is consistently the best approach. You can read those
+papers&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/26664811&#34;&gt;here&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and&lt;span
+class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/21421784&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;As mentioned above,
+you can run an old version of mothur from within QIIME. Looking at their
+papers and online documentation, it is clear they want people to use
+their greedy de novo or their open reference OTU assignment commands,
+which are both based on USEARCH. In our&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/26664811&#34;&gt;2015
+paper&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;that benchmarked a diverse
+collection of clustering algorithms, we showed that in some cases their
+distance-based greedy clustering algorithm could be as good as the
+average neighbor algorithm. However, we point out myriad problems with
+their open and closed reference clustering algorithms. It is very hard
+for me to encourage people to use these algorithms in QIIME. A common
+rejoinder is that some datasets are too large for the average neighbor
+algorithm. Our experience has been that this is&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://blog.mothur.org/2014/09/11/Why-such-a-large-distance-matrix%3F/&#34;&gt;more a product of sequencing
+error&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;than anything else. As we point
+out in that paper, speed and memory usage are important, but cannot be
+used as the basis to say one method is better than another when there
+are clear differences in OTU quality. High quality clustering is a
+problem that will continue to plague us as datasets grow, even if they
+have a very low sequencing error rate.&lt;/p&gt;
+&lt;p&gt;大意：mothur更快，还支持并行处理。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;illumina-sequence-processing-illumina序列的处理&#34;&gt;Illumina sequence processing Illumina序列的处理&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;The&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://mothur.org/wiki/make.contigs&#34;&gt;make.contigs
+command&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;is our method of assembling paired
+sequence reads into contigs. If your reads fully overlap then it is
+possible to use this command with the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://mothur.org/wiki/MiSeq_SOP&#34;&gt;rest of the
+pipeline&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;to get an error rate below 0.02%.
+This is easily an order of magnitude lower than what we have seen other
+groups describe. Actually, very few other groups (any?) are sequencing
+mock communities to report an error rate. You can find the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;https://github.com/SchlossLab/MiSeq_WetLab_SOP&#34;&gt;wetlab
+protocol&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;at our GitHub repository. This
+approach and the bioinformatics benchmarking was&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/23793624&#34;&gt;published at
+AEM&lt;/a&gt;. Even with the advance
+in Illumina’s MiSeq technology to paired 300 nt reads, we are sticking
+with the paired 250 nt reads to sequence the V4 region because&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://blog.mothur.org/2014/09/11/Why-such-a-large-distance-matrix%3F/&#34;&gt;the new chemistry
+sucks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Greg Caporaso was
+the first author on the&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20534432&#34;&gt;original
+method&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;describing how to sequence 16S
+rRNA genes on an Illumina machine. Unfortunately, much of their
+benchmarking consisted of showing it was possible and that they got
+similar results to 454 data. They didn’t actually report error rates.
+In&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/22170427&#34;&gt;subsequent
+work&lt;/a&gt;, they suggested that
+it is possible to make comparisons with single reads or using HiSeq
+data. From our work and experience, we know that these data are very
+noisy and problematic. If you want to distinguish very different
+communities, use HiSeq data, if you are looking at more similar
+communities, you need high quality data. With this as background, it
+really isn’t clear what QIIME proposes for assembling reads into contigs
+or how it compares to what we’re doing with make.contigs. Their primary
+tutorial uses their&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/21624126&#34;&gt;Moving
+Pictures of the Human
+Microbiome&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;dataset and is disseminate as
+a&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://nbviewer.ipython.org/github/biocore/qiime/blob/1.9.1/examples/ipynb/illumina_overview_tutorial.ipynb&#34;&gt;Jupyter
+notebook&lt;/a&gt;.
+Interestingly, that tutorial does not mention what to do with paired
+reads. Other parts of their website discuss assembly, but it isn’t clear
+to the typical user how the output fits in with the rest of the
+pipeline. They indicate that a paper is forthcoming so hopefully they’ll
+expand on this in the future and be able to compare their results to
+ours.&lt;/p&gt;
+&lt;p&gt;大意：二者都有一些工具来处理短序列。但目前缺乏可比性。&lt;/p&gt;
+&lt;p&gt;译者：由于Illumina的读长太短，并不适合进行rRNA测序（由于序列相似性太高，难以正确的拼接）。MiSeq可以做到300nt。这需要测序技术的进步，即读长的提高。如果有朝一日读长可以达到1500bp，基本达到了16S
+rRNA的全长了。那分析就更加完整和方便了。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;classification-分类&#34;&gt;Classification 分类&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;Taxonomic
+classification of sequences is handled within the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.mothur.org/wiki/classify.seqs&#34;&gt;classify.seqs
+command&lt;/a&gt;. The default method
+is to use the&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/17586664&#34;&gt;naive Bayesian
+classifier&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;that was originally developed by
+the RDP team. We also enable researchers to use the k-Nearest Neighbor
+algorithm based on distance, blast, and kmer-based distances. The naive
+Bayesian classifier uses a pseudo-bootstrapping procedure to generate a
+confidence score. The RDP website uses 80%, by default cluster.seqs does
+not apply a threshold although our SOPs all tell people to use 80%. The
+next release of mothur (v1.37.0) will use 80% as the default threshold
+for classify.seqs.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;The default
+classification method in QIIME is to use USEARCH to find the closest
+match in a reference database using the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://qiime.org/scripts/assign_taxonomy.html&#34;&gt;assign_taxonomy.py
+script&lt;/a&gt;. This appears to
+be a quasi nearest neighbors algorithm and if you use the defaults, then
+it requires 2 of the 3 top matches to have the same classification. I
+haven’t seen this approach published or validated anywhere. This would
+appear to be problematic since many taxa in the references only have one
+representative – so you would never get a sequence to classify to that
+taxon. I would also worry about the problems&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/26664811&#34;&gt;we saw with using
+USEARCH&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;for database searching and closed
+reference clustering – basically, classification will change with the
+order of the database sequences. QIIME also provides the naive Bayesian
+classifier as an option in this script. As the default threshold, they
+require a confidence score of 50%. Although the original paper suggests
+a threshold of 80%, the RDP site curiously suggests 50% for short
+sequences; however, this makes no sense since your confidence should not
+vary with sequence length. In our own unpublished analyses, quality of
+assignment is proportional to the confidence score.&lt;/p&gt;
+&lt;p&gt;大意：mothur给你更多、更可靠的选择。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;databases-数据库&#34;&gt;Databases 数据库&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;mothur.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;For whatever
+reason, when I talk with people about the differences between mothur and
+QIIME, one of the things people think makes a&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;em&gt;huge&lt;/em&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;difference between the packages is
+the databases we use. Supposedly, I like RDP and QIIME likes greengenes.
+Given that QIIME ships with greengenes, I suspect that the QIIME
+developers do like greengenes; however, we have no particular affinity
+for the RDP taxonomy. We use it in the SOP because it is smaller and
+easier to work with. I try to make it clear that you can use the RDP,
+SILVA, or greengenes for classification. We actually make the&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://mothur.org/wiki/Taxonomy_outline&#34;&gt;three reference taxonomies
+publicly available&lt;/a&gt;. When it
+comes to alignment database, I do think the only way to go is to use a
+reference alignment based on the SILVA database. As I tell people, the
+alignment within the variable regions in the greengenes alignment looks
+like the person was somewhat drunk at the time while the SILVA alignment
+looks like it was done by Germans. Oh wait… :) This isn’t a matter of
+personal conjecture, we actually quantified the difference in an&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20011594&#34;&gt;earlier
+paper&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and then&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://blog.mothur.org/2015/08/04/No-greengenes-hasnt-improved/&#34;&gt;looked again
+recently&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;and found the same thing. As the
+database curators update their databases, we also update the references.
+I don’t know that they change much, but people get vexed when we don’t
+keep up with the Joneses.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;QIIME.&lt;/em&gt;&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;QIIME comes
+prepackaged with the greengenes database from 2013. This is a nice
+feature, because it limits the difficulties of keeping track of things.
+This also makes for bigger downloads. The QIIME commands appear to allow
+people to use their own database if they aren’t interested in the
+greengenes database. There are two important points to make with regard
+to QIIME’s use of databases. First, as I’ve mentioned elsewhere in this
+posting,&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/26664811&#34;&gt;USEARCH is
+sensitive to the
+ordering&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;of the sequences in your
+reference. As we showed in that paper, for whatever reason, the default
+ordering of the greengenes database produces high error rates and could
+be substantially improved by randomizing the sequences before using
+USEARCH. Second, To build trees for used for phylogenetic approaches,
+they use sequences that are aligned to the greengenes alignment that I
+described above. This is somewhat disconcerting as the the poorly
+greengenes-aligned sequences&lt;span class=&#34;Apple-converted-space&#34;&gt;
+&lt;/span&gt;&lt;a href=&#34;http://blog.mothur.org/2016/01/12/mothur-and-qiime/(http://www.ncbi.nlm.nih.gov/pubmed/20011594)&#34;&gt;artificially increases the
+distances&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;between sequences. But, as&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://qiime.org/scripts/filter_alignment.html&#34;&gt;their documentation
+indicates&lt;/a&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;“FILTERING ALIGNMENTS WHICH WERE
+BUILT WITH PYNAST AGAINST THE GREENGENES CORE SET ALIGNMENT SHOULD BE
+CONSIDERED AN ESSENTIAL STEP (caps in original)”. This filtering is no
+doubt necessary to remove the poorly aligned variable regions. In
+the&lt;span class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed/20628621&#34;&gt;same
+publication&lt;/a&gt;, we showed
+that applying filters like the traditional Lane mask significantly mutes
+the differences between sequences. Although I agree that such filtering
+is necessary for building phylogenies where you are trying to propose
+new lineages of taxa, it seems mistaken to filter when you are looking
+for differences between sequences. It really would be nice to see them
+remove so much emphasis on the greengenes database and make the SILVA
+references alignment the prepackaged default instead.&lt;/p&gt;
+&lt;p&gt;大意：mothur使用的是RDP数据，QIIME使用的是greengenes数据。除此之外，常见的rRNA数据库还有SILVA等。mothur中你可以选择任一个数据库分析，QIIME则“太”钟情于greengenes了。我觉得用SILVA会更好的。&lt;/p&gt;
+&lt;div&gt;
+&lt;h3 id=&#34;conclusions-总结&#34;&gt;Conclusions 总结&lt;/h3&gt;
+&lt;p&gt;I hope that you have found this comparison to be useful. As much as
+possible, I have tried to be balanced in my critiques of&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;&lt;em&gt;both&lt;/em&gt;&lt;span
+class=&#34;Apple-converted-space&#34;&gt; &lt;/span&gt;mothur and QIIME. Hopefully, you
+will find that most of the differences between the two programs are
+pretty cosmetic. The more substantive difference are in aspects of the
+programs that are admittedly under active development. One of the things
+that absolutely drives me crazy is when people say they like program X
+because it gives them “good results”. I am unclear what that means.
+Unless you have objective criteria or know the correct answer, you can’t
+be certain that you have “good results”. Be honest to admit that you use
+program X because you just like it better for cosmetic reasons or have
+some actual data to suggest that it is better. Of course, if X happens
+to be QIIME, please let me know – my group uses mothur and we want to
+make sure we’re using the best software possible. I know you want the
+same thing. Finally, I really appreciate the input that I received from
+a number of people that I asked to review this review before I posted
+it. I worked very hard to remove any snark, cynicism, sarcasm, etc to
+provide as balanced a review as possible. These people have held me to
+this goal and I appreciate their feedback.&lt;/p&gt;
+&lt;p&gt;大意：我尽量做到公正评价。（译者：但mothur毕竟是真爱。）&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>MEGA6: Constructing a Phylogenetic Tree on Multiple Sequences</title>
+        <link>bio-spring/post/2016/01/19/2016-01-19-mega6-constructing-a-phylogenetic-tree-on-multiple-sequences/</link>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/01/19/2016-01-19-mega6-constructing-a-phylogenetic-tree-on-multiple-sequences/</guid>
+        <description>
+          &lt;p&gt;&lt;a href=&#34;http://bio-spring.top/bioedit-tree/&#34;&gt;使用BioEdit生成和绘制蛋白质进化树&lt;/a&gt;
+虽然方法简单、上手快，但是由于 BioEdit
+功能有限，使用起来很不方便。如果经常进行类似分析，那还是要使用 MEGA 6
+这一个系统进化分析的“大杀器”。&lt;/p&gt;
+&lt;p&gt;第一步：下载和安装 MEGA 6。各平台均有发行版，在此不再赘述。&lt;/p&gt;
+&lt;p&gt;第二步：多序列比对，这是构建系统进化树的必要条件。&lt;/p&gt;
+&lt;p&gt;点击第一个按钮，选择 Edit/Build Alignment。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega0.png&#34; class=&#34;alignnone size-full wp-image-782&#34; width=&#34;392&#34; height=&#34;61&#34; alt=&#34;mega0&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;正如题目所说的，我们需要选择一个含有多个序列的 Fasta 文件。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega1.png&#34; class=&#34;alignnone size-full wp-image-784&#34; width=&#34;223&#34; height=&#34;146&#34; alt=&#34;mega1&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;从菜单选择 Alignment – Align By xxx
+如果序列比较多，那比对需要花上一些时间。&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega2-500x307.png&#34; class=&#34;alignnone size-medium wp-image-785&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega2-500x307.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega2.png 753w&#34; width=&#34;500&#34; height=&#34;307&#34; alt=&#34;mega2&#34; /&gt;
+&lt;p&gt;第三步：进化分析。&lt;br&gt;
+在比对完成的窗口中直接选择 Phylogenetic Analysis。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega3-500x307.png&#34; class=&#34;alignnone size-medium wp-image-781&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega3-500x307.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega3.png 753w&#34; width=&#34;500&#34; height=&#34;307&#34; alt=&#34;mega3&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第四步：构建进化树。&lt;br&gt;
+在主窗口页面上点击 Phylogeny 这个按钮，选择一种方法构建进化树，&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega6.png&#34; class=&#34;alignnone size-full wp-image-783&#34; width=&#34;336&#34; height=&#34;201&#34; alt=&#34;mega6&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击 Compute 开始计算。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega4-500x476.png&#34; class=&#34;alignnone size-medium wp-image-779&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega4-500x476.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega4.png 504w&#34; width=&#34;500&#34; height=&#34;476&#34; alt=&#34;mega4&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;现在你将得到你所需要的进化树了。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega7-490x500.png&#34; class=&#34;alignnone size-medium wp-image-780&#34; sizes=&#34;(max-width: 490px) 100vw, 490px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega7-490x500.png 490w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/mega7.png 540w&#34; width=&#34;490&#34; height=&#34;500&#34; alt=&#34;mega7&#34; /&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Massive RT-PCR Primer Designer is online</title>
+        <link>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</link>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</guid>
+        <description>
+          &lt;p&gt;The Massive RT-PCR Primer Designer is based on Primer3 and BioPerl
+toolbox, and was derived from the standalone codes which have been
+discussed by two previous blog posts (&lt;a href=&#34;http://bio-spring.top/rt-primer-bioperl/&#34;&gt;Post
+1&lt;/a&gt; and &lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Post
+2&lt;/a&gt;).&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/rt-primer-designer-1.png&#34; class=&#34;alignnone size-full wp-image-776&#34; width=&#34;493&#34; height=&#34;183&#34; alt=&#34;rt-primer-designer&#34; /&gt;
+&lt;p&gt;You may access the service at &lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;The Massive RT-PCR Primer
+Designer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What this tool needs is your fasta file, which contains one or more
+nucleotide sequences that will be use as PCR template. Upload this file
+and the tool will generate the most ideal primer pairs suitable for
+quantitive Real-Time PCR (qRT-PCR). The primers will be supplied as a
+downloadable Excel file.&lt;/p&gt;
+&lt;p&gt;Notably, the amplicon size of these RT-PCR primers are spanning from 150
+bp to 250 bp.&lt;/p&gt;
+&lt;p&gt;Powered by AliYun, the service is available at 7×24h.&lt;/p&gt;
+&lt;p&gt;By the way, apply this promotion code &lt;strong&gt;u6fovy&lt;/strong&gt; when you buy Aliyun
+service for a 10% OFF.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>ContigExpress-Assemble pair-end sequencing fragments</title>
+        <link>bio-spring/post/2016/01/12/2016-01-12-contigexpress-assemble-pair-end-sequencing-fragments/</link>
+        <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/01/12/2016-01-12-contigexpress-assemble-pair-end-sequencing-fragments/</guid>
+        <description>
+          &lt;p&gt;送样测序的时候，测序公司会问你是否要从两端测通？如果你选择两端测通，可能会得到两个序列（也可能测序公司已经帮你拼接成一条序列了），这时候你需要将这两条序列拼接起来。&lt;/p&gt;
+&lt;p&gt;我们使用ContigExpress这个程序来完成这一任务。&lt;/p&gt;
+&lt;p&gt;ContigExpress是Vector NTI©
+Software中的一个组件，可以在这里下载：http://www.thermofisher.com/cn/zh/home/life-science/cloning/vector-nti-software.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress1.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress1-500x307.png&#34; class=&#34;alignnone size-medium wp-image-755&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress1-500x307.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress1.png 854w&#34; width=&#34;500&#34; height=&#34;307&#34; alt=&#34;contigexpress1&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress2.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress2.png&#34; class=&#34;alignnone size-full wp-image-754&#34; width=&#34;238&#34; height=&#34;383&#34; alt=&#34;contigexpress2&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress3.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress3.png&#34; class=&#34;alignnone size-full wp-image-753&#34; width=&#34;199&#34; height=&#34;258&#34; alt=&#34;contigexpress3&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress4.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress4-500x307.png&#34; class=&#34;alignnone size-medium wp-image-752&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress4-500x307.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress4.png 854w&#34; width=&#34;500&#34; height=&#34;307&#34; alt=&#34;contigexpress4&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress5.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress5-500x307.png&#34; class=&#34;alignnone size-medium wp-image-757&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress5-500x307.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress5.png 854w&#34; width=&#34;500&#34; height=&#34;307&#34; alt=&#34;contigexpress5&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress6.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress6-500x322.png&#34; class=&#34;alignnone size-medium wp-image-756&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress6-500x322.png 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress6.png 811w&#34; width=&#34;500&#34; height=&#34;322&#34; alt=&#34;contigexpress6&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;未尽事宜，请查阅 Vector NTI Advance®11.5_Users_Manual 下列内容 How Do
+I : Assemble Chromatogram Data Using ContigExpress：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress7.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/contigexpress7.png&#34; class=&#34;alignnone size-full wp-image-760&#34; width=&#34;439&#34; height=&#34;420&#34; alt=&#34;contigexpress7&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank –&gt; GTF converter derived from BioPerl</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</guid>
+        <description>
+          &lt;p&gt;BioPerl has a Genbank –&amp;gt; GFF converter (the script is
+bp_genbank2gff3.pl), however, this converter generated GFF/GTF file
+could not work in Bioconductor when using the function
+&lt;strong&gt;maketxdbfromGFF&lt;/strong&gt; to construct a transcript database.&lt;/p&gt;
+&lt;p&gt;Currently, I have developed such a converter that may extract
+information from a NCBI Genbank file and write them to GFF version 2, or
+GTF format. This script is derived from BioPerl, so you need firstly
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;get the module installed&lt;/a&gt; in
+your system. To check whether BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;http://bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Here is the synopsis of this script.&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     NCBI_genbank2gtf.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;The codes is as follows:&lt;br&gt;
+&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl &amp;ndash; Genbank -&amp;gt; Bioconductor friendly GTF&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly GTF files from NCBI
+GenBank.&lt;br&gt;
+The file may be used in *maketxdbfromGFF* function and should work
+well.&lt;/p&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $gtf_output);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$gtf_output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($gtf_output) { open $out, &amp;ldquo;&amp;gt; $gtf_output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$gtf_output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %seen;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seq_acc = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$seq_acc has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if !$seq-&amp;gt;all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;# construct a GFF header&lt;br&gt;
+# add: get source_type from attributes of source feature? chromosome=X
+tag&lt;br&gt;
+# also combine 1st ft line here with source ft from $seq ..&lt;br&gt;
+my $header = gff_header($seq);&lt;br&gt;
+print $out $header;&lt;br&gt;
+warn &amp;ldquo;# working on $seq_acc\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;for my $feature ( $seq-&amp;gt;get_all_SeqFeatures ) {&lt;/p&gt;
+&lt;p&gt;my $method = $feature-&amp;gt;primary_tag;&lt;br&gt;
+$seen{$method} ++;&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+if ($method eq &amp;lsquo;CDS&amp;rsquo;){&lt;br&gt;
+$feature-&amp;gt;primary_tag(&amp;ldquo;exon&amp;rdquo;);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_number&amp;rdquo;, 1);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_id&amp;rdquo;,
+$feature-&amp;gt;get_tag_values(&amp;ldquo;transcript_id&amp;rdquo;));&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;warn &amp;ldquo;# Count of features in $genbank_input:\n&amp;rdquo;;&lt;br&gt;
+map {warn sprintf(&amp;rdquo;# %20s:%6d\n&amp;quot;, $_, $seen{$_});} keys %seen;&lt;/p&gt;
+&lt;p&gt;sub gff_header {&lt;br&gt;
+my ($seq) = @_;&lt;br&gt;
+my $head = sprintf(&amp;quot;##gff-version 2\n# sequence-region: %s
+(1..%d)\n&amp;quot;, $seq-&amp;gt;accession_number, $seq-&amp;gt;length);&lt;br&gt;
+$head .= sprintf( &amp;ldquo;# %s\n&amp;rdquo;, $seq-&amp;gt;desc);&lt;br&gt;
+$head .= &amp;ldquo;# converted by NCBI_genbank2gtf.pl\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;#~ print Dumper $acc, $desc, $end;&lt;br&gt;
+return $head;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;sub maptags2gff {&lt;br&gt;
+my $f = shift;&lt;br&gt;
+my $method = $f-&amp;gt;primary_tag;&lt;br&gt;
+my %TAG_MAP;&lt;br&gt;
+if ($method eq &amp;lsquo;gene&amp;rsquo; || $method eq &amp;lsquo;misc_RNA&amp;rsquo; || $method eq &amp;lsquo;rRNA&amp;rsquo;
+|| $method eq &amp;rsquo;tRNA&amp;rsquo;){&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo; );&lt;br&gt;
+}&lt;br&gt;
+elsif ($method eq &amp;lsquo;CDS&amp;rsquo;) {&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+product =&amp;gt; &amp;lsquo;product&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;rsquo;exon&amp;rsquo;) {&lt;/p&gt;
+&lt;p&gt;%TAG_MAP = ( gene_id =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+exon_number =&amp;gt; &amp;rsquo;exon_number&amp;rsquo;,&lt;br&gt;
+exon_id =&amp;gt; &amp;rsquo;exon_id&amp;rsquo;,&lt;br&gt;
+gene_name =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;lsquo;source&amp;rsquo;) {&lt;br&gt;
+%TAG_MAP = ( organism =&amp;gt; &amp;lsquo;organism&amp;rsquo; );&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+else {&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;my @all_tags = $f-&amp;gt;get_all_tags();&lt;br&gt;
+#~ print Dumper \@all_tags;&lt;br&gt;
+for my $tag (@all_tags){&lt;/p&gt;
+&lt;p&gt;if (exists $TAG_MAP{$tag}){&lt;br&gt;
+my $newtag= $TAG_MAP{$tag};&lt;br&gt;
+my @v= $f-&amp;gt;get_tag_values($tag);&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+$f-&amp;gt;add_tag_value($newtag,@v);&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+}&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;return $f;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;If you would like to access the full document, run:&lt;br&gt;
+&lt;code&gt;perldoc NCBI_genbank2gtf.pl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Feedback is welcome.&lt;/p&gt;
+&lt;p&gt;Here is also a GenBank -&amp;gt; BED converter:
+&lt;a href=&#34;http://bio-spring.top/a-genbank-to-bed-converter/&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank to BED converter</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+        <description>
+          &lt;p&gt;Like &lt;a href=&#34;http://bio-spring.top/a-genbenk-gtf-converter-derived-from-bioperl/&#34;&gt;the previous Genbank -&amp;gt; GTF
+converter&lt;/a&gt;,
+this script is also depended on BioPerl, so you need firstly get the
+module installed in your system (&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;Install
+BioPerl&lt;/a&gt;). To check whether
+BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     gb2bed.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;Read Pod for further information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;gb2bed.pl &amp;ndash; Genbank -&amp;gt; BED&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;gb2bed.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly BED files from NCBI
+GenBank.&lt;br&gt;
+Six columns will be extracted:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;chrom - name of the chromosome or scaffold. Any valid
+seq_region_name can be used, and chromosome names can be given with or
+without the &amp;lsquo;chr&amp;rsquo; prefix.&lt;/li&gt;
+&lt;li&gt;chromStart - Start position of the feature in standard chromosomal
+coordinates (i.e. first base is 0).&lt;/li&gt;
+&lt;li&gt;chromEnd - End position of the feature in standard chromosomal
+coordinates&lt;/li&gt;
+&lt;li&gt;name - Label to be displayed under the feature, if turned on in
+&amp;ldquo;Configure this page&amp;rdquo;. [locus_tag]&lt;/li&gt;
+&lt;li&gt;score - A score between 0 and 1000. [0]&lt;/li&gt;
+&lt;li&gt;strand - defined as + (forward) or - (reverse).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;br&gt;
+Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $output, @filters, @keep);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;filter|f=s&amp;rsquo; =&amp;gt; \@filters,&lt;br&gt;
+&amp;lsquo;keep|k=s&amp;rsquo; =&amp;gt; \@keep,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;@keep = (&amp;lsquo;gene&amp;rsquo;) unless $#keep &amp;gt;= 0;&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($output) { open $out, &amp;ldquo;&amp;gt; $output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %filter;&lt;br&gt;
+map {$filter{$_}++} @filters;&lt;br&gt;
+my %keep;&lt;br&gt;
+map {$keep{$_}++} @keep;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $chr = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;my @all_SeqFeatures = $seq-&amp;gt;get_all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;#~ warn &amp;ldquo;# working on $chr\n&amp;rdquo;;&lt;br&gt;
+if ($#filters &amp;gt;= 0){&lt;br&gt;
+@all_SeqFeatures = grep { !defined $filter{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;br&gt;
+if ($#keep &amp;gt;= 0) {&lt;br&gt;
+@all_SeqFeatures = grep { defined $keep{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$chr has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if $#all_SeqFeatures &amp;lt; 0; for my $feature ( @all_SeqFeatures ) {
+my ($start, $end, $name, $strand); $start = $feature-&amp;gt;start - 1; #
+bed base is 0, while genbank is 1&lt;br&gt;
+$end = $feature-&amp;gt;end;&lt;br&gt;
+($name) = $feature-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;);&lt;br&gt;
+$strand = $feature-&amp;gt;strand;&lt;br&gt;
+$strand = $strand &amp;lt; 0 ? &amp;lsquo;-&amp;rsquo; : &amp;lsquo;+&amp;rsquo;; print $out join(&amp;rdquo;\t&amp;quot;, $chr,
+$start, $end, $name, 0, $strand), &amp;ldquo;\n&amp;rdquo;; } }&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>cloudfs无法上传的故障排除</title>
+        <link>bio-spring/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</link>
+        <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</guid>
+        <description>
+          &lt;p&gt;之前设置WordPress使用阿里云OSS存储图片，今天出问题了。&lt;a href=&#34;http://bio-spring.top/cloudfs-wp-uploads/&#34;&gt;设置方法在这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;错误提示：cannot access oss: Transport endpoint is not connected&lt;/p&gt;
+&lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;去除挂载&lt;/li&gt;
+&lt;li&gt;重启Cloudfs服务&lt;/li&gt;
+&lt;li&gt;设置权限&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+umount /mnt/oss&lt;br&gt;
+service cloudfs restart&lt;br&gt;
+chmod 666 /mnt/oss&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

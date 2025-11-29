@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RDS on BIO-SPRING</title>
+    <link>bio-spring/tags/rds/</link>
+    <description>Recent content in RDS on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/rds/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>如何连接阿里云数据库RDS</title>
+        <link>bio-spring/post/2015/08/21/2015-08-21-connect-to-rds/</link>
+        <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/21/2015-08-21-connect-to-rds/</guid>
+        <description>
+          &lt;h3 id=&#34;mysql客户端方式&#34;&gt;mysql客户端方式&lt;/h3&gt;
+&lt;p&gt;用户安装MySQL客户端后，可进入命令行方式链接数据库。&lt;br&gt;
+命令格式：mysql -u user_name -h example.mysql.rds.aliyuncs.com -P3306
+-pxxxx&lt;br&gt;
+其中，-u 指定的是用户名， -h指定的是主机名， -P指定的是端口，
+-p指定的是密码。&lt;/p&gt;
+&lt;h3 id=&#34;wordpress使用rds&#34;&gt;WordPress使用RDS&lt;/h3&gt;
+&lt;p&gt;添加服务器IP到白名单&lt;br&gt;
+修改wp-config.php&lt;br&gt;
+参见&lt;a href=&#34;http://bio-spring.top/?p=586&#34;&gt;WordPress迁移&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

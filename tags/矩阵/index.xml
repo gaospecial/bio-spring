@@ -1,0 +1,293 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>矩阵 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E7%9F%A9%E9%98%B5/</link>
+    <description>Recent content in 矩阵 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 04 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E7%9F%A9%E9%98%B5/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>R中的基础数据结构</title>
+        <link>bio-spring/post/2023/12/04/data-structure-in-r/</link>
+        <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
+        <author>Package Build</author>
+        <guid>bio-spring/post/2023/12/04/data-structure-in-r/</guid>
+        <description>
+          &lt;p&gt;创建几个基本的变量。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;v = 1:24
+m = matrix(v, nrow = 4)
+a = array(v, dim = c(2,3,4))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这些变量都保存了 1 - 24 这几个数字。不过，它们所属的类是不同的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;v
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;m
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    5    9   13   17   21
+## [2,]    2    6   10   14   18   22
+## [3,]    3    7   11   15   19   23
+## [4,]    4    8   12   16   20   24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## , , 1
+## 
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3]
+## [1,]    7    9   11
+## [2,]    8   10   12
+## 
+## , , 3
+## 
+##      [,1] [,2] [,3]
+## [1,]   13   15   17
+## [2,]   14   16   18
+## 
+## , , 4
+## 
+##      [,1] [,2] [,3]
+## [1,]   19   21   23
+## [2,]   20   22   24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;变量的类&#34;&gt;变量的类&lt;/h2&gt;
+&lt;p&gt;在R语言中，&lt;code&gt;typeof()&lt;/code&gt; 函数用于获取一个对象的&lt;strong&gt;基本数据类型&lt;/strong&gt;。它返回一个描述对象数据类型的字符串。&lt;/p&gt;
+&lt;p&gt;以下是 &lt;code&gt;typeof()&lt;/code&gt; 函数的一些常见返回值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;integer&amp;rdquo;：&lt;/strong&gt; 整数类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;double&amp;rdquo;：&lt;/strong&gt; 浮点数类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;character&amp;rdquo;：&lt;/strong&gt; 字符串类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;logical&amp;rdquo;：&lt;/strong&gt; 逻辑类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;complex&amp;rdquo;：&lt;/strong&gt; 复数类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;raw&amp;rdquo;：&lt;/strong&gt; 二进制原始数据类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;list&amp;rdquo;：&lt;/strong&gt; 列表类型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ldquo;NULL&amp;rdquo;：&lt;/strong&gt; 表示空值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个函数在编写R代码时用于检查变量的类型，有时候在处理不同类型的数据时会很有用。需要注意的是，R是一种动态类型语言，变量的数据类型可以在运行时改变。虽然 &lt;code&gt;typeof()&lt;/code&gt; 提供了对象的底层类型，但有时使用其他函数如 &lt;code&gt;class()&lt;/code&gt; 或 &lt;code&gt;str()&lt;/code&gt; 可能更有助于更全面地理解对象的结构和属性。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;typeof(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在R语言中，&lt;code&gt;class()&lt;/code&gt; 函数用于获取对象的类别（class）。类别是一个用来描述对象类型的属性，它是面向对象编程中的一个概念。在R中，类别通常与S3对象系统相关联。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;class()&lt;/code&gt; 函数返回一个描述对象类别的字符向量。对于基本数据类型，它通常返回R内置的基本类别，例如 &amp;ldquo;numeric&amp;rdquo;、&amp;ldquo;character&amp;rdquo;、&amp;ldquo;logical&amp;quot;等。对于更复杂的对象，它可以返回用户定义的类别。&lt;/p&gt;
+&lt;p&gt;有时，&lt;code&gt;class()&lt;/code&gt; 和 &lt;code&gt;typeof()&lt;/code&gt; 可能返回相似的结果，但它们的用途略有不同。&lt;code&gt;typeof()&lt;/code&gt; 返回底层的数据类型，而 &lt;code&gt;class()&lt;/code&gt; 返回更高级别的对象类别。例如，在处理用户定义的类时，&lt;code&gt;class()&lt;/code&gt; 更为有用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：用户定义的类
+setClass(&amp;quot;Person&amp;quot;, slots = c(name = &amp;quot;character&amp;quot;, age = &amp;quot;numeric&amp;quot;))
+person &amp;lt;- new(&amp;quot;Person&amp;quot;, name = &amp;quot;Alice&amp;quot;, age = 30)
+
+typeof(person)  # 返回 &amp;quot;S4&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;S4&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(person)  # 返回 &amp;quot;Person&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Person&amp;quot;
+## attr(,&amp;quot;package&amp;quot;)
+## [1] &amp;quot;.GlobalEnv&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在上面的示例中，&lt;code&gt;typeof(person)&lt;/code&gt; 返回 &amp;ldquo;S4&amp;rdquo;，指示这是一个S4对象，而 &lt;code&gt;class(person)&lt;/code&gt; 返回 &amp;ldquo;Person&amp;rdquo;，指示它是一个用户定义的 &amp;ldquo;Person&amp;rdquo; 类对象。&lt;/p&gt;
+&lt;p&gt;在这里，向量 &lt;code&gt;v&lt;/code&gt; 的类是 &lt;code&gt;integer&lt;/code&gt;；矩阵 &lt;code&gt;m&lt;/code&gt; 的类是 &lt;code&gt;matrix&lt;/code&gt; 和 &lt;code&gt;array&lt;/code&gt;；数组 &lt;code&gt;a&lt;/code&gt; 的类是 &lt;code&gt;array&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;integer&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;matrix&amp;quot; &amp;quot;array&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;array&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;变量的内存性能&#34;&gt;变量的内存性能&lt;/h2&gt;
+&lt;p&gt;在 R 语言中，&lt;code&gt;lobstr&lt;/code&gt; 包是一个用于分析和可视化 R 对象的包。该包提供了一些有用的函数，可以帮助你更深入地了解 R 中的对象的结构、内存使用和其他相关信息。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lobstr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以下是一些 &lt;code&gt;lobstr&lt;/code&gt; 包的主要功能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;obj_addr()&lt;/code&gt; 函数：&lt;/strong&gt; 返回对象在内存中的地址。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lobstr)
+
+x &amp;lt;- c(1, 2, 3)
+obj_addr(x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;0x120c30ff8&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;obj_size()&lt;/code&gt; 函数：&lt;/strong&gt; 返回对象在内存中占用的空间大小。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;y &amp;lt;- data.frame(A = 1:5, B = letters[1:5])
+obj_size(y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 1.81 kB
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ref()&lt;/code&gt; 函数：&lt;/strong&gt; 返回对象的引用计数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;z &amp;lt;- list(a = 1, b = 2, c = 3)
+ref(z)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## █ [1:0x1314b1558] &amp;lt;named list&amp;gt; 
+## ├─a = [2:0x15039ad60] &amp;lt;dbl&amp;gt; 
+## ├─b = [3:0x15039ad98] &amp;lt;dbl&amp;gt; 
+## └─c = [4:0x15039add0] &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;lobstr&lt;/code&gt; 包的这些函数返回一些&lt;strong&gt;底层的、高级的或专业的&lt;/strong&gt;信息，帮助用户了解R中对象的内部结构、内存使用情况以及引用计数等方面信息。虽然对于一般的数据分析和编程任务来说可能并不总是必要，但是对于开发者在调试、性能优化或对内存使用进行更深入分析时是非常有帮助的。&lt;/p&gt;
+&lt;p&gt;查看 3 个变量的内存地址及占用内存空间大小。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ref(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1:0x13059d690] &amp;lt;int&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ref(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1:0x120aec688] &amp;lt;int[,6]&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ref(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1:0x120b16e18] &amp;lt;int[,3,4]&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从占用空间大小上看，矩阵是最省的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;obj_size(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 856 B
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;obj_size(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 344 B
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;obj_size(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 352 B
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;变量的规格&#34;&gt;变量的规格&lt;/h2&gt;
+&lt;p&gt;在R语言中，有多个函数可以用来查看变量（数据框、矩阵等）的规格，即行数和列数以及其他相关信息。以下是其中一些常用的函数：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;dim()&lt;/code&gt; 函数：&lt;/strong&gt; 返回一个对象的维度，包括行数和列数。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：数据框的规格
+data &amp;lt;- data.frame(A = 1:3, B = c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;))
+dim(data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;nrow()&lt;/code&gt; 和 &lt;code&gt;ncol()&lt;/code&gt; 函数：&lt;/strong&gt; 分别返回对象的行数和列数。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：矩阵的规格
+matrix_data &amp;lt;- matrix(1:6, nrow = 2, ncol = 3)
+nrow(matrix_data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ncol(matrix_data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;str()&lt;/code&gt; 函数：&lt;/strong&gt; 显示对象的整体结构，包括规格、列名、列类型等。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：数据框的结构
+str(data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &#39;data.frame&#39;:	3 obs. of  2 variables:
+##  $ A: int  1 2 3
+##  $ B: chr  &amp;quot;a&amp;quot; &amp;quot;b&amp;quot; &amp;quot;c&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;summary()&lt;/code&gt; 函数：&lt;/strong&gt; 提供对象的统计摘要，包括最小值、最大值、中位数等。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：向量的摘要
+vector_data &amp;lt;- c(1, 2, 3, 4, 5)
+summary(vector_data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       1       2       3       3       4       5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;length()&lt;/code&gt; 函数：&lt;/strong&gt; 返回对象的长度。对于矩阵和数据框，它返回列数。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 示例：矩阵的列数
+length(matrix_data)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这些函数提供了不同层次的信息，你可以根据需要选择使用。&lt;code&gt;dim()&lt;/code&gt;、&lt;code&gt;nrow()&lt;/code&gt;、&lt;code&gt;ncol()&lt;/code&gt;、&lt;code&gt;length()&lt;/code&gt; 主要用于矩阵和数据框，而 &lt;code&gt;str()&lt;/code&gt; 和 &lt;code&gt;summary()&lt;/code&gt; 适用于多种对象类型。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4 6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2 3 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;length(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;length(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;length(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nrow(v)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nrow(m)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;nrow(a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>向量和矩阵有什么区别</title>
+        <link>bio-spring/post/2010/10/22/2010-10-22-vector-matrix/</link>
+        <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/10/22/2010-10-22-vector-matrix/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;向量&lt;/strong&gt;和&lt;strong&gt;矩阵&lt;/strong&gt;有什么区别&lt;/p&gt;
+&lt;p&gt;向量是矩阵的特殊类型，是只有一行或者一列的矩阵。这两种矩阵分别称为行矩阵（行向量）和列矩阵（列向量）。&lt;/p&gt;
+&lt;p&gt;另外，矩阵用阶数表示，比如2阶方阵；向量通常用维数表示，比如n维向量。&lt;/p&gt;
+&lt;p&gt;总之，向量的本质是矩阵，向量的计算全部参考矩阵计算的运算律。&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,304 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perl on BIO-SPRING</title>
+    <link>bio-spring/tags/perl/</link>
+    <description>Recent content in Perl on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 14 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/perl/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>A Genbank to BED converter</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+        <description>
+          &lt;p&gt;Like &lt;a href=&#34;http://bio-spring.top/a-genbenk-gtf-converter-derived-from-bioperl/&#34;&gt;the previous Genbank -&amp;gt; GTF
+converter&lt;/a&gt;,
+this script is also depended on BioPerl, so you need firstly get the
+module installed in your system (&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;Install
+BioPerl&lt;/a&gt;). To check whether
+BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     gb2bed.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;Read Pod for further information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;gb2bed.pl &amp;ndash; Genbank -&amp;gt; BED&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;gb2bed.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly BED files from NCBI
+GenBank.&lt;br&gt;
+Six columns will be extracted:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;chrom - name of the chromosome or scaffold. Any valid
+seq_region_name can be used, and chromosome names can be given with or
+without the &amp;lsquo;chr&amp;rsquo; prefix.&lt;/li&gt;
+&lt;li&gt;chromStart - Start position of the feature in standard chromosomal
+coordinates (i.e. first base is 0).&lt;/li&gt;
+&lt;li&gt;chromEnd - End position of the feature in standard chromosomal
+coordinates&lt;/li&gt;
+&lt;li&gt;name - Label to be displayed under the feature, if turned on in
+&amp;ldquo;Configure this page&amp;rdquo;. [locus_tag]&lt;/li&gt;
+&lt;li&gt;score - A score between 0 and 1000. [0]&lt;/li&gt;
+&lt;li&gt;strand - defined as + (forward) or - (reverse).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;br&gt;
+Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $output, @filters, @keep);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;filter|f=s&amp;rsquo; =&amp;gt; \@filters,&lt;br&gt;
+&amp;lsquo;keep|k=s&amp;rsquo; =&amp;gt; \@keep,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;@keep = (&amp;lsquo;gene&amp;rsquo;) unless $#keep &amp;gt;= 0;&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($output) { open $out, &amp;ldquo;&amp;gt; $output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %filter;&lt;br&gt;
+map {$filter{$_}++} @filters;&lt;br&gt;
+my %keep;&lt;br&gt;
+map {$keep{$_}++} @keep;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $chr = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;my @all_SeqFeatures = $seq-&amp;gt;get_all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;#~ warn &amp;ldquo;# working on $chr\n&amp;rdquo;;&lt;br&gt;
+if ($#filters &amp;gt;= 0){&lt;br&gt;
+@all_SeqFeatures = grep { !defined $filter{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;br&gt;
+if ($#keep &amp;gt;= 0) {&lt;br&gt;
+@all_SeqFeatures = grep { defined $keep{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$chr has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if $#all_SeqFeatures &amp;lt; 0; for my $feature ( @all_SeqFeatures ) {
+my ($start, $end, $name, $strand); $start = $feature-&amp;gt;start - 1; #
+bed base is 0, while genbank is 1&lt;br&gt;
+$end = $feature-&amp;gt;end;&lt;br&gt;
+($name) = $feature-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;);&lt;br&gt;
+$strand = $feature-&amp;gt;strand;&lt;br&gt;
+$strand = $strand &amp;lt; 0 ? &amp;lsquo;-&amp;rsquo; : &amp;lsquo;+&amp;rsquo;; print $out join(&amp;rdquo;\t&amp;quot;, $chr,
+$start, $end, $name, 0, $strand), &amp;ldquo;\n&amp;rdquo;; } }&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Fix “getopts.pl can not be located in @INC” error in SSPACE_Standard_v3.0.pl</title>
+        <link>bio-spring/post/2015/08/16/2015-08-16-sspace-getopts-error/</link>
+        <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/16/2015-08-16-sspace-getopts-error/</guid>
+        <description>
+          &lt;p&gt;SSPACE是一个常用的Scaffolding软件.当你有新的测序数据时,你可以使用SSPACE将原有的contigs延长,scaffolding等.&lt;/p&gt;
+&lt;p&gt;在Ubuntu
+14.04系统中运行该软件v3.0会出现错误.谷歌也没有发现好的解决方法,最终通过研究源代码,发现这是一个简单的问题,修订源代码之后,终于能够成功运行.&lt;/p&gt;
+&lt;p&gt;两处修订如下:&lt;/p&gt;
+&lt;p&gt;[cc lang=”perl”]&lt;br&gt;
+#~ require “getopts.pl”;&lt;br&gt;
+use Getopt::Std;&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;[cc lang=”perl”]&lt;br&gt;
+#~ &amp;amp;Getopts(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);&lt;br&gt;
+getopt(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>修复Bio::Tree::Draw::Cladogram 输出EPS BoundingBox错误的问题</title>
+        <link>bio-spring/post/2013/12/25/2013-12-25-fix-eps-boundingbox-error/</link>
+        <pubDate>Wed, 25 Dec 2013 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2013/12/25/2013-12-25-fix-eps-boundingbox-error/</guid>
+        <description>
+          &lt;p&gt;使用Bio::Tree::Draw::Cladogram 输出的 EPS 文档在很多 EPS
+查看软件（如Windows下面的ACDsee，gsView等）中不能打开，经查是由于
+BoundingBox 出现浮点数所致，具体设计的代码为 Cladogram.pm 的 new 方法和
+print 方法，简便起见，可以在原先的 443
+行代码前面添加两行代码，以解决该问题。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;如下所示 ：&lt;/p&gt;
+&lt;p&gt;[perl]&lt;/p&gt;
+&lt;p&gt;print $INFO “%!PS-Adobe-\n”;&lt;br&gt;
+$width = int($width + 1); # BoundingBox should be int&lt;br&gt;
+$height = int($height +1);&lt;br&gt;
+print $INFO “%%BoundingBox: 0 0 “, $width, ” “, $height, “\n”;&lt;br&gt;
+print $INFO “1 setlinewidth\n”;&lt;br&gt;
+print $INFO “/$font findfont\n”;&lt;br&gt;
+print $INFO “$size scalefont\n”;&lt;br&gt;
+print $INFO “setfont\n”;&lt;/p&gt;
+&lt;p&gt;[/perl]&lt;/p&gt;
+&lt;p&gt;经测试，修改此处后，生成的　ＥＰＳ　文档不会再由于该错误无法打开和查看。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>使用正则表达式匹配DOI</title>
+        <link>bio-spring/post/2012/03/10/2012-03-10-using-regex-match-doi/</link>
+        <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2012/03/10/2012-03-10-using-regex-match-doi/</guid>
+        <description>
+          &lt;p&gt;先看几个DOI的例子：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;10.1093/nar/gkh458&lt;/li&gt;
+&lt;li&gt;10.1146/annurev.micro.112408.134233&lt;/li&gt;
+&lt;li&gt;10.1183/09031936.02.00400202&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以看出，DOI的编码以“10”开始，可以含有数字]0-9]，小数点，斜杠等分隔，但是其中不会出现空格。鉴于此，在perl中使用以下正则表达式匹配：&lt;/p&gt;
+&lt;p&gt;[cc lang=”perl”]&lt;br&gt;
+$str1 =~ /10\.[^\s\/]+\/[^\s]+/; # borrowed from Zotero&lt;br&gt;
+$str2 =~ /\b(10\.\d+\/[^\s]+)\b/; # another one&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Perl中的split函数和join函数：不同的参数书写样式</title>
+        <link>bio-spring/post/2011/03/13/2011-03-13-perl-split-join/</link>
+        <pubDate>Sun, 13 Mar 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/03/13/2011-03-13-perl-split-join/</guid>
+        <description>
+          &lt;p&gt;这两个函数其实是一对孪生函数，它们的作用是恰恰相反的。而我，就一直以为这两个函数的用法相同，其实它们是有很大的不同的。&lt;/p&gt;
+&lt;p&gt;split的用法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;split /PATTERN/,EXPR&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[perl]split(/(?=\w)/, ‘hi there!’);[/perl]&lt;/p&gt;
+&lt;p&gt;join的用法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;join EXPR,LIST&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[perl]$rec = join(‘:’,
+$login,$passwd,$uid,$gid,$gcos,$home,$shell);[/perl]&lt;/p&gt;
+&lt;p&gt;呵呵，搞不懂我想说什么。其实只是我在使用join函数的时候，用//把第一个参数圈起来了。&lt;/p&gt;
+&lt;p&gt;你有没有犯过这种错误。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Perl LWP：从“国家地理每日图片”到“Cell最近一期的封面”</title>
+        <link>bio-spring/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</link>
+        <pubDate>Wed, 08 Dec 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/12/08/2010-12-08-perl-lwp-image-fetch/</guid>
+        <description>
+          &lt;p&gt;在网上看到了一个从国家地理杂志网站下载每日图片的Perl程序。因为网站改版，脚本已经不能正常运行，经过修改后，经测试可以将每日图片下载到当前目录，代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:perl&#34;&gt;#!/usr/bin/perl
+# author:
+# Seraphxby
+# Purpose:
+# 查看国家地理每日图片的Perl脚本
+# history:
+# v0.1 first draft
+# 2010-12-8 modified by gaospecial
+use warnings;
+use strict;
+use LWP::Simple;
+my $url=&#39;http://photography.nationalgeographic.com/photography/photo-of-the-day&#39;;
+my $content = get( &amp;quot;$url&amp;quot; ) || die &amp;quot;get the page failed!\n&amp;quot;;
+my $img;
+if ($content =~ m/(.*?&amp;lt;\/a&amp;gt;)/s) {
+$content = $1;
+if($content =~ m/&amp;lt;img.*?src=&amp;quot;([^\t]*?)&amp;quot;/){ # 非贪婪的数量词 *?,匹配中不含有跳格\t
+$img = $1;
+if($img =~ m/^(.*?)([^\/]+$)/){
+$url = $1;
+$img = $2;
+getstore($url.$img,$img) || die &amp;quot;get img failed!\n&amp;quot;;
+
+}
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;然后，为了能够下载Cell的封面，将脚本中的相应参数修改后，类似的，可以从cell网站下载封面图片到当前目录。代码如下：&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-lang:perl&#34;&gt;#!/usr/bin/perl
+# author:
+# gaospecial@gmail.com 2010-12
+# Purpose:
+# 获取最近一期Cell杂志封面的Perl脚本
+
+use warnings;
+use strict;
+use LWP::Simple;
+my $url=&#39;http://www.cell.com/current&#39;;
+my $content = get( &amp;quot;$url&amp;quot; ) || die &amp;quot;get the page failed!\n&amp;quot;;
+my $img;
+if ($content =~ m/(.*?&amp;lt;\/div&amp;gt;)/s) {
+$content = $1;
+if($content =~ m/&amp;lt;img.*?src=&amp;quot;([^\t]*?)&amp;quot;.*&amp;lt;p.*&amp;gt;(.*)&amp;lt;\/p&amp;gt;/){ # get url and cation
+my $img_src = $1;
+my $img_cation = $2;
+if($img_src =~ m/^.*?([^\/]+$)/){ # get image name
+my $img_name = $1;
+getstore($img_src,$img_name) || die &amp;quot;get img failed!\n&amp;quot;; # save image to current dir
+}
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;div class=&#34;primary_photo&#34;&gt;
+&lt;div id=&#34;coverpopup&#34;&gt;
+&lt;p&gt;此处的两部分代码，可以作为Perl LWP模块的入门范例。&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,282 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R Markdown on BIO-SPRING</title>
+    <link>bio-spring/tags/r-markdown/</link>
+    <description>Recent content in R Markdown on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/r-markdown/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>在 RStudio 中使用 Julia</title>
+        <link>bio-spring/post/2023/08/23/using-julia-in-rstudio/</link>
+        <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2023/08/23/using-julia-in-rstudio/</guid>
+        <description>
+          &lt;p&gt;因为要运行 &lt;a href=&#34;https://github.com/michel-mata/cNODE.jl&#34;&gt;cNODE&lt;/a&gt; 程序，所以接触了一下 Julia 语言。&lt;/p&gt;
+&lt;h2 id=&#34;julia&#34;&gt;Julia&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一群拥有各种语言丰富编程经验的Matlab高级用户，对现有的科学计算编程工具感到不满&amp;mdash;&amp;mdash;这些软件对自己专长的领域表现得非常棒，但在其它领域却非常糟糕。他们想要的是一个开源的软件，它要像C语言一般快速而有拥有如同Ruby的动态性；要具有Lisp般真正的同像性而又有Matlab般熟悉的数学记号；要像Python般通用、像R般在统计分析上得心应手、像Perl般自然地处理字符串、像Matlab般具有强大的线性代数运算能力、像shell般胶水语言的能力，易于学习而又不让真正的黑客感到无聊；还有，它应该是交互式的，同时又是编译型的&amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;快！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://julialang.org/assets/images/benchmarks.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;由上图可以看出，Julia 的运行速度是除 C 语言以外几乎最快的。&lt;/p&gt;
+&lt;p&gt;Julia 一开始就是为&lt;a href=&#34;https://cn.julialang.org/benchmarks/&#34;&gt;高性能&lt;/a&gt;而设计的。 Julia 程序通过 LLVM 编译成高效的 &lt;a href=&#34;https://cn.julialang.org/downloads/#support_tiers&#34;&gt;多平台&lt;/a&gt; 机器码。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Julia 是&lt;a href=&#34;https://docs.juliacn.com/latest/manual/types/&#34;&gt;动态类型的&lt;/a&gt;，使用起来像脚本语言，同时有很好的&lt;a href=&#34;https://docs.juliacn.com/latest/stdlib/REPL/&#34;&gt;交互&lt;/a&gt;体验。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可选类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Julia 有丰富的&lt;a href=&#34;https://docs.juliacn.com/latest/manual/types/&#34;&gt;数据类型描述语言&lt;/a&gt;，标注类型声明可以使程序更清晰可靠。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Julia 使用&lt;a href=&#34;https://docs.juliacn.com/latest/manual/methods/&#34;&gt;多分派&lt;/a&gt;范式，很容易表达面向对象和&lt;a href=&#34;https://docs.juliacn.com/latest/manual/metaprogramming/&#34;&gt;函数式&lt;/a&gt;编程模式。 同时提供了&lt;a href=&#34;https://docs.juliacn.com/latest/manual/networking-and-streams/&#34;&gt;异步 I/O&lt;/a&gt;、&lt;a href=&#34;https://github.com/JuliaDebug/Debugger.jl&#34;&gt;调试&lt;/a&gt;、&lt;a href=&#34;https://docs.juliacn.com/latest/stdlib/Logging/&#34;&gt;日志&lt;/a&gt;、&lt;a href=&#34;https://docs.juliacn.com/latest/manual/profile/&#34;&gt;性能分析&lt;/a&gt;、&lt;a href=&#34;https://docs.juliacn.com/latest/stdlib/Pkg/index.html&#34;&gt;包管理&lt;/a&gt;等工具。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;易用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Julia 拥有高阶的语法，这让具有不同编程语言背景和经验的程序员都能使用它。&lt;a href=&#34;https://github.com/JuliaLang/Microbenchmarks/blob/master/perf.jl&#34;&gt;查看 Julia 的微基准&lt;/a&gt;来感受这门语言吧。&lt;/p&gt;
+&lt;h2 id=&#34;示例&#34;&gt;示例&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Julia与MATLAB语言较为类似。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;function mandelbrot(a)
+    z = 0
+    for i=1:50
+        z = z^2 + a
+    end
+    return z
+end
+
+for y=1.0:-0.05:-1.0
+    for x=-2.0:0.0315:0.5
+        abs(mandelbrot(complex(x, y))) &amp;lt; 2 ? print(&amp;quot;*&amp;quot;) : print(&amp;quot; &amp;quot;)
+    end
+    println()
+end
+
+# Taken from: https://rosettacode.org/wiki/Mandelbrot_set#Julia
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;包管理&#34;&gt;包管理&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://discourse.juliacn.com/t/topic/3154&#34;&gt;为什么 Julia 装包这么困难&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用Pkg管理包。打开命令提示符，按 ] 即可进入包管理器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;julia&amp;gt; ]
+(v1.1) pkg&amp;gt; status
+(v1.1) pkg&amp;gt; add NewPackage
+&amp;lt;press Backspace&amp;gt;
+julia&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;更改软件源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;using PkgServerClient # 在 using 时会自动切换到最近的服务器
+PkgServerClient.registry_response_time() # 查看所有服务器的延迟
+PkgServerClient.set_mirror(&amp;quot;NJU&amp;quot;) # 使用南京大学的服务器
+
+using Pkg
+Pkg.Registry.rm(&amp;quot;General&amp;quot;)  # 重置 General 注册表，相当于在提示符下输入 pkg&amp;gt; registry rm General
+Pkg.Registry.add(&amp;quot;General&amp;quot;)  # 重置 General 注册表，这样才会直接从镜像站拉取数据
+Pkg.update()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;语法参考&#34;&gt;语法参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JuliaAcademy/Introduction-to-Julia&#34;&gt;Introduction-to-Julia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://juliaacademy.com/courses/375479/&#34;&gt;同步视频课程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.juliacn.com/latest/manual/&#34;&gt;Julia 手册中文版&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;suppress-warnings&#34;&gt;suppress warnings&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;启动 Julia 时，加入 &lt;code&gt;--depwarn=no&lt;/code&gt; 参数；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 &lt;code&gt;Suppressor&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;using Suppressor
+
+@suppress_err begin
+include(&amp;quot;script.jl&amp;quot;)
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Hello R Markdown</title>
+        <link>bio-spring/post/2020/12/01/hello-r-markdown/</link>
+        <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+        <author>Frida Gomam</author>
+        <guid>bio-spring/post/2020/12/01/hello-r-markdown/</guid>
+        <description>
+          &lt;h1 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;including-plots&#34;&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;bio-spring/post/2020/12/01/hello-r-markdown/index.en_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;Figure 1: A fancy pie chart.&lt;/p&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>在RMarkdown中设定图片大小的方法</title>
+        <link>bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/</link>
+        <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/</guid>
+        <description>
+          &lt;p&gt;本文是 &lt;a href=&#34;https://sebastiansauer.github.io/figure_sizing_knitr/&#34;&gt;英文原文&lt;/a&gt; 的翻译。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 YAML 头部文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;--- 
+title: &amp;quot;My Document&amp;quot; 
+output: html_document: 
+fig_width: 6 
+fig_height: 4 
+--- 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;统一设置每个图片的宽 6 英寸，高 4 英寸。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;使用 chunk option&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这将影响后面所有代码生成图片的大小。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::opts_chunk$set(fig.width=4, fig.height=4)
+plot(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;如果仅需要改变单一图片，则可以将chunk option 写到对应的 chunk 中。如&lt;code&gt;{r fig2, fig.height = 8, fig.width = 6, fig.align = &amp;quot;center&amp;quot;}&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;
+&lt;p&gt;此外，还有 &lt;code&gt;fig.asp=0.7&lt;/code&gt; 和 &lt;code&gt;out.width=&amp;quot;80%&amp;quot;&lt;/code&gt; 等参数可供使用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;out.width&lt;/code&gt;使用后对于优化手持设备、PDF文件等的显示很有帮助。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下面的例子与前面相比就是加入了&lt;code&gt;out.width=&amp;quot;80%&amp;quot;&lt;/code&gt;的设置，当用手机浏览时可以看到二者的差别。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2020/04/13/ways-to-set-figure-size-in-markdown/index.zh_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;80%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;使用 Pandoc 的 Markdown 语法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Rmarkdown 默认使用 Pandoc 来转换，因此可以使用 Pandoc 语法改变图片大小。如上一篇帖子使用的一个图片如果这样设置，会得到下面的结果。 &lt;code&gt;![](https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png){ width=50% }&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&#34; alt=&#34;&#34;&gt;{ width=50% }&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用 HTML 语法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Markdown 天生支持原生的 HTML 语法。因此也可以使用 HTML 来对图片大小进行修改。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;center&amp;gt;&amp;lt;img src=&amp;quot;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&amp;quot; width=&amp;quot;75%&amp;quot; title=&amp;quot;HTML图片&amp;quot;/&amp;gt;&amp;lt;/center&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;&lt;img src=&#34;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&#34; width=&#34;75%&#34; title=&#34;HTML图片&#34;/&gt;&lt;/center&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用 &lt;code&gt;knitr::include_graphics()&lt;/code&gt; 函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个函数提供了一种统一的语法来使用 chunk option 完成图片大小的设置。如下面的图片使用的参数&lt;code&gt;{r fig.width=5,fig.height=5,out.width=&amp;quot;40%&amp;quot;,fig.align=&amp;quot;right&amp;quot;}&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::include_graphics(&amp;quot;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://vnote-1251564393.cos.ap-chengdu.myqcloud.com/1586666475_20200412124107047_26263.png&#34; width=&#34;40%&#34; style=&#34;display: block; margin: auto 0 auto auto;&#34; /&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Hello R Markdown</title>
+        <link>bio-spring/post/2015/07/23/r-rmarkdown/</link>
+        <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+        <author>Frida Gomam</author>
+        <guid>bio-spring/post/2015/07/23/r-rmarkdown/</guid>
+        <description>
+          &lt;h1 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;including-plots&#34;&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;bio-spring/post/2015/07/23/r-rmarkdown/index.zh_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;Figure 1: A fancy pie chart.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;如果要使用 rmarkdown 输出，则需要将 Rmd，html 和 static 下面的 Rplot 一起 Commit 到 GitHub。&lt;/p&gt;
+&lt;p&gt;Commit everything you see under content/ and static/, including the .html output files.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/rstudio/blogdown/issues/169#issuecomment-321460204&#34;&gt;https://github.com/rstudio/blogdown/issues/169#issuecomment-321460204&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

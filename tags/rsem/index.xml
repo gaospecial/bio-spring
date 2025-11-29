@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsem on BIO-SPRING</title>
+    <link>bio-spring/tags/rsem/</link>
+    <description>Recent content in Rsem on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/rsem/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File</title>
+        <link>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</link>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</guid>
+        <description>
+          &lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download Genbank from NCBI;&lt;/li&gt;
+&lt;li&gt;Convert Genbank to GFF3 with
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;BioPerl&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Modify the GFF3 file;&lt;/li&gt;
+&lt;li&gt;Download Fasta from NCBI or use Genbank conversion;&lt;/li&gt;
+&lt;li&gt;Use the modified GFF3 file in rsem-prepare-reference;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;主要代码如下：&lt;br&gt;
+&lt;code&gt; bp_genbank2gff3  --GFF_VERSION 3 file.gb awk &#39;$3!~/pseudo/&#39; file.gb.gff &amp;gt; file.rsem.gff # or more restrictly with only protein coding genes awk &#39;$3~/^(gene|mRNA|exon|polypeptide)$/&#39; file.gb.gff &amp;gt; file.cds.gff # remove the version number in fasta accession if no transcript is extract rsem-prepare-reference file.fasta --gff3 file.rsem.gff reference_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里主要解决了以下错误：&lt;br&gt;
+&lt;strong&gt;Line x does not have attribute Parent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于rsem遵循gene-&amp;gt;transcript-&amp;gt;exon的结构，并利用exon来作为RNA的最后形式（经过剪切和后处理的RNA），要求exon都有(且仅有）一个Parent。而GFF3文件中pseudogene和pseudogenic_exon是没有Parent的。&lt;/p&gt;
+&lt;p&gt;以下为rsem-gff3-to-gtf line
+27-32。细菌基因组的GFF3文件在gene-&amp;gt;transcript-&amp;gt;exon中的映射关系如下：gene
+= type_gene, mRNA(tRNA, etc) = type_transcript, CDS = exon.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; type_gene = [&amp;quot;gene&amp;quot;, &amp;quot;snRNA_gene&amp;quot;, &amp;quot;transposable_element_gene&amp;quot;, &amp;quot;ncRNA_gene&amp;quot;, &amp;quot;telomerase_RNA_gene&amp;quot;,     &amp;quot;rRNA_gene&amp;quot;, &amp;quot;tRNA_gene&amp;quot;, &amp;quot;snoRNA_gene&amp;quot;, &amp;quot;mt_gene&amp;quot;, &amp;quot;miRNA_gene&amp;quot;, &amp;quot;lincRNA_gene&amp;quot;, &amp;quot;RNA&amp;quot;, &amp;quot;VD_gene_segment&amp;quot;] type_transcript = [&amp;quot;transcript&amp;quot;, &amp;quot;primary_transcript&amp;quot;, &amp;quot;mRNA&amp;quot;, &amp;quot;ncRNA&amp;quot;, &amp;quot;tRNA&amp;quot;, &amp;quot;rRNA&amp;quot;, &amp;quot;snRNA&amp;quot;, &amp;quot;snoRNA&amp;quot;, &amp;quot;miRNA&amp;quot;,     &amp;quot;pseudogenic_transcript&amp;quot;, &amp;quot;lincRNA&amp;quot;, &amp;quot;NMD_transcript_variant&amp;quot;, &amp;quot;aberrant_processed_transcript&amp;quot;,     &amp;quot;nc_primary_transcript&amp;quot;, &amp;quot;processed_pseudogene&amp;quot;, &amp;quot;mRNA_TE_gene&amp;quot;] type_exon = [&amp;quot;exon&amp;quot;, &amp;quot;CDS&amp;quot;, &amp;quot;five_prime_UTR&amp;quot;, &amp;quot;three_prime_UTR&amp;quot;, &amp;quot;UTR&amp;quot;, &amp;quot;noncoding_exon&amp;quot;, &amp;quot;pseudogenic_exon&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

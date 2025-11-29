@@ -1,0 +1,86 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>硬盘 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E7%A1%AC%E7%9B%98/</link>
+    <description>Recent content in 硬盘 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 21 Oct 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E7%A1%AC%E7%9B%98/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>荐：Ubuntu（linux），Windows和Android操作系统中的磁盘使用分析软件</title>
+        <link>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</link>
+        <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</guid>
+        <description>
+          &lt;p&gt;使用分析软件分析磁盘应用，在整理硬盘的时候很有用，对各个文件夹所占用的空间可以做到一目了然。你所需要的，正是下面所列出的小程序。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ubuntu：系统自带“磁盘使用分析程序“，第一次用这个软件，就会喜欢上它。&lt;br&gt;
+Windows： 推荐 RidNacs&lt;br&gt;
+Android：磁盘详情 DiskUsage&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Ubuntu系统自带“磁盘使用分析程序“，图示清晰明了。&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/Screenshot-%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E5%88%86%E6%9E%90%E5%99%A8.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows 推荐 RidNacs&lt;/strong&gt;&lt;br&gt;
+挺好用的一个小软件，就是图表有些看不懂。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/RidNacs-C.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Android：磁盘详情 DiskUsage&lt;/strong&gt;&lt;br&gt;
+选择想查看的分区。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/146144_ldpi_screenshot_1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;速度很快，马上出来相应的图表。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+        <link>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+        <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;使用UUID的方法挂载分区&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo
+umount -a”命令全部卸载，然好再使用“sudo mount
+-a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt; 
+&amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+/dev/sda7          /var/ftp               ext3      relatime          
+0             2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;怎么办？&lt;br&gt;
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://zh.wikipedia.org/wiki/UUID&#34;&gt;一组 UUID，系由一串 16 位组（亦称 16 字节，或 128
+位）的16进位数字所构成，是故UUID理论上的总数为2&lt;sup&gt;16 x
+8&lt;/sup&gt;=2&lt;sup&gt;128&lt;/sup&gt;，约等于3.4 x
+10&lt;sup&gt;38&lt;/sup&gt;。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输入命令，得到各设备的UUID。&lt;br&gt;
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]&lt;/p&gt;
+&lt;p&gt;根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt;                       &amp;lt;mount point&amp;gt;      
+&amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;  &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+UUID=d51b2056-6825-456c-957d-ebb16edd349d    /var/ftp      ext3      
+relatime     0   2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重新启动计算机，或者输入命令“sudo mount -a”，所有的设备就会正确挂载。&lt;/p&gt;
+&lt;p&gt;另外，为什么会出现这种错误呢，原来是因为我插了一个U盘在电脑上。这个忘记拔掉的U盘，占据了sda的标示，而它只有一个分区，所以在挂载的时候，所有的分区都不能得到正确挂载了（还好ROOT分区系统默认使用了UUID的方法挂载，要不然岂不是启动不了系统了吗）。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

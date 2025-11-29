@@ -1,0 +1,139 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ggrepel on BIO-SPRING</title>
+    <link>bio-spring/tags/ggrepel/</link>
+    <description>Recent content in Ggrepel on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/ggrepel/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>ggplot label placement</title>
+        <link>bio-spring/post/2019/07/17/ggplot-label-placement/</link>
+        <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2019/07/17/ggplot-label-placement/</guid>
+        <description>
+          &lt;p&gt;&lt;em&gt;本文曾经发表在 biobabble 微信公众号 &lt;a href=&#34;https://mp.weixin.qq.com/s/6MMVsO22n9oKZNC7qC7g5A&#34;&gt;链接&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ggplot在绘制label的时候很容易出现字体溢出，位置难以调整的问题。Y叔曾经在公众号上吐槽过。&lt;/p&gt;
+&lt;p&gt;实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“&lt;a href=&#34;https://en.wikipedia.org/wiki/Automatic_label_placement&#34;&gt;Automatic label placement&lt;/a&gt;”就是研究该问题的。&lt;/p&gt;
+&lt;p&gt;下面介绍一下如何处理这个标签定位的问题。&lt;/p&gt;
+&lt;h2 id=&#34;方法一使用hjustvjustnudge_xnudge_y等参数调整&#34;&gt;方法一：使用hjust，vjust，nudge_x，nudge_y等参数调整&lt;/h2&gt;
+&lt;p&gt;我们从mpg数据集中提取10行数据画图，默认情况下是这样的情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mpg数据集是ggplot2自带的一个234行和11个变量的数据，包含了38种流行车型的燃油经济性数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;包括：生产厂家（manufacturer），型号（model），发动机排量（displ，单位为L），生产年份（year），气缸数目（cyl），传动类型（trans），驱动类型（drv，f=前驱，r=后驱，4=四驱），每加仑燃油在城市和高速公路上的里程数（cty和hwy），汽油种类（fl）和汽车类型（class）等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+## 生成数据集
+set.seed(0)
+df &amp;lt;- mpg[sample(nrow(mpg),10),]
+
+## 发动机排量和良好路况情况下单位耗油所能行驶的里程数
+ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;这种情况下，边缘的字符串会溢出。可以添加&lt;code&gt;hjust=&amp;quot;inward&amp;quot;&lt;/code&gt;来避免这一情况。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## hjust=&amp;quot;inward&amp;quot;把左侧的label右对齐，右侧的label左对齐。
+ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;但是这种情形仍然会出现point和label重叠的情况。因此需要进一步调节。使用&lt;code&gt;nudge_x&lt;/code&gt;和&lt;code&gt;nudge_y&lt;/code&gt;可以设置标签显示位置的微小偏移。&lt;/p&gt;
+&lt;p&gt;由于标签是水平显示的，左右两侧容易出现溢出，而竖直方向上则一般不会，所以我们将竖直方向设为居中，并微调-0.5，这样就可以保证标签显示比较正常了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model),hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hjust, vjust = c(&amp;ldquo;left&amp;rdquo;,&amp;ldquo;right&amp;rdquo;,&amp;ldquo;center&amp;rdquo;,&amp;ldquo;inward&amp;rdquo;,&amp;ldquo;outward&amp;rdquo;);
+nudge_x, nudge_y = value.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果在Y轴边缘有溢出的话，则在结合调整xlim，ylim可以解决。如下所示：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model),size=12,hjust=&amp;quot;inward&amp;quot;,vjust=&amp;quot;center&amp;quot;,nudge_y = -.5) + 
+  xlim(c(0,8))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;如上图所示，虽然确保了标签没有溢出，但是同时又会有标签重叠的情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也可以参考 vignette(&amp;ldquo;ggplot2-specs&amp;rdquo;) 中的部分内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;实际上，标签如何在图片中展示，还真不是一个简单的问题。有一个领域“&lt;a href=&#34;https://en.wikipedia.org/wiki/Automatic_label_placement&#34;&gt;Automatic label placement&lt;/a&gt;”就是研究该问题的。&lt;/p&gt;
+&lt;p&gt;不过，有一些R包可以帮助我们解决这一难题。&lt;/p&gt;
+&lt;h2 id=&#34;方法二ggrepel&#34;&gt;方法二：ggrepel&lt;/h2&gt;
+&lt;p&gt;ggrepel包就是为了处理ggplot label而开发的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggrepel)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &#39;ggrepel&#39; was built under R version 4.3.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## 使用geom_text_repel可以一步完成上面类似的操作
+ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text_repel(aes(label=model))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更多信息，请参考ggrepel文档中的ggrepel examples&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;方法三directlabels&#34;&gt;方法三：directlabels&lt;/h2&gt;
+&lt;p&gt;directlabels则是另外一个选择。这个包不仅能够用于ggplot图，还可以用于latitice基础绘图系统。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## 安装和载入
+# install.packages(&amp;quot;directlabels&amp;quot;)
+library(&amp;quot;directlabels&amp;quot;)
+
+## 看一下效果
+ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_dl(aes(label=model),method = &amp;quot;smart.grid&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;这个smart.grid方法特别适合于point作图中points非常多的情况，避免使用legend，让图片更美观更易读。&lt;/p&gt;
+&lt;p&gt;比较一下下面两幅图，显然后者更好。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## 使用legend和颜色
+ggplot(mpg,aes(displ,hwy,color=class)) + 
+  geom_point()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## 使用label和颜色
+ggplot(mpg,aes(displ,hwy,color=class)) + 
+  geom_point(show.legend=F) + 
+  geom_dl(aes(label=class),method=&amp;quot;smart.grid&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-7-2.png&#34; width=&#34;672&#34; /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;geom_dl这里有一个method参数，可以有“last.points”，“first.points”，“top.qp”，“first.qp”，“last.qp”，“smart.grid”等不同选择。针对不同的绘图类型会有不同的可选项。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不同作图类型可用的方法可以参见：http://directlabels.r-forge.r-project.org/docs/index.html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;外check_overlap&#34;&gt;外：check_overlap&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;check_overlap&lt;/code&gt;也是&lt;code&gt;ggplot2&lt;/code&gt;的&lt;code&gt;geom_text&lt;/code&gt;自带的一个小参数，可以避免label重叠。应用时，会依次检查后面的label是否与前面的重叠，有重叠的话，就不显示。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## df数据集含有mpg中的十行数据
+ggplot(df,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model),check_overlap=T)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;## mpg数据集含有234行数据
+ggplot(mpg,aes(displ,hwy)) + 
+  geom_point() + 
+  geom_text(aes(label=model),check_overlap=T)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/07/17/ggplot-label-placement/index.zh_files/figure-html/unnamed-chunk-8-2.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;这个参数，label少的时候用不上，label多的时候也不能随便用。食之无味，弃之可惜。鸡肋啊~~&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

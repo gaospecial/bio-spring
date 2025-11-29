@@ -1,0 +1,201 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RT-PCR on BIO-SPRING</title>
+    <link>bio-spring/tags/rt-pcr/</link>
+    <description>Recent content in RT-PCR on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/rt-pcr/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>RT-PCR数据可视化之一</title>
+        <link>bio-spring/post/2018/11/13/rt-pcr-data-visualization-one/</link>
+        <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2018/11/13/rt-pcr-data-visualization-one/</guid>
+        <description>
+          &lt;p&gt;QuantStudio Real-Time PCR software 是我们经常使用的 RT-PCR 软件, 它上面的可视化只能简单看看, 不满足发论文的需求. 如果需要得到发表级的图片, 还是需要 用 ggplot 大法加持.&lt;/p&gt;
+&lt;p&gt;为了能够使用这些数据, 首先需要导出文件. 为了方便操作, 文件导出时, 选择 &lt;code&gt;*.txt&lt;/code&gt; 格式, 每个面板导出成一个单独文件. 将文件放在 &lt;code&gt;data&lt;/code&gt; 文件夹中.&lt;/p&gt;
+&lt;h1 id=&#34;数据预处理&#34;&gt;数据预处理&lt;/h1&gt;
+&lt;p&gt;根据文件名后缀找到数据.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 数据文件目录
+dir &amp;lt;- &amp;quot;data&amp;quot;
+options(stringsAsFactors = F)
+
+# 根据文件名后缀找到对应文件
+amplification_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Amplification Data_ViiA7_export.txt&amp;quot;)
+result_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;Results_ViiA7_export.txt&amp;quot;)
+meltcurve_file &amp;lt;- list.files(path=dir,full.names = T,pattern = &amp;quot;MeltCurve Data_ViiA7_export.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们使用 &lt;code&gt;readr&lt;/code&gt; 来读取数据. 这个包避免了 R 语言对列名不合时宜的转换.&lt;/p&gt;
+&lt;p&gt;每个文件的前面 43 列都是基本描述信息, 选择略过. 读取接下来的数据表格.&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;results&lt;/code&gt; 文件中, CT 值的缺失值用 &lt;code&gt;&amp;quot;Undermined&amp;quot;&lt;/code&gt; 表示. 另外, 该文件末尾的也需要检查一下, 如果有非数据信息要删掉. 否则读取文件会报错.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 读取文件
+library(tidyr)
+library(dplyr)
+library(readr)
+
+# read
+amplification &amp;lt;- read_delim(amplification_file,&amp;quot;\t&amp;quot;,skip = 43)
+raw_results &amp;lt;-  read_delim(result_file,&amp;quot;\t&amp;quot;,skip = 43,na = &amp;quot;Undetermined&amp;quot;)
+meltcurve &amp;lt;-  read_delim(meltcurve_file,&amp;quot;\t&amp;quot;,skip = 43)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在 &lt;code&gt;&amp;quot;Results&amp;quot;&lt;/code&gt; 文件中, 含有我们定义的 &lt;code&gt;&amp;quot;Sample Name&amp;quot;&lt;/code&gt; 和 &lt;code&gt;&amp;quot;Target Name&amp;quot;&lt;/code&gt;, 而在另外两个文件中不存在. 为了能够在图中显示这些信息, 我们需要将这些信息提取出来, 并添加到另外两个文件数据中. 添加时, 按照 &lt;code&gt;&amp;quot;Well&amp;quot;&lt;/code&gt; 合并即可.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 修整数据
+meta &amp;lt;- raw_results %&amp;gt;% select(Well, `Sample Name`, `Target Name`)
+amplification &amp;lt;- amplification %&amp;gt;% select(Well,Cycle,Rn,`Delta Rn`) %&amp;gt;%  
+  left_join(meta) %&amp;gt;%
+  filter(Well&amp;lt;=5)
+meltcurve &amp;lt;- meltcurve %&amp;gt;% 
+  select(Well,Reading,Temperature,Fluorescence,Derivative) %&amp;gt;% 
+  filter(!is.na(Fluorescence)) %&amp;gt;%
+  left_join(meta)%&amp;gt;%
+  filter(Well&amp;lt;=5)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;可视化&#34;&gt;可视化&lt;/h1&gt;
+&lt;h2 id=&#34;扩增曲线&#34;&gt;扩增曲线&lt;/h2&gt;
+&lt;p&gt;首先绘制扩增曲线. 扩增曲线描述 RT-PCR 荧光信号随循环数的变化情况.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+
+# 更好看的科学计数法
+fancy_scientific &amp;lt;- function(l) {
+  # turn in to character string in scientific notation
+  l &amp;lt;- format(l, scientific = TRUE)
+  # quote the part before the exponent to keep all the digits
+  l &amp;lt;- gsub(&amp;quot;^(.*)e&amp;quot;, &amp;quot;&#39;\\1&#39;e&amp;quot;, l)
+  # turn the &#39;e+&#39; into plotmath format
+  l &amp;lt;- gsub(&amp;quot;e&amp;quot;, &amp;quot;%*%10^&amp;quot;, l)
+  # remove +
+  l &amp;lt;- gsub(&amp;quot;\\+&amp;quot;,&amp;quot;&amp;quot;,l)
+  # return this as an expression
+  parse(text=l)
+}
+
+ggplot(amplification,aes(Cycle,Rn,group=Well, color=`Target Name`,shape=`Sample Name`)) + 
+  geom_line() +
+  scale_y_continuous(labels=fancy_scientific)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;溶解曲线&#34;&gt;溶解曲线&lt;/h2&gt;
+&lt;p&gt;溶解曲线可以看出扩增产物的特异性.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(meltcurve,aes(Temperature,Derivative,group=Well,color=`Target Name`)) + 
+  geom_line()
+&lt;/code&gt;&lt;/pre&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Massive RT-PCR Primer Designer is online</title>
+        <link>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</link>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</guid>
+        <description>
+          &lt;p&gt;The Massive RT-PCR Primer Designer is based on Primer3 and BioPerl
+toolbox, and was derived from the standalone codes which have been
+discussed by two previous blog posts (&lt;a href=&#34;http://bio-spring.top/rt-primer-bioperl/&#34;&gt;Post
+1&lt;/a&gt; and &lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Post
+2&lt;/a&gt;).&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/rt-primer-designer-1.png&#34; class=&#34;alignnone size-full wp-image-776&#34; width=&#34;493&#34; height=&#34;183&#34; alt=&#34;rt-primer-designer&#34; /&gt;
+&lt;p&gt;You may access the service at &lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;The Massive RT-PCR Primer
+Designer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What this tool needs is your fasta file, which contains one or more
+nucleotide sequences that will be use as PCR template. Upload this file
+and the tool will generate the most ideal primer pairs suitable for
+quantitive Real-Time PCR (qRT-PCR). The primers will be supplied as a
+downloadable Excel file.&lt;/p&gt;
+&lt;p&gt;Notably, the amplicon size of these RT-PCR primers are spanning from 150
+bp to 250 bp.&lt;/p&gt;
+&lt;p&gt;Powered by AliYun, the service is available at 7×24h.&lt;/p&gt;
+&lt;p&gt;By the way, apply this promotion code &lt;strong&gt;u6fovy&lt;/strong&gt; when you buy Aliyun
+service for a 10% OFF.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>使用BioPerl和primer3批量设计RT-PCR引物</title>
+        <link>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</link>
+        <pubDate>Fri, 12 Nov 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</guid>
+        <description>
+          &lt;p&gt;Update：&lt;/p&gt;
+&lt;p&gt;我已经设置了一个&lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;Massive RT-PCR Primer
+Designer服务&lt;/a&gt;，有需要的朋友可以直接去上传自己基因序列的Fasta文件，然后服务器会将引物返回。&lt;/p&gt;
+&lt;p&gt;关于&lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Missing SEQUENCE
+tag错误的处理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下为原文。&lt;br&gt;
+———————————————————————————————–&lt;br&gt;
+本文介绍批量设计RT-PCR引物的方法，基于Ubuntu 10.10系统和BioPerl
+1.6.1。但是应当适用于大部分Linux系统。&lt;/p&gt;
+&lt;p&gt;本文假定你已经安装好BioPerl。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装primer3和Bio::PrimerDesigner&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[bash]&lt;br&gt;
+&amp;gt;sudo apt-get install primer3 libbio-primerdesigner-perl&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;修正程序Bug&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Primer3安装之后的可执行文件存在于/usr/bin/primer3_core，而Bio::PrimerDesigner软件包找不到该文件，所以需要建立一个符号链接。&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt;sudo ln -s /usr/bin/primer3_core /usr/local/bin/primer3&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;准备序列文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;将要设计的文件以Fasta格式保存（也可以用其它BioPerl识别的任意格式保存）在当前目录中，此处以seqs.fa命名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;代码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后在当前目录中新建文件designPrimer.pl。&lt;br&gt;
+录入代码如下：&lt;br&gt;
+[perl]&lt;br&gt;
+#! perl -w&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Bio::PrimerDesigner;&lt;/p&gt;
+&lt;p&gt;my $seqs = Bio::SeqIO-&amp;gt;new(-file =&amp;gt; ‘seqs.fa’);&lt;br&gt;
+open OUT, ‘&amp;gt;&amp;gt; raw_output.txt’;&lt;br&gt;
+my $pd = Bio::PrimerDesigner-&amp;gt;new;&lt;br&gt;
+while( my $seq = $seqs-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seqid = $seq-&amp;gt;id;&lt;br&gt;
+my $dna = $seq-&amp;gt;seq;&lt;br&gt;
+my %params = (&lt;br&gt;
+PRIMER_NUM_RETURN =&amp;gt; 1,&lt;br&gt;
+PRIMER_SEQUENCE_ID =&amp;gt; $seqid,&lt;br&gt;
+SEQUENCE =&amp;gt; $dna,&lt;br&gt;
+PRIMER_PRODUCT_SIZE_RANGE =&amp;gt; ‘150-250’,
+#注意此处参数在perl文档中是错误的，应更正为此&lt;br&gt;
+);&lt;br&gt;
+my $primers = $pd-&amp;gt;design( %params ) or die $pd-&amp;gt;error;&lt;br&gt;
+my ($left_primer,$right_primer);&lt;br&gt;
+if ( !$primers-&amp;gt;left ) {&lt;br&gt;
+warn “No primers found for $seqid\n”;&lt;br&gt;
+}&lt;br&gt;
+else{&lt;br&gt;
+$left_primer = $primers-&amp;gt;left;&lt;br&gt;
+$right_primer = $primers-&amp;gt;right;&lt;br&gt;
+}&lt;br&gt;
+print join(‘,’, $seqid, $left_primer, $right_primer);&lt;br&gt;
+print “\n”;&lt;br&gt;
+print OUT $primers-&amp;gt;raw_output;
+#此处的perl文档也是错误的，应更正为此&lt;br&gt;
+}&lt;br&gt;
+[/perl]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;保存引物&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开终端，输入&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl&lt;br&gt;
+[/bash]&lt;br&gt;
+如果程序运行正常，引物设计的结果将在屏幕上显示，同时应当会有一些警告信息。&lt;/p&gt;
+&lt;p&gt;然后，可以将结果用管道命令保存：&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl &amp;gt;primers.csv&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注释&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;raw_output.txt中含有primer3程序运行的完整结果。可以作为额外参考。&lt;/p&gt;
+&lt;p&gt;Refers：&lt;br&gt;
+&lt;a href=&#34;http://search.cpan.org/&#34;&gt;http://search.cpan.org/&lt;/a&gt;~smckay/Bio-PrimerDesigner-0.07/lib/Bio/PrimerDesigner.pm&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,326 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GenBank on BIO-SPRING</title>
+    <link>bio-spring/tags/genbank/</link>
+    <description>Recent content in GenBank on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/genbank/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File</title>
+        <link>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</link>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</guid>
+        <description>
+          &lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download Genbank from NCBI;&lt;/li&gt;
+&lt;li&gt;Convert Genbank to GFF3 with
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;BioPerl&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Modify the GFF3 file;&lt;/li&gt;
+&lt;li&gt;Download Fasta from NCBI or use Genbank conversion;&lt;/li&gt;
+&lt;li&gt;Use the modified GFF3 file in rsem-prepare-reference;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;主要代码如下：&lt;br&gt;
+&lt;code&gt; bp_genbank2gff3  --GFF_VERSION 3 file.gb awk &#39;$3!~/pseudo/&#39; file.gb.gff &amp;gt; file.rsem.gff # or more restrictly with only protein coding genes awk &#39;$3~/^(gene|mRNA|exon|polypeptide)$/&#39; file.gb.gff &amp;gt; file.cds.gff # remove the version number in fasta accession if no transcript is extract rsem-prepare-reference file.fasta --gff3 file.rsem.gff reference_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里主要解决了以下错误：&lt;br&gt;
+&lt;strong&gt;Line x does not have attribute Parent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于rsem遵循gene-&amp;gt;transcript-&amp;gt;exon的结构，并利用exon来作为RNA的最后形式（经过剪切和后处理的RNA），要求exon都有(且仅有）一个Parent。而GFF3文件中pseudogene和pseudogenic_exon是没有Parent的。&lt;/p&gt;
+&lt;p&gt;以下为rsem-gff3-to-gtf line
+27-32。细菌基因组的GFF3文件在gene-&amp;gt;transcript-&amp;gt;exon中的映射关系如下：gene
+= type_gene, mRNA(tRNA, etc) = type_transcript, CDS = exon.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; type_gene = [&amp;quot;gene&amp;quot;, &amp;quot;snRNA_gene&amp;quot;, &amp;quot;transposable_element_gene&amp;quot;, &amp;quot;ncRNA_gene&amp;quot;, &amp;quot;telomerase_RNA_gene&amp;quot;,     &amp;quot;rRNA_gene&amp;quot;, &amp;quot;tRNA_gene&amp;quot;, &amp;quot;snoRNA_gene&amp;quot;, &amp;quot;mt_gene&amp;quot;, &amp;quot;miRNA_gene&amp;quot;, &amp;quot;lincRNA_gene&amp;quot;, &amp;quot;RNA&amp;quot;, &amp;quot;VD_gene_segment&amp;quot;] type_transcript = [&amp;quot;transcript&amp;quot;, &amp;quot;primary_transcript&amp;quot;, &amp;quot;mRNA&amp;quot;, &amp;quot;ncRNA&amp;quot;, &amp;quot;tRNA&amp;quot;, &amp;quot;rRNA&amp;quot;, &amp;quot;snRNA&amp;quot;, &amp;quot;snoRNA&amp;quot;, &amp;quot;miRNA&amp;quot;,     &amp;quot;pseudogenic_transcript&amp;quot;, &amp;quot;lincRNA&amp;quot;, &amp;quot;NMD_transcript_variant&amp;quot;, &amp;quot;aberrant_processed_transcript&amp;quot;,     &amp;quot;nc_primary_transcript&amp;quot;, &amp;quot;processed_pseudogene&amp;quot;, &amp;quot;mRNA_TE_gene&amp;quot;] type_exon = [&amp;quot;exon&amp;quot;, &amp;quot;CDS&amp;quot;, &amp;quot;five_prime_UTR&amp;quot;, &amp;quot;three_prime_UTR&amp;quot;, &amp;quot;UTR&amp;quot;, &amp;quot;noncoding_exon&amp;quot;, &amp;quot;pseudogenic_exon&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank –&gt; GTF converter derived from BioPerl</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</guid>
+        <description>
+          &lt;p&gt;BioPerl has a Genbank –&amp;gt; GFF converter (the script is
+bp_genbank2gff3.pl), however, this converter generated GFF/GTF file
+could not work in Bioconductor when using the function
+&lt;strong&gt;maketxdbfromGFF&lt;/strong&gt; to construct a transcript database.&lt;/p&gt;
+&lt;p&gt;Currently, I have developed such a converter that may extract
+information from a NCBI Genbank file and write them to GFF version 2, or
+GTF format. This script is derived from BioPerl, so you need firstly
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;get the module installed&lt;/a&gt; in
+your system. To check whether BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;http://bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Here is the synopsis of this script.&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     NCBI_genbank2gtf.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;The codes is as follows:&lt;br&gt;
+&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl &amp;ndash; Genbank -&amp;gt; Bioconductor friendly GTF&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly GTF files from NCBI
+GenBank.&lt;br&gt;
+The file may be used in *maketxdbfromGFF* function and should work
+well.&lt;/p&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $gtf_output);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$gtf_output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($gtf_output) { open $out, &amp;ldquo;&amp;gt; $gtf_output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$gtf_output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %seen;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seq_acc = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$seq_acc has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if !$seq-&amp;gt;all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;# construct a GFF header&lt;br&gt;
+# add: get source_type from attributes of source feature? chromosome=X
+tag&lt;br&gt;
+# also combine 1st ft line here with source ft from $seq ..&lt;br&gt;
+my $header = gff_header($seq);&lt;br&gt;
+print $out $header;&lt;br&gt;
+warn &amp;ldquo;# working on $seq_acc\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;for my $feature ( $seq-&amp;gt;get_all_SeqFeatures ) {&lt;/p&gt;
+&lt;p&gt;my $method = $feature-&amp;gt;primary_tag;&lt;br&gt;
+$seen{$method} ++;&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+if ($method eq &amp;lsquo;CDS&amp;rsquo;){&lt;br&gt;
+$feature-&amp;gt;primary_tag(&amp;ldquo;exon&amp;rdquo;);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_number&amp;rdquo;, 1);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_id&amp;rdquo;,
+$feature-&amp;gt;get_tag_values(&amp;ldquo;transcript_id&amp;rdquo;));&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;warn &amp;ldquo;# Count of features in $genbank_input:\n&amp;rdquo;;&lt;br&gt;
+map {warn sprintf(&amp;rdquo;# %20s:%6d\n&amp;quot;, $_, $seen{$_});} keys %seen;&lt;/p&gt;
+&lt;p&gt;sub gff_header {&lt;br&gt;
+my ($seq) = @_;&lt;br&gt;
+my $head = sprintf(&amp;quot;##gff-version 2\n# sequence-region: %s
+(1..%d)\n&amp;quot;, $seq-&amp;gt;accession_number, $seq-&amp;gt;length);&lt;br&gt;
+$head .= sprintf( &amp;ldquo;# %s\n&amp;rdquo;, $seq-&amp;gt;desc);&lt;br&gt;
+$head .= &amp;ldquo;# converted by NCBI_genbank2gtf.pl\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;#~ print Dumper $acc, $desc, $end;&lt;br&gt;
+return $head;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;sub maptags2gff {&lt;br&gt;
+my $f = shift;&lt;br&gt;
+my $method = $f-&amp;gt;primary_tag;&lt;br&gt;
+my %TAG_MAP;&lt;br&gt;
+if ($method eq &amp;lsquo;gene&amp;rsquo; || $method eq &amp;lsquo;misc_RNA&amp;rsquo; || $method eq &amp;lsquo;rRNA&amp;rsquo;
+|| $method eq &amp;rsquo;tRNA&amp;rsquo;){&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo; );&lt;br&gt;
+}&lt;br&gt;
+elsif ($method eq &amp;lsquo;CDS&amp;rsquo;) {&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+product =&amp;gt; &amp;lsquo;product&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;rsquo;exon&amp;rsquo;) {&lt;/p&gt;
+&lt;p&gt;%TAG_MAP = ( gene_id =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+exon_number =&amp;gt; &amp;rsquo;exon_number&amp;rsquo;,&lt;br&gt;
+exon_id =&amp;gt; &amp;rsquo;exon_id&amp;rsquo;,&lt;br&gt;
+gene_name =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;lsquo;source&amp;rsquo;) {&lt;br&gt;
+%TAG_MAP = ( organism =&amp;gt; &amp;lsquo;organism&amp;rsquo; );&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+else {&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;my @all_tags = $f-&amp;gt;get_all_tags();&lt;br&gt;
+#~ print Dumper \@all_tags;&lt;br&gt;
+for my $tag (@all_tags){&lt;/p&gt;
+&lt;p&gt;if (exists $TAG_MAP{$tag}){&lt;br&gt;
+my $newtag= $TAG_MAP{$tag};&lt;br&gt;
+my @v= $f-&amp;gt;get_tag_values($tag);&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+$f-&amp;gt;add_tag_value($newtag,@v);&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+}&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;return $f;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;If you would like to access the full document, run:&lt;br&gt;
+&lt;code&gt;perldoc NCBI_genbank2gtf.pl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Feedback is welcome.&lt;/p&gt;
+&lt;p&gt;Here is also a GenBank -&amp;gt; BED converter:
+&lt;a href=&#34;http://bio-spring.top/a-genbank-to-bed-converter/&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank to BED converter</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+        <description>
+          &lt;p&gt;Like &lt;a href=&#34;http://bio-spring.top/a-genbenk-gtf-converter-derived-from-bioperl/&#34;&gt;the previous Genbank -&amp;gt; GTF
+converter&lt;/a&gt;,
+this script is also depended on BioPerl, so you need firstly get the
+module installed in your system (&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;Install
+BioPerl&lt;/a&gt;). To check whether
+BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     gb2bed.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;Read Pod for further information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;gb2bed.pl &amp;ndash; Genbank -&amp;gt; BED&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;gb2bed.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly BED files from NCBI
+GenBank.&lt;br&gt;
+Six columns will be extracted:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;chrom - name of the chromosome or scaffold. Any valid
+seq_region_name can be used, and chromosome names can be given with or
+without the &amp;lsquo;chr&amp;rsquo; prefix.&lt;/li&gt;
+&lt;li&gt;chromStart - Start position of the feature in standard chromosomal
+coordinates (i.e. first base is 0).&lt;/li&gt;
+&lt;li&gt;chromEnd - End position of the feature in standard chromosomal
+coordinates&lt;/li&gt;
+&lt;li&gt;name - Label to be displayed under the feature, if turned on in
+&amp;ldquo;Configure this page&amp;rdquo;. [locus_tag]&lt;/li&gt;
+&lt;li&gt;score - A score between 0 and 1000. [0]&lt;/li&gt;
+&lt;li&gt;strand - defined as + (forward) or - (reverse).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;br&gt;
+Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $output, @filters, @keep);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;filter|f=s&amp;rsquo; =&amp;gt; \@filters,&lt;br&gt;
+&amp;lsquo;keep|k=s&amp;rsquo; =&amp;gt; \@keep,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;@keep = (&amp;lsquo;gene&amp;rsquo;) unless $#keep &amp;gt;= 0;&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($output) { open $out, &amp;ldquo;&amp;gt; $output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %filter;&lt;br&gt;
+map {$filter{$_}++} @filters;&lt;br&gt;
+my %keep;&lt;br&gt;
+map {$keep{$_}++} @keep;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $chr = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;my @all_SeqFeatures = $seq-&amp;gt;get_all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;#~ warn &amp;ldquo;# working on $chr\n&amp;rdquo;;&lt;br&gt;
+if ($#filters &amp;gt;= 0){&lt;br&gt;
+@all_SeqFeatures = grep { !defined $filter{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;br&gt;
+if ($#keep &amp;gt;= 0) {&lt;br&gt;
+@all_SeqFeatures = grep { defined $keep{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$chr has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if $#all_SeqFeatures &amp;lt; 0; for my $feature ( @all_SeqFeatures ) {
+my ($start, $end, $name, $strand); $start = $feature-&amp;gt;start - 1; #
+bed base is 0, while genbank is 1&lt;br&gt;
+$end = $feature-&amp;gt;end;&lt;br&gt;
+($name) = $feature-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;);&lt;br&gt;
+$strand = $feature-&amp;gt;strand;&lt;br&gt;
+$strand = $strand &amp;lt; 0 ? &amp;lsquo;-&amp;rsquo; : &amp;lsquo;+&amp;rsquo;; print $out join(&amp;rdquo;\t&amp;quot;, $chr,
+$start, $end, $name, 0, $strand), &amp;ldquo;\n&amp;rdquo;; } }&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

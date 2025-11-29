@@ -1,0 +1,86 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数码 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E6%95%B0%E7%A0%81/</link>
+    <description>Recent content in 数码 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 06 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E6%95%B0%E7%A0%81/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>富士卡片机F60fd拆机图片</title>
+        <link>bio-spring/post/2015/09/06/2015-09-06-fujifilm-f60fd/</link>
+        <pubDate>Sun, 06 Sep 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/09/06/2015-09-06-fujifilm-f60fd/</guid>
+        <description>
+          &lt;p&gt;友情提示：依本文拆机相机未获修复的，不承担连带责任哦！&lt;/p&gt;
+&lt;p&gt;按：我的富士F60fd镜头落地摔歪了，所以才拆机。&lt;/p&gt;
+&lt;h2 id=&#34;打开外壳&#34;&gt;打开外壳&lt;/h2&gt;
+&lt;p&gt;去掉侧面板&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141901-e1441618671949.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141901-e1441618671949-500x365.jpg&#34; class=&#34;wp-image-659 size-medium alignnone&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141901-e1441618671949-500x365.jpg 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141901-e1441618671949-1024x747.jpg 1024w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141901-e1441618671949.jpg 1901w&#34; width=&#34;500&#34; height=&#34;365&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;去掉显示屏&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141916-e1441618707186.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141916-e1441618707186-500x375.jpg&#34; class=&#34;alignnone wp-image-675 size-medium&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141916-e1441618707186-500x375.jpg 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_141916-e1441618707186-1024x768.jpg 1024w&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;去掉金属板&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_142042-e1441618747796.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_142042-e1441618747796-500x375.jpg&#34; class=&#34;alignnone wp-image-673 size-medium&#34; sizes=&#34;(max-width: 500px) 100vw, 500px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_142042-e1441618747796-500x375.jpg 500w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150825_142042-e1441618747796-1024x768.jpg 1024w&#34; width=&#34;500&#34; height=&#34;375&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;拆主板&#34;&gt;拆主板&lt;/h2&gt;
+&lt;p&gt;主板有上下两块，之间由插槽接口连接，小心撬开主板，去掉排线，拿下主板。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091706.jpg&#34;&gt;&lt;br&gt;
+&lt;/a&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091146.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091146-e1441518449543-300x272.jpg&#34; class=&#34;wp-image-678 size-medium alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091146-e1441518449543-300x272.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091146-e1441518449543-1024x929.jpg 1024w&#34; width=&#34;300&#34; height=&#34;272&#34; alt=&#34;IMG_20150828_091146&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091104.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091104-e1441518531913-300x267.jpg&#34; class=&#34;wp-image-661 size-medium alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091104-e1441518531913-300x267.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091104-e1441518531913-1024x913.jpg 1024w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091104-e1441518531913.jpg 1950w&#34; width=&#34;300&#34; height=&#34;267&#34; alt=&#34;IMG_20150828_091104&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;这个是取下的主板。&lt;/p&gt;
+&lt;h2 id=&#34;取下镜头组件&#34;&gt;取下镜头组件&lt;/h2&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;摘下排线，取下镜头组件。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091146.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091706-300x225.jpg&#34; class=&#34;size-medium wp-image-677 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091706-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091706-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_091706&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;这是镜头组件，含有镜头、快门、CCD等元件。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091746.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091746-e1441518657256-288x300.jpg&#34; class=&#34;wp-image-663 size-medium alignnone&#34; sizes=&#34;(max-width: 288px) 100vw, 288px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091746-e1441518657256-288x300.jpg 288w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_091746-e1441518657256-982x1024.jpg 982w&#34; width=&#34;288&#34; height=&#34;300&#34; alt=&#34;IMG_20150828_091746&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;打开镜头组件&#34;&gt;打开镜头组件&lt;/h2&gt;
+&lt;p&gt;揭下绝缘胶布，漏出盖板。然后取下盖板，漏出CCD等元件。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130501.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130501-300x225.jpg&#34; class=&#34;size-medium wp-image-666 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130501-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130501-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_130501&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;这个的背面就是CCD。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130602.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130602-225x300.jpg&#34; class=&#34;size-medium wp-image-667 alignnone&#34; sizes=&#34;(max-width: 225px) 100vw, 225px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130602-225x300.jpg 225w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_130602-768x1024.jpg 768w&#34; width=&#34;225&#34; height=&#34;300&#34; alt=&#34;IMG_20150828_130602&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;取下CCD之后，漏出透镜。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_133926.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_133926-300x225.jpg&#34; class=&#34;size-medium wp-image-668 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_133926-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_133926-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_133926&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;需要使用电烙铁，将有些焊点打开，才能继续进行。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_125000.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_125000-300x225.jpg&#34; class=&#34;size-medium wp-image-665 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_125000-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_125000-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_125000&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这一部分算是镜头的主要排线，被去掉了。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_170927.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_170927-300x225.jpg&#34; class=&#34;size-medium wp-image-651 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_170927-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_170927-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_170927&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后得到一个裸镜头组。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_084749.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_084749-300x225.jpg&#34; class=&#34;size-medium wp-image-653 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_084749-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_084749-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150829_084749&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;分开镜头&#34;&gt;分开镜头&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_085113.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_085113-300x225.jpg&#34; class=&#34;size-medium wp-image-654 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_085113-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_085113-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150829_085113&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;取下第三级的合页。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124027.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124027-225x300.jpg&#34; class=&#34;size-medium wp-image-655 alignnone&#34; sizes=&#34;(max-width: 225px) 100vw, 225px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124027-225x300.jpg 225w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124027-768x1024.jpg 768w&#34; width=&#34;225&#34; height=&#34;300&#34; alt=&#34;IMG_20150829_124027&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;揭开贴纸，漏出环形卡子。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124339-e1441519278576.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124036-225x300.jpg&#34; class=&#34;size-medium wp-image-656 alignnone&#34; sizes=&#34;(max-width: 225px) 100vw, 225px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124036-225x300.jpg 225w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124036-768x1024.jpg 768w&#34; width=&#34;225&#34; height=&#34;300&#34; alt=&#34;IMG_20150829_124036&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124339-e1441519278576.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124339-e1441519278576-300x274.jpg&#34; class=&#34;wp-image-657 size-medium alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124339-e1441519278576-300x274.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150829_124339-e1441519278576-1024x934.jpg 1024w&#34; width=&#34;300&#34; height=&#34;274&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;拧开盖板，漏出小马达的齿轮。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153353.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153353-300x225.jpg&#34; class=&#34;size-medium wp-image-670 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153353-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153353-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_153353&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153605.jpg&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153605-300x225.jpg&#34; class=&#34;size-medium wp-image-671 alignnone&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153605-300x225.jpg 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/09/IMG_20150828_153605-1024x768.jpg 1024w&#34; width=&#34;300&#34; height=&#34;225&#34; alt=&#34;IMG_20150828_153605&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;将镜头轨道中的针状金属柱用镊子拔出来，剩下的就比较简单了。就可以完全把镜头拆开了。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

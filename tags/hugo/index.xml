@@ -1,0 +1,354 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on BIO-SPRING</title>
+    <link>bio-spring/tags/hugo/</link>
+    <description>Recent content in Hugo on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/hugo/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>Edit link is wrong in Hugo Prose</title>
+        <link>bio-spring/post/2023/08/20/edit-link-is-wrong-in-hugo-prose/</link>
+        <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2023/08/20/edit-link-is-wrong-in-hugo-prose/</guid>
+        <description>
+          &lt;p&gt;Hugo-Prose 主题中使用 &lt;code&gt;correction.html&lt;/code&gt; 生成在 GitHub 进行修改的链接。&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;correction.html&lt;/code&gt; 中主要针对 R Markdown 文件存在的情况，找出对应的 &lt;code&gt;*.Rmd&lt;/code&gt; 和 &lt;code&gt;*.Rmarkdown&lt;/code&gt; 的路径。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if (and .File .Site.Params.editLink) }}
+&amp;lt;div&amp;gt;
+  &amp;lt;div class=&amp;quot;side side-left&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;{{ i18n &amp;quot;suggestChanges&amp;quot; }}&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;
+  {{ $filePath := .File.Path }}
+  {{ $RmdFile := (print .File.Dir .File.BaseFileName &amp;quot;.Rmd&amp;quot;) }}
+  {{ if (fileExists (print &amp;quot;content/&amp;quot; $RmdFile)) }}
+    {{ $filePath = $RmdFile }}
+  {{ else }}
+    {{ $RmdFile = (print .File.Dir .File.BaseFileName &amp;quot;.Rmarkdown&amp;quot;) }}
+    {{ if (fileExists (print &amp;quot;content/&amp;quot; $RmdFile)) }}
+      {{ $filePath = $RmdFile }}
+    {{ end }}
+  {{ end }}
+  {{ i18n &amp;quot;suggestChangesText1&amp;quot; }}&amp;lt;a href=&amp;quot;{{ .Site.Params.editLink }}{{ $filePath }}&amp;quot; id=&amp;quot;edit-link&amp;quot;&amp;gt;{{ i18n &amp;quot;suggestChangesText2&amp;quot; }}&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在这个文件中，使用 Hugo 变量 &lt;code&gt;.File.Path&lt;/code&gt; 访问当前文件的路径。&lt;/p&gt;
+&lt;p&gt;通过查阅参考资料，发现 &lt;code&gt;.File.Path&lt;/code&gt; 变量储存的文件路径中，其分隔符是跟随系统的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The path separators (slash or backslash) in .File.Path, .File.Dir, and .File.Filename depend on the operating system.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See also&lt;/strong&gt;: &lt;a href=&#34;https://gohugo.io/variables/files/&#34;&gt;https://gohugo.io/variables/files/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果在 Linux 系统中使用 &lt;code&gt;blogdown::build_site()&lt;/code&gt; 生成的网站，则修改链接是正确的。&lt;/p&gt;
+&lt;p&gt;然而，当网站在 Windows 系统上生成时，因为 &lt;code&gt;.File.Path&lt;/code&gt; 的路径是以 &lt;code&gt;\&lt;/code&gt; 为分割的，所以这个链接中的分隔符是错误的，从而导致无法在 GitHub 访问到正确的路径，出现 404 错误&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;为此，需要对 &lt;code&gt;correction.html&lt;/code&gt; 模板进行修改。这里使用 &lt;code&gt;path.Clean&lt;/code&gt; 函数&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;将路径转变为 Linux 格式路径。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  {{ $filePath := path.Clean .File.Path }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;On a Windows system, if &lt;code&gt;.File.Path&lt;/code&gt; is &lt;code&gt;foo\bar.md&lt;/code&gt;, then:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;{{ path.Clean .File.Path }} → &amp;quot;foo/bar.md&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;See also&lt;/strong&gt;: &lt;a href=&#34;https://gohugo.io/functions/path.clean/&#34;&gt;https://gohugo.io/functions/path.clean/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样的话，通过 GitHub 修改的功能就更加鲁棒了。&lt;/p&gt;
+&lt;p&gt;这个修改已经 &lt;a href=&#34;https://github.com/yihui/hugo-prose/pull/46&#34;&gt;合并到Hugo-prose&lt;/a&gt; 源了。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;虽然路径是在 Windows 系统中生成的，但是 GitHub 服务器却是 Linux 系统，文件路径总是以 &amp;ldquo;/&amp;rdquo; 为分隔符的。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;code&gt;path.Clean&lt;/code&gt; replaces path separators with slashes (&lt;code&gt;/&lt;/code&gt;) and removes extraneous separators, including trailing separators.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>更改 blogdown 主题</title>
+        <link>bio-spring/post/2023/08/20/modifying-blogdown-hugo-theme/</link>
+        <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+        <author>Chun-Hui Gao</author>
+        <guid>bio-spring/post/2023/08/20/modifying-blogdown-hugo-theme/</guid>
+        <description>
+          &lt;p&gt;Hugo Prose 主题中，网站主页的元素是通过 &lt;code&gt;/themes/hugo-prose/layouts/_default/list.html&lt;/code&gt; 生成的。&lt;/p&gt;
+&lt;p&gt;有几个地方想改一下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;显示卡片时，标题统一放在左边。原来左一下右一下看起来有点多余。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;显示 blog post 时，以一句话标题显示，不使用小卡片的形式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;调整卡片标题的位置&#34;&gt;调整卡片标题的位置&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if .IsHome }}
+{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}
+&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;
+  &amp;lt;table&amp;gt;
+&amp;lt;tbody&amp;gt;
+&amp;lt;tr&amp;gt;
+{{if (eq (mod $i 2) 0) }}
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-left&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+{{ else }}
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+{{ end }}
+&amp;lt;/tr&amp;gt;
+&amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}&lt;/code&gt; 表示在全部页面中搜索，&lt;code&gt;section = card&lt;/code&gt; 的页面。这里的 &lt;code&gt;section&lt;/code&gt; 指的是 &lt;code&gt;content&lt;/code&gt; 目录下面的子文件夹，即 &lt;code&gt;content/card/&lt;/code&gt; 目录。这个命令的作用就是把这里的文件序号赋值给 &lt;code&gt;$i&lt;/code&gt;，把内容对象赋值给 &lt;code&gt;$p&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;接下来，根据编号 &lt;code&gt;$i&lt;/code&gt; 是否是偶数，分别设置不同的 CSS 类（&lt;code&gt;.side-title&lt;/code&gt;，&lt;code&gt;spacer-left&lt;/code&gt;，等等），只需要稍作改动即可使达到目的。&lt;/p&gt;
+&lt;h3 id=&#34;html-模板&#34;&gt;HTML 模板&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if .IsHome }}
+{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}
+&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;
+  &amp;lt;table&amp;gt;
+&amp;lt;tbody&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-left&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;值得一提的是，&lt;code&gt;&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;&lt;/code&gt; 将从页面的 YAML 头文件中读取额外的 CSS 定义，并将其应用到 &lt;code&gt;card&lt;/code&gt; 中去。下面的 YAML 头文件将使对应页面的背景色与众不同。而其中的 &lt;code&gt;weight&lt;/code&gt; 将在排列元素间的先后顺序时用到。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;title: PROJECTS
+style: &#39;background: #f7f9fb;&#39;
+weight: 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;css-设置&#34;&gt;CSS 设置&lt;/h3&gt;
+&lt;p&gt;观察一下效果，发现页面中标题的朝向仍然有问题。这是因为 CSS 定义的缘故。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.article-list .side-title { transform: rotate(90deg); }
+.article-list:nth-child(even):not(.post-card) .side-title { transform: rotate(-90deg); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它会将表格 &lt;code&gt;.article-list&lt;/code&gt; 偶数行的标题 &lt;code&gt;.side-title&lt;/code&gt; 逆时针旋转 90 度，而不是默认的顺时针旋转 90 度。因此，将第 2 行删掉即可。&lt;/p&gt;
+&lt;h2 id=&#34;调整-post-的显示样式&#34;&gt;调整 Post 的显示样式&lt;/h2&gt;
+&lt;p&gt;在卡片下面，包含了其它的一些内容，这里显示的内容是由依据下面的设置筛选得到的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages &amp;quot;Type&amp;quot; &amp;quot;in&amp;quot; .Site.Params.mainSections) &amp;quot;Date&amp;quot; &amp;quot;desc&amp;quot;) }}
+{{ else }}
+{{ $pages = (.Paginate $pages).Pages }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;首先，获取全部的页面并将其保存在 &lt;code&gt;$pages&lt;/code&gt; 变量中。然后通过读取 &lt;code&gt;.Site.Params.homeposts&lt;/code&gt; 变量和 &lt;code&gt;.Site.Params.mainSections&lt;/code&gt; 变量，对按照时间降序排列的页面中选取几个。这些变量都保存在 &lt;code&gt;config.yaml&lt;/code&gt; 文件中。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  homePosts: 6
+  mainSections: [&amp;quot;post&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果是主页的话，那么仅获取默认 6 个 Posts，并将其保存在 &lt;code&gt;$pages&lt;/code&gt; 变量中；如果不是的话，则将其进行分页处理。这里仅考虑是主页的情况。&lt;/p&gt;
+&lt;p&gt;文章列表在一个表格中显示。表格没有表头元素（&lt;code&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/code&gt;），只有行元素（&lt;code&gt;&amp;lt;tr&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;）和列元素（&lt;code&gt;&amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&lt;/code&gt;）。每行有 3 列。第一列是内容，第二列是分隔符，第三列是 Section Name。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ range $pages }}
+  &amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft {{ end }}&amp;quot;&amp;gt;
+    &amp;lt;table&amp;gt;
+  &amp;lt;tbody&amp;gt;
+  &amp;lt;tr&amp;gt;
+  &amp;lt;td&amp;gt;
+  {{ with .Params.categories }}
+  {{ range first 1 . }}
+  &amp;lt;div class=&amp;quot;categories&amp;quot;&amp;gt;
+&amp;lt;a href=&amp;quot;{{ relURL (print &amp;quot;/categories/&amp;quot; . &amp;quot;/&amp;quot; | urlize) }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  {{ end }}
+  {{ end }}
+  &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+  &amp;lt;div&amp;gt;
+{{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}
+{{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;summary&amp;quot;&amp;gt;
+{{ $summary := .Description }}
+{{ if $summary }}
+{{ $summary = (markdownify $summary) }}
+{{ else }}
+{{ $summary = ((delimit (findRE &amp;quot;(&amp;lt;p.*?&amp;gt;(.|\n)*?&amp;lt;/p&amp;gt;\\s*)+&amp;quot; .Content) &amp;quot;[&amp;amp;hellip;] &amp;quot;) | plainify | truncate (default 200 .Site.Params.summaryLength) (default &amp;quot; &amp;amp;hellip;&amp;quot; .Site.Params.textTruncated ) | replaceRE &amp;quot;&amp;amp;amp;&amp;quot; &amp;quot;&amp;amp;&amp;quot;) }}
+{{ end }}
+{{ $summary | replaceRE &amp;quot;^([A-Za-z])&amp;quot; &amp;quot;&amp;amp;$1 opf;&amp;quot; | replaceRE &amp;quot;^(&amp;amp;[A-Za-z]) (opf;)&amp;quot; &amp;quot;$1$2&amp;quot; | safeHTML }}
+&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot; class=&amp;quot;more&amp;quot; title={{ i18n &amp;quot;readMore&amp;quot; }}&amp;gt;{{ i18n &amp;quot;readMore&amp;quot; }} &amp;amp;rarr;&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;/td&amp;gt;
+  {{ if $.IsHome }}
+  &amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+  &amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;{{ with .Section }}&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ print &amp;quot;/&amp;quot; . &amp;quot;/&amp;quot; | relURL }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+  {{ end }}
+  &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+  &amp;lt;/section&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft {{ end }}&amp;quot;&amp;gt;&lt;/code&gt; 这里根据页面设置 &lt;code&gt;draft: true/false&lt;/code&gt; 来添加一个额外的 &lt;code&gt;.post-card .draft&lt;/code&gt; 类，用来给草稿做特殊标记（底纹、背景，以及是否在发布时显示&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;给卡片添加 &lt;code&gt;category&lt;/code&gt; 标签，这里仅显示了 1 个标签，并将标签连接到其固定链接。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ with .Params.categories }}
+{{ range first 1 . }}
+&amp;lt;div class=&amp;quot;categories&amp;quot;&amp;gt;
+  &amp;lt;a href=&amp;quot;{{ relURL (print &amp;quot;/categories/&amp;quot; . &amp;quot;/&amp;quot; | urlize) }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加标题、发布时间和作者。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+&amp;lt;div&amp;gt;
+  {{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}
+  {{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加摘要。摘要首先从 &lt;code&gt;description&lt;/code&gt; 中读取，如果没有设置的话，那么将从文章正文（&lt;code&gt;.Content&lt;/code&gt;）中截取。在显示时，通过 &lt;code&gt;replaceRE&lt;/code&gt; 将首字符替换为大字。最后，添加上正文的固定链接。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;summary&amp;quot;&amp;gt;
+  {{ $summary := .Description }}
+  {{ if $summary }}
+  {{ $summary = (markdownify $summary) }}
+  {{ else }}
+  {{ $summary = ((delimit (findRE &amp;quot;(&amp;lt;p.*?&amp;gt;(.|\n)*?&amp;lt;/p&amp;gt;\\s*)+&amp;quot; .Content) &amp;quot;[&amp;amp;hellip;] &amp;quot;) | plainify | truncate (default 200 .Site.Params.summaryLength) (default &amp;quot; &amp;amp;hellip;&amp;quot; .Site.Params.textTruncated ) | replaceRE &amp;quot;&amp;amp;amp;&amp;quot; &amp;quot;&amp;amp;&amp;quot;) }}
+  {{ end }}
+  {{ $summary | replaceRE &amp;quot;^([A-Za-z])&amp;quot; &amp;quot;&amp;amp;$1 opf;&amp;quot; | replaceRE &amp;quot;^(&amp;amp;[A-Za-z]) (opf;)&amp;quot; &amp;quot;$1$2&amp;quot; | safeHTML }}
+&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot; class=&amp;quot;more&amp;quot; title={{ i18n &amp;quot;readMore&amp;quot; }}&amp;gt;{{ i18n &amp;quot;readMore&amp;quot; }} &amp;amp;rarr;&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加 Section。显示在右侧，并链接到 Section 的目录。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if $.IsHome }}
+  &amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+  &amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;
+    {{ with .Section }}
+      &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ print &amp;quot;/&amp;quot; . &amp;quot;/&amp;quot; | relURL }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+    {{ end }}
+  &amp;lt;/td&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;html-模板-1&#34;&gt;HTML 模板&lt;/h3&gt;
+&lt;p&gt;将这一部分的代码改成下面的样子。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages &amp;quot;Type&amp;quot; &amp;quot;in&amp;quot; .Site.Params.mainSections) &amp;quot;Date&amp;quot; &amp;quot;desc&amp;quot;) }}
+{{ else }}
+{{ $pages = (.Paginate $pages).Pages }}
+{{ end }}
+
+{{ range $pages }}
+&amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft{{ end }}&amp;quot;&amp;gt;
+&amp;lt;table&amp;gt;
+  &amp;lt;tbody&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;{{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;{{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;css-设置-1&#34;&gt;CSS 设置&lt;/h3&gt;
+&lt;p&gt;接下来对相应的 CSS 代码动一下手脚。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将卡片显示的宽度从 50% 调整到 100%；&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.list main &amp;gt; .post-card {
+  flex: 0 0 calc(50% - .5em);
+}
+
+/* 改为下面的样子 */
+
+.list main &amp;gt; .post-card {
+  flex: 0 0 100%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置时间列、作者列的宽度&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.post-card td:nth-child(1) {width: 15%}
+.post-card td:nth-child(2) {width: 20%}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;去掉标题下面的细线&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.article-list h1 {
+  margin: 5px 0px 10px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先改 HTML 模板，设置内容和框架；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再改 CSS 设置，调整对象的显示效果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;默认情况下，draft 仅在本地预览时可见，而使用 &lt;code&gt;blogdown::build_site()&lt;/code&gt; 时不可见。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Windows中使用Chocolatey包管理系统安装Hugo</title>
+        <link>bio-spring/post/2019/11/10/windows-chocolatey-install-hugo/</link>
+        <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2019/11/10/windows-chocolatey-install-hugo/</guid>
+        <description>
+          &lt;p&gt;&lt;a href=&#34;https://chocolatey.org/install&#34;&gt;Chocolatey&lt;/a&gt; 提供一个命令行下安装程序的环境。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://chocolatey.org/install&#34;&gt;https://chocolatey.org/install&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;配置-powershell&#34;&gt;配置 PowerShell&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;# 使用管理员运行 PowerShell
+Set-ExecutionPolicy Bypass -Scope Process
+
+# 下面应当返回 bypass
+Get-ExecutionPolicy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装 Chocolatey&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+# 安装Chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;安装-hugo&#34;&gt;安装 Hugo&lt;/h1&gt;
+&lt;p&gt;打开 PowerShell，然后运行下面的命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;choco install hugo -confirm
+
+# or
+
+choco install hugo-extended -confirm
+
+&lt;/code&gt;&lt;/pre&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

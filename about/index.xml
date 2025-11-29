@@ -1,0 +1,687 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on BIO-SPRING</title>
+    <link>bio-spring/about/</link>
+    <description>Recent content in Abouts on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="bio-spring/about/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>About Hugo Prose</title>
+        <link>bio-spring/about/about.en/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <author>Yihui Xie</author>
+        <guid>bio-spring/about/about.en/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;Hugo Prose&lt;/strong&gt; is a minimalist theme derived from the &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;&lt;strong&gt;XMin&lt;/strong&gt;
+theme&lt;/a&gt;, and inspired by
+&lt;a href=&#34;https://wowchemy.com&#34;&gt;Wowchemy&lt;/a&gt; (previously known as the Academic theme),
+&lt;a href=&#34;https://distill.pub&#34;&gt;Distill&lt;/a&gt;, and
+&lt;a href=&#34;https://github.com/edwardtufte/tufte.css&#34;&gt;tufte.css&lt;/a&gt;. This theme itself is
+completely plain-text and lightweight, and does not use any icons, images, or
+emojis.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; By default, the theme only uses two JavaScript libraries, MathJax
+and highlight.js, and they are loaded only when necessary. The rest of
+JavaScript is written from scratch and also relatively short. This theme does
+not use any CSS frameworks, and the full CSS code is also written from scratch
+(about 300 lines).&lt;/p&gt;
+&lt;div class=&#34;quote-right&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is not the man who has too little that is poor, but the one who hankers after more.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;em&gt;Letters from a Stoic&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;p&gt;This page introduces the features of this Hugo theme that you can fiddle with.&lt;/p&gt;
+&lt;h2 id=&#34;site-configurations&#34;&gt;Site configurations&lt;/h2&gt;
+&lt;p&gt;Below are the possible options that you may configure for a site based on this
+theme.&lt;/p&gt;
+&lt;h3 id=&#34;menus&#34;&gt;Menus&lt;/h3&gt;
+&lt;p&gt;Each page has a menu in the header and a menu in the footer. The header menu is
+defined in the &lt;code&gt;header&lt;/code&gt; option in &lt;code&gt;menu&lt;/code&gt; in &lt;code&gt;config.yaml&lt;/code&gt;, and similarly, the
+footer menu is defined in the &lt;code&gt;footer&lt;/code&gt; option, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  header:
+    - name: Home
+      url: &amp;quot;/&amp;quot;
+      weight: 1
+    - name: About
+      url: &amp;quot;/about/&amp;quot;
+      weight: 2
+  footer:
+    - name: Contact
+      url: &amp;quot;/404.html&amp;quot;
+      weight: 1
+    - name: Categories
+      url: &amp;quot;/categories/&amp;quot;
+      weight: 2
+      pre: &amp;quot;optional&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;url&lt;/code&gt; of a menu item can be either a relative URL pointing to a page on this
+website, or an external link (e.g., &lt;code&gt;url: &amp;quot;https://github.com/yihui&amp;quot;&lt;/code&gt;). The
+order of the menu items is determined by the &lt;code&gt;weight&lt;/code&gt; values. If a menu item has
+a &lt;code&gt;pre&lt;/code&gt; value, it will be used as the class of the menu item. The special value
+&lt;code&gt;optional&lt;/code&gt; indicates that this menu item will be hidden on small screens.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;The header menu can be made sticky via the parameter &lt;code&gt;stickyMenu&lt;/code&gt; in
+&lt;code&gt;config.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  stickyMenu: true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;home-page&#34;&gt;Home page&lt;/h3&gt;
+&lt;p&gt;The body of the home page consists of an introduction, followed by a series of
+info cards, and then a number of the latest posts and pages.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The introduction comes from &lt;code&gt;content/_index.md&lt;/code&gt;. The Markdown content can
+contain arbitrary elements.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The info cards come from the &lt;code&gt;content/card/&lt;/code&gt; directory. Each (Markdown) file
+is displayed on the home page as a separate card. The title is displayed
+vertically on the left or right side.&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; If you want to customize the style
+of a certain card, you may use the YAML option &lt;code&gt;style&lt;/code&gt; in the file, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;---
+title: &amp;quot;Courses&amp;quot;
+style: &amp;quot;background: darkorange; color: white;&amp;quot;
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will add a dark orange background to the card, and change the color of
+text to white. You can use any CSS styles here (e.g., &lt;code&gt;font-size&lt;/code&gt;,
+&lt;code&gt;background-image&lt;/code&gt;, and &lt;code&gt;padding&lt;/code&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The number of latest posts and pages can be defined via the &lt;code&gt;homePosts&lt;/code&gt;
+option in &lt;code&gt;params&lt;/code&gt; in &lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  homePosts: 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The default is 6.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;mainSections&lt;/code&gt; parameter can be used to select the sections of pages to
+be included on the home page, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  mainSections: [&amp;quot;post&amp;quot;, &amp;quot;news&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;footer&#34;&gt;Footer&lt;/h3&gt;
+&lt;p&gt;Besides the menu in the footer, you can specify a copyright statement in the
+&lt;code&gt;footer&lt;/code&gt; parameter in &lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  footer: &amp;quot;&amp;amp;copy; Frida Gomam 2015 -- 2020&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;p&gt;Disqus, Utterances&lt;/p&gt;
+&lt;h3 id=&#34;searching&#34;&gt;Searching&lt;/h3&gt;
+&lt;p&gt;This theme supports searching out of the box based on
+&lt;a href=&#34;https://fusejs.io&#34;&gt;Fuse.js&lt;/a&gt;. A few critical configurations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The site needs to generate a JSON index. This is done via a layout file
+&lt;code&gt;index.json.json&lt;/code&gt; in &lt;code&gt;layouts/_default/&lt;/code&gt;, and the config in &lt;code&gt;config.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;outputs:
+  home: [html, rss, json]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A menu item with the ID &lt;code&gt;menu-search&lt;/code&gt; configured in &lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  header:
+    - name: Search
+      url: &amp;quot;#&amp;quot;
+      identifier: menu-search
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The version of Fuse can be configured via the parameter &lt;code&gt;fuseVersion&lt;/code&gt; in
+&lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  fuseVersion: 6.4.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If no &lt;code&gt;fuseVersion&lt;/code&gt; is specified, the latest version of Fuse.js will be
+used. You may also download a copy of Fuse.js to the &lt;code&gt;static/&lt;/code&gt; folder of
+your site and use this copy instead of loading it from CDN. To do that, you
+may download Fuse.js to, say, &lt;code&gt;static/js/fuse.js&lt;/code&gt; and modify the partial
+template &lt;code&gt;layouts/partials/foot_custom.html&lt;/code&gt;. Replace&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ with .Site.Params.fuseVersion }}
+&amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/fuse.js@{{ . }}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;{{ relURL &amp;quot;/js/fuse.js&amp;quot; }}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That way, you can also use search when viewing the site offline, because
+Fuse.js is no longer loaded from CDN.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;articles&#34;&gt;Articles&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;At the moment, I&amp;rsquo;m too tired to complete the documentation. If you want to be
+an early adopter of this theme, you might have to read the source.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;multiple-authors&#34;&gt;Multiple authors&lt;/h3&gt;
+&lt;p&gt;If an article has multiple authors, specify their names in an array in the
+&lt;code&gt;author&lt;/code&gt; field.&lt;/p&gt;
+&lt;p&gt;Author&amp;rsquo;s bio is loaded from the database &lt;code&gt;data/authors.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;table-of-contents&#34;&gt;Table of contents&lt;/h3&gt;
+&lt;p&gt;TOC can be automatically generated, no matter if you use Hugo/goldmark or
+Pandoc/R Markdown.&lt;/p&gt;
+&lt;h3 id=&#34;number-sections&#34;&gt;Number sections&lt;/h3&gt;
+&lt;p&gt;Section headers can be automatically numbered, no matter if you use
+Hugo/goldmark or Pandoc/R Markdown.&lt;/p&gt;
+&lt;h3 id=&#34;footnotes-citations-and-sidenotes&#34;&gt;Footnotes, citations, and sidenotes&lt;/h3&gt;
+&lt;p&gt;Footnotes and citation entries&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; are moved to the right margin by default. If
+you want to write arbitrary sidenotes, use the classes &lt;code&gt;side&lt;/code&gt; and
+&lt;code&gt;side-left&lt;/code&gt;/&lt;code&gt;side-right&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;side side-left&#34;&gt;
+&lt;p&gt;This is a sidenote on the left side. You can include anything in the note. For example, here is a bullet list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get up&lt;/li&gt;
+&lt;li&gt;Do the work&lt;/li&gt;
+&lt;li&gt;Go to bed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;side side-left&amp;quot;&amp;gt;
+
+Content to be displayed as a sidenote.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;appendix&#34;&gt;Appendix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Author&amp;rsquo;s bio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Custom fields&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;License&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Suggest changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;drafts&#34;&gt;Drafts&lt;/h3&gt;
+&lt;p&gt;Mark an article as draft by adding &lt;code&gt;draft: true&lt;/code&gt; to the YAML metadata. Draft
+articles are styled with a background of diagonal lines and a watermark &amp;ldquo;Draft.&amp;rdquo;
+For listing pages, draft articles are also indicated by the background.&lt;/p&gt;
+&lt;h2 id=&#34;floats&#34;&gt;Floats&lt;/h2&gt;
+&lt;h3 id=&#34;full-width-elements&#34;&gt;Full-width elements&lt;/h3&gt;
+&lt;p&gt;Apply the class &lt;code&gt;fullwidth&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;fullwidth&amp;quot;&amp;gt;
+
+Content to be displayed with its maximum width.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fullwidth&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/en/timeline/c8fff6bec6e98dfe6399084a540293e3.png&#34;
+    alt=&#34;History of stoics&#34;&gt;&lt;figcaption&gt;
+      &lt;p&gt;Figure 3.1: Beginning around 301 BC, Zeno taught philosophy at the Stoa Poikile (&amp;ldquo;Painted Porch&amp;rdquo;), from which his philosophy got its name. Unlike the other schools of philosophy, such as the Epicureans, Zeno chose to teach his philosophy in a public space, which was a colonnade overlooking the central gathering place of Athens, the Agora.&lt;/p&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;p&gt;If you want the full-width element to be scrollable, you can apply an additional
+class &lt;code&gt;fullscroll&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;fullwidth fullscroll&amp;quot;&amp;gt;
+
+Super wide content to be scrolled horizontally.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fullwidth fullscroll&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Along_the_River_During_the_Qingming_Festival_%28Qing_Court_Version%29.jpg/10000px-Along_the_River_During_the_Qingming_Festival_%28Qing_Court_Version%29.jpg&#34;
+    alt=&#34;Along the River During the Qingming Festival&#34;&gt;&lt;figcaption&gt;
+      &lt;p&gt;Figure 3.2: This painting is known as the &amp;ldquo;Qing Court Version&amp;rdquo; of &lt;em&gt;Along the River During the Qingming Festival&lt;/em&gt;. Here, the figural scenes are numerous and detailed, happening around noteworthy landmarks and places such as the serene rustic countryside, the Rainbow Bridge (虹橋) and its crowded markets, the lively surroundings and throughways at the city walls and gates, the busy streets and various packed shops, the secluded literati gardens, the Songzhu Hall (松竹軒) as well as the beautiful site of the Jinming Lake (金明池).&lt;/p&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;h3 id=&#34;embedded-elements&#34;&gt;Embedded elements&lt;/h3&gt;
+&lt;p&gt;Use the &lt;code&gt;embed-left&lt;/code&gt; or &lt;code&gt;embed-right&lt;/code&gt; class to embed a content block to be
+floated to the left or right, and the block will exceed the article margin by
+200px, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;embed-right&amp;quot;&amp;gt;
+
+Content to be embedded onto the margin.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;embed-right&#34;&gt;
+&lt;iframe src=&#34;https://player.vimeo.com/video/469252441&#34; width=&#34;640&#34; height=&#34;400&#34; frameborder=&#34;0&#34; allow=&#34;autoplay; fullscreen&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;One application is to embed videos in an article, when the video needs a
+narrative. For example, you can embed a video on the right side, and provide a
+narrative in the body of the article, which will be on the left side of the
+video.&lt;/p&gt;
+&lt;p&gt;By default, the &lt;code&gt;max-width&lt;/code&gt; of the embedded element is 600px (the actual width
+could be smaller), out of which 200px will be in the margin, meaning that there
+will be at least 400px left for the narrative in the article body.&lt;/p&gt;
+&lt;p&gt;When the screen width is smaller than 1200px, the embedded elements will be
+floated back into the article as normal block-level elements.&lt;/p&gt;
+&lt;h3 id=&#34;quotes&#34;&gt;Quotes&lt;/h3&gt;
+&lt;p&gt;Use the &lt;code&gt;quote-left&lt;/code&gt; or &lt;code&gt;quote-right&lt;/code&gt; class to make content float to the left or
+right.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;quote-left&amp;quot;&amp;gt;
+
+A quote to be floated to the left.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The quotes do not have to be literally quotes. These environments can contain
+any content, although quotes may be the most common application.&lt;/p&gt;
+&lt;div class=&#34;quote-left&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is a quote that I&amp;rsquo;ve never said.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;p&gt;The default width of the content is 45% of the container. You have seen an
+example of &lt;code&gt;quote-right&lt;/code&gt; at the beginning of this article. Here is an example of
+&lt;code&gt;quote-left&lt;/code&gt; on the left side. The quotes will stop floating and become normal
+block-level elements when the screen width is smaller than 800px.&lt;/p&gt;
+&lt;h2 id=&#34;list-pages&#34;&gt;List pages&lt;/h2&gt;
+&lt;h3 id=&#34;open-face-characters&#34;&gt;Open face characters&lt;/h3&gt;
+&lt;p&gt;The first alphabetical character in each summary block is converted to an &lt;a href=&#34;https://www.w3.org/TR/xml-entity-names/double-struck.html&#34;&gt;open
+face character&lt;/a&gt; such
+as:&lt;/p&gt;
+&lt;div style=&#34;font-size: 3em; line-height: 1em;&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;𝔸 𝔹 ℂ 𝔻 𝔼 𝔽 𝔾 ℍ 𝕀 𝕁 𝕂 𝕃 𝕄 ℕ 𝕆 ℙ ℚ ℝ 𝕊 𝕋 𝕌 𝕍 𝕎 𝕏 𝕐 ℤ 𝕒 𝕓 𝕔 𝕕 𝕖 𝕗 𝕘 𝕙 𝕚 𝕛 𝕜 𝕝 𝕞 𝕟 𝕠 𝕡 𝕢 𝕣 𝕤 𝕥 𝕦 𝕧 𝕨 𝕩 𝕪 𝕫&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;navigation-links&#34;&gt;Navigation links&lt;/h3&gt;
+&lt;h2 id=&#34;responsive-design&#34;&gt;Responsive design&lt;/h2&gt;
+&lt;h3 id=&#34;screen-size&#34;&gt;Screen size&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Attribute \ width&lt;/th&gt;
+          &lt;th&gt;650 - 800px&lt;/th&gt;
+          &lt;th&gt;800 - 1280px&lt;/th&gt;
+          &lt;th&gt;&amp;gt; 1280px&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Menu&lt;/td&gt;
+          &lt;td&gt;optional items&lt;/td&gt;
+          &lt;td&gt;hidden&lt;/td&gt;
+          &lt;td&gt;shown&lt;/td&gt;
+          &lt;td&gt;&amp;lt;=&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Table of contents&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;left margin / sticky&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Floats&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;beside or overlapping body&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Sidenotes&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;side&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Home posts&lt;/td&gt;
+          &lt;td&gt;layout&lt;/td&gt;
+          &lt;td&gt;one column&lt;/td&gt;
+          &lt;td&gt;two columns&lt;/td&gt;
+          &lt;td&gt;&amp;lt;=&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;dark-theme&#34;&gt;Dark theme&lt;/h3&gt;
+&lt;p&gt;This theme uses the
+&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme&#34;&gt;&lt;code&gt;prefer-color-scheme&lt;/code&gt;&lt;/a&gt;
+CSS media feature to respond to the dark color theme of the system. If you
+change your system to the dark mode, the web pages will automatically switch to
+the dark mode.&lt;/p&gt;
+&lt;h2 id=&#34;custom-layouts&#34;&gt;Custom layouts&lt;/h2&gt;
+&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;p&gt;section anchors&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;This example website does contain images and videos as demos, though.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;For example, &lt;code&gt;pre: &amp;quot;optional&amp;quot;&lt;/code&gt; will generate the menu item
+&lt;code&gt;&amp;lt;li class=&amp;quot;optional&amp;quot;&amp;gt;&lt;/code&gt;. It may be an unimportant item that you do not mind
+hiding on smaller screens.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;We recommend that you keep the title short so it can fit on one line.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Note that if you want to use citations, you have &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;the R Markdown
+format&lt;/a&gt; with the R
+package &lt;strong&gt;blogdown&lt;/strong&gt;. Plain Markdown posts (&lt;code&gt;.md&lt;/code&gt; files) do not support
+citations.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>主题介绍</title>
+        <link>bio-spring/about/about/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <author>Yihui Xie</author>
+        <guid>bio-spring/about/about/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;Hugo Prose&lt;/strong&gt; 是一个非常轻量级的主题，拥有 &lt;a href=&#34;https://wowchemy.com&#34;&gt;Wowchemy&lt;/a&gt;、&lt;a href=&#34;https://distill.pub&#34;&gt;Distill&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/edwardtufte/tufte.css&#34;&gt;tufte.css&lt;/a&gt; 的一些特性。这个主题仅使用了文本元素（不含任何图片、图标和表情）。这个主题默认集成了两个 JavaScript 库，分别是 &lt;a href=&#34;https://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt; 和 &lt;a href=&#34;https://highlightjs.org/&#34;&gt;highlight.js&lt;/a&gt;，用于显示数学公式和代码高亮。除此之外，还手打了几行 JavaScript 代码。该主题使用了 300 行自定义的 CSS，没有使用 CSS 库。&lt;/p&gt;
+&lt;div class=&#34;quote-right&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;贫穷的不是拥有太少的人，而是渴望拥有更多的人。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;mdash; &lt;em&gt;《道德书简》&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;p&gt;本页将介绍该主题的各种功能，供您摆弄。&lt;/p&gt;
+&lt;h2 id=&#34;网站设置&#34;&gt;网站设置&lt;/h2&gt;
+&lt;p&gt;以下是您可以为基于此主题的网站配置的选项。&lt;/p&gt;
+&lt;h3 id=&#34;菜单&#34;&gt;菜单&lt;/h3&gt;
+&lt;p&gt;每个页面的页眉和页脚都有一个菜单。页眉菜单在 &lt;code&gt;config.yaml&lt;/code&gt; 中 &lt;code&gt;menu&lt;/code&gt; 下面的 &lt;code&gt;header&lt;/code&gt; 选项中定义；页脚菜单在 &lt;code&gt;menu&lt;/code&gt; 下面的 &lt;code&gt;footer&lt;/code&gt; 选项中定义。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  header:
+    - name: Home
+      url: &amp;quot;/&amp;quot;
+      weight: 1
+    - name: About
+      url: &amp;quot;/about/&amp;quot;
+      weight: 2
+  footer:
+    - name: Contact
+      url: &amp;quot;/404.html&amp;quot;
+      weight: 1
+    - name: Categories
+      url: &amp;quot;/categories/&amp;quot;
+      weight: 2
+      pre: &amp;quot;optional&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;菜单项的 &lt;code&gt;url&lt;/code&gt; 既可以相对 URL，也可以是外部链接（例如，&lt;code&gt;url: &amp;quot;https://github.com/yihui&amp;quot;&lt;/code&gt;）。菜单项的顺序由权重值决定。如果菜单项有 &lt;code&gt;pre&lt;/code&gt; 值，它将被用作菜单项的类。特殊值 &lt;code&gt;optional&lt;/code&gt; 表示该菜单项将在小屏幕上隐藏&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;菜单中的链接除了可以在 &lt;code&gt;menu&lt;/code&gt; 下的 &lt;code&gt;header&lt;/code&gt; 中定义，还可以在每一个页面的 yaml 头中定义。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;---
+title: About Hugo Prose
+menu:
+  header:
+    name: About
+    weight: 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有 &lt;code&gt;name&lt;/code&gt; 参数，则菜单将以 &lt;code&gt;title&lt;/code&gt; 显示。这个特性可以将任一文档加入菜单中去。在提供了便捷性的同时，对于菜单的维护也造成了一些困扰。&lt;/p&gt;
+&lt;p&gt;可通过 &lt;code&gt;config.yaml&lt;/code&gt; 中的参数 &lt;code&gt;stickyMenu&lt;/code&gt; 使标题菜单悬停在页面上方：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  stickyMenu: true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;主页&#34;&gt;主页&lt;/h3&gt;
+&lt;p&gt;主页的主体部分包括简介（introduction）、一系列信息卡（info cards），然后是一些最新的帖子（posts）和页面（pages）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;简介来源于 &lt;code&gt;content/_index.md&lt;/code&gt;。Markdown 内容可以包含任意元素。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;信息卡来源于 &lt;code&gt;content/card/&lt;/code&gt; 目录。每个 Markdown 文件将被显示为一个独立的卡片。标题显示在左侧或者右侧&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。 在 yaml 区块使用 &lt;code&gt;style&lt;/code&gt; 可以改变卡片的样式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;homePosts&lt;/code&gt; 设置主页显示帖子的数量（默认是 6）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  homePosts: 10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mainSections&lt;/code&gt; 设置主页显示页面的范围（例如 post、news 等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  mainSections: [&amp;quot;post&amp;quot;, &amp;quot;news&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;页脚&#34;&gt;页脚&lt;/h3&gt;
+&lt;p&gt;在 &lt;code&gt;config.yaml&lt;/code&gt; 的 &lt;code&gt;footer&lt;/code&gt; 参数中添加版权声明。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  footer: &amp;quot;&amp;amp;copy; Frida Gomam 2015 -- 2020&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;评论&#34;&gt;评论&lt;/h3&gt;
+&lt;p&gt;使用 Disqus 或 Utterances 实现。&lt;/p&gt;
+&lt;h3 id=&#34;搜索&#34;&gt;搜索&lt;/h3&gt;
+&lt;p&gt;This theme supports searching out of the box based on &lt;a href=&#34;https://fusejs.io&#34;&gt;Fuse.js&lt;/a&gt;. A few critical configurations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The site needs to generate a JSON index. This is done via a layout file &lt;code&gt;index.json.json&lt;/code&gt; in &lt;code&gt;layouts/_default/&lt;/code&gt;, and the config in &lt;code&gt;config.yaml&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;outputs:
+  home: [html, rss, json]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A menu item with the ID &lt;code&gt;menu-search&lt;/code&gt; configured in &lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;menu:
+  header:
+    - name: Search
+      url: &amp;quot;#&amp;quot;
+      identifier: menu-search
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The version of Fuse can be configured via the parameter &lt;code&gt;fuseVersion&lt;/code&gt; in &lt;code&gt;config.yaml&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  fuseVersion: 6.4.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If no &lt;code&gt;fuseVersion&lt;/code&gt; is specified, the latest version of Fuse.js will be used. You may also download a copy of Fuse.js to the &lt;code&gt;static/&lt;/code&gt; folder of your site and use this copy instead of loading it from CDN. To do that, you may download Fuse.js to, say, &lt;code&gt;static/js/fuse.js&lt;/code&gt; and modify the partial template &lt;code&gt;layouts/partials/foot_custom.html&lt;/code&gt;. Replace&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ with .Site.Params.fuseVersion }}
+&amp;lt;script src=&amp;quot;https://cdn.jsdelivr.net/npm/fuse.js@{{ . }}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;{{ relURL &amp;quot;/js/fuse.js&amp;quot; }}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That way, you can also use search when viewing the site offline, because Fuse.js is no longer loaded from CDN.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文章&#34;&gt;文章&lt;/h2&gt;
+&lt;h3 id=&#34;多个作者&#34;&gt;多个作者&lt;/h3&gt;
+&lt;p&gt;如果有多个作者，使用 &lt;code&gt;author: [one, two]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;作者的简介需要保存到 &lt;code&gt;data/authors.yaml&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;目录&#34;&gt;目录&lt;/h3&gt;
+&lt;p&gt;目录使用标题自动生成。&lt;/p&gt;
+&lt;h3 id=&#34;编号&#34;&gt;编号&lt;/h3&gt;
+&lt;p&gt;标题中的编号也会自动生成。&lt;/p&gt;
+&lt;h3 id=&#34;脚注引文和侧记&#34;&gt;脚注、引文和侧记&lt;/h3&gt;
+&lt;p&gt;脚注和引文默认显示在页面右侧&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。如果想显示在左侧，可以使用 &lt;code&gt;side&lt;/code&gt; 和 &lt;code&gt;side-left&lt;/code&gt;/&lt;code&gt;side-right&lt;/code&gt; 类。&lt;/p&gt;
+&lt;div class=&#34;side side-left&#34;&gt;
+&lt;p&gt;This is a sidenote on the left side. You can include anything in the note. For example, here is a bullet list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get up&lt;/li&gt;
+&lt;li&gt;Do the work&lt;/li&gt;
+&lt;li&gt;Go to bed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;side side-left&amp;quot;&amp;gt;
+
+Content to be displayed as a sidenote.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;附录&#34;&gt;附录&lt;/h3&gt;
+&lt;p&gt;包括下列内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Author&amp;rsquo;s bio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Custom fields&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;License&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Suggest changes&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;标记草稿&#34;&gt;标记草稿&lt;/h3&gt;
+&lt;p&gt;Mark an article as draft by adding &lt;code&gt;draft: true&lt;/code&gt; to the YAML metadata. Draft articles are styled with a background of diagonal lines and a watermark &amp;ldquo;Draft.&amp;rdquo; For listing pages, draft articles are also indicated by the background.&lt;/p&gt;
+&lt;h2 id=&#34;悬浮&#34;&gt;悬浮&lt;/h2&gt;
+&lt;h3 id=&#34;full-width-elements&#34;&gt;Full-width elements&lt;/h3&gt;
+&lt;p&gt;Apply the class &lt;code&gt;fullwidth&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;fullwidth&amp;quot;&amp;gt;
+
+Content to be displayed with its maximum width.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fullwidth&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/en/timeline/c8fff6bec6e98dfe6399084a540293e3.png&#34;
+    alt=&#34;History of stoics&#34;&gt;&lt;figcaption&gt;
+      &lt;p&gt;Figure 3.1: Beginning around 301 BC, Zeno taught philosophy at the Stoa Poikile (&amp;ldquo;Painted Porch&amp;rdquo;), from which his philosophy got its name. Unlike the other schools of philosophy, such as the Epicureans, Zeno chose to teach his philosophy in a public space, which was a colonnade overlooking the central gathering place of Athens, the Agora.&lt;/p&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;p&gt;If you want the full-width element to be scrollable, you can apply an additional class &lt;code&gt;fullscroll&lt;/code&gt;, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;fullwidth fullscroll&amp;quot;&amp;gt;
+
+Super wide content to be scrolled horizontally.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fullwidth fullscroll&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Along_the_River_During_the_Qingming_Festival_%28Qing_Court_Version%29.jpg/10000px-Along_the_River_During_the_Qingming_Festival_%28Qing_Court_Version%29.jpg&#34;
+    alt=&#34;Along the River During the Qingming Festival&#34;&gt;&lt;figcaption&gt;
+      &lt;p&gt;Figure 3.2: This painting is known as the &amp;ldquo;Qing Court Version&amp;rdquo; of &lt;em&gt;Along the River During the Qingming Festival&lt;/em&gt;. Here, the figural scenes are numerous and detailed, happening around noteworthy landmarks and places such as the serene rustic countryside, the Rainbow Bridge (虹橋) and its crowded markets, the lively surroundings and throughways at the city walls and gates, the busy streets and various packed shops, the secluded literati gardens, the Songzhu Hall (松竹軒) as well as the beautiful site of the Jinming Lake (金明池).&lt;/p&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;/div&gt;
+&lt;h3 id=&#34;embedded-elements&#34;&gt;Embedded elements&lt;/h3&gt;
+&lt;p&gt;Use the &lt;code&gt;embed-left&lt;/code&gt; or &lt;code&gt;embed-right&lt;/code&gt; class to embed a content block to be floated to the left or right, and the block will exceed the article margin by 200px, e.g.,&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;embed-right&amp;quot;&amp;gt;
+
+Content to be embedded onto the margin.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;embed-right&#34;&gt;
+&lt;iframe src=&#34;https://player.vimeo.com/video/469252441&#34; width=&#34;640&#34; height=&#34;400&#34; frameborder=&#34;0&#34; allow=&#34;autoplay; fullscreen&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;One application is to embed videos in an article, when the video needs a narrative. For example, you can embed a video on the right side, and provide a narrative in the body of the article, which will be on the left side of the video.&lt;/p&gt;
+&lt;p&gt;By default, the &lt;code&gt;max-width&lt;/code&gt; of the embedded element is 600px (the actual width could be smaller), out of which 200px will be in the margin, meaning that there will be at least 400px left for the narrative in the article body.&lt;/p&gt;
+&lt;p&gt;When the screen width is smaller than 1200px, the embedded elements will be floated back into the article as normal block-level elements.&lt;/p&gt;
+&lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
+&lt;p&gt;Use the &lt;code&gt;quote-left&lt;/code&gt; or &lt;code&gt;quote-right&lt;/code&gt; class to make content float to the left or right.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;quote-left&amp;quot;&amp;gt;
+
+A quote to be floated to the left.
+
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The quotes do not have to be literally quotes. These environments can contain any content, although quotes may be the most common application.&lt;/p&gt;
+&lt;div class=&#34;quote-left&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Here is a quote that I&amp;rsquo;ve never said.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;p&gt;内容的默认宽度是容器的 45%。当屏幕宽度小于 800px 时，引用将停止浮动，变成正常的块级元素。&lt;/p&gt;
+&lt;h2 id=&#34;列出页面&#34;&gt;列出页面&lt;/h2&gt;
+&lt;h3 id=&#34;open-face-characters&#34;&gt;Open face characters&lt;/h3&gt;
+&lt;p&gt;The first alphabetical character in each summary block is converted to an &lt;a href=&#34;https://www.w3.org/TR/xml-entity-names/double-struck.html&#34;&gt;open face character&lt;/a&gt; such as:&lt;/p&gt;
+&lt;div style=&#34;font-size: 3em; line-height: 1em;&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;𝔸 𝔹 ℂ 𝔻 𝔼 𝔽 𝔾 ℍ 𝕀 𝕁 𝕂 𝕃 𝕄 ℕ 𝕆 ℙ ℚ ℝ 𝕊 𝕋 𝕌 𝕍 𝕎 𝕏 𝕐 ℤ 𝕒 𝕓 𝕔 𝕕 𝕖 𝕗 𝕘 𝕙 𝕚 𝕛 𝕜 𝕝 𝕞 𝕟 𝕠 𝕡 𝕢 𝕣 𝕤 𝕥 𝕦 𝕧 𝕨 𝕩 𝕪 𝕫&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;navigation-links&#34;&gt;Navigation links&lt;/h3&gt;
+&lt;p&gt;（导航链接无内容）&lt;/p&gt;
+&lt;h2 id=&#34;交互设计&#34;&gt;交互设计&lt;/h2&gt;
+&lt;h3 id=&#34;屏幕大小&#34;&gt;屏幕大小&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Attribute \ width&lt;/th&gt;
+          &lt;th&gt;650 - 800px&lt;/th&gt;
+          &lt;th&gt;800 - 1280px&lt;/th&gt;
+          &lt;th&gt;&amp;gt; 1280px&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Menu&lt;/td&gt;
+          &lt;td&gt;optional items&lt;/td&gt;
+          &lt;td&gt;hidden&lt;/td&gt;
+          &lt;td&gt;shown&lt;/td&gt;
+          &lt;td&gt;&amp;lt;=&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Table of contents&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;left margin / sticky&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Floats&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;beside or overlapping body&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Sidenotes&lt;/td&gt;
+          &lt;td&gt;position&lt;/td&gt;
+          &lt;td&gt;=&amp;gt;&lt;/td&gt;
+          &lt;td&gt;body / static&lt;/td&gt;
+          &lt;td&gt;side&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Home posts&lt;/td&gt;
+          &lt;td&gt;layout&lt;/td&gt;
+          &lt;td&gt;one column&lt;/td&gt;
+          &lt;td&gt;two columns&lt;/td&gt;
+          &lt;td&gt;&amp;lt;=&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;夜间模式&#34;&gt;夜间模式&lt;/h3&gt;
+&lt;p&gt;This theme uses the &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme&#34;&gt;&lt;code&gt;prefer-color-scheme&lt;/code&gt;&lt;/a&gt; CSS media feature to respond to the dark color theme of the system. If you change your system to the dark mode, the web pages will automatically switch to the dark mode.&lt;/p&gt;
+&lt;h2 id=&#34;custom-layouts&#34;&gt;Custom layouts&lt;/h2&gt;
+&lt;p&gt;（自定义页面布局）&lt;/p&gt;
+&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;section anchors&lt;/li&gt;
+&lt;li&gt;多语言支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;例如，&lt;code&gt;pre: &amp;quot;optional&amp;quot;&lt;/code&gt; 将生成菜单项 &lt;code&gt;&amp;lt;li class=&amp;quot;optional&amp;quot;&amp;gt;&lt;/code&gt;。这可能是一个不重要的项目，在屏幕显示不完全时将被隐藏。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;标题要短，否则一行显示不完全。&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;引文需要使用 &lt;a href=&#34;https://bookdown.org/yihui/blogdown/output-format.html&#34;&gt;the R Markdown format&lt;/a&gt; 格式才能支持。Markdown 不支持插入引文。&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

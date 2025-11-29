@@ -1,0 +1,268 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DT on BIO-SPRING</title>
+    <link>bio-spring/tags/dt/</link>
+    <description>Recent content in DT on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 17 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/dt/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>DT软件包的使用</title>
+        <link>bio-spring/post/2020/02/17/library-dt/</link>
+        <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2020/02/17/library-dt/</guid>
+        <description>
+          &lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core-bootstrap/css/dataTables.bootstrap.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core-bootstrap/css/dataTables.bootstrap.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core-bootstrap/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core-bootstrap/js/dataTables.bootstrap.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/nouislider/jquery.nouislider.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/nouislider/jquery.nouislider.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/selectize/selectize.bootstrap3.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/selectize/selectize.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmltools-fill/fill.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/jquery/jquery-3.6.0.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/css/crosstalk.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;bio-spring/post/2020/02/17/library-dt/index.zh_files/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;h1 id=&#34;基础用法&#34;&gt;基础用法&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(DT)
+datatable(iris)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-1&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;,&#34;31&#34;,&#34;32&#34;,&#34;33&#34;,&#34;34&#34;,&#34;35&#34;,&#34;36&#34;,&#34;37&#34;,&#34;38&#34;,&#34;39&#34;,&#34;40&#34;,&#34;41&#34;,&#34;42&#34;,&#34;43&#34;,&#34;44&#34;,&#34;45&#34;,&#34;46&#34;,&#34;47&#34;,&#34;48&#34;,&#34;49&#34;,&#34;50&#34;,&#34;51&#34;,&#34;52&#34;,&#34;53&#34;,&#34;54&#34;,&#34;55&#34;,&#34;56&#34;,&#34;57&#34;,&#34;58&#34;,&#34;59&#34;,&#34;60&#34;,&#34;61&#34;,&#34;62&#34;,&#34;63&#34;,&#34;64&#34;,&#34;65&#34;,&#34;66&#34;,&#34;67&#34;,&#34;68&#34;,&#34;69&#34;,&#34;70&#34;,&#34;71&#34;,&#34;72&#34;,&#34;73&#34;,&#34;74&#34;,&#34;75&#34;,&#34;76&#34;,&#34;77&#34;,&#34;78&#34;,&#34;79&#34;,&#34;80&#34;,&#34;81&#34;,&#34;82&#34;,&#34;83&#34;,&#34;84&#34;,&#34;85&#34;,&#34;86&#34;,&#34;87&#34;,&#34;88&#34;,&#34;89&#34;,&#34;90&#34;,&#34;91&#34;,&#34;92&#34;,&#34;93&#34;,&#34;94&#34;,&#34;95&#34;,&#34;96&#34;,&#34;97&#34;,&#34;98&#34;,&#34;99&#34;,&#34;100&#34;,&#34;101&#34;,&#34;102&#34;,&#34;103&#34;,&#34;104&#34;,&#34;105&#34;,&#34;106&#34;,&#34;107&#34;,&#34;108&#34;,&#34;109&#34;,&#34;110&#34;,&#34;111&#34;,&#34;112&#34;,&#34;113&#34;,&#34;114&#34;,&#34;115&#34;,&#34;116&#34;,&#34;117&#34;,&#34;118&#34;,&#34;119&#34;,&#34;120&#34;,&#34;121&#34;,&#34;122&#34;,&#34;123&#34;,&#34;124&#34;,&#34;125&#34;,&#34;126&#34;,&#34;127&#34;,&#34;128&#34;,&#34;129&#34;,&#34;130&#34;,&#34;131&#34;,&#34;132&#34;,&#34;133&#34;,&#34;134&#34;,&#34;135&#34;,&#34;136&#34;,&#34;137&#34;,&#34;138&#34;,&#34;139&#34;,&#34;140&#34;,&#34;141&#34;,&#34;142&#34;,&#34;143&#34;,&#34;144&#34;,&#34;145&#34;,&#34;146&#34;,&#34;147&#34;,&#34;148&#34;,&#34;149&#34;,&#34;150&#34;],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;Sepal.Length&lt;\/th&gt;\n      &lt;th&gt;Sepal.Width&lt;\/th&gt;\n      &lt;th&gt;Petal.Length&lt;\/th&gt;\n      &lt;th&gt;Petal.Width&lt;\/th&gt;\n      &lt;th&gt;Species&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;在上面的表格中，搜索框提供了针对所有数据进行检索的功能，检索词可以是文本、数值或其它任意的数据项。检索结果实时显示，如果没有找到任何结果则显示为空白。&lt;/p&gt;
+&lt;h1 id=&#34;语法&#34;&gt;语法&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;datatable&lt;/code&gt; 的语法如下所示。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;datatable(data, options = list(), class = &amp;quot;display&amp;quot;,
+    callback = JS(&amp;quot;return table;&amp;quot;), rownames, colnames, container,
+    caption = NULL, filter = c(&amp;quot;none&amp;quot;, &amp;quot;bottom&amp;quot;, &amp;quot;top&amp;quot;), escape = TRUE,
+    style = &amp;quot;default&amp;quot;, width = NULL, height = NULL, elementId = NULL,
+    fillContainer = getOption(&amp;quot;DT.fillContainer&amp;quot;, NULL),
+    autoHideNavigation = getOption(&amp;quot;DT.autoHideNavigation&amp;quot;, NULL),
+    selection = c(&amp;quot;multiple&amp;quot;, &amp;quot;single&amp;quot;, &amp;quot;none&amp;quot;), extensions = list(),
+    plugins = NULL, editable = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;样式和显示相关参数&#34;&gt;样式和显示相关参数&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;class：设置原始的类，类名来自于 default.css 或者 bootstrap.css&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;style：默认仅支持 default 和 bootstrap 的 CSS 样式表&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rownames：是否显示行名，或者指定行名（向量或者一一对应的列表）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;colnames：是否显示列名，或者指定列名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;caption：表格的标题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;escape：是否转义 HTML 字符（默认为不转义）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;bootstrap 样式的名称可以 &lt;a href=&#34;http://getbootstrap.com/css/#tables&#34;&gt;在此&lt;/a&gt;查询。&lt;/p&gt;
+&lt;p&gt;需要注意的是 DT 会自动矫正样式名称，使用下面的命令可以查看具体对应的样式。
+此外，样式的实际显示效果与网站采用的基础CSS框架有很大关系，因此每个人运行下列代码得到的最终显示结果可能会有明显差别。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DT:::DT2BSClass(&#39;display&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;table table-striped table-hover row-border order-column display&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DT:::DT2BSClass(c(&#39;compact&#39;, &#39;cell-border&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;table table-condensed table-bordered&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;换一个样式看看。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 使用 bootstrap.css
+datatable(iris, style = &#39;bootstrap&#39;, class = &#39;table-bordered&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-2&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;,&#34;31&#34;,&#34;32&#34;,&#34;33&#34;,&#34;34&#34;,&#34;35&#34;,&#34;36&#34;,&#34;37&#34;,&#34;38&#34;,&#34;39&#34;,&#34;40&#34;,&#34;41&#34;,&#34;42&#34;,&#34;43&#34;,&#34;44&#34;,&#34;45&#34;,&#34;46&#34;,&#34;47&#34;,&#34;48&#34;,&#34;49&#34;,&#34;50&#34;,&#34;51&#34;,&#34;52&#34;,&#34;53&#34;,&#34;54&#34;,&#34;55&#34;,&#34;56&#34;,&#34;57&#34;,&#34;58&#34;,&#34;59&#34;,&#34;60&#34;,&#34;61&#34;,&#34;62&#34;,&#34;63&#34;,&#34;64&#34;,&#34;65&#34;,&#34;66&#34;,&#34;67&#34;,&#34;68&#34;,&#34;69&#34;,&#34;70&#34;,&#34;71&#34;,&#34;72&#34;,&#34;73&#34;,&#34;74&#34;,&#34;75&#34;,&#34;76&#34;,&#34;77&#34;,&#34;78&#34;,&#34;79&#34;,&#34;80&#34;,&#34;81&#34;,&#34;82&#34;,&#34;83&#34;,&#34;84&#34;,&#34;85&#34;,&#34;86&#34;,&#34;87&#34;,&#34;88&#34;,&#34;89&#34;,&#34;90&#34;,&#34;91&#34;,&#34;92&#34;,&#34;93&#34;,&#34;94&#34;,&#34;95&#34;,&#34;96&#34;,&#34;97&#34;,&#34;98&#34;,&#34;99&#34;,&#34;100&#34;,&#34;101&#34;,&#34;102&#34;,&#34;103&#34;,&#34;104&#34;,&#34;105&#34;,&#34;106&#34;,&#34;107&#34;,&#34;108&#34;,&#34;109&#34;,&#34;110&#34;,&#34;111&#34;,&#34;112&#34;,&#34;113&#34;,&#34;114&#34;,&#34;115&#34;,&#34;116&#34;,&#34;117&#34;,&#34;118&#34;,&#34;119&#34;,&#34;120&#34;,&#34;121&#34;,&#34;122&#34;,&#34;123&#34;,&#34;124&#34;,&#34;125&#34;,&#34;126&#34;,&#34;127&#34;,&#34;128&#34;,&#34;129&#34;,&#34;130&#34;,&#34;131&#34;,&#34;132&#34;,&#34;133&#34;,&#34;134&#34;,&#34;135&#34;,&#34;136&#34;,&#34;137&#34;,&#34;138&#34;,&#34;139&#34;,&#34;140&#34;,&#34;141&#34;,&#34;142&#34;,&#34;143&#34;,&#34;144&#34;,&#34;145&#34;,&#34;146&#34;,&#34;147&#34;,&#34;148&#34;,&#34;149&#34;,&#34;150&#34;],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;versicolor&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;,&#34;virginica&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;table table-bordered\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;Sepal.Length&lt;\/th&gt;\n      &lt;th&gt;Sepal.Width&lt;\/th&gt;\n      &lt;th&gt;Petal.Length&lt;\/th&gt;\n      &lt;th&gt;Petal.Width&lt;\/th&gt;\n      &lt;th&gt;Species&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;再换一个样式看看，同时改变列名，显示caption。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 使用 default.css
+datatable(head(iris), class = &#39;cell-border stripe&#39;, 
+          colnames = c(&#39;Another Better Name&#39; = 2, &#39;Yet Another Name&#39; = 4),
+          caption = &#39;Table 1: This is a simple caption for the table.&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-3&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;caption&#34;:&#34;&lt;caption&gt;Table 1: This is a simple caption for the table.&lt;\/caption&gt;&#34;,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;],[5.1,4.9,4.7,4.6,5,5.4],[3.5,3,3.2,3.1,3.6,3.9],[1.4,1.4,1.3,1.5,1.4,1.7],[0.2,0.2,0.2,0.2,0.2,0.4],[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;cell-border stripe\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;Another Better Name&lt;\/th&gt;\n      &lt;th&gt;Sepal.Width&lt;\/th&gt;\n      &lt;th&gt;Yet Another Name&lt;\/th&gt;\n      &lt;th&gt;Petal.Width&lt;\/th&gt;\n      &lt;th&gt;Species&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;当表格内容为 HTML 代码时，可以打开转义设置。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;m = matrix(c(
+  &#39;&amp;lt;b&amp;gt;Bold&amp;lt;/b&amp;gt;&#39;, &#39;&amp;lt;em&amp;gt;Emphasize&amp;lt;/em&amp;gt;&#39;, &#39;&amp;lt;a href=&amp;quot;http://rstudio.com&amp;quot;&amp;gt;RStudio&amp;lt;/a&amp;gt;&#39;,
+  &#39;&amp;lt;a href=&amp;quot;#&amp;quot; onclick=&amp;quot;alert(\&#39;Hello World\&#39;);&amp;quot;&amp;gt;Hello&amp;lt;/a&amp;gt;&#39;
+), 2)
+colnames(m) = c(&#39;&amp;lt;span style=&amp;quot;color:red&amp;quot;&amp;gt;Column 1&amp;lt;/span&amp;gt;&#39;, &#39;&amp;lt;em&amp;gt;Column 2&amp;lt;/em&amp;gt;&#39;)
+datatable(m, escape = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-4&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;data&#34;:[[&#34;&lt;b&gt;Bold&lt;\/b&gt;&#34;,&#34;&lt;em&gt;Emphasize&lt;\/em&gt;&#34;],[&#34;&lt;a href=\&#34;http://rstudio.com\&#34;&gt;RStudio&lt;\/a&gt;&#34;,&#34;&lt;a href=\&#34;#\&#34; onclick=\&#34;alert(&#39;Hello World&#39;);\&#34;&gt;Hello&lt;\/a&gt;&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt;&lt;span style=\&#34;color:red\&#34;&gt;Column 1&lt;\/span&gt;&lt;\/th&gt;\n      &lt;th&gt;&lt;em&gt;Column 2&lt;\/em&gt;&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;h2 id=&#34;实时编辑&#34;&gt;实时编辑&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;editable：允许双击启用实时编辑。不仅可以接受逻辑值，还可以接受字符和列表（用于配置可编辑的区域）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编辑可以分为客户端和服务端，在下面的编辑只能保留在客户端。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;DT::datatable(head(iris), editable = &#39;cell&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-5&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;editable&#34;:{&#34;target&#34;:&#34;cell&#34;,&#34;disable&#34;:{&#34;columns&#34;:null},&#34;numeric&#34;:[1,2,3,4],&#34;date&#34;:[]},&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;],[5.1,4.9,4.7,4.6,5,5.4],[3.5,3,3.2,3.1,3.6,3.9],[1.4,1.4,1.3,1.5,1.4,1.7],[0.2,0.2,0.2,0.2,0.2,0.4],[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;Sepal.Length&lt;\/th&gt;\n      &lt;th&gt;Sepal.Width&lt;\/th&gt;\n      &lt;th&gt;Petal.Length&lt;\/th&gt;\n      &lt;th&gt;Petal.Width&lt;\/th&gt;\n      &lt;th&gt;Species&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;如果需要在服务端写入修改的结果，则需要配置服务端的响应（示例：https://yihui.shinyapps.io/DT-edit/）。&lt;/p&gt;
+&lt;h2 id=&#34;过滤数据&#34;&gt;过滤数据&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;filter：支持实时过滤数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不同的类型将会以不同的形式提供过滤选项。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数字、时间、日期：显示为滑块，指定范围&lt;/li&gt;
+&lt;li&gt;因子：显示为复选框&lt;/li&gt;
+&lt;li&gt;文本：显示为文本输入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d = data.frame(
+  names = rownames(mtcars),
+  date = as.Date(&#39;2015-03-23&#39;) + 1:32,
+  time = as.POSIXct(&#39;2015-03-23 12:00:00&#39;, tz = &#39;UTC&#39;) + (1:32) * 5000,
+  stringsAsFactors = FALSE
+)
+str(d)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &#39;data.frame&#39;:	32 obs. of  3 variables:
+##  $ names: chr  &amp;quot;Mazda RX4&amp;quot; &amp;quot;Mazda RX4 Wag&amp;quot; &amp;quot;Datsun 710&amp;quot; &amp;quot;Hornet 4 Drive&amp;quot; ...
+##  $ date : Date, format: &amp;quot;2015-03-24&amp;quot; &amp;quot;2015-03-25&amp;quot; ...
+##  $ time : POSIXct, format: &amp;quot;2015-03-23 13:23:20&amp;quot; &amp;quot;2015-03-23 14:46:40&amp;quot; ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;datatable(d, filter = &#39;top&#39;, options = list(pageLength = 5))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-6&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;top&#34;,&#34;vertical&#34;:false,&#34;filterHTML&#34;:&#34;&lt;tr&gt;\n  &lt;td&gt;&lt;\/td&gt;\n  &lt;td data-type=\&#34;character\&#34; style=\&#34;vertical-align: top;\&#34;&gt;\n    &lt;div class=\&#34;form-group has-feedback\&#34; style=\&#34;margin-bottom: auto;\&#34;&gt;\n      &lt;input type=\&#34;search\&#34; placeholder=\&#34;All\&#34; class=\&#34;form-control\&#34; style=\&#34;width: 100%;\&#34;/&gt;\n      &lt;span class=\&#34;glyphicon glyphicon-remove-circle form-control-feedback\&#34;&gt;&lt;\/span&gt;\n    &lt;\/div&gt;\n  &lt;\/td&gt;\n  &lt;td data-type=\&#34;date\&#34; style=\&#34;vertical-align: top;\&#34;&gt;\n    &lt;div class=\&#34;form-group has-feedback\&#34; style=\&#34;margin-bottom: auto;\&#34;&gt;\n      &lt;input type=\&#34;search\&#34; placeholder=\&#34;All\&#34; class=\&#34;form-control\&#34; style=\&#34;width: 100%;\&#34;/&gt;\n      &lt;span class=\&#34;glyphicon glyphicon-remove-circle form-control-feedback\&#34;&gt;&lt;\/span&gt;\n    &lt;\/div&gt;\n    &lt;div style=\&#34;display: none;position: absolute;width: 200px;opacity: 1\&#34;&gt;\n      &lt;div data-min=\&#34;1427155200000\&#34; data-max=\&#34;1429833600000\&#34;&gt;&lt;\/div&gt;\n      &lt;span style=\&#34;float: left;\&#34;&gt;&lt;\/span&gt;\n      &lt;span style=\&#34;float: right;\&#34;&gt;&lt;\/span&gt;\n    &lt;\/div&gt;\n  &lt;\/td&gt;\n  &lt;td data-type=\&#34;time\&#34; style=\&#34;vertical-align: top;\&#34;&gt;\n    &lt;div class=\&#34;form-group has-feedback\&#34; style=\&#34;margin-bottom: auto;\&#34;&gt;\n      &lt;input type=\&#34;search\&#34; placeholder=\&#34;All\&#34; class=\&#34;form-control\&#34; style=\&#34;width: 100%;\&#34;/&gt;\n      &lt;span class=\&#34;glyphicon glyphicon-remove-circle form-control-feedback\&#34;&gt;&lt;\/span&gt;\n    &lt;\/div&gt;\n    &lt;div style=\&#34;display: none;position: absolute;width: 200px;opacity: 1\&#34;&gt;\n      &lt;div data-min=\&#34;1.427117e+12\&#34; data-max=\&#34;1.427272e+12\&#34;&gt;&lt;\/div&gt;\n      &lt;span style=\&#34;float: left;\&#34;&gt;&lt;\/span&gt;\n      &lt;span style=\&#34;float: right;\&#34;&gt;&lt;\/span&gt;\n    &lt;\/div&gt;\n  &lt;\/td&gt;\n&lt;\/tr&gt;&#34;,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;,&#34;31&#34;,&#34;32&#34;],[&#34;Mazda RX4&#34;,&#34;Mazda RX4 Wag&#34;,&#34;Datsun 710&#34;,&#34;Hornet 4 Drive&#34;,&#34;Hornet Sportabout&#34;,&#34;Valiant&#34;,&#34;Duster 360&#34;,&#34;Merc 240D&#34;,&#34;Merc 230&#34;,&#34;Merc 280&#34;,&#34;Merc 280C&#34;,&#34;Merc 450SE&#34;,&#34;Merc 450SL&#34;,&#34;Merc 450SLC&#34;,&#34;Cadillac Fleetwood&#34;,&#34;Lincoln Continental&#34;,&#34;Chrysler Imperial&#34;,&#34;Fiat 128&#34;,&#34;Honda Civic&#34;,&#34;Toyota Corolla&#34;,&#34;Toyota Corona&#34;,&#34;Dodge Challenger&#34;,&#34;AMC Javelin&#34;,&#34;Camaro Z28&#34;,&#34;Pontiac Firebird&#34;,&#34;Fiat X1-9&#34;,&#34;Porsche 914-2&#34;,&#34;Lotus Europa&#34;,&#34;Ford Pantera L&#34;,&#34;Ferrari Dino&#34;,&#34;Maserati Bora&#34;,&#34;Volvo 142E&#34;],[&#34;2015-03-24&#34;,&#34;2015-03-25&#34;,&#34;2015-03-26&#34;,&#34;2015-03-27&#34;,&#34;2015-03-28&#34;,&#34;2015-03-29&#34;,&#34;2015-03-30&#34;,&#34;2015-03-31&#34;,&#34;2015-04-01&#34;,&#34;2015-04-02&#34;,&#34;2015-04-03&#34;,&#34;2015-04-04&#34;,&#34;2015-04-05&#34;,&#34;2015-04-06&#34;,&#34;2015-04-07&#34;,&#34;2015-04-08&#34;,&#34;2015-04-09&#34;,&#34;2015-04-10&#34;,&#34;2015-04-11&#34;,&#34;2015-04-12&#34;,&#34;2015-04-13&#34;,&#34;2015-04-14&#34;,&#34;2015-04-15&#34;,&#34;2015-04-16&#34;,&#34;2015-04-17&#34;,&#34;2015-04-18&#34;,&#34;2015-04-19&#34;,&#34;2015-04-20&#34;,&#34;2015-04-21&#34;,&#34;2015-04-22&#34;,&#34;2015-04-23&#34;,&#34;2015-04-24&#34;],[&#34;2015-03-23T13:23:20Z&#34;,&#34;2015-03-23T14:46:40Z&#34;,&#34;2015-03-23T16:10:00Z&#34;,&#34;2015-03-23T17:33:20Z&#34;,&#34;2015-03-23T18:56:40Z&#34;,&#34;2015-03-23T20:20:00Z&#34;,&#34;2015-03-23T21:43:20Z&#34;,&#34;2015-03-23T23:06:40Z&#34;,&#34;2015-03-24T00:30:00Z&#34;,&#34;2015-03-24T01:53:20Z&#34;,&#34;2015-03-24T03:16:40Z&#34;,&#34;2015-03-24T04:40:00Z&#34;,&#34;2015-03-24T06:03:20Z&#34;,&#34;2015-03-24T07:26:40Z&#34;,&#34;2015-03-24T08:50:00Z&#34;,&#34;2015-03-24T10:13:20Z&#34;,&#34;2015-03-24T11:36:40Z&#34;,&#34;2015-03-24T13:00:00Z&#34;,&#34;2015-03-24T14:23:20Z&#34;,&#34;2015-03-24T15:46:40Z&#34;,&#34;2015-03-24T17:10:00Z&#34;,&#34;2015-03-24T18:33:20Z&#34;,&#34;2015-03-24T19:56:40Z&#34;,&#34;2015-03-24T21:20:00Z&#34;,&#34;2015-03-24T22:43:20Z&#34;,&#34;2015-03-25T00:06:40Z&#34;,&#34;2015-03-25T01:30:00Z&#34;,&#34;2015-03-25T02:53:20Z&#34;,&#34;2015-03-25T04:16:40Z&#34;,&#34;2015-03-25T05:40:00Z&#34;,&#34;2015-03-25T07:03:20Z&#34;,&#34;2015-03-25T08:26:40Z&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;names&lt;\/th&gt;\n      &lt;th&gt;date&lt;\/th&gt;\n      &lt;th&gt;time&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;pageLength&#34;:5,&#34;columnDefs&#34;:[{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false,&#34;orderCellsTop&#34;:true,&#34;lengthMenu&#34;:[5,10,25,50,100]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;h2 id=&#34;指定显示框架&#34;&gt;指定显示框架&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;container：可以将数据填入一个指定的 HTML 框架&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# a custom table container
+sketch = htmltools::withTags(table(
+  class = &#39;display&#39;,
+  thead(
+    tr(
+      th(rowspan = 2, &#39;Species&#39;),
+      th(colspan = 2, &#39;Sepal&#39;),
+      th(colspan = 2, &#39;Petal&#39;)
+    ),
+    tr(
+      lapply(rep(c(&#39;Length&#39;, &#39;Width&#39;), 2), th)
+    )
+  )
+))
+print(sketch)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;table class=&amp;quot;display&amp;quot;&amp;gt;
+##   &amp;lt;thead&amp;gt;
+##     &amp;lt;tr&amp;gt;
+##       &amp;lt;th rowspan=&amp;quot;2&amp;quot;&amp;gt;Species&amp;lt;/th&amp;gt;
+##       &amp;lt;th colspan=&amp;quot;2&amp;quot;&amp;gt;Sepal&amp;lt;/th&amp;gt;
+##       &amp;lt;th colspan=&amp;quot;2&amp;quot;&amp;gt;Petal&amp;lt;/th&amp;gt;
+##     &amp;lt;/tr&amp;gt;
+##     &amp;lt;tr&amp;gt;
+##       &amp;lt;th&amp;gt;Length&amp;lt;/th&amp;gt;
+##       &amp;lt;th&amp;gt;Width&amp;lt;/th&amp;gt;
+##       &amp;lt;th&amp;gt;Length&amp;lt;/th&amp;gt;
+##       &amp;lt;th&amp;gt;Width&amp;lt;/th&amp;gt;
+##     &amp;lt;/tr&amp;gt;
+##   &amp;lt;/thead&amp;gt;
+## &amp;lt;/table&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# use rownames = FALSE here because we did not generate a cell for row names in
+# the header, and the header only contains five columns
+datatable(iris[1:20, c(5, 1:4)], container = sketch, rownames = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-7&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;class&#34;:&#34;display&#34;,&#34;data&#34;:[[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th rowspan=\&#34;2\&#34;&gt;Species&lt;\/th&gt;\n      &lt;th colspan=\&#34;2\&#34;&gt;Sepal&lt;\/th&gt;\n      &lt;th colspan=\&#34;2\&#34;&gt;Petal&lt;\/th&gt;\n    &lt;\/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;Length&lt;\/th&gt;\n      &lt;th&gt;Width&lt;\/th&gt;\n      &lt;th&gt;Length&lt;\/th&gt;\n      &lt;th&gt;Width&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;h2 id=&#34;js-回调函数&#34;&gt;JS 回调函数&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 初始化后显示第二页
+datatable(head(iris, 30), callback = JS(&#39;table.page(&amp;quot;next&amp;quot;).draw(false);&#39;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;datatables html-widget html-fill-item&#34; id=&#34;htmlwidget-8&#34; style=&#34;width:100%;height:auto;&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;vertical&#34;:false,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2],[&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;,&#34;setosa&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;Sepal.Length&lt;\/th&gt;\n      &lt;th&gt;Sepal.Width&lt;\/th&gt;\n      &lt;th&gt;Petal.Length&lt;\/th&gt;\n      &lt;th&gt;Petal.Width&lt;\/th&gt;\n      &lt;th&gt;Species&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;columnDefs&#34;:[{&#34;className&#34;:&#34;dt-right&#34;,&#34;targets&#34;:[1,2,3,4]},{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false},&#34;callback&#34;:&#34;function(table) {\ntable.page(\&#34;next\&#34;).draw(false);\n}&#34;},&#34;evals&#34;:[&#34;callback&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

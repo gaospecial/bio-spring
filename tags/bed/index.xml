@@ -1,0 +1,132 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BED on BIO-SPRING</title>
+    <link>bio-spring/tags/bed/</link>
+    <description>Recent content in BED on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 14 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/bed/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>A Genbank to BED converter</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+        <description>
+          &lt;p&gt;Like &lt;a href=&#34;http://bio-spring.top/a-genbenk-gtf-converter-derived-from-bioperl/&#34;&gt;the previous Genbank -&amp;gt; GTF
+converter&lt;/a&gt;,
+this script is also depended on BioPerl, so you need firstly get the
+module installed in your system (&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;Install
+BioPerl&lt;/a&gt;). To check whether
+BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     gb2bed.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;Read Pod for further information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;gb2bed.pl &amp;ndash; Genbank -&amp;gt; BED&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;gb2bed.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly BED files from NCBI
+GenBank.&lt;br&gt;
+Six columns will be extracted:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;chrom - name of the chromosome or scaffold. Any valid
+seq_region_name can be used, and chromosome names can be given with or
+without the &amp;lsquo;chr&amp;rsquo; prefix.&lt;/li&gt;
+&lt;li&gt;chromStart - Start position of the feature in standard chromosomal
+coordinates (i.e. first base is 0).&lt;/li&gt;
+&lt;li&gt;chromEnd - End position of the feature in standard chromosomal
+coordinates&lt;/li&gt;
+&lt;li&gt;name - Label to be displayed under the feature, if turned on in
+&amp;ldquo;Configure this page&amp;rdquo;. [locus_tag]&lt;/li&gt;
+&lt;li&gt;score - A score between 0 and 1000. [0]&lt;/li&gt;
+&lt;li&gt;strand - defined as + (forward) or - (reverse).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;br&gt;
+Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $output, @filters, @keep);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;filter|f=s&amp;rsquo; =&amp;gt; \@filters,&lt;br&gt;
+&amp;lsquo;keep|k=s&amp;rsquo; =&amp;gt; \@keep,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;@keep = (&amp;lsquo;gene&amp;rsquo;) unless $#keep &amp;gt;= 0;&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($output) { open $out, &amp;ldquo;&amp;gt; $output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %filter;&lt;br&gt;
+map {$filter{$_}++} @filters;&lt;br&gt;
+my %keep;&lt;br&gt;
+map {$keep{$_}++} @keep;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $chr = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;my @all_SeqFeatures = $seq-&amp;gt;get_all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;#~ warn &amp;ldquo;# working on $chr\n&amp;rdquo;;&lt;br&gt;
+if ($#filters &amp;gt;= 0){&lt;br&gt;
+@all_SeqFeatures = grep { !defined $filter{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;br&gt;
+if ($#keep &amp;gt;= 0) {&lt;br&gt;
+@all_SeqFeatures = grep { defined $keep{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$chr has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if $#all_SeqFeatures &amp;lt; 0; for my $feature ( @all_SeqFeatures ) {
+my ($start, $end, $name, $strand); $start = $feature-&amp;gt;start - 1; #
+bed base is 0, while genbank is 1&lt;br&gt;
+$end = $feature-&amp;gt;end;&lt;br&gt;
+($name) = $feature-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;);&lt;br&gt;
+$strand = $feature-&amp;gt;strand;&lt;br&gt;
+$strand = $strand &amp;lt; 0 ? &amp;lsquo;-&amp;rsquo; : &amp;lsquo;+&amp;rsquo;; print $out join(&amp;rdquo;\t&amp;quot;, $chr,
+$start, $end, $name, 0, $strand), &amp;ldquo;\n&amp;rdquo;; } }&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

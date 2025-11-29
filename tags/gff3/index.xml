@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GFF3 on BIO-SPRING</title>
+    <link>bio-spring/tags/gff3/</link>
+    <description>Recent content in GFF3 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/gff3/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File</title>
+        <link>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</link>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</guid>
+        <description>
+          &lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download Genbank from NCBI;&lt;/li&gt;
+&lt;li&gt;Convert Genbank to GFF3 with
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;BioPerl&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Modify the GFF3 file;&lt;/li&gt;
+&lt;li&gt;Download Fasta from NCBI or use Genbank conversion;&lt;/li&gt;
+&lt;li&gt;Use the modified GFF3 file in rsem-prepare-reference;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;主要代码如下：&lt;br&gt;
+&lt;code&gt; bp_genbank2gff3  --GFF_VERSION 3 file.gb awk &#39;$3!~/pseudo/&#39; file.gb.gff &amp;gt; file.rsem.gff # or more restrictly with only protein coding genes awk &#39;$3~/^(gene|mRNA|exon|polypeptide)$/&#39; file.gb.gff &amp;gt; file.cds.gff # remove the version number in fasta accession if no transcript is extract rsem-prepare-reference file.fasta --gff3 file.rsem.gff reference_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里主要解决了以下错误：&lt;br&gt;
+&lt;strong&gt;Line x does not have attribute Parent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于rsem遵循gene-&amp;gt;transcript-&amp;gt;exon的结构，并利用exon来作为RNA的最后形式（经过剪切和后处理的RNA），要求exon都有(且仅有）一个Parent。而GFF3文件中pseudogene和pseudogenic_exon是没有Parent的。&lt;/p&gt;
+&lt;p&gt;以下为rsem-gff3-to-gtf line
+27-32。细菌基因组的GFF3文件在gene-&amp;gt;transcript-&amp;gt;exon中的映射关系如下：gene
+= type_gene, mRNA(tRNA, etc) = type_transcript, CDS = exon.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; type_gene = [&amp;quot;gene&amp;quot;, &amp;quot;snRNA_gene&amp;quot;, &amp;quot;transposable_element_gene&amp;quot;, &amp;quot;ncRNA_gene&amp;quot;, &amp;quot;telomerase_RNA_gene&amp;quot;,     &amp;quot;rRNA_gene&amp;quot;, &amp;quot;tRNA_gene&amp;quot;, &amp;quot;snoRNA_gene&amp;quot;, &amp;quot;mt_gene&amp;quot;, &amp;quot;miRNA_gene&amp;quot;, &amp;quot;lincRNA_gene&amp;quot;, &amp;quot;RNA&amp;quot;, &amp;quot;VD_gene_segment&amp;quot;] type_transcript = [&amp;quot;transcript&amp;quot;, &amp;quot;primary_transcript&amp;quot;, &amp;quot;mRNA&amp;quot;, &amp;quot;ncRNA&amp;quot;, &amp;quot;tRNA&amp;quot;, &amp;quot;rRNA&amp;quot;, &amp;quot;snRNA&amp;quot;, &amp;quot;snoRNA&amp;quot;, &amp;quot;miRNA&amp;quot;,     &amp;quot;pseudogenic_transcript&amp;quot;, &amp;quot;lincRNA&amp;quot;, &amp;quot;NMD_transcript_variant&amp;quot;, &amp;quot;aberrant_processed_transcript&amp;quot;,     &amp;quot;nc_primary_transcript&amp;quot;, &amp;quot;processed_pseudogene&amp;quot;, &amp;quot;mRNA_TE_gene&amp;quot;] type_exon = [&amp;quot;exon&amp;quot;, &amp;quot;CDS&amp;quot;, &amp;quot;five_prime_UTR&amp;quot;, &amp;quot;three_prime_UTR&amp;quot;, &amp;quot;UTR&amp;quot;, &amp;quot;noncoding_exon&amp;quot;, &amp;quot;pseudogenic_exon&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>关于GFF3格式</title>
+        <link>bio-spring/post/2010/10/28/2010-10-28-about-gff3/</link>
+        <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/10/28/2010-10-28-about-gff3/</guid>
+        <description>
+          &lt;p&gt;GFF3是GFF注释文件的新标准。文件中&lt;strong&gt;每一行&lt;/strong&gt;为基因组的一个属性，分为&lt;strong&gt;9&lt;/strong&gt;列，以TAB分开。&lt;/p&gt;
+&lt;p&gt;依次是：&lt;/p&gt;
+&lt;p&gt;1. reference sequence：参照序列&lt;br&gt;
+指出注释的对象。如一个染色体，克隆或片段。可以有多个参照序列。&lt;/p&gt;
+&lt;p&gt;2. source ：来源&lt;br&gt;
+注释的来源。如果未知，则用点（.）代替。&lt;/p&gt;
+&lt;p&gt;3. type ：类型&lt;br&gt;
+属性的类型。建议使用符合SO惯例的名称（sequence
+ontology，参看[[Sequence Ontology Project]])
+,如gene，repeat_region，exon，CDS等。&lt;/p&gt;
+&lt;p&gt;4. start position ：起点&lt;br&gt;
+属性对应片段的起点。从1开始计数。&lt;/p&gt;
+&lt;p&gt;5. end position ：终点&lt;br&gt;
+属性对应片段的终点。一般比起点的数值要大。&lt;/p&gt;
+&lt;p&gt;6. score ：得分&lt;br&gt;
+对于一些可以量化的属性，可以在此设置一个数值以表示程度的不同。如果为空，用点（.）代替。&lt;/p&gt;
+&lt;p&gt;7. strand ：链&lt;br&gt;
+“＋”表示正链，“－”表示负链，“.”表示不需要指定正负链。&lt;/p&gt;
+&lt;p&gt;8. phase ：步进&lt;br&gt;
+对于编码蛋白质的CDS来说，本列指定下一个密码子开始的位置。可以是0，1或2，表示到达下一个密码子需要跳过的碱基个数。&lt;br&gt;
+对于其它属性，则用点（.）代替。&lt;/p&gt;
+&lt;p&gt;9. attributes ：属性&lt;br&gt;
+一个包含众多属性的列表。格式为“标签＝值”（tag=value）。不同属性之间以分号相隔。可以存在空格，不过若有“,=;”则用URL转义（URL
+escaping rule），同时TAB也需要转换为“%09”表示。&lt;br&gt;
+下列的标签已定义：&lt;/p&gt;
+&lt;p&gt;ID&lt;br&gt;
+指定一个唯一的标识。对属性分类是非常好用（例如查找一个转录单位中所以的外显子）。&lt;br&gt;
+Name&lt;br&gt;
+指定属性的名称。展示给用户的就是该属性。&lt;br&gt;
+Alias&lt;br&gt;
+名称的代称或其它。当存在其它名称时使用该属性。&lt;br&gt;
+Note&lt;br&gt;
+描述性的一些说明。&lt;br&gt;
+Alias和Note可以有多个值，不同值之间以逗号分隔。&lt;br&gt;
+如：Alias=M19211,gna-12,GAMMA-GLOBULIN&lt;/p&gt;
+&lt;p&gt;Other good stuff can go into the attributes field, as we shall see
+later.&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

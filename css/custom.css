@@ -1,0 +1,10 @@
+.list main > .post-card {
+  flex: 0 0 100%;
+}
+
+.post-card td:nth-child(1) {width: 15%}
+.post-card td:nth-child(2) {width: 10%}
+
+.article-list h1 {
+  border-bottom: none;
+}

@@ -1,0 +1,329 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>主题 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E4%B8%BB%E9%A2%98/</link>
+    <description>Recent content in 主题 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E4%B8%BB%E9%A2%98/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>更改 blogdown 主题</title>
+        <link>bio-spring/post/2023/08/20/modifying-blogdown-hugo-theme/</link>
+        <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+        <author>Chun-Hui Gao</author>
+        <guid>bio-spring/post/2023/08/20/modifying-blogdown-hugo-theme/</guid>
+        <description>
+          &lt;p&gt;Hugo Prose 主题中，网站主页的元素是通过 &lt;code&gt;/themes/hugo-prose/layouts/_default/list.html&lt;/code&gt; 生成的。&lt;/p&gt;
+&lt;p&gt;有几个地方想改一下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;显示卡片时，标题统一放在左边。原来左一下右一下看起来有点多余。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;显示 blog post 时，以一句话标题显示，不使用小卡片的形式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;调整卡片标题的位置&#34;&gt;调整卡片标题的位置&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if .IsHome }}
+{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}
+&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;
+  &amp;lt;table&amp;gt;
+&amp;lt;tbody&amp;gt;
+&amp;lt;tr&amp;gt;
+{{if (eq (mod $i 2) 0) }}
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-left&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+{{ else }}
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+{{ end }}
+&amp;lt;/tr&amp;gt;
+&amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}&lt;/code&gt; 表示在全部页面中搜索，&lt;code&gt;section = card&lt;/code&gt; 的页面。这里的 &lt;code&gt;section&lt;/code&gt; 指的是 &lt;code&gt;content&lt;/code&gt; 目录下面的子文件夹，即 &lt;code&gt;content/card/&lt;/code&gt; 目录。这个命令的作用就是把这里的文件序号赋值给 &lt;code&gt;$i&lt;/code&gt;，把内容对象赋值给 &lt;code&gt;$p&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;接下来，根据编号 &lt;code&gt;$i&lt;/code&gt; 是否是偶数，分别设置不同的 CSS 类（&lt;code&gt;.side-title&lt;/code&gt;，&lt;code&gt;spacer-left&lt;/code&gt;，等等），只需要稍作改动即可使达到目的。&lt;/p&gt;
+&lt;h3 id=&#34;html-模板&#34;&gt;HTML 模板&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if .IsHome }}
+{{ range $i, $p := (where .Site.RegularPages &amp;quot;Section&amp;quot; &amp;quot;card&amp;quot;) }}
+&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;
+  &amp;lt;table&amp;gt;
+&amp;lt;tbody&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;&amp;lt;h1&amp;gt;{{ $p.Title }}&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td class=&amp;quot;spacer spacer-left&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{ $p.Content }}&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;值得一提的是，&lt;code&gt;&amp;lt;section class=&amp;quot;article-list&amp;quot;{{ with .Params.style }}{{ printf &amp;quot; style=%q&amp;quot; . | safeHTMLAttr }}{{ end }}&amp;gt;&lt;/code&gt; 将从页面的 YAML 头文件中读取额外的 CSS 定义，并将其应用到 &lt;code&gt;card&lt;/code&gt; 中去。下面的 YAML 头文件将使对应页面的背景色与众不同。而其中的 &lt;code&gt;weight&lt;/code&gt; 将在排列元素间的先后顺序时用到。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;title: PROJECTS
+style: &#39;background: #f7f9fb;&#39;
+weight: 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;css-设置&#34;&gt;CSS 设置&lt;/h3&gt;
+&lt;p&gt;观察一下效果，发现页面中标题的朝向仍然有问题。这是因为 CSS 定义的缘故。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.article-list .side-title { transform: rotate(90deg); }
+.article-list:nth-child(even):not(.post-card) .side-title { transform: rotate(-90deg); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它会将表格 &lt;code&gt;.article-list&lt;/code&gt; 偶数行的标题 &lt;code&gt;.side-title&lt;/code&gt; 逆时针旋转 90 度，而不是默认的顺时针旋转 90 度。因此，将第 2 行删掉即可。&lt;/p&gt;
+&lt;h2 id=&#34;调整-post-的显示样式&#34;&gt;调整 Post 的显示样式&lt;/h2&gt;
+&lt;p&gt;在卡片下面，包含了其它的一些内容，这里显示的内容是由依据下面的设置筛选得到的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages &amp;quot;Type&amp;quot; &amp;quot;in&amp;quot; .Site.Params.mainSections) &amp;quot;Date&amp;quot; &amp;quot;desc&amp;quot;) }}
+{{ else }}
+{{ $pages = (.Paginate $pages).Pages }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;首先，获取全部的页面并将其保存在 &lt;code&gt;$pages&lt;/code&gt; 变量中。然后通过读取 &lt;code&gt;.Site.Params.homeposts&lt;/code&gt; 变量和 &lt;code&gt;.Site.Params.mainSections&lt;/code&gt; 变量，对按照时间降序排列的页面中选取几个。这些变量都保存在 &lt;code&gt;config.yaml&lt;/code&gt; 文件中。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;params:
+  homePosts: 6
+  mainSections: [&amp;quot;post&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果是主页的话，那么仅获取默认 6 个 Posts，并将其保存在 &lt;code&gt;$pages&lt;/code&gt; 变量中；如果不是的话，则将其进行分页处理。这里仅考虑是主页的情况。&lt;/p&gt;
+&lt;p&gt;文章列表在一个表格中显示。表格没有表头元素（&lt;code&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/code&gt;），只有行元素（&lt;code&gt;&amp;lt;tr&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;）和列元素（&lt;code&gt;&amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&lt;/code&gt;）。每行有 3 列。第一列是内容，第二列是分隔符，第三列是 Section Name。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ range $pages }}
+  &amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft {{ end }}&amp;quot;&amp;gt;
+    &amp;lt;table&amp;gt;
+  &amp;lt;tbody&amp;gt;
+  &amp;lt;tr&amp;gt;
+  &amp;lt;td&amp;gt;
+  {{ with .Params.categories }}
+  {{ range first 1 . }}
+  &amp;lt;div class=&amp;quot;categories&amp;quot;&amp;gt;
+&amp;lt;a href=&amp;quot;{{ relURL (print &amp;quot;/categories/&amp;quot; . &amp;quot;/&amp;quot; | urlize) }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  {{ end }}
+  {{ end }}
+  &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+  &amp;lt;div&amp;gt;
+{{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}
+{{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;summary&amp;quot;&amp;gt;
+{{ $summary := .Description }}
+{{ if $summary }}
+{{ $summary = (markdownify $summary) }}
+{{ else }}
+{{ $summary = ((delimit (findRE &amp;quot;(&amp;lt;p.*?&amp;gt;(.|\n)*?&amp;lt;/p&amp;gt;\\s*)+&amp;quot; .Content) &amp;quot;[&amp;amp;hellip;] &amp;quot;) | plainify | truncate (default 200 .Site.Params.summaryLength) (default &amp;quot; &amp;amp;hellip;&amp;quot; .Site.Params.textTruncated ) | replaceRE &amp;quot;&amp;amp;amp;&amp;quot; &amp;quot;&amp;amp;&amp;quot;) }}
+{{ end }}
+{{ $summary | replaceRE &amp;quot;^([A-Za-z])&amp;quot; &amp;quot;&amp;amp;$1 opf;&amp;quot; | replaceRE &amp;quot;^(&amp;amp;[A-Za-z]) (opf;)&amp;quot; &amp;quot;$1$2&amp;quot; | safeHTML }}
+&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot; class=&amp;quot;more&amp;quot; title={{ i18n &amp;quot;readMore&amp;quot; }}&amp;gt;{{ i18n &amp;quot;readMore&amp;quot; }} &amp;amp;rarr;&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;/td&amp;gt;
+  {{ if $.IsHome }}
+  &amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+  &amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;{{ with .Section }}&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ print &amp;quot;/&amp;quot; . &amp;quot;/&amp;quot; | relURL }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+  {{ end }}
+  &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+  &amp;lt;/section&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft {{ end }}&amp;quot;&amp;gt;&lt;/code&gt; 这里根据页面设置 &lt;code&gt;draft: true/false&lt;/code&gt; 来添加一个额外的 &lt;code&gt;.post-card .draft&lt;/code&gt; 类，用来给草稿做特殊标记（底纹、背景，以及是否在发布时显示&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;给卡片添加 &lt;code&gt;category&lt;/code&gt; 标签，这里仅显示了 1 个标签，并将标签连接到其固定链接。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ with .Params.categories }}
+{{ range first 1 . }}
+&amp;lt;div class=&amp;quot;categories&amp;quot;&amp;gt;
+  &amp;lt;a href=&amp;quot;{{ relURL (print &amp;quot;/categories/&amp;quot; . &amp;quot;/&amp;quot; | urlize) }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+{{ end }}
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加标题、发布时间和作者。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+&amp;lt;div&amp;gt;
+  {{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}
+  {{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加摘要。摘要首先从 &lt;code&gt;description&lt;/code&gt; 中读取，如果没有设置的话，那么将从文章正文（&lt;code&gt;.Content&lt;/code&gt;）中截取。在显示时，通过 &lt;code&gt;replaceRE&lt;/code&gt; 将首字符替换为大字。最后，添加上正文的固定链接。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div class=&amp;quot;summary&amp;quot;&amp;gt;
+  {{ $summary := .Description }}
+  {{ if $summary }}
+  {{ $summary = (markdownify $summary) }}
+  {{ else }}
+  {{ $summary = ((delimit (findRE &amp;quot;(&amp;lt;p.*?&amp;gt;(.|\n)*?&amp;lt;/p&amp;gt;\\s*)+&amp;quot; .Content) &amp;quot;[&amp;amp;hellip;] &amp;quot;) | plainify | truncate (default 200 .Site.Params.summaryLength) (default &amp;quot; &amp;amp;hellip;&amp;quot; .Site.Params.textTruncated ) | replaceRE &amp;quot;&amp;amp;amp;&amp;quot; &amp;quot;&amp;amp;&amp;quot;) }}
+  {{ end }}
+  {{ $summary | replaceRE &amp;quot;^([A-Za-z])&amp;quot; &amp;quot;&amp;amp;$1 opf;&amp;quot; | replaceRE &amp;quot;^(&amp;amp;[A-Za-z]) (opf;)&amp;quot; &amp;quot;$1$2&amp;quot; | safeHTML }}
+&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot; class=&amp;quot;more&amp;quot; title={{ i18n &amp;quot;readMore&amp;quot; }}&amp;gt;{{ i18n &amp;quot;readMore&amp;quot; }} &amp;amp;rarr;&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加 Section。显示在右侧，并链接到 Section 的目录。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ if $.IsHome }}
+  &amp;lt;td class=&amp;quot;spacer spacer-right&amp;quot;&amp;gt;&amp;lt;/td&amp;gt;
+  &amp;lt;td class=&amp;quot;side-title&amp;quot;&amp;gt;
+    {{ with .Section }}
+      &amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ print &amp;quot;/&amp;quot; . &amp;quot;/&amp;quot; | relURL }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;
+    {{ end }}
+  &amp;lt;/td&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;html-模板-1&#34;&gt;HTML 模板&lt;/h3&gt;
+&lt;p&gt;将这一部分的代码改成下面的样子。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages &amp;quot;Type&amp;quot; &amp;quot;in&amp;quot; .Site.Params.mainSections) &amp;quot;Date&amp;quot; &amp;quot;desc&amp;quot;) }}
+{{ else }}
+{{ $pages = (.Paginate $pages).Pages }}
+{{ end }}
+
+{{ range $pages }}
+&amp;lt;section class=&amp;quot;article-list post-card{{ if .Draft }} draft{{ end }}&amp;quot;&amp;gt;
+&amp;lt;table&amp;gt;
+  &amp;lt;tbody&amp;gt;
+    &amp;lt;tr&amp;gt;
+      &amp;lt;td&amp;gt;{{ if .Date }}&amp;lt;span&amp;gt;{{ .Date.Format &amp;quot;2006-01-02&amp;quot; }}&amp;lt;/span&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;{{ with .Params.author }}&amp;lt;span&amp;gt;{{ . }}&amp;lt;/span&amp;gt;{{ end }}&amp;lt;/td&amp;gt;
+      &amp;lt;td&amp;gt;&amp;lt;h1&amp;gt;&amp;lt;a href=&amp;quot;{{ .RelPermalink }}&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/a&amp;gt;&amp;lt;/h1&amp;gt;&amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/tbody&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;css-设置-1&#34;&gt;CSS 设置&lt;/h3&gt;
+&lt;p&gt;接下来对相应的 CSS 代码动一下手脚。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将卡片显示的宽度从 50% 调整到 100%；&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.list main &amp;gt; .post-card {
+  flex: 0 0 calc(50% - .5em);
+}
+
+/* 改为下面的样子 */
+
+.list main &amp;gt; .post-card {
+  flex: 0 0 100%;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置时间列、作者列的宽度&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.post-card td:nth-child(1) {width: 15%}
+.post-card td:nth-child(2) {width: 20%}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;去掉标题下面的细线&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.article-list h1 {
+  margin: 5px 0px 10px;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先改 HTML 模板，设置内容和框架；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再改 CSS 设置，调整对象的显示效果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;默认情况下，draft 仅在本地预览时可见，而使用 &lt;code&gt;blogdown::build_site()&lt;/code&gt; 时不可见。&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>the_content()和the_excerpt()</title>
+        <link>bio-spring/post/2012/06/05/2012-06-05-the_content-the_excerpt/</link>
+        <pubDate>Tue, 05 Jun 2012 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2012/06/05/2012-06-05-the_content-the_excerpt/</guid>
+        <description>
+          &lt;p&gt;这是wordpress中用以提取post内容的常用函数。它们用法基本相同，很多时候可以相互取代，分别用于显示post全部内容和post摘要。&lt;/p&gt;
+&lt;p&gt;然而，事实上在应用中它们最大的区别在于，前者输出格式化的内容，而后者则输出文字（格式错乱，没有超链接，换行，样式定义等）。所以，大多数时候，我只用前一个函数。&lt;/p&gt;
+&lt;p&gt;有些主题作者喜欢用the_excerpt()（特别是在分类列表中），我常常将其改为the_content()。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;the_content&lt;/strong&gt; Display the post content.&lt;br&gt;
+void the_content ([string $more_link_text = null], [bool
+$stripteaser = false])&lt;br&gt;
+string $more_link_text: Optional. Content for when there is more
+text.&lt;br&gt;
+bool $stripteaser: Optional. Strip teaser content before the more
+text. Default is false.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;the_excerpt&lt;/strong&gt; Display the post excerpt.&lt;br&gt;
+uses: apply_filters() – Calls ‘the_excerpt’ hook on post excerpt.&lt;br&gt;
+void the_excerpt ()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>使用poEdit汉化wordpress插件、主题攻略</title>
+        <link>bio-spring/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/</link>
+        <pubDate>Sun, 26 Feb 2012 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2012/02/26/2012-02-26-poedit-wordpress-plugins/</guid>
+        <description>
+          &lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2012/02/565px-Pic1.jpg&#34; width=&#34;565&#34; height=&#34;600&#34; /&gt;
+&lt;p&gt;关于“&lt;em&gt;.pot”文档、“&lt;/em&gt;.po”文档和“*.mo”文档的来历见上面图片。&lt;/p&gt;
+&lt;p&gt;简而言之，这是一个开源软件本地化（或者国际化）的系统。而且是一个能够自动化运行的系统。使用该系统仅仅需要一个前提，就是在调用文本相关的函数时遵循一个特定的约定。例如WordPress
+使用 _e 和 __ 函数来本地化。如下所示：&lt;/p&gt;
+&lt;p&gt;[cc lang=”php”][/cc]&lt;/p&gt;
+&lt;p&gt;现在要汉化一个插件或者主题，就打开源文件，看看是否存在这样的语句。如果存在，则进入下一步。&lt;/p&gt;
+&lt;p&gt;先简介一下（&lt;a href=&#34;http://www.jinbo123.com/2503.html&#34;&gt;http://www.jinbo123.com/2503.html&lt;/a&gt;）：&lt;/p&gt;
+&lt;p&gt;一、三种文件&lt;br&gt;
+.po文件，.mo文件，.pot文件是由gettext程序生成或者使用的源代码和编译结果。&lt;/p&gt;
+&lt;p&gt;1、.pot文件&lt;br&gt;
+是一种模板文件，其实质与.po文件一样，其中包含了从源代码中提取所有的翻译字符串的列表。&lt;br&gt;
+2、.po文件&lt;br&gt;
+各语言对应的po文件，比如中文就是zh_CN.po，法语就是fr.po文件。&lt;br&gt;
+PO是Portable
+Object（可移植对象）的缩写形式，它是面向翻译人员的、提取于源代码的一种资源文件。&lt;br&gt;
+.po文件可以用任何编辑器如poEdit，vi，Emacs，editplus打开，交给翻译人员来将其中的文字翻译成本国语言。&lt;br&gt;
+3.mo文件&lt;br&gt;
+mo文件是一个二进制文件，不能直接编辑。&lt;br&gt;
+MO是Machine
+Object（机器对象）的缩写形式，它是面向计算机的、由.po文件通过GNU
+gettext工具包编译而成的二进制文件，应用程序通过读取.mo文件使自身的界面转换成用户使用的语言，如简体中文。&lt;br&gt;
+可以用工具如msgunfmt命令将.mo文件反编译为.po文件。&lt;/p&gt;
+&lt;p&gt;一般情况下，我们在汉化的时候会碰上如下几种情况：&lt;/p&gt;
+&lt;p&gt;二、几种情形&lt;br&gt;
+1、如果程序本身提供了.po文件，直接使用poEdit汉化，并自动生成.mo文件。&lt;br&gt;
+2、如果程序提供了.pot文件，复制一份并更改后缀名为.po，再使用poEdit汉化，最后生成.mo文件。&lt;br&gt;
+3、程序既没有提供.po文件，也没有提供.pot文件，只提供了.mo文件，那么将.mo文件转换成.po文件。&lt;/p&gt;
+&lt;p&gt;汉化需要用到的软件就是PoEdit（&lt;a href=&#34;http://www.poedit.net/&#34;&gt;http://www.poedit.net/&lt;/a&gt;）。参见&lt;a href=&#34;http://laycher.com/?p=738&#34;&gt;http://laycher.com/?p=738&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;将汉化的文档命名为“zh_CN.po”和“zh_CN.mo”，复制到插件或主题中的“languages”文件夹中，如没有该文件夹，则新建一个。&lt;/p&gt;
+&lt;p&gt;然后，刷新一下，就会看到主题被汉化了（注意：wordpress设置的语言需为zh_CN）。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

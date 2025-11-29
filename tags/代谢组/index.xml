@@ -1,0 +1,116 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>代谢组 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/</link>
+    <description>Recent content in 代谢组 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 29 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>ClusterProfiler做代谢物富集分析</title>
+        <link>bio-spring/post/2024/12/29/clusterprofiler-metabolite-enrichment-analysis/</link>
+        <pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2024/12/29/clusterprofiler-metabolite-enrichment-analysis/</guid>
+        <description>
+          &lt;p&gt;使用 &lt;code&gt;clusterProfiler&lt;/code&gt; 的内置富集函数做代谢物富集分析。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载必要的包
+library(clusterProfiler)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Registered S3 methods overwritten by &#39;treeio&#39;:
+##   method              from    
+##   MRCA.phylo          tidytree
+##   MRCA.treedata       tidytree
+##   Nnode.treedata      tidytree
+##   Ntip.treedata       tidytree
+##   ancestor.phylo      tidytree
+##   ancestor.treedata   tidytree
+##   child.phylo         tidytree
+##   child.treedata      tidytree
+##   full_join.phylo     tidytree
+##   full_join.treedata  tidytree
+##   groupClade.phylo    tidytree
+##   groupClade.treedata tidytree
+##   groupOTU.phylo      tidytree
+##   groupOTU.treedata   tidytree
+##   inner_join.phylo    tidytree
+##   inner_join.treedata tidytree
+##   is.rooted.treedata  tidytree
+##   nodeid.phylo        tidytree
+##   nodeid.treedata     tidytree
+##   nodelab.phylo       tidytree
+##   nodelab.treedata    tidytree
+##   offspring.phylo     tidytree
+##   offspring.treedata  tidytree
+##   parent.phylo        tidytree
+##   parent.treedata     tidytree
+##   root.treedata       tidytree
+##   rootnode.phylo      tidytree
+##   sibling.phylo       tidytree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## clusterProfiler v4.10.0  For help: https://yulab-smu.top/biomedical-knowledge-mining-book/
+## 
+## If you use clusterProfiler in published research, please cite:
+## T Wu, E Hu, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo, and G Yu. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021, 2(3):100141
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;clusterProfiler&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 构造感兴趣的代谢物列表
+metabolite_list = c(&amp;quot;Metabolite1&amp;quot;, &amp;quot;Metabolite2&amp;quot;, &amp;quot;Metabolite3&amp;quot;, &amp;quot;Metabolite6&amp;quot;, &amp;quot;Metabolite7&amp;quot;)
+
+# 构造代谢途径与代谢物的映射关系 (TERM2GENE)
+term2gene = data.frame(
+    Pathway = c(&amp;quot;Pathway1&amp;quot;, &amp;quot;Pathway1&amp;quot;, &amp;quot;Pathway1&amp;quot;, &amp;quot;Pathway2&amp;quot;, &amp;quot;Pathway2&amp;quot;, 
+                &amp;quot;Pathway3&amp;quot;, &amp;quot;Pathway3&amp;quot;, &amp;quot;Pathway4&amp;quot;, &amp;quot;Pathway4&amp;quot;, &amp;quot;Pathway5&amp;quot;),
+    Metabolite = c(&amp;quot;Metabolite1&amp;quot;, &amp;quot;Metabolite2&amp;quot;, &amp;quot;Metabolite3&amp;quot;, &amp;quot;Metabolite4&amp;quot;, &amp;quot;Metabolite5&amp;quot;, 
+                   &amp;quot;Metabolite6&amp;quot;, &amp;quot;Metabolite7&amp;quot;, &amp;quot;Metabolite8&amp;quot;, &amp;quot;Metabolite9&amp;quot;, &amp;quot;Metabolite10&amp;quot;)
+)
+
+# 构造代谢途径描述信息 (TERM2NAME)
+term2name = data.frame(
+    Pathway = c(&amp;quot;Pathway1&amp;quot;, &amp;quot;Pathway2&amp;quot;, &amp;quot;Pathway3&amp;quot;, &amp;quot;Pathway4&amp;quot;, &amp;quot;Pathway5&amp;quot;),
+    Description = c(&amp;quot;Metabolic Pathway 1&amp;quot;, &amp;quot;Metabolic Pathway 2&amp;quot;, &amp;quot;Metabolic Pathway 3&amp;quot;, 
+                    &amp;quot;Metabolic Pathway 4&amp;quot;, &amp;quot;Metabolic Pathway 5&amp;quot;)
+)
+
+# 使用 enricher 函数进行代谢物富集分析
+result = enricher(
+    gene = metabolite_list,
+    pvalueCutoff = 0.5, # 调高 cutoff 以得到结果
+    pAdjustMethod = &amp;quot;BH&amp;quot;,
+    TERM2GENE = term2gene,
+    TERM2NAME = term2name,
+    minGSSize = 1  # 将默认的 10 改成 1，否则也得不到结果
+)
+
+# 查看结果
+if (!is.null(result)) {
+    print(head(as.data.frame(result)))
+    # 可视化结果
+    dotplot(result, showCategory = 5)
+} else {
+    message(&amp;quot;没有显著富集的代谢途径&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                ID         Description GeneRatio BgRatio     pvalue  p.adjust
+## Pathway1 Pathway1 Metabolic Pathway 1       3/5    3/10 0.08333333 0.1666667
+##             qvalue                              geneID Count
+## Pathway1 0.1666667 Metabolite1/Metabolite2/Metabolite3     3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/12/29/clusterprofiler-metabolite-enrichment-analysis/index.zh_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,48 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MetaPhlAn on BIO-SPRING</title>
+    <link>bio-spring/tags/metaphlan/</link>
+    <description>Recent content in MetaPhlAn on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/metaphlan/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>MetaPhlAn：利用宏基因组分析种群结构</title>
+        <link>bio-spring/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</link>
+        <pubDate>Sun, 20 Mar 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/03/20/2016-03-20-metaphlan-metagenomic-phylogenetic-analysis/</guid>
+        <description>
+          &lt;p&gt;宏基因组中包含了环境中各种微生物的基因组信息，理论上可以得出种群结构。该如何利用宏基因组高通量测序数据分析种群结构呢？是不是要从中提取16S
+rRNA的数据，
+组装之后使用&lt;a href=&#34;http://bio-spring.top/mothur-and-qiime/&#34;&gt;Mothur或QIIME&lt;/a&gt;分析呢？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://huttenhower.sph.harvard.edu/metaphlan&#34;&gt;MetaPhlAn&lt;/a&gt;有一个不一样的想法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MetaPhlAn is a computational tool for profiling the composition of
+microbial communities from metagenomic shotgun sequencing data.
+MetaPhlAn relies on &lt;strong&gt;unique clade-specific marker genes&lt;/strong&gt; identified
+from 3,000 reference genomes, allowing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;up to 25,000 reads-per-second (on one CPU) analysis speed (orders
+of magnitude faster compared to existing methods);&lt;/li&gt;
+&lt;li&gt;unambiguous taxonomic assignments as the MetaPhlAn markers are
+clade-specific;&lt;/li&gt;
+&lt;li&gt;accurate estimation of organismal relative abundance (in terms of
+number of cells rather than fraction of reads);&lt;/li&gt;
+&lt;li&gt;species-level resolution for bacterial and archaeal organisms;&lt;/li&gt;
+&lt;li&gt;extensive validation of the profiling accuracy on several
+synthetic datasets and on thousands of real metagenomes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;它使用&lt;strong&gt;物种特异性的标记基因&lt;/strong&gt;来进行分析，并且能够得到很好的种群分析结果。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

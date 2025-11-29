@@ -1,0 +1,538 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BioPerl on BIO-SPRING</title>
+    <link>bio-spring/tags/bioperl/</link>
+    <description>Recent content in BioPerl on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/bioperl/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>RSEM: rsem-prepare-reference with NCBI GenBank/GFF3 File</title>
+        <link>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</link>
+        <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2017/06/01/2017-06-01-rsem-rsem-prepare-reference-with-ncbi-genbankgff3-file/</guid>
+        <description>
+          &lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download Genbank from NCBI;&lt;/li&gt;
+&lt;li&gt;Convert Genbank to GFF3 with
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;BioPerl&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Modify the GFF3 file;&lt;/li&gt;
+&lt;li&gt;Download Fasta from NCBI or use Genbank conversion;&lt;/li&gt;
+&lt;li&gt;Use the modified GFF3 file in rsem-prepare-reference;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;主要代码如下：&lt;br&gt;
+&lt;code&gt; bp_genbank2gff3  --GFF_VERSION 3 file.gb awk &#39;$3!~/pseudo/&#39; file.gb.gff &amp;gt; file.rsem.gff # or more restrictly with only protein coding genes awk &#39;$3~/^(gene|mRNA|exon|polypeptide)$/&#39; file.gb.gff &amp;gt; file.cds.gff # remove the version number in fasta accession if no transcript is extract rsem-prepare-reference file.fasta --gff3 file.rsem.gff reference_name&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这里主要解决了以下错误：&lt;br&gt;
+&lt;strong&gt;Line x does not have attribute Parent&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于rsem遵循gene-&amp;gt;transcript-&amp;gt;exon的结构，并利用exon来作为RNA的最后形式（经过剪切和后处理的RNA），要求exon都有(且仅有）一个Parent。而GFF3文件中pseudogene和pseudogenic_exon是没有Parent的。&lt;/p&gt;
+&lt;p&gt;以下为rsem-gff3-to-gtf line
+27-32。细菌基因组的GFF3文件在gene-&amp;gt;transcript-&amp;gt;exon中的映射关系如下：gene
+= type_gene, mRNA(tRNA, etc) = type_transcript, CDS = exon.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; type_gene = [&amp;quot;gene&amp;quot;, &amp;quot;snRNA_gene&amp;quot;, &amp;quot;transposable_element_gene&amp;quot;, &amp;quot;ncRNA_gene&amp;quot;, &amp;quot;telomerase_RNA_gene&amp;quot;,     &amp;quot;rRNA_gene&amp;quot;, &amp;quot;tRNA_gene&amp;quot;, &amp;quot;snoRNA_gene&amp;quot;, &amp;quot;mt_gene&amp;quot;, &amp;quot;miRNA_gene&amp;quot;, &amp;quot;lincRNA_gene&amp;quot;, &amp;quot;RNA&amp;quot;, &amp;quot;VD_gene_segment&amp;quot;] type_transcript = [&amp;quot;transcript&amp;quot;, &amp;quot;primary_transcript&amp;quot;, &amp;quot;mRNA&amp;quot;, &amp;quot;ncRNA&amp;quot;, &amp;quot;tRNA&amp;quot;, &amp;quot;rRNA&amp;quot;, &amp;quot;snRNA&amp;quot;, &amp;quot;snoRNA&amp;quot;, &amp;quot;miRNA&amp;quot;,     &amp;quot;pseudogenic_transcript&amp;quot;, &amp;quot;lincRNA&amp;quot;, &amp;quot;NMD_transcript_variant&amp;quot;, &amp;quot;aberrant_processed_transcript&amp;quot;,     &amp;quot;nc_primary_transcript&amp;quot;, &amp;quot;processed_pseudogene&amp;quot;, &amp;quot;mRNA_TE_gene&amp;quot;] type_exon = [&amp;quot;exon&amp;quot;, &amp;quot;CDS&amp;quot;, &amp;quot;five_prime_UTR&amp;quot;, &amp;quot;three_prime_UTR&amp;quot;, &amp;quot;UTR&amp;quot;, &amp;quot;noncoding_exon&amp;quot;, &amp;quot;pseudogenic_exon&amp;quot;]&lt;/code&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Massive RT-PCR Primer Designer is online</title>
+        <link>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</link>
+        <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2016/01/16/2016-01-16-massive-rt-pcr-primer-designer-is-online/</guid>
+        <description>
+          &lt;p&gt;The Massive RT-PCR Primer Designer is based on Primer3 and BioPerl
+toolbox, and was derived from the standalone codes which have been
+discussed by two previous blog posts (&lt;a href=&#34;http://bio-spring.top/rt-primer-bioperl/&#34;&gt;Post
+1&lt;/a&gt; and &lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Post
+2&lt;/a&gt;).&lt;/p&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2016/01/rt-primer-designer-1.png&#34; class=&#34;alignnone size-full wp-image-776&#34; width=&#34;493&#34; height=&#34;183&#34; alt=&#34;rt-primer-designer&#34; /&gt;
+&lt;p&gt;You may access the service at &lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;The Massive RT-PCR Primer
+Designer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What this tool needs is your fasta file, which contains one or more
+nucleotide sequences that will be use as PCR template. Upload this file
+and the tool will generate the most ideal primer pairs suitable for
+quantitive Real-Time PCR (qRT-PCR). The primers will be supplied as a
+downloadable Excel file.&lt;/p&gt;
+&lt;p&gt;Notably, the amplicon size of these RT-PCR primers are spanning from 150
+bp to 250 bp.&lt;/p&gt;
+&lt;p&gt;Powered by AliYun, the service is available at 7×24h.&lt;/p&gt;
+&lt;p&gt;By the way, apply this promotion code &lt;strong&gt;u6fovy&lt;/strong&gt; when you buy Aliyun
+service for a 10% OFF.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank –&gt; GTF converter derived from BioPerl</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-gtf-converter-derived-from-bioperl/</guid>
+        <description>
+          &lt;p&gt;BioPerl has a Genbank –&amp;gt; GFF converter (the script is
+bp_genbank2gff3.pl), however, this converter generated GFF/GTF file
+could not work in Bioconductor when using the function
+&lt;strong&gt;maketxdbfromGFF&lt;/strong&gt; to construct a transcript database.&lt;/p&gt;
+&lt;p&gt;Currently, I have developed such a converter that may extract
+information from a NCBI Genbank file and write them to GFF version 2, or
+GTF format. This script is derived from BioPerl, so you need firstly
+&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;get the module installed&lt;/a&gt; in
+your system. To check whether BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;http://bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;Here is the synopsis of this script.&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     NCBI_genbank2gtf.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;The codes is as follows:&lt;br&gt;
+&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl &amp;ndash; Genbank -&amp;gt; Bioconductor friendly GTF&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;NCBI_genbank2gtf.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of GTF output&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl NCBI_genbank2gtf.pl -i seq.gb -o seq.gtf&lt;br&gt;
+perl NCBI_genbank2gtf.pl seq.gb &amp;gt; seq.gtf&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly GTF files from NCBI
+GenBank.&lt;br&gt;
+The file may be used in *maketxdbfromGFF* function and should work
+well.&lt;/p&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $gtf_output);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$gtf_output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($gtf_output) { open $out, &amp;ldquo;&amp;gt; $gtf_output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$gtf_output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %seen;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seq_acc = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$seq_acc has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if !$seq-&amp;gt;all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;# construct a GFF header&lt;br&gt;
+# add: get source_type from attributes of source feature? chromosome=X
+tag&lt;br&gt;
+# also combine 1st ft line here with source ft from $seq ..&lt;br&gt;
+my $header = gff_header($seq);&lt;br&gt;
+print $out $header;&lt;br&gt;
+warn &amp;ldquo;# working on $seq_acc\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;for my $feature ( $seq-&amp;gt;get_all_SeqFeatures ) {&lt;/p&gt;
+&lt;p&gt;my $method = $feature-&amp;gt;primary_tag;&lt;br&gt;
+$seen{$method} ++;&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+if ($method eq &amp;lsquo;CDS&amp;rsquo;){&lt;br&gt;
+$feature-&amp;gt;primary_tag(&amp;ldquo;exon&amp;rdquo;);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_number&amp;rdquo;, 1);&lt;br&gt;
+$feature-&amp;gt;add_tag_value(&amp;ldquo;exon_id&amp;rdquo;,
+$feature-&amp;gt;get_tag_values(&amp;ldquo;transcript_id&amp;rdquo;));&lt;br&gt;
+$feature = maptags2gff($feature);&lt;br&gt;
+print $out $feature-&amp;gt;gff_string(), &amp;ldquo;\n&amp;rdquo;;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;warn &amp;ldquo;# Count of features in $genbank_input:\n&amp;rdquo;;&lt;br&gt;
+map {warn sprintf(&amp;rdquo;# %20s:%6d\n&amp;quot;, $_, $seen{$_});} keys %seen;&lt;/p&gt;
+&lt;p&gt;sub gff_header {&lt;br&gt;
+my ($seq) = @_;&lt;br&gt;
+my $head = sprintf(&amp;quot;##gff-version 2\n# sequence-region: %s
+(1..%d)\n&amp;quot;, $seq-&amp;gt;accession_number, $seq-&amp;gt;length);&lt;br&gt;
+$head .= sprintf( &amp;ldquo;# %s\n&amp;rdquo;, $seq-&amp;gt;desc);&lt;br&gt;
+$head .= &amp;ldquo;# converted by NCBI_genbank2gtf.pl\n&amp;rdquo;;&lt;/p&gt;
+&lt;p&gt;#~ print Dumper $acc, $desc, $end;&lt;br&gt;
+return $head;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;sub maptags2gff {&lt;br&gt;
+my $f = shift;&lt;br&gt;
+my $method = $f-&amp;gt;primary_tag;&lt;br&gt;
+my %TAG_MAP;&lt;br&gt;
+if ($method eq &amp;lsquo;gene&amp;rsquo; || $method eq &amp;lsquo;misc_RNA&amp;rsquo; || $method eq &amp;lsquo;rRNA&amp;rsquo;
+|| $method eq &amp;rsquo;tRNA&amp;rsquo;){&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo; );&lt;br&gt;
+}&lt;br&gt;
+elsif ($method eq &amp;lsquo;CDS&amp;rsquo;) {&lt;br&gt;
+$f-&amp;gt;add_tag_value(&amp;rsquo;transcript_id&amp;rsquo;,$f-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;));&lt;br&gt;
+%TAG_MAP = ( locus_tag =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+gene =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;,&lt;br&gt;
+product =&amp;gt; &amp;lsquo;product&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;rsquo;exon&amp;rsquo;) {&lt;/p&gt;
+&lt;p&gt;%TAG_MAP = ( gene_id =&amp;gt; &amp;lsquo;gene_id&amp;rsquo;,&lt;br&gt;
+protein_id =&amp;gt; &amp;lsquo;protein_id&amp;rsquo;,&lt;br&gt;
+transcript_id =&amp;gt; &amp;rsquo;transcript_id&amp;rsquo;,&lt;br&gt;
+exon_number =&amp;gt; &amp;rsquo;exon_number&amp;rsquo;,&lt;br&gt;
+exon_id =&amp;gt; &amp;rsquo;exon_id&amp;rsquo;,&lt;br&gt;
+gene_name =&amp;gt; &amp;lsquo;gene_name&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+elsif ($method eq &amp;lsquo;source&amp;rsquo;) {&lt;br&gt;
+%TAG_MAP = ( organism =&amp;gt; &amp;lsquo;organism&amp;rsquo; );&lt;/p&gt;
+&lt;p&gt;}&lt;br&gt;
+else {&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;my @all_tags = $f-&amp;gt;get_all_tags();&lt;br&gt;
+#~ print Dumper \@all_tags;&lt;br&gt;
+for my $tag (@all_tags){&lt;/p&gt;
+&lt;p&gt;if (exists $TAG_MAP{$tag}){&lt;br&gt;
+my $newtag= $TAG_MAP{$tag};&lt;br&gt;
+my @v= $f-&amp;gt;get_tag_values($tag);&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+$f-&amp;gt;add_tag_value($newtag,@v);&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$f-&amp;gt;remove_tag($tag);&lt;br&gt;
+}&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;return $f;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;If you would like to access the full document, run:&lt;br&gt;
+&lt;code&gt;perldoc NCBI_genbank2gtf.pl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Feedback is welcome.&lt;/p&gt;
+&lt;p&gt;Here is also a GenBank -&amp;gt; BED converter:
+&lt;a href=&#34;http://bio-spring.top/a-genbank-to-bed-converter/&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>A Genbank to BED converter</title>
+        <link>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</link>
+        <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/10/14/2015-10-14-a-genbank-to-bed-converter/</guid>
+        <description>
+          &lt;p&gt;Like &lt;a href=&#34;http://bio-spring.top/a-genbenk-gtf-converter-derived-from-bioperl/&#34;&gt;the previous Genbank -&amp;gt; GTF
+converter&lt;/a&gt;,
+this script is also depended on BioPerl, so you need firstly get the
+module installed in your system (&lt;a href=&#34;http://bio-spring.top/reinstall-bioperl/&#34;&gt;Install
+BioPerl&lt;/a&gt;). To check whether
+BioPerl is ready, just refer to this post:
+&lt;a href=&#34;http://bio-spring.top/check-bioperl/&#34;&gt;bio-spring.top/check-bioperl/&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&#34;synopsis&#34;&gt;SYNOPSIS&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;     gb2bed.pl [options] filename&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;Read Pod for further information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;=pod&lt;/p&gt;
+&lt;p&gt;=head1 NAME&lt;/p&gt;
+&lt;p&gt;gb2bed.pl &amp;ndash; Genbank -&amp;gt; BED&lt;/p&gt;
+&lt;p&gt;=head1 SYNOPSIS&lt;/p&gt;
+&lt;p&gt;gb2bed.pl [options] filename&lt;/p&gt;
+&lt;p&gt;Options:&lt;br&gt;
+&amp;ndash;help -h display this message&lt;br&gt;
+&amp;ndash;input -i NCBI GenBank file&lt;br&gt;
+&amp;ndash;out -o filename of bed output. [STDOUT]&lt;br&gt;
+&amp;ndash;filter -f GenBank primary tag that will be filtered, may be set to
+&amp;lsquo;gene&amp;rsquo;, &amp;lsquo;CDS&amp;rsquo;, &amp;lsquo;rRNA&amp;rsquo;, etc.&lt;br&gt;
+&amp;ndash;keep -k GenBank primary tag will be keep. Default is CDS. [CDS]&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;p&gt;perl gb2bed.pl -i seq.gb -o seq.bed&lt;br&gt;
+perl gb2bed.pl -i seq.gb -k CDS -o seq.bed&lt;br&gt;
+perl gb2bed.pl seq.gb &amp;gt; seq.bed&lt;/p&gt;
+&lt;p&gt;=head1 DESCRIPTION&lt;/p&gt;
+&lt;p&gt;Use this program to generate bioconductor friendly BED files from NCBI
+GenBank.&lt;br&gt;
+Six columns will be extracted:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;chrom - name of the chromosome or scaffold. Any valid
+seq_region_name can be used, and chromosome names can be given with or
+without the &amp;lsquo;chr&amp;rsquo; prefix.&lt;/li&gt;
+&lt;li&gt;chromStart - Start position of the feature in standard chromosomal
+coordinates (i.e. first base is 0).&lt;/li&gt;
+&lt;li&gt;chromEnd - End position of the feature in standard chromosomal
+coordinates&lt;/li&gt;
+&lt;li&gt;name - Label to be displayed under the feature, if turned on in
+&amp;ldquo;Configure this page&amp;rdquo;. [locus_tag]&lt;/li&gt;
+&lt;li&gt;score - A score between 0 and 1000. [0]&lt;/li&gt;
+&lt;li&gt;strand - defined as + (forward) or - (reverse).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;=head1 AUTHOR&lt;/p&gt;
+&lt;p&gt;Chun-Hui, Gao (&lt;a href=&#34;mailto:gaoch@thelifesciencecentury.com&#34;&gt;gaoch@thelifesciencecentury.com&lt;/a&gt;)&lt;br&gt;
+Copyright (c) 2015 &lt;a href=&#34;https://www.thelifesciencecentury.com&#34;&gt;www.thelifesciencecentury.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;=cut&lt;/p&gt;
+&lt;p&gt;use strict;&lt;br&gt;
+use Data::Dumper;&lt;br&gt;
+use Pod::Usage;&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Getopt::Long;&lt;/p&gt;
+&lt;p&gt;my ($help, $genbank_input, $output, @filters, @keep);&lt;/p&gt;
+&lt;p&gt;my $ok= GetOptions( &amp;lsquo;help|h&amp;rsquo; =&amp;gt; \$help,&lt;br&gt;
+&amp;lsquo;input|i=s&amp;rsquo; =&amp;gt; \$genbank_input,&lt;br&gt;
+&amp;lsquo;filter|f=s&amp;rsquo; =&amp;gt; \@filters,&lt;br&gt;
+&amp;lsquo;keep|k=s&amp;rsquo; =&amp;gt; \@keep,&lt;br&gt;
+&amp;lsquo;out|o=s&amp;rsquo; =&amp;gt; \$output );&lt;br&gt;
+pod2usage(2) if $help || !$ok;&lt;/p&gt;
+&lt;p&gt;$genbank_input = shift @ARGV unless ($genbank_input );&lt;/p&gt;
+&lt;p&gt;@keep = (&amp;lsquo;gene&amp;rsquo;) unless $#keep &amp;gt;= 0;&lt;/p&gt;
+&lt;p&gt;open *IN, &amp;ldquo;&amp;lt; $genbank_input &amp;quot; or die pod2usage(2); my $out; if
+($output) { open $out, &amp;ldquo;&amp;gt; $output&amp;rdquo; or die &amp;ldquo;Can&amp;rsquo;t open file
+$output:$@\n&amp;rdquo;;&lt;br&gt;
+}&lt;br&gt;
+else {&lt;br&gt;
+$out = *STDOUT;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;my %filter;&lt;br&gt;
+map {$filter{$_}++} @filters;&lt;br&gt;
+my %keep;&lt;br&gt;
+map {$keep{$_}++} @keep;&lt;br&gt;
+my $in = Bio::SeqIO-&amp;gt;new(-fh =&amp;gt; \*IN, -format =&amp;gt;
+&amp;ldquo;genbank&amp;rdquo;);&lt;br&gt;
+while ( my $seq = $in-&amp;gt;next_seq() ) {&lt;br&gt;
+my $chr = $seq-&amp;gt;accession_number;&lt;/p&gt;
+&lt;p&gt;my @all_SeqFeatures = $seq-&amp;gt;get_all_SeqFeatures;&lt;/p&gt;
+&lt;p&gt;#~ warn &amp;ldquo;# working on $chr\n&amp;rdquo;;&lt;br&gt;
+if ($#filters &amp;gt;= 0){&lt;br&gt;
+@all_SeqFeatures = grep { !defined $filter{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;br&gt;
+if ($#keep &amp;gt;= 0) {&lt;br&gt;
+@all_SeqFeatures = grep { defined $keep{$_-&amp;gt;primary_tag} }
+@all_SeqFeatures;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;# abort if there are no features&lt;br&gt;
+warn &amp;ldquo;$chr has no features, skipping\n&amp;rdquo; and next&lt;br&gt;
+if $#all_SeqFeatures &amp;lt; 0; for my $feature ( @all_SeqFeatures ) {
+my ($start, $end, $name, $strand); $start = $feature-&amp;gt;start - 1; #
+bed base is 0, while genbank is 1&lt;br&gt;
+$end = $feature-&amp;gt;end;&lt;br&gt;
+($name) = $feature-&amp;gt;get_tag_values(&amp;rsquo;locus_tag&amp;rsquo;);&lt;br&gt;
+$strand = $feature-&amp;gt;strand;&lt;br&gt;
+$strand = $strand &amp;lt; 0 ? &amp;lsquo;-&amp;rsquo; : &amp;lsquo;+&amp;rsquo;; print $out join(&amp;rdquo;\t&amp;quot;, $chr,
+$start, $end, $name, 0, $strand), &amp;ldquo;\n&amp;rdquo;; } }&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>修复Bio::Tree::Draw::Cladogram 输出EPS BoundingBox错误的问题</title>
+        <link>bio-spring/post/2013/12/25/2013-12-25-fix-eps-boundingbox-error/</link>
+        <pubDate>Wed, 25 Dec 2013 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2013/12/25/2013-12-25-fix-eps-boundingbox-error/</guid>
+        <description>
+          &lt;p&gt;使用Bio::Tree::Draw::Cladogram 输出的 EPS 文档在很多 EPS
+查看软件（如Windows下面的ACDsee，gsView等）中不能打开，经查是由于
+BoundingBox 出现浮点数所致，具体设计的代码为 Cladogram.pm 的 new 方法和
+print 方法，简便起见，可以在原先的 443
+行代码前面添加两行代码，以解决该问题。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;如下所示 ：&lt;/p&gt;
+&lt;p&gt;[perl]&lt;/p&gt;
+&lt;p&gt;print $INFO “%!PS-Adobe-\n”;&lt;br&gt;
+$width = int($width + 1); # BoundingBox should be int&lt;br&gt;
+$height = int($height +1);&lt;br&gt;
+print $INFO “%%BoundingBox: 0 0 “, $width, ” “, $height, “\n”;&lt;br&gt;
+print $INFO “1 setlinewidth\n”;&lt;br&gt;
+print $INFO “/$font findfont\n”;&lt;br&gt;
+print $INFO “$size scalefont\n”;&lt;br&gt;
+print $INFO “setfont\n”;&lt;/p&gt;
+&lt;p&gt;[/perl]&lt;/p&gt;
+&lt;p&gt;经测试，修改此处后，生成的　ＥＰＳ　文档不会再由于该错误无法打开和查看。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>处理设计引物时候的PRIMER_ERROR=Missing SEQUENCE tag错误</title>
+        <link>bio-spring/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</link>
+        <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/09/21/2011-09-21-primer_error-missing-sequence-tag/</guid>
+        <description>
+          &lt;h6 id=&#34;updateyou-may-directly-use-our-massive-rt-pcr-primer-designer-from-jan-16-2016&#34;&gt;Update：You May &lt;strong&gt;directly&lt;/strong&gt; use our &lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;Massive RT-PCR Primer Designer&lt;/a&gt; from Jan 16, 2016.&lt;/h6&gt;
+&lt;p&gt;————————————————————————————————————-&lt;br&gt;
+我先前曾经写过一个设计RT-PCR引物的脚本，当初运行良好，所以把它给分享了出来（&lt;strong&gt;&lt;a href=&#34;http://bio-spring.top/?p=44&#34;&gt;在这里&lt;/a&gt;&lt;/strong&gt;）。最近又用发现会有错误，“Missing
+SEQUENCE tag”，经过分析，最终解决了这个问题。&lt;/p&gt;
+&lt;p&gt;方法如下：&lt;/p&gt;
+&lt;p&gt;[cc lang=’bash’]sudo gedit
+/usr/local/share/perl/5.10.1/Bio/PrimerDesigner/primer3.pm[/cc]&lt;br&gt;
+将其中的SEQUENCE换成SEQUENCE_TEMPLATE即可。总共要换三四个位置。&lt;/p&gt;
+&lt;p&gt;造成这一错误的原因在于Primer3和Bio::PrimerDesigner的API不兼容。
+前者使用“SEQUENCE_TEMPLATE”作为引物的模板，而后者确传递给primer3引物设计程序一个“SEQUENCE”参数，从而造成引物设计上的失败。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>如何检查BioPerl是否正确安装</title>
+        <link>bio-spring/post/2010/12/31/2010-12-31-check-bioperl/</link>
+        <pubDate>Fri, 31 Dec 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/12/31/2010-12-31-check-bioperl/</guid>
+        <description>
+          &lt;p&gt;为了检查BioPerl是否安装正确，我们可以使用perldoc命令来看一下。&lt;/p&gt;
+&lt;p&gt;如果你是Linux系统，随意打开一个终端；如果用的是Windows系统，那么打开命令提示符。输入以下命令：&lt;/p&gt;
+&lt;p&gt;[bash]&lt;/p&gt;
+&lt;p&gt;perldoc Bio::SeqIO&lt;/p&gt;
+&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;以上命令的作用是查看Bio::SeqIO模块的文档是否存在，如果存在，则会有相应的文档输出，则你安装Bio::SeqIO模块；如果没有，说明Perl找不到该模块，你还没有安装Bio::SeqIO模块。&lt;/p&gt;
+&lt;p&gt;引物Bio::SeqIO是BioPerl的基础模块，所以，你懂的，其它的一些模块也可以的，比如Bio::Seq 
+Bio::SearchIO等等。&lt;/p&gt;
+&lt;p&gt;此外，对于Perl的其它模块是否正确安装，也可以用perldoc命令检查一下。比如Bio::Graphics模块，并不保护在BioPerl的“安装包”内，所以对于要使用Gbrowser的同学来讲，需要手动安装该模块。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;新年到了，祝看到这篇文章的同学新年快乐。&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#34;color: #ff0000; font-size: large;&#34;&gt;Happy new year！&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>使用BioPerl和primer3批量设计RT-PCR引物</title>
+        <link>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</link>
+        <pubDate>Fri, 12 Nov 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</guid>
+        <description>
+          &lt;p&gt;Update：&lt;/p&gt;
+&lt;p&gt;我已经设置了一个&lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;Massive RT-PCR Primer
+Designer服务&lt;/a&gt;，有需要的朋友可以直接去上传自己基因序列的Fasta文件，然后服务器会将引物返回。&lt;/p&gt;
+&lt;p&gt;关于&lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Missing SEQUENCE
+tag错误的处理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下为原文。&lt;br&gt;
+———————————————————————————————–&lt;br&gt;
+本文介绍批量设计RT-PCR引物的方法，基于Ubuntu 10.10系统和BioPerl
+1.6.1。但是应当适用于大部分Linux系统。&lt;/p&gt;
+&lt;p&gt;本文假定你已经安装好BioPerl。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装primer3和Bio::PrimerDesigner&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[bash]&lt;br&gt;
+&amp;gt;sudo apt-get install primer3 libbio-primerdesigner-perl&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;修正程序Bug&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Primer3安装之后的可执行文件存在于/usr/bin/primer3_core，而Bio::PrimerDesigner软件包找不到该文件，所以需要建立一个符号链接。&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt;sudo ln -s /usr/bin/primer3_core /usr/local/bin/primer3&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;准备序列文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;将要设计的文件以Fasta格式保存（也可以用其它BioPerl识别的任意格式保存）在当前目录中，此处以seqs.fa命名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;代码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后在当前目录中新建文件designPrimer.pl。&lt;br&gt;
+录入代码如下：&lt;br&gt;
+[perl]&lt;br&gt;
+#! perl -w&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Bio::PrimerDesigner;&lt;/p&gt;
+&lt;p&gt;my $seqs = Bio::SeqIO-&amp;gt;new(-file =&amp;gt; ‘seqs.fa’);&lt;br&gt;
+open OUT, ‘&amp;gt;&amp;gt; raw_output.txt’;&lt;br&gt;
+my $pd = Bio::PrimerDesigner-&amp;gt;new;&lt;br&gt;
+while( my $seq = $seqs-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seqid = $seq-&amp;gt;id;&lt;br&gt;
+my $dna = $seq-&amp;gt;seq;&lt;br&gt;
+my %params = (&lt;br&gt;
+PRIMER_NUM_RETURN =&amp;gt; 1,&lt;br&gt;
+PRIMER_SEQUENCE_ID =&amp;gt; $seqid,&lt;br&gt;
+SEQUENCE =&amp;gt; $dna,&lt;br&gt;
+PRIMER_PRODUCT_SIZE_RANGE =&amp;gt; ‘150-250’,
+#注意此处参数在perl文档中是错误的，应更正为此&lt;br&gt;
+);&lt;br&gt;
+my $primers = $pd-&amp;gt;design( %params ) or die $pd-&amp;gt;error;&lt;br&gt;
+my ($left_primer,$right_primer);&lt;br&gt;
+if ( !$primers-&amp;gt;left ) {&lt;br&gt;
+warn “No primers found for $seqid\n”;&lt;br&gt;
+}&lt;br&gt;
+else{&lt;br&gt;
+$left_primer = $primers-&amp;gt;left;&lt;br&gt;
+$right_primer = $primers-&amp;gt;right;&lt;br&gt;
+}&lt;br&gt;
+print join(‘,’, $seqid, $left_primer, $right_primer);&lt;br&gt;
+print “\n”;&lt;br&gt;
+print OUT $primers-&amp;gt;raw_output;
+#此处的perl文档也是错误的，应更正为此&lt;br&gt;
+}&lt;br&gt;
+[/perl]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;保存引物&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开终端，输入&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl&lt;br&gt;
+[/bash]&lt;br&gt;
+如果程序运行正常，引物设计的结果将在屏幕上显示，同时应当会有一些警告信息。&lt;/p&gt;
+&lt;p&gt;然后，可以将结果用管道命令保存：&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl &amp;gt;primers.csv&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注释&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;raw_output.txt中含有primer3程序运行的完整结果。可以作为额外参考。&lt;/p&gt;
+&lt;p&gt;Refers：&lt;br&gt;
+&lt;a href=&#34;http://search.cpan.org/&#34;&gt;http://search.cpan.org/&lt;/a&gt;~smckay/Bio-PrimerDesigner-0.07/lib/Bio/PrimerDesigner.pm&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>重新安装bioperl</title>
+        <link>bio-spring/post/2010/10/28/2010-10-28-reinstall-bioperl/</link>
+        <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/10/28/2010-10-28-reinstall-bioperl/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;此文适合一下情况：&lt;/strong&gt;&lt;br&gt;
+更新BioPerl时，想彻底删除旧版程序，安装一个完整的全新BioPerl；&lt;br&gt;
+安装BioPerl后出错，需要从头安装。&lt;/p&gt;
+&lt;p&gt;重新安装时不会自动覆盖老板本，因此需要手动删除以下文件：&lt;br&gt;
+&lt;em&gt;bioperl位于以下目录：&lt;/em&gt;&lt;br&gt;
+/usr/local/man/man3/Bio::*&lt;br&gt;
+/usr/local/bin/bp_*&lt;br&gt;
+/usr/local/man/man1/bp_*&lt;br&gt;
+/usr/local/share/perl/5.8.8/Bio/&lt;/p&gt;
+&lt;p&gt;然后再进行安装即可。&lt;/p&gt;
+&lt;p&gt;&amp;gt;perl Build.PL&lt;br&gt;
+&amp;gt;./Build test&lt;/p&gt;
+&lt;p&gt;&amp;gt;./Build install&lt;/p&gt;
+&lt;p&gt;If your system is Ubuntu, just type the following command in terminal:&lt;br&gt;
+&lt;code&gt;sudo apt-get install bioperl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

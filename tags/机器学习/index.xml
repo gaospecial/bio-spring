@@ -1,0 +1,400 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>机器学习 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 机器学习 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 26 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>PCA loading</title>
+        <link>bio-spring/post/2024/11/26/pca-loading/</link>
+        <pubDate>Tue, 26 Nov 2024 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2024/11/26/pca-loading/</guid>
+        <description>
+          &lt;p&gt;PCA 分析确定主成分后，每一个主成分都是变量的映射，变量有自己的 loading。&lt;/p&gt;
+&lt;h2 id=&#34;pca-loading&#34;&gt;PCA Loading&lt;/h2&gt;
+&lt;p&gt;以下是使用 R 进行 PCA 分析并绘制 PCA loading 图的完整代码示例：&lt;/p&gt;
+&lt;h3 id=&#34;示例代码&#34;&gt;示例代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载必要的包
+library(ggplot2)
+library(ggrepel)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: package &#39;ggrepel&#39; was built under R version 4.3.3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载数据集
+data(iris)
+
+# 去掉分类列，仅保留数值列用于 PCA
+iris_data = iris[, 1:4]
+
+# 执行 PCA
+pca_result = prcomp(iris_data, scale. = TRUE)
+
+# 提取 PCA loading
+loadings = as.data.frame(pca_result$rotation)
+loadings$Features = rownames(loadings)
+
+# 计算解释度
+explained_variance = pca_result$sdev^2 / sum(pca_result$sdev^2)
+pc1_label = paste0(&amp;quot;PC1 (&amp;quot;, round(explained_variance[1] * 100, 1), &amp;quot;%)&amp;quot;)
+pc2_label = paste0(&amp;quot;PC2 (&amp;quot;, round(explained_variance[2] * 100, 1), &amp;quot;%)&amp;quot;)
+
+# 绘制 PCA loading 图
+ggplot(loadings, aes(x = 0, y = 0, xend = PC1, yend = PC2, label = Features)) +
+  geom_segment(arrow = arrow(length = unit(0.2, &amp;quot;cm&amp;quot;)), color = &amp;quot;steelblue&amp;quot;, linewidth = 1) +
+  geom_text_repel(aes(x = PC1, y = PC2), size = 5) +
+  labs(
+    title = &amp;quot;PCA Loading Plot&amp;quot;,
+    x = pc1_label,
+    y = pc2_label
+  ) +
+  theme_bw()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/pca-loading/index.zh_files/figure-html/pca-loading-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;代码说明&#34;&gt;代码说明&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;prcomp&lt;/code&gt; 方法&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于主成分分析。&lt;/li&gt;
+&lt;li&gt;参数 &lt;code&gt;scale. = TRUE&lt;/code&gt; 标准化数据以消除变量的量纲影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;提取 Loading&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;pca_result$rotation&lt;/code&gt; 获取每个变量在各主成分方向的载荷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;ggplot2&lt;/code&gt; 绘图&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geom_segment&lt;/code&gt; 用于绘制箭头，表示变量方向和大小。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_text_repel&lt;/code&gt; 防止标签重叠。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;输出解释&#34;&gt;输出解释&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PCA Loading 图&lt;/strong&gt;：显示变量在主成分方向上的贡献大小和方向。箭头越长，表示该变量对对应主成分的贡献越大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PC1 和 PC2&lt;/strong&gt;：分别表示第一和第二主成分，可以解释大部分数据的方差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;运行上述代码将生成一个清晰的 PCA loading 图，用于分析变量如何投影到主成分空间中。&lt;/p&gt;
+&lt;h2 id=&#34;pc1-loading&#34;&gt;PC1 Loading&lt;/h2&gt;
+&lt;p&gt;如果仅需要展示 &lt;strong&gt;PC1 上各个指标的 loading&lt;/strong&gt;，可以将 PCA 的 &lt;code&gt;rotation&lt;/code&gt; 数据提取并按降序排列，随后绘制柱状图或条形图来展示。以下是完整的实现代码：&lt;/p&gt;
+&lt;h3 id=&#34;示例代码-1&#34;&gt;示例代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载必要的包
+library(ggplot2)
+
+# 加载数据集
+data(iris)
+
+# 去掉分类列，仅保留数值列用于 PCA
+iris_data = iris[, 1:4]
+
+# 执行 PCA
+pca_result = prcomp(iris_data, scale. = TRUE)
+
+# 提取 PC1 的 loading 数据
+pc1_loadings = pca_result$rotation[, &amp;quot;PC1&amp;quot;]
+loading_data = data.frame(Feature = names(pc1_loadings), Loading = pc1_loadings)
+
+# 按 PC1 loading 的绝对值降序排列
+loading_data = loading_data[order(abs(loading_data$Loading), decreasing = TRUE), ]
+
+# 绘制柱状图
+ggplot(loading_data, aes(x = reorder(Feature, Loading), y = Loading)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;, fill = &amp;quot;steelblue&amp;quot;) +
+  coord_flip() +  # 让柱状图横向展示
+  labs(
+    title = &amp;quot;PC1 Loadings&amp;quot;,
+    x = &amp;quot;Features&amp;quot;,
+    y = &amp;quot;Loading Value&amp;quot;
+  ) +
+  theme_bw()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/pca-loading/index.zh_files/figure-html/pc1-loading-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;代码说明-1&#34;&gt;代码说明&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;提取 PC1 loading&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;pca_result$rotation[, &amp;quot;PC1&amp;quot;]&lt;/code&gt; 获取各指标在 PC1 上的载荷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;排序&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按照 &lt;code&gt;abs(Loading)&lt;/code&gt; 对特征的载荷绝对值进行降序排列，更突出贡献最大的特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;ggplot2&lt;/code&gt; 绘图&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code&gt; 绘制柱状图。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;coord_flip()&lt;/code&gt; 横向显示，方便阅读长标签。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;输出结果&#34;&gt;输出结果&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;柱状图&lt;/strong&gt;：展示 PC1 上各指标的 loading 值，柱状高度和方向表示指标对 PC1 的正负贡献和大小。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;排序&lt;/strong&gt;：指标按贡献大小排序，最高贡献的指标排在最上面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;变量数目过多&#34;&gt;变量数目过多&lt;/h2&gt;
+&lt;p&gt;下面生成了一个包含 100 个变量和 150 个观察值的随机数据框。接下来，使用这个数据进行 PCA 和绘制主成分分析图。&lt;/p&gt;
+&lt;p&gt;以下是更新后的代码，使用这个随机数据集来进行 PCA 分析，并绘制最重要的 6 个变量的 PCA loading 图：&lt;/p&gt;
+&lt;h3 id=&#34;更新后的代码&#34;&gt;更新后的代码&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载必要的包
+library(ggplot2)
+library(ggrepel)
+library(dplyr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 生成随机数据框（100个变量）
+set.seed(42)
+n_obs = 150
+n_vars = 100
+random_data = matrix(rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
+colnames(random_data) = paste0(&amp;quot;Var&amp;quot;, 1:n_vars)
+df_random = as.data.frame(random_data)
+
+# 执行 PCA
+pca_result = prcomp(df_random, scale. = TRUE)
+
+# 提取 PCA loading
+loadings = as.data.frame(pca_result$rotation)
+loadings$Features = rownames(loadings)
+
+# 计算解释度
+explained_variance = pca_result$sdev^2 / sum(pca_result$sdev^2)
+pc1_label = paste0(&amp;quot;PC1 (&amp;quot;, round(explained_variance[1] * 100, 1), &amp;quot;%)&amp;quot;)
+pc2_label = paste0(&amp;quot;PC2 (&amp;quot;, round(explained_variance[2] * 100, 1), &amp;quot;%)&amp;quot;)
+
+# 计算 PC1 和 PC2 的 loading 的绝对值
+loadings$PC1_abs = abs(loadings$PC1)
+loadings$PC2_abs = abs(loadings$PC2)
+
+# 按照 PC1 或 PC2 的 loading 绝对值排序，选择前 6 个变量
+top_loadings_pc1 = loadings[order(loadings$PC1_abs, decreasing = TRUE), ][1:10, ]
+top_loadings_pc2 = loadings[order(loadings$PC2_abs, decreasing = TRUE), ][1:10, ]
+
+# 合并两个选择的变量，避免重复
+top_loadings = bind_rows(list(PC1 = top_loadings_pc1, PC2 = top_loadings_pc2), .id = &amp;quot;id&amp;quot;)
+
+# 绘制 PCA loading 图
+ggplot(top_loadings, aes(x = 0, y = 0, xend = PC1, yend = PC2, label = Features, color = id)) +
+  geom_segment(arrow = arrow(length = unit(0.2, &amp;quot;cm&amp;quot;)), linewidth = 1, alpha = 1/2) +
+  geom_text_repel(aes(x = PC1, y = PC2), size = 5, show.legend = FALSE) +
+  labs(
+    title = &amp;quot;Top 10 PCA Loading Plot&amp;quot;,
+    x = pc1_label,
+    y = pc2_label
+  ) +
+  theme_bw()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/pca-loading/index.zh_files/figure-html/pca-loading-top-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;代码解释&#34;&gt;代码解释&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;生成随机数据&lt;/strong&gt;：使用 &lt;code&gt;matrix(rnorm(...))&lt;/code&gt; 创建一个 150 行 100 列的矩阵，并将其转换为数据框 &lt;code&gt;df_random&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行 PCA&lt;/strong&gt;：在生成的随机数据框 &lt;code&gt;df_random&lt;/code&gt; 上执行 PCA。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择最重要的 10 个变量&lt;/strong&gt;：根据 PC1 和 PC2 的绝对加载值选择最重要的 10 个变量，并绘制它们的箭头。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;绘制 PCA loading 图&lt;/strong&gt;：绘制了具有最高加载值的 10 个变量的 PCA loading 图。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;您可以运行这段代码以可视化随机数据集中的最重要变量的 PCA loading 图。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>绘制随机森林模型的Gini重要性</title>
+        <link>bio-spring/post/2024/11/26/random-forest-gini-index/</link>
+        <pubDate>Tue, 26 Nov 2024 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2024/11/26/random-forest-gini-index/</guid>
+        <description>
+          &lt;p&gt;在随机森林模型中，&lt;code&gt;mean decrease in gini index&lt;/code&gt;（也称为Gini重要性或基尼指数下降均值）用于衡量各特征对模型分类性能的贡献。&lt;/p&gt;
+&lt;h2 id=&#34;输出解释&#34;&gt;输出解释&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;每个柱状条的高度表示该特征对分类器性能的相对贡献，数值越大表示重要性越高。&lt;/li&gt;
+&lt;li&gt;特征可以按重要性从高到低排序，以便更直观地理解哪些变量在模型中最重要。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以通过以下步骤绘制它：&lt;/p&gt;
+&lt;h2 id=&#34;python-示例&#34;&gt;Python 示例&lt;/h2&gt;
+&lt;p&gt;假设使用的是 &lt;code&gt;scikit-learn&lt;/code&gt; 的随机森林实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+
+# 加载数据集
+data = load_iris()
+X = data.data
+y = data.target
+feature_names = data.feature_names
+
+# 训练随机森林模型
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(X, y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;style&gt;#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: &#34;▸&#34;;float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: &#34;▾&#34;;}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: &#34;&#34;;width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: &#34;&#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: &#34;&#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter&#39;s `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}&lt;/style&gt;&lt;div id=&#34;sk-container-id-1&#34; class=&#34;sk-top-container&#34;&gt;&lt;div class=&#34;sk-text-repr-fallback&#34;&gt;&lt;pre&gt;RandomForestClassifier(random_state=42)&lt;/pre&gt;&lt;b&gt;In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. &lt;br /&gt;On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.&lt;/b&gt;&lt;/div&gt;&lt;div class=&#34;sk-container&#34; hidden&gt;&lt;div class=&#34;sk-item&#34;&gt;&lt;div class=&#34;sk-estimator sk-toggleable&#34;&gt;&lt;input class=&#34;sk-toggleable__control sk-hidden--visually&#34; id=&#34;sk-estimator-id-1&#34; type=&#34;checkbox&#34; checked&gt;&lt;label for=&#34;sk-estimator-id-1&#34; class=&#34;sk-toggleable__label sk-toggleable__label-arrow&#34;&gt;RandomForestClassifier&lt;/label&gt;&lt;div class=&#34;sk-toggleable__content&#34;&gt;&lt;pre&gt;RandomForestClassifier(random_state=42)&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# 获取 Gini 重要性
+importances = rf.feature_importances_
+
+# 对特征重要性排序
+indices = np.argsort(importances)[::-1]
+
+# 绘制柱状图
+plt.figure(figsize=(10, 6))
+plt.title(&amp;quot;Feature Importance (Mean Decrease in Gini Index)&amp;quot;)
+plt.bar(range(X.shape[1]), importances[indices], align=&amp;quot;center&amp;quot;)
+plt.xticks(range(X.shape[1]), [feature_names[i] for i in indices])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ([&amp;lt;matplotlib.axis.XTick object at 0x1690cd650&amp;gt;, &amp;lt;matplotlib.axis.XTick object at 0x1690dc5d0&amp;gt;, &amp;lt;matplotlib.axis.XTick object at 0x1690dd110&amp;gt;, &amp;lt;matplotlib.axis.XTick object at 0x169142f90&amp;gt;], [Text(0, 0, &#39;petal length (cm)&#39;), Text(1, 0, &#39;petal width (cm)&#39;), Text(2, 0, &#39;sepal length (cm)&#39;), Text(3, 0, &#39;sepal width (cm)&#39;)])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.xlabel(&amp;quot;Features&amp;quot;)
+plt.ylabel(&amp;quot;Importance Score&amp;quot;)
+plt.tight_layout()
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/random-forest-gini-index/index.zh_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;960&#34; /&gt;
+&lt;h2 id=&#34;r-示例&#34;&gt;R 示例&lt;/h2&gt;
+&lt;p&gt;在 R 中，可以使用 &lt;code&gt;randomForest&lt;/code&gt; 包来计算和绘制 &lt;code&gt;Mean Decrease in Gini&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(randomForest)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## randomForest 4.7-1.1
+
+## Type rfNews() to see new features/changes/bug fixes.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载示例数据集
+data(iris)
+set.seed(42)
+
+# 训练随机森林模型
+rf_model = randomForest(Species ~ ., data = iris, importance = TRUE)
+
+# 提取 Gini 重要性
+importance_data = importance(rf_model, type = 2)
+feature_names = rownames(importance_data)
+
+# 排序数据
+sorted_indices = order(importance_data[, &amp;quot;MeanDecreaseGini&amp;quot;], decreasing = TRUE)
+sorted_importance = importance_data[sorted_indices, &amp;quot;MeanDecreaseGini&amp;quot;]
+sorted_feature_names = feature_names[sorted_indices]
+
+# 绘制柱状图
+barplot(sorted_importance,
+        names.arg = sorted_feature_names,
+        las = 2, col = &amp;quot;steelblue&amp;quot;,
+        main = &amp;quot;Feature Importance (Mean Decrease in Gini Index)&amp;quot;,
+        xlab = &amp;quot;Features&amp;quot;, ylab = &amp;quot;Importance Score&amp;quot;,
+        cex.names = 0.8) # 缩小标签字体以避免重叠
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/random-forest-gini-index/index.zh_files/figure-html/unnamed-chunk-2-3.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;使用-tidymodels-框架&#34;&gt;使用 &lt;code&gt;tidymodels&lt;/code&gt; 框架&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;tidymodels&lt;/code&gt; 框架，可以通过 &lt;code&gt;vip&lt;/code&gt;（Variable Importance Plots）包来绘制随机森林模型的 &lt;code&gt;Mean Decrease in Gini Index&lt;/code&gt;。以下是实现方法：&lt;/p&gt;
+&lt;h3 id=&#34;安装必要的包&#34;&gt;安装必要的包&lt;/h3&gt;
+&lt;p&gt;确保安装以下包：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;tidymodels&amp;quot;)
+install.packages(&amp;quot;vip&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;示例代码&#34;&gt;示例代码&lt;/h3&gt;
+&lt;p&gt;以下以 &lt;code&gt;iris&lt;/code&gt; 数据集为例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(tidymodels)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──
+
+## ✔ broom        1.0.5     ✔ recipes      1.0.9
+## ✔ dials        1.2.0     ✔ rsample      1.2.0
+## ✔ dplyr        1.1.4     ✔ tibble       3.2.1
+## ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1
+## ✔ infer        1.0.5     ✔ tune         1.1.2
+## ✔ modeldata    1.2.0     ✔ workflows    1.1.3
+## ✔ parsnip      1.1.1     ✔ workflowsets 1.0.1
+## ✔ purrr        1.0.2     ✔ yardstick    1.2.0
+
+## ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+## ✖ dplyr::combine()  masks randomForest::combine()
+## ✖ purrr::discard()  masks scales::discard()
+## ✖ dplyr::filter()   masks stats::filter()
+## ✖ dplyr::lag()      masks stats::lag()
+## ✖ ggplot2::margin() masks randomForest::margin()
+## ✖ recipes::step()   masks stats::step()
+## • Use tidymodels_prefer() to resolve common conflicts.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(vip)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;vip&#39;
+
+## The following object is masked from &#39;package:utils&#39;:
+## 
+##     vi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# 加载数据集
+data(iris)
+
+# 定义数据拆分
+set.seed(42)
+iris_split = initial_split(iris, prop = 0.8)
+iris_train = training(iris_split)
+iris_test = testing(iris_split)
+
+# 定义随机森林模型
+rf_model = rand_forest(mtry = 2, trees = 100, min_n = 5) %&amp;gt;%
+  set_engine(&amp;quot;ranger&amp;quot;, importance = &amp;quot;impurity&amp;quot;) %&amp;gt;%
+  set_mode(&amp;quot;classification&amp;quot;)
+
+# 定义工作流
+rf_workflow = workflow() %&amp;gt;%
+  add_model(rf_model) %&amp;gt;%
+  add_formula(Species ~ .)
+
+# 训练模型
+rf_fit = fit(rf_workflow, data = iris_train)
+
+# 提取变量重要性并绘图
+rf_fit %&amp;gt;%
+  extract_fit_parsnip() %&amp;gt;%
+  vip(geom = &amp;quot;col&amp;quot;, aesthetics = list(fill = &amp;quot;steelblue&amp;quot;)) +
+  labs(
+    title = &amp;quot;Feature Importance (Mean Decrease in Gini Index)&amp;quot;,
+    x = &amp;quot;Features&amp;quot;,
+    y = &amp;quot;Importance Score&amp;quot;
+  ) +
+  theme_minimal()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2024/11/26/random-forest-gini-index/index.zh_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h3 id=&#34;输出解释-1&#34;&gt;输出解释&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vip()&lt;/code&gt; 函数会从模型中提取特征的重要性并绘制柱状图。&lt;/li&gt;
+&lt;li&gt;这里使用了 &lt;code&gt;ranger&lt;/code&gt; 引擎，通过 &lt;code&gt;importance = &amp;quot;impurity&amp;quot;&lt;/code&gt; 参数计算基尼指数下降。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom = &amp;quot;col&amp;quot;&lt;/code&gt; 绘制柱状图，并可以通过 &lt;code&gt;aesthetics&lt;/code&gt; 自定义样式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;代码关键点&#34;&gt;代码关键点&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;vip&lt;/code&gt; 包&lt;/strong&gt;：方便地绘制变量重要性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机森林引擎&lt;/strong&gt;：选择 &lt;code&gt;ranger&lt;/code&gt;，因为它支持计算基尼重要性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作流&lt;/strong&gt;：使用 &lt;code&gt;tidymodels&lt;/code&gt; 的工作流整合模型和预处理过程。&lt;/li&gt;
+&lt;/ol&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

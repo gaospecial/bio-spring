@@ -1,0 +1,88 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Anova on BIO-SPRING</title>
+    <link>bio-spring/tags/anova/</link>
+    <description>Recent content in Anova on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 24 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/anova/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>ANOVA &#43; TurkeyHSD 分析及作图</title>
+        <link>bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/</link>
+        <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/</guid>
+        <description>
+          &lt;p&gt;先载入一个示例数据。该数据是研究摄入 VC 对小鼠牙齿生长作用的实验结果。VC 给药分成两种方式：VC-给予VC药片；OJ-给予相当量的橙汁。给药的量都包括0.5,1,2等三个梯度。&lt;/p&gt;
+&lt;p&gt;从散点图上看，不同给药量之间应该有显著差异。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data(&amp;quot;ToothGrowth&amp;quot;)
+head(ToothGrowth)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##    len supp dose
+## 1  4.2   VC  0.5
+## 2 11.5   VC  0.5
+## 3  7.3   VC  0.5
+## 4  5.8   VC  0.5
+## 5  6.4   VC  0.5
+## 6 10.0   VC  0.5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dim(ToothGrowth)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 60  3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+ggplot(ToothGrowth,aes(factor(dose),len)) + 
+  geom_boxplot(outlier.shape = NULL) + 
+  geom_jitter() +
+  facet_wrap(~supp)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;p&gt;单因素方差分析使用 aov() 函数，随后，进一步使用 HSD.test 获取组间差异。 Tukey’s ‘Honest Significant Difference’ method 通常使用  stats::TukeyHSD() 函数， 但在这里，我们使用 HSD.test() 可以得到分组信息，用于后面的作图。&lt;/p&gt;
+&lt;p&gt;这里仅以 VC 给药方式下，不同给药量之间的差异分析为例。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(dplyr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(agricolae)
+data &amp;lt;- filter(ToothGrowth,supp==&amp;quot;VC&amp;quot;)
+model &amp;lt;- aov(len~dose, data = data)
+group &amp;lt;- HSD.test(model,&amp;quot;dose&amp;quot;,group = T)$groups
+group_label &amp;lt;- data.frame(dose=rownames(group),group=group$groups,stringsAsFactors = F)
+group_label &amp;lt;- data %&amp;gt;% group_by(dose) %&amp;gt;% 
+  summarise(label_y = quantile(len)[[5]]) %&amp;gt;%
+  mutate(dose = as.character(dose)) %&amp;gt;%
+  left_join(group_label)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Joining with `by = join_by(dose)`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dose_level &amp;lt;- sort(as.numeric(unique(as.character(data$dose))))
+data$dose &amp;lt;- factor(data$dose, levels = c(0.5,1,2))
+group_label$dose &amp;lt;- factor(group_label$dose, levels = c(0.5,1,2))
+
+ggplot(data,aes(dose,len)) + geom_boxplot() +
+  geom_text(mapping = aes(dose,label_y,label=group),vjust=-0.5,data = group_label) +
+  # 增加 ymax 的数值
+  ylim(min(data$len),max(data$len)+0.1*(max(data$len)-min(data$len))) +
+  theme_bw()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;bio-spring/post/2019/09/24/anova-turkeyhsd-plotting/index.zh_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;384&#34; /&gt;
+&lt;p&gt;此处仅有3个不同处理。从图中可以得知，0.5,1,2分属3个不同的分组，这意味着它们两两之间都存在显著的差异（p.adj &amp;lt; 0.05）。&lt;/p&gt;
+&lt;p&gt;这种分析作图方式在 ANOVA 处理特别多的处理时会更好用。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

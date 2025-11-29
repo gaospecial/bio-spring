@@ -1,0 +1,113 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>挂载 on BIO-SPRING</title>
+    <link>bio-spring/tags/%E6%8C%82%E8%BD%BD/</link>
+    <description>Recent content in 挂载 on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 23 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/%E6%8C%82%E8%BD%BD/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>整合 OSS 开放存储到 WordPress 系统</title>
+        <link>bio-spring/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</link>
+        <pubDate>Sun, 23 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</guid>
+        <description>
+          &lt;p&gt;使用 OSS 存储 WordPress 相当于将 云服务器 的存储免费扩大了。&lt;/p&gt;
+&lt;h3 id=&#34;安装cloudfs&#34;&gt;安装cloudfs&lt;/h3&gt;
+&lt;p&gt;-在云市场搜索cloudfs，获取下载链接。&lt;br&gt;
+-将下载的安装包上传至云服务器。&lt;br&gt;
+-安装依赖包。&lt;br&gt;
+-以默认设置安装。&lt;/p&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# Install dependence&lt;br&gt;
+apt-get install libcurl4-openssl-dev libssl-dev pkg-config libxml2
+libxml2-dev libfuse-dev libunwind8-dev&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;配置cloudfs&#34;&gt;配置cloudfs&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+vi /usr/local/cloudfs/conf/cloudfs.conf&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;需要配置的项目有： HOST 、ID 、KEY 、BUCKET 等 4 项必须；若干可选项。&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# Start cloudfs&lt;br&gt;
+service cloudfs start&lt;br&gt;
+service cloudfs status&lt;br&gt;
+# 目录和文件测试，在 OSS 控制台会看到相应变化&lt;br&gt;
+mkdir /mnt/oss/test&lt;br&gt;
+touch /mnt/oss/test/test.txt&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;迁移和设置媒体库&#34;&gt;迁移和设置媒体库&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# 设置 WordPress 媒体库位置&lt;br&gt;
+cd /mnt/oss&lt;br&gt;
+mkdir wp_uploads&lt;br&gt;
+# 将原有媒体库内容迁移过来&lt;br&gt;
+cp -R /var/www/html/wp-content/uploads/* wp_uploads/&lt;br&gt;
+# 备份原有媒体库，同时腾出挂载点&lt;br&gt;
+mv /var/www/html/wp-content/uploads/
+/var/www/html/wp-content/uploads_bak&lt;br&gt;
+# 挂载 OSS cloudfs 到 WordPress 媒体库&lt;br&gt;
+ln -s /mnt/oss/wp_uploads/ /var/www/html/wp-content/uploads&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs-300x103.png&#34; class=&#34;alignnone size-medium wp-image-600&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs-300x103.png 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs.png 867w&#34; width=&#34;300&#34; height=&#34;103&#34; alt=&#34;wp-cloudfs&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在 WordPress 媒体库上传一个新内容，检查是否可用。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;br&gt;
+&lt;a href=&#34;http://www.513624.com/archives/829.html&#34;&gt;http://www.513624.com/archives/829.html&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://bbs.aliyun.com/read/236273.html&#34;&gt;http://bbs.aliyun.com/read/236273.html&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+        <link>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+        <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;使用UUID的方法挂载分区&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo
+umount -a”命令全部卸载，然好再使用“sudo mount
+-a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt; 
+&amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+/dev/sda7          /var/ftp               ext3      relatime          
+0             2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;怎么办？&lt;br&gt;
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://zh.wikipedia.org/wiki/UUID&#34;&gt;一组 UUID，系由一串 16 位组（亦称 16 字节，或 128
+位）的16进位数字所构成，是故UUID理论上的总数为2&lt;sup&gt;16 x
+8&lt;/sup&gt;=2&lt;sup&gt;128&lt;/sup&gt;，约等于3.4 x
+10&lt;sup&gt;38&lt;/sup&gt;。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输入命令，得到各设备的UUID。&lt;br&gt;
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]&lt;/p&gt;
+&lt;p&gt;根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt;                       &amp;lt;mount point&amp;gt;      
+&amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;  &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+UUID=d51b2056-6825-456c-957d-ebb16edd349d    /var/ftp      ext3      
+relatime     0   2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重新启动计算机，或者输入命令“sudo mount -a”，所有的设备就会正确挂载。&lt;/p&gt;
+&lt;p&gt;另外，为什么会出现这种错误呢，原来是因为我插了一个U盘在电脑上。这个忘记拔掉的U盘，占据了sda的标示，而它只有一个分区，所以在挂载的时候，所有的分区都不能得到正确挂载了（还好ROOT分区系统默认使用了UUID的方法挂载，要不然岂不是启动不了系统了吗）。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

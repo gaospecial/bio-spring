@@ -1,0 +1,147 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dplyr on BIO-SPRING</title>
+    <link>bio-spring/tags/dplyr/</link>
+    <description>Recent content in Dplyr on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/dplyr/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>dplyr::filter() 中的表达式</title>
+        <link>bio-spring/post/2024/01/11/dplyr-filter-expression/</link>
+        <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2024/01/11/dplyr-filter-expression/</guid>
+        <description>
+          &lt;p&gt;dplyr 中的骚操作。&lt;/p&gt;
+&lt;p&gt;今天遇到的这个问题，让我困惑了好半天。&lt;/p&gt;
+&lt;p&gt;给出一个 tibble，对它执行 &lt;code&gt;filter()&lt;/code&gt; 操作。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(dplyr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;set.seed(0)
+tbl = tibble(x = sample(letters, 60, TRUE), y = 1:60)
+tbl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 60 × 2
+##    x         y
+##    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+##  1 n         1
+##  2 y         2
+##  3 d         3
+##  4 g         4
+##  5 a         5
+##  6 b         6
+##  7 w         7
+##  8 k         8
+##  9 n         9
+## 10 r        10
+## # ℹ 50 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果变量与列名不一样，则结果很正常。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;let = c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
+tbl |&amp;gt; filter(x %in% let)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 2
+##   x         y
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1 a         5
+## 2 b         6
+## 3 a        12
+## 4 b        29
+## 5 a        34
+## 6 c        36
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，如果变量与列名相同，则会出现意想不到的结果。实际上，它执行了 &lt;code&gt;filter(tbl, .data$x %in% .data$x)&lt;/code&gt; 的骚操作。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x = c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
+filter(tbl, .data$x %in% x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 60 × 2
+##    x         y
+##    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+##  1 n         1
+##  2 y         2
+##  3 d         3
+##  4 g         4
+##  5 a         5
+##  6 b         6
+##  7 w         7
+##  8 k         8
+##  9 n         9
+## 10 r        10
+## # ℹ 50 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;那么，该如何避免这个问题呢？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/34219912/how-to-use-a-variable-in-dplyrfilter&#34;&gt;这里&lt;/a&gt; 给出了很多答案。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filter(tbl, .data$x %in% !!x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 2
+##   x         y
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1 a         5
+## 2 b         6
+## 3 a        12
+## 4 b        29
+## 5 a        34
+## 6 c        36
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filter(tbl, .data$x %in% .env$x)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 2
+##   x         y
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1 a         5
+## 2 b         6
+## 3 a        12
+## 4 b        29
+## 5 a        34
+## 6 c        36
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filter(tbl, .data$x %in% get(&amp;quot;x&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 60 × 2
+##    x         y
+##    &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+##  1 n         1
+##  2 y         2
+##  3 d         3
+##  4 g         4
+##  5 a         5
+##  6 b         6
+##  7 w         7
+##  8 k         8
+##  9 n         9
+## 10 r        10
+## # ℹ 50 more rows
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;filter(tbl, .data$x %in% UQ(x))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 2
+##   x         y
+##   &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;
+## 1 a         5
+## 2 b         6
+## 3 a        12
+## 4 b        29
+## 5 a        34
+## 6 c        36
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除了 &lt;code&gt;get()&lt;/code&gt; 以外，其它的都有效。&lt;/p&gt;
+        </description>
+      </item>
+    
+  </channel>
+</rss>

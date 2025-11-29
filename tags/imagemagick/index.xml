@@ -1,0 +1,47 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Imagemagick on BIO-SPRING</title>
+    <link>bio-spring/tags/imagemagick/</link>
+    <description>Recent content in Imagemagick on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 17 Nov 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/imagemagick/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>Linux下命令行压缩照片或图片的脚本</title>
+        <link>bio-spring/post/2010/11/17/2010-11-17-linux-image-resize/</link>
+        <pubDate>Wed, 17 Nov 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/11/17/2010-11-17-linux-image-resize/</guid>
+        <description>
+          &lt;p&gt;硬盘空间不足。&lt;br&gt;
+有一些毕业时候拍摄的照片，量很多，每个都有2M多，非常占用空间。在windows下面，常常用光影魔术手进行批处理，在Linux下面，那就用到了imagemagick（翻译过来也是“图片魔术师”——说不定是光影魔术手的祖师爷呢，哈哈）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装imagemagick&lt;/strong&gt;&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt;sudo apt-get install imagemagick&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;压缩图片&lt;/strong&gt;&lt;br&gt;
+最长边设为700px，并在图片左上角添加风格化的水印。&lt;br&gt;
+然后，删除原来的照片。&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt;mkdir to&lt;br&gt;
+&amp;gt;for file in *.JPG; do&lt;br&gt;
+&amp;gt;convert $file -resize 700×700 -pointsize 16 -fill white -stroke
+black -strokewidth 5 -annotate +20+25 ‘2008 summer’ -stroke none
+-annotate +20+25 ‘2008 summer’ to/`basename $file`;&lt;br&gt;
+&amp;gt;done&lt;br&gt;
+&amp;gt;rm *.JPG&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;备注&lt;/strong&gt;&lt;br&gt;
+imagemagick的功能非常强大，在
+&lt;a href=&#34;http://www.imagemagick.org/Usage/resize/%20&#34;&gt;http://www.imagemagick.org/Usage/resize/&lt;/a&gt;
+和&lt;a href=&#34;http://www.imagemagick.org/Usage/fonts/&#34;&gt;http://www.imagemagick.org/Usage/fonts/&lt;/a&gt;有很多叹为观止的例子参考。&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>

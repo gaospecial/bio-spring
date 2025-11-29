@@ -1,0 +1,697 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on BIO-SPRING</title>
+    <link>bio-spring/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on BIO-SPRING</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="bio-spring/tags/ubuntu/" rel="self" type="application/rss+xml" />
+
+    
+      <item>
+        <title>GitHub Webhook</title>
+        <link>bio-spring/post/2024/11/04/github-webhook/</link>
+        <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2024/11/04/github-webhook/</guid>
+        <description>
+          &lt;p&gt;使用 GitHub Webhook 自动更新个人网站。&lt;a href=&#34;https://bio-spring.top&#34;&gt;bio-spring.top&lt;/a&gt; 是我的个人网站，其源代码托管在 &lt;a href=&#34;https://github.com/gaospecial/bio-spring&#34;&gt;GitHub&lt;/a&gt; 上。通过使用 GitHub Actions 可以自动构建网站并部署到 GitHub Pages，实现自动更新网站在 &lt;a href=&#34;https://gaospecial.github.io/bio-spring/&#34;&gt;gaospecial.github.io/bio-spring/&lt;/a&gt; 上的展示。通过使用 netlify 可以实现自动更新网站在 netlify 服务器上的展示。现在想要自动化部署到我的阿里云服务器上，该如何实现呢？&lt;/p&gt;
+&lt;p&gt;这里要用到几个部分的技术：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Webhook&lt;/li&gt;
+&lt;li&gt;配置 Hook server&lt;/li&gt;
+&lt;li&gt;设置 Hook server 要执行的任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配置-github-webhook&#34;&gt;配置 GitHub Webhook&lt;/h2&gt;
+&lt;p&gt;GitHub Webhook 是一种自动化工具，它允许在 GitHub 仓库发生特定事件时向外部服务器发送通知。当配置的事件（如 push、pull request 等）发生时，GitHub 会向指定的 URL 发送 HTTP POST 请求，包含相关事件的详细信息。&lt;/p&gt;
+&lt;h3 id=&#34;访问-webhook-设置&#34;&gt;访问 Webhook 设置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;进入 GitHub 仓库&lt;/li&gt;
+&lt;li&gt;点击 &amp;ldquo;Settings&amp;rdquo; 选项卡&lt;/li&gt;
+&lt;li&gt;在左侧菜单中选择 &amp;ldquo;Webhooks&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;点击 &amp;ldquo;Add webhook&amp;rdquo; 按钮&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;配置-webhook&#34;&gt;配置 Webhook&lt;/h3&gt;
+&lt;p&gt;在添加 Webhook 时需要设置以下内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Payload URL&lt;/strong&gt;: 接收 webhook 请求的服务器地址&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例如：&lt;code&gt;http://webhook.bio-spring.top/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;确保该 URL 可以从公网访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Content type&lt;/strong&gt;: 选择数据传输格式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通常选择 &lt;code&gt;application/json&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Secret&lt;/strong&gt;: 设置密钥（可选但推荐）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于验证请求来源的合法性&lt;/li&gt;
+&lt;li&gt;确保安全传输&lt;/li&gt;
+&lt;li&gt;生成一个随机的秘钥字符串：&lt;code&gt;openssl rand -hex 20&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;事件触发选项&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Just the push event&amp;rdquo;: 仅推送事件&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Send me everything&amp;rdquo;: 所有事件&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Let me select individual events&amp;rdquo;: 自定义选择事件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;配置完成后，GitHub 会向指定的 URL 发送一个 ping 事件来测试连接。&lt;/p&gt;
+&lt;h2 id=&#34;配置-hook-server&#34;&gt;配置 Hook server&lt;/h2&gt;
+&lt;p&gt;上面配置完，会得到一个提示“Last delivery was not successful”，这是因为还没有配置 Hook server。接下来做这部分工作。&lt;/p&gt;
+&lt;h3 id=&#34;配置-hook-server-的-url&#34;&gt;配置 Hook server 的 URL&lt;/h3&gt;
+&lt;p&gt;要配置 webhook.bio-spring.top，需要在 Apache2 中添加一个虚拟主机配置。具体步骤如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建虚拟主机配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-apache&#34;&gt;&amp;lt;VirtualHost *:443&amp;gt;
+    # 设置服务器名称
+    ServerName webhook.bio-spring.top
+    ServerAlias webhook.bio-spring.top
+
+    # 启用 SSL
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/webhook.bio-spring.top/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/webhook.bio-spring.top/privkey.pem
+
+    # 设置日志路径
+    ErrorLog ${APACHE_LOG_DIR}/webhook-error.log
+    CustomLog ${APACHE_LOG_DIR}/webhook-access.log combined
+
+    # 设置文档根目录
+    DocumentRoot /var/www/html/webhook
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启 Apache 服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo a2ensite webhook.conf
+sudo service apache2 restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加 DNS 解析&lt;/p&gt;
+&lt;p&gt;在 DNS 解析中添加 webhook.bio-spring.top 的解析，指向阿里云服务器的公网 IP 地址。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置 https 证书&lt;/p&gt;
+&lt;p&gt;在阿里云服务器上安装 certbot 并配置 https 证书。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt install certbot
+sudo certbot --apache -d webhook.bio-spring.top
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;配置-hook-server-的脚本&#34;&gt;配置 Hook Server 的脚本&lt;/h3&gt;
+&lt;p&gt;在 Hook Server 的文档根目录下创建一个 &lt;code&gt;index.php&lt;/code&gt; 文件，内容如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+// 配置
+$secret = &amp;quot;your-secret-key&amp;quot;;
+$log_file = &amp;quot;/var/log/webhook/deploy-php.log&amp;quot;;
+$deploy_script = &amp;quot;/path/to/deploy-hook.sh&amp;quot;;
+
+// 记录日志
+function write_log($message) {
+    global $log_file;
+    $date = date(&#39;Y-m-d H:i:s&#39;);
+    file_put_contents($log_file, &amp;quot;[$date] $message\n&amp;quot;, FILE_APPEND);
+}
+
+// 验证签名
+function verify_signature($payload, $signature) {
+    global $secret;
+    $expected = &amp;quot;sha256=&amp;quot; . hash_hmac(&#39;sha256&#39;, $payload, $secret);
+    return hash_equals($expected, $signature);
+}
+
+// 确保是POST请求
+if ($_SERVER[&#39;REQUEST_METHOD&#39;] !== &#39;POST&#39;) {
+    http_response_code(405);
+    die(&#39;Method Not Allowed&#39;);
+}
+
+// 获取GitHub签名
+$headers = getallheaders();
+$signature = isset($headers[&#39;X-Hub-Signature-256&#39;]) ? $headers[&#39;X-Hub-Signature-256&#39;] : &#39;&#39;;
+
+if (empty($signature)) {
+    write_log(&amp;quot;Error: No signature provided&amp;quot;);
+    http_response_code(403);
+    die(&#39;No signature&#39;);
+}
+
+// 获取请求体
+$payload = file_get_contents(&#39;php://input&#39;);
+
+// 验证签名
+if (!verify_signature($payload, $signature)) {
+    write_log(&amp;quot;Error: Invalid signature&amp;quot;);
+    http_response_code(403);
+    die(&#39;Invalid signature&#39;);
+}
+
+// 解析payload
+$data = json_decode($payload, true);
+
+// 检查是否是push事件
+if (isset($data[&#39;ref&#39;]) &amp;amp;&amp;amp; $data[&#39;ref&#39;] === &#39;refs/heads/master&#39;) {
+    write_log(&amp;quot;Received push to master branch&amp;quot;);
+    
+    // 执行部署脚本
+    $output = [];
+    $return_var = 0;
+    exec(&amp;quot;bash $deploy_script 2&amp;gt;&amp;amp;1&amp;quot;, $output, $return_var);
+    
+    // 记录执行结果
+    $output_str = implode(&amp;quot;\n&amp;quot;, $output);
+    write_log(&amp;quot;Deploy script output:\n$output_str&amp;quot;);
+    
+    if ($return_var === 0) {
+        write_log(&amp;quot;Deploy completed successfully&amp;quot;);
+        echo &amp;quot;Deploy successful&amp;quot;;
+    } else {
+        write_log(&amp;quot;Deploy failed with code $return_var&amp;quot;);
+        http_response_code(500);
+        echo &amp;quot;Deploy failed&amp;quot;;
+    }
+} else {
+    write_log(&amp;quot;Ignored non-master push event&amp;quot;);
+    echo &amp;quot;Ignored&amp;quot;;
+}
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;重启 Apache 服务器之后，访问 webhook.bio-spring.top 应该会返回 &amp;ldquo;Method Not Allowed&amp;rdquo;。&lt;/p&gt;
+&lt;h3 id=&#34;配置-deploy-hooksh-脚本&#34;&gt;配置 deploy-hook.sh 脚本&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+
+# 设置工作目录
+SITE_DIR=&amp;quot;/var/www/html/bio-spring.top&amp;quot;
+LOG_FILE=&amp;quot;/var/log/webhook/deploy-sh.log&amp;quot;
+REPO_DIR=&amp;quot;/home/git/bio-spring&amp;quot;
+
+# 如果日志文件不存在则创建
+if [ ! -f &amp;quot;$LOG_FILE&amp;quot; ]; then
+    mkdir -p &amp;quot;$(dirname &amp;quot;$LOG_FILE&amp;quot;)&amp;quot;
+    touch &amp;quot;$LOG_FILE&amp;quot;
+    chown www-data:www-data &amp;quot;$LOG_FILE&amp;quot;
+    chmod 644 &amp;quot;$LOG_FILE&amp;quot;
+fi
+
+
+# 记录部署时间
+echo &amp;quot;Deployment started at $(date)&amp;quot; &amp;gt;&amp;gt; $LOG_FILE
+
+# 更新代码仓库
+cd $REPO_DIR || exit
+GIT_SSH_COMMAND=&#39;ssh -i /home/git/.ssh/id_rsa&#39; git pull origin master &amp;gt;&amp;gt; $LOG_FILE 2&amp;gt;&amp;amp;1
+GIT_SSH_COMMAND=&#39;ssh -i /home/git/.ssh/id_rsa&#39; git submodule update --recursive &amp;gt;&amp;gt; $LOG_FILE 2&amp;gt;&amp;amp;1
+
+# 安装 hugo
+# wget https://github.com/gohugoio/hugo/releases/download/v0.136.5/hugo_0.136.5_linux-amd64.deb
+# dpkg -i hugo_0.136.5_linux-amd64.deb
+
+# 构建网站
+Rscript -e &#39;blogdown::build_site(baseURL = &amp;quot;/&amp;quot;)&#39; &amp;gt;&amp;gt; $LOG_FILE 2&amp;gt;&amp;amp;1
+
+# 同步到网站目录
+rsync -av --delete public/ $SITE_DIR/ &amp;gt;&amp;gt; $LOG_FILE 2&amp;gt;&amp;amp;1
+
+echo &amp;quot;Deployment completed at $(date)&amp;quot; &amp;gt;&amp;gt; $LOG_FILE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;测试&#34;&gt;测试&lt;/h2&gt;
+&lt;p&gt;在 GitHub 仓库中推送代码，应该会看到阿里云服务器上的网站自动更新。同时，GitHub Webhook 的日志中也会记录 delivery 信息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：由于 GitHub Webhook 的超时时间为 10 s，如果超过 10 s 没有响应（脚本没有执行完毕），GitHub 的状态会显示为“time out”。这种情况可以通过异步执行脚本解决。或者也可以忽略。&lt;/p&gt;
+&lt;h3 id=&#34;异步执行脚本&#34;&gt;异步执行脚本&lt;/h3&gt;
+&lt;p&gt;在 PHP 中实现异步处理，可以使用 &lt;code&gt;exec()&lt;/code&gt; 或 &lt;code&gt;shell_exec()&lt;/code&gt; 命令来启动后台进程。通过在命令末尾添加 &lt;code&gt;&amp;amp;&lt;/code&gt; 符号，可以让该进程在后台运行，而不阻塞主进程。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;// 异步启动任务
+exec(&amp;quot;bash /path/to/deploy-hook.sh &amp;amp;&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上代码会在后台执行 &lt;code&gt;deploy-hook.sh&lt;/code&gt;，避免输出内容影响主进程。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>设置VirtualBox Ubuntu虚拟机的SSH登录</title>
+        <link>bio-spring/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</link>
+        <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2018/10/10/2018-10-10-ssh-login-virtualbox-server/</guid>
+        <description>
+          &lt;h2 id=&#34;为什么要设置虚拟机ssh登录&#34;&gt;为什么要设置虚拟机SSH登录？&lt;/h2&gt;
+&lt;p&gt;我的工作环境是Windows，但要时常用到Linux，于是在VirtualBox中部署了Ubuntu
+Linux系统。&lt;/p&gt;
+&lt;p&gt;以前都是打开虚拟机上使用，但是虚拟机毕竟有桌面，占用资源比较多。窗口切来切去也不方便。&lt;/p&gt;
+&lt;p&gt;设置虚拟机SSH登录可以让虚拟机作为一个进程运行在后台，很Linux。&lt;/p&gt;
+&lt;h2 id=&#34;虚拟机linux系统的ssh环境配置&#34;&gt;虚拟机Linux系统的ssh环境配置&lt;/h2&gt;
+&lt;p&gt;要安装SSH server。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;sudo apt-get install openssh-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;生成密钥。公钥用来认证，私钥用来登录。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bio-spring.top/setup-putty-login-in-fedora/&#34;&gt;密钥的处理参考之前的一篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;虚拟机的设置&#34;&gt;虚拟机的设置&lt;/h2&gt;
+&lt;p&gt;在虚拟机-设置-网络中，添加一个端口转发规则，指向子系统SSH服务端口22。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/lxg0/p/6413965.html&#34;&gt;参考这里&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;putty的设置&#34;&gt;Putty的设置&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://bio-spring.top/setup-putty-login-in-fedora/&#34;&gt;putty的设置也参考之前的一篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;服务器IP设为127.0.0.1或localhost，端口设为转发端口，用户名设为Linux系统的用户名，密钥选择前面生成的ppk密钥。保存为一个新的session，以后就可以一键登录了。&lt;/p&gt;
+&lt;h2 id=&#34;后台运行虚拟机&#34;&gt;后台运行虚拟机&lt;/h2&gt;
+&lt;p&gt;使用VBoxManage命令来管理虚拟机。其在Windows系统下的程序名称为VBoxManage.exe。&lt;/p&gt;
+&lt;p&gt;打开命令提示符，进入VirtualBox的安装目录，可以找到该程序。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;cd /d &amp;quot;C:\Program Files\Oracle\VirtualBox&amp;quot;
+# 列出所有的虚拟机
+VBoxManage.exe list vms
+
+# 在后台运行选定的虚拟机
+VBoxManage.exe startvm &amp;quot;vms Name&amp;quot; -type headless
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其它一些有用的命令有：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-wp-block-code&#34;&gt;# 列出正在运行的虚拟机
+VBoxManage.exe list runningvms
+
+# 关闭虚拟机
+VBoxManage controlvm &amp;lt;vm_name&amp;gt; acpipowerbutton
+
+
+# 强制关闭虚拟机
+VBoxManage controlvm &amp;lt;vm_name&amp;gt; poweroff
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/kl28978113/article/details/54340683&#34;&gt;参考资料&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>cloudfs无法上传的故障排除</title>
+        <link>bio-spring/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</link>
+        <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/09/27/2015-09-27-cloudfs-upload-failed/</guid>
+        <description>
+          &lt;p&gt;之前设置WordPress使用阿里云OSS存储图片，今天出问题了。&lt;a href=&#34;http://bio-spring.top/cloudfs-wp-uploads/&#34;&gt;设置方法在这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;错误提示：cannot access oss: Transport endpoint is not connected&lt;/p&gt;
+&lt;p&gt;解决方案如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;去除挂载&lt;/li&gt;
+&lt;li&gt;重启Cloudfs服务&lt;/li&gt;
+&lt;li&gt;设置权限&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+umount /mnt/oss&lt;br&gt;
+service cloudfs restart&lt;br&gt;
+chmod 666 /mnt/oss&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>整合 OSS 开放存储到 WordPress 系统</title>
+        <link>bio-spring/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</link>
+        <pubDate>Sun, 23 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/23/2015-08-23-cloudfs-wp-uploads/</guid>
+        <description>
+          &lt;p&gt;使用 OSS 存储 WordPress 相当于将 云服务器 的存储免费扩大了。&lt;/p&gt;
+&lt;h3 id=&#34;安装cloudfs&#34;&gt;安装cloudfs&lt;/h3&gt;
+&lt;p&gt;-在云市场搜索cloudfs，获取下载链接。&lt;br&gt;
+-将下载的安装包上传至云服务器。&lt;br&gt;
+-安装依赖包。&lt;br&gt;
+-以默认设置安装。&lt;/p&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# Install dependence&lt;br&gt;
+apt-get install libcurl4-openssl-dev libssl-dev pkg-config libxml2
+libxml2-dev libfuse-dev libunwind8-dev&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;配置cloudfs&#34;&gt;配置cloudfs&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+vi /usr/local/cloudfs/conf/cloudfs.conf&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;需要配置的项目有： HOST 、ID 、KEY 、BUCKET 等 4 项必须；若干可选项。&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# Start cloudfs&lt;br&gt;
+service cloudfs start&lt;br&gt;
+service cloudfs status&lt;br&gt;
+# 目录和文件测试，在 OSS 控制台会看到相应变化&lt;br&gt;
+mkdir /mnt/oss/test&lt;br&gt;
+touch /mnt/oss/test/test.txt&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;迁移和设置媒体库&#34;&gt;迁移和设置媒体库&lt;/h3&gt;
+&lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+# 设置 WordPress 媒体库位置&lt;br&gt;
+cd /mnt/oss&lt;br&gt;
+mkdir wp_uploads&lt;br&gt;
+# 将原有媒体库内容迁移过来&lt;br&gt;
+cp -R /var/www/html/wp-content/uploads/* wp_uploads/&lt;br&gt;
+# 备份原有媒体库，同时腾出挂载点&lt;br&gt;
+mv /var/www/html/wp-content/uploads/
+/var/www/html/wp-content/uploads_bak&lt;br&gt;
+# 挂载 OSS cloudfs 到 WordPress 媒体库&lt;br&gt;
+ln -s /mnt/oss/wp_uploads/ /var/www/html/wp-content/uploads&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs-300x103.png&#34; class=&#34;alignnone size-medium wp-image-600&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs-300x103.png 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/wp-cloudfs.png 867w&#34; width=&#34;300&#34; height=&#34;103&#34; alt=&#34;wp-cloudfs&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在 WordPress 媒体库上传一个新内容，检查是否可用。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;br&gt;
+&lt;a href=&#34;http://www.513624.com/archives/829.html&#34;&gt;http://www.513624.com/archives/829.html&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://bbs.aliyun.com/read/236273.html&#34;&gt;http://bbs.aliyun.com/read/236273.html&lt;/a&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Ubuntu 快速安装 LAMP</title>
+        <link>bio-spring/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</link>
+        <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/21/2015-08-21-ubuntu-install-lamp/</guid>
+        <description>
+          &lt;p&gt;[cc lang=”bash”]&lt;br&gt;
+sudo apt-get install tasksel&lt;br&gt;
+# 任务标记分组&lt;br&gt;
+sudo tasksel install lamp-server&lt;br&gt;
+#安装途中MySQL要求设定账户有密码，这是与操作系统没关系的账户与密码。&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>将 WordPress 迁移到 阿里云</title>
+        <link>bio-spring/post/2015/08/21/2015-08-21-wordpress-cloud/</link>
+        <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/21/2015-08-21-wordpress-cloud/</guid>
+        <description>
+          &lt;p&gt;最近将国外的主机迁移到了阿里云（参见：&lt;a href=&#34;http://bio-spring.top/?page_id=16&#34;&gt;Site
+Changelog&lt;/a&gt;）。没办法，GFW太厉害了。留在外面只能做僵尸网站。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本文简要介绍了将WordPress迁移到云服务器ECS、云数据库RDS，域名绑定到云解析的方法。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果要购买 ECS 云服务器，使用我的邀请码（&lt;strong&gt;U6FOVY&lt;/strong&gt;，有效期截止
+2015-11-30）可以得到 &lt;strong&gt;九折&lt;/strong&gt; 优惠。&lt;/p&gt;
+&lt;h3 id=&#34;新服务器&#34;&gt;新服务器&lt;/h3&gt;
+&lt;p&gt;安装LAMP：&lt;a href=&#34;http://bio-spring.top/?p=584&#34;&gt;Ubuntu快速安装 LAMP&lt;/a&gt;&lt;br&gt;
+安装phpmyadmin：&lt;br&gt;
+[cc lang=”bash”]&lt;br&gt;
+sudo apt-get install phpmyadmin&lt;br&gt;
+ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;旧服务器&#34;&gt;旧服务器&lt;/h3&gt;
+&lt;p&gt;WordPress整站打包下载。&lt;br&gt;
+使用一个插件生成数据库备份wp-DB-backup：wp_backup.sql.gz&lt;/p&gt;
+&lt;h3 id=&#34;迁移&#34;&gt;迁移&lt;/h3&gt;
+&lt;p&gt;上传整站到/var/www/html，只需要修改wp-config.php更新数据库信息。&lt;br&gt;
+打开http://newsite.com/phpmyadmin，创建一个数据库，将wp_backup.sql.gz
+导入（import）。&lt;br&gt;
+进入options工作表，更新home和siteurl的值。&lt;br&gt;
+[cc lang=”mysql”]&lt;br&gt;
+mysql&amp;gt; use wordpress;&lt;br&gt;
+mysql&amp;gt; source wp.sql;&lt;br&gt;
+mysql&amp;gt; update `wp1_options` set `option_value` =
+“http://bio-spring.top/” where `option_name` = “siteurl”;&lt;br&gt;
+mysql&amp;gt; update `wp1_options` set `option_value` =
+“http://bio-spring.top/” where `option_name` = “home”;&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;使用云数据库-rds&#34;&gt;使用云数据库 RDS&lt;/h3&gt;
+&lt;p&gt;在RDS控制面板创建database，然后登录到RDS，同上设置。&lt;br&gt;
+[cc lang=”bash”]&lt;br&gt;
+bash$ mysql -uuser -ppasswd -husername.mysql.rds.aliyuncs.com #
+登录到RDS&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;h3 id=&#34;绑定域名到阿里云解析&#34;&gt;绑定域名到阿里云解析&lt;/h3&gt;
+&lt;p&gt;进入域名注册上后台，修改NameServer为万网NS。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/clipboard.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/clipboard.png&#34; class=&#34;alignnone size-full wp-image-588&#34; width=&#34;609&#34; height=&#34;465&#34; alt=&#34;godaddy_dns&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;在阿里云解析添加解析等待生效即可&#34;&gt;在阿里云解析“添加解析”，等待生效即可。&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/aliyun_dns.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2015/08/aliyun_dns.png&#34; class=&#34;alignnone size-full wp-image-587&#34; width=&#34;1093&#34; height=&#34;78&#34; alt=&#34;aliyun_dns&#34; /&gt;&lt;/a&gt;&lt;br&gt;
+搞定了。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Fix “getopts.pl can not be located in @INC” error in SSPACE_Standard_v3.0.pl</title>
+        <link>bio-spring/post/2015/08/16/2015-08-16-sspace-getopts-error/</link>
+        <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2015/08/16/2015-08-16-sspace-getopts-error/</guid>
+        <description>
+          &lt;p&gt;SSPACE是一个常用的Scaffolding软件.当你有新的测序数据时,你可以使用SSPACE将原有的contigs延长,scaffolding等.&lt;/p&gt;
+&lt;p&gt;在Ubuntu
+14.04系统中运行该软件v3.0会出现错误.谷歌也没有发现好的解决方法,最终通过研究源代码,发现这是一个简单的问题,修订源代码之后,终于能够成功运行.&lt;/p&gt;
+&lt;p&gt;两处修订如下:&lt;/p&gt;
+&lt;p&gt;[cc lang=”perl”]&lt;br&gt;
+#~ require “getopts.pl”;&lt;br&gt;
+use Getopt::Std;&lt;br&gt;
+[/cc]&lt;/p&gt;
+&lt;p&gt;[cc lang=”perl”]&lt;br&gt;
+#~ &amp;amp;Getopts(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);&lt;br&gt;
+getopt(‘m:o:v:p:k:a:z:s:b:n:l:x:T:g:r:S:’);&lt;br&gt;
+[/cc]&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>在Ubuntu 12.04系统中安装LAMP（网络服务器套件）并设置rewrite</title>
+        <link>bio-spring/post/2012/08/23/2012-08-23-lamp-in-ubuntu-with-rewrite/</link>
+        <pubDate>Thu, 23 Aug 2012 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2012/08/23/2012-08-23-lamp-in-ubuntu-with-rewrite/</guid>
+        <description>
+          &lt;p&gt;打开终端，输入以下命令，一键完成安装：&lt;/p&gt;
+&lt;p&gt;[bash]sudo apt-get install apache2 php5&lt;br&gt;
+libapache2-mod-php5 mysql-server&lt;br&gt;
+libapache2-mod-auth-mysql php5-mysql&lt;br&gt;
+phpmyadmin[/bash]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请安装提示根据需要设置密码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一键打开 Rewrite：&lt;/p&gt;
+&lt;p&gt;[bash]sudo a2enmod rewrite&lt;br&gt;
+sudo service apache2 restart[/bash]&lt;/p&gt;
+&lt;p&gt;最后一步：&lt;/p&gt;
+&lt;p&gt;[bash]sudo gedit /etc/apache2/site-available/default[/bash]&lt;/p&gt;
+&lt;p&gt;将其中的“Allow override NONE”改为“ALLOW OVERRIDE ALL”。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>荐：Ubuntu（linux），Windows和Android操作系统中的磁盘使用分析软件</title>
+        <link>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</link>
+        <pubDate>Fri, 21 Oct 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/10/21/2011-10-21-disk-usage-tools-in-different-platform/</guid>
+        <description>
+          &lt;p&gt;使用分析软件分析磁盘应用，在整理硬盘的时候很有用，对各个文件夹所占用的空间可以做到一目了然。你所需要的，正是下面所列出的小程序。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ubuntu：系统自带“磁盘使用分析程序“，第一次用这个软件，就会喜欢上它。&lt;br&gt;
+Windows： 推荐 RidNacs&lt;br&gt;
+Android：磁盘详情 DiskUsage&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Ubuntu系统自带“磁盘使用分析程序“，图示清晰明了。&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/Screenshot-%E7%A3%81%E7%9B%98%E4%BD%BF%E7%94%A8%E5%88%86%E6%9E%90%E5%99%A8.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows 推荐 RidNacs&lt;/strong&gt;&lt;br&gt;
+挺好用的一个小软件，就是图表有些看不懂。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/RidNacs-C.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Android：磁盘详情 DiskUsage&lt;/strong&gt;&lt;br&gt;
+选择想查看的分区。&lt;br&gt;
+&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/146144_ldpi_screenshot_1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;速度很快，马上出来相应的图表。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2011/10/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>怎么办，ubuntu系统中的sda变成了sdb了？</title>
+        <link>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</link>
+        <pubDate>Wed, 21 Sep 2011 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2011/09/21/2011-09-21-sda-sdb-ubuntu/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;使用UUID的方法挂载分区&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开电脑发现，系统中各个盘符都挂载到/media下面了，导致很多程序不能正常运行了。使用“sudo
+umount -a”命令全部卸载，然好再使用“sudo mount
+-a”，重新按照/etc/fstab中的设置挂载，结果出现错误。经过查看，发现硬盘的分区从sda变成了sdb了。原来的sda5现在变成了sdb5,而fstab中的设置中是将/dev/sda5挂载到/var/ftp怪不得挂载不上了。如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt; 
+&amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+/dev/sda7          /var/ftp               ext3      relatime          
+0             2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;怎么办？&lt;br&gt;
+这么办。我们使用UUID来标示设备，这样就不会出现这种错误了(点击查看wiki百科)。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://zh.wikipedia.org/wiki/UUID&#34;&gt;一组 UUID，系由一串 16 位组（亦称 16 字节，或 128
+位）的16进位数字所构成，是故UUID理论上的总数为2&lt;sup&gt;16 x
+8&lt;/sup&gt;=2&lt;sup&gt;128&lt;/sup&gt;，约等于3.4 x
+10&lt;sup&gt;38&lt;/sup&gt;。也就是说若每奈秒产生1兆个UUID，要花100亿年才会将所有UUID用完。&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;输入命令，得到各设备的UUID。&lt;br&gt;
+[cc lang=”bash”]ls -l /dev/disk/by-uuid/[/cc]&lt;/p&gt;
+&lt;p&gt;根据得到的UUID，将fstab中的设置更改一下，上面的例子，改为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# /etc/fstab: static file system information.&lt;br&gt;
+#&lt;br&gt;
+# &amp;lt;file system&amp;gt;                       &amp;lt;mount point&amp;gt;      
+&amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;  &amp;lt;dump&amp;gt; &amp;lt;pass&amp;gt;&lt;br&gt;
+# /dev/sda7&lt;br&gt;
+UUID=d51b2056-6825-456c-957d-ebb16edd349d    /var/ftp      ext3      
+relatime     0   2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;重新启动计算机，或者输入命令“sudo mount -a”，所有的设备就会正确挂载。&lt;/p&gt;
+&lt;p&gt;另外，为什么会出现这种错误呢，原来是因为我插了一个U盘在电脑上。这个忘记拔掉的U盘，占据了sda的标示，而它只有一个分区，所以在挂载的时候，所有的分区都不能得到正确挂载了（还好ROOT分区系统默认使用了UUID的方法挂载，要不然岂不是启动不了系统了吗）。&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>使用BioPerl和primer3批量设计RT-PCR引物</title>
+        <link>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</link>
+        <pubDate>Fri, 12 Nov 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/11/12/2010-11-12-rt-primer-bioperl/</guid>
+        <description>
+          &lt;p&gt;Update：&lt;/p&gt;
+&lt;p&gt;我已经设置了一个&lt;a href=&#34;http://tools.bio-spring.top/rtprimers.cgi&#34;&gt;Massive RT-PCR Primer
+Designer服务&lt;/a&gt;，有需要的朋友可以直接去上传自己基因序列的Fasta文件，然后服务器会将引物返回。&lt;/p&gt;
+&lt;p&gt;关于&lt;a href=&#34;http://bio-spring.top/primer_error-missing-sequence-tag/&#34;&gt;Missing SEQUENCE
+tag错误的处理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下为原文。&lt;br&gt;
+———————————————————————————————–&lt;br&gt;
+本文介绍批量设计RT-PCR引物的方法，基于Ubuntu 10.10系统和BioPerl
+1.6.1。但是应当适用于大部分Linux系统。&lt;/p&gt;
+&lt;p&gt;本文假定你已经安装好BioPerl。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装primer3和Bio::PrimerDesigner&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;[bash]&lt;br&gt;
+&amp;gt;sudo apt-get install primer3 libbio-primerdesigner-perl&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;修正程序Bug&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Primer3安装之后的可执行文件存在于/usr/bin/primer3_core，而Bio::PrimerDesigner软件包找不到该文件，所以需要建立一个符号链接。&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt;sudo ln -s /usr/bin/primer3_core /usr/local/bin/primer3&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;准备序列文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;将要设计的文件以Fasta格式保存（也可以用其它BioPerl识别的任意格式保存）在当前目录中，此处以seqs.fa命名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;代码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后在当前目录中新建文件designPrimer.pl。&lt;br&gt;
+录入代码如下：&lt;br&gt;
+[perl]&lt;br&gt;
+#! perl -w&lt;br&gt;
+use Bio::SeqIO;&lt;br&gt;
+use Bio::PrimerDesigner;&lt;/p&gt;
+&lt;p&gt;my $seqs = Bio::SeqIO-&amp;gt;new(-file =&amp;gt; ‘seqs.fa’);&lt;br&gt;
+open OUT, ‘&amp;gt;&amp;gt; raw_output.txt’;&lt;br&gt;
+my $pd = Bio::PrimerDesigner-&amp;gt;new;&lt;br&gt;
+while( my $seq = $seqs-&amp;gt;next_seq() ) {&lt;br&gt;
+my $seqid = $seq-&amp;gt;id;&lt;br&gt;
+my $dna = $seq-&amp;gt;seq;&lt;br&gt;
+my %params = (&lt;br&gt;
+PRIMER_NUM_RETURN =&amp;gt; 1,&lt;br&gt;
+PRIMER_SEQUENCE_ID =&amp;gt; $seqid,&lt;br&gt;
+SEQUENCE =&amp;gt; $dna,&lt;br&gt;
+PRIMER_PRODUCT_SIZE_RANGE =&amp;gt; ‘150-250’,
+#注意此处参数在perl文档中是错误的，应更正为此&lt;br&gt;
+);&lt;br&gt;
+my $primers = $pd-&amp;gt;design( %params ) or die $pd-&amp;gt;error;&lt;br&gt;
+my ($left_primer,$right_primer);&lt;br&gt;
+if ( !$primers-&amp;gt;left ) {&lt;br&gt;
+warn “No primers found for $seqid\n”;&lt;br&gt;
+}&lt;br&gt;
+else{&lt;br&gt;
+$left_primer = $primers-&amp;gt;left;&lt;br&gt;
+$right_primer = $primers-&amp;gt;right;&lt;br&gt;
+}&lt;br&gt;
+print join(‘,’, $seqid, $left_primer, $right_primer);&lt;br&gt;
+print “\n”;&lt;br&gt;
+print OUT $primers-&amp;gt;raw_output;
+#此处的perl文档也是错误的，应更正为此&lt;br&gt;
+}&lt;br&gt;
+[/perl]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;保存引物&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开终端，输入&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl&lt;br&gt;
+[/bash]&lt;br&gt;
+如果程序运行正常，引物设计的结果将在屏幕上显示，同时应当会有一些警告信息。&lt;/p&gt;
+&lt;p&gt;然后，可以将结果用管道命令保存：&lt;br&gt;
+[bash]&lt;br&gt;
+&amp;gt; perl designprimer.pl &amp;gt;primers.csv&lt;br&gt;
+[/bash]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注释&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;raw_output.txt中含有primer3程序运行的完整结果。可以作为额外参考。&lt;/p&gt;
+&lt;p&gt;Refers：&lt;br&gt;
+&lt;a href=&#34;http://search.cpan.org/&#34;&gt;http://search.cpan.org/&lt;/a&gt;~smckay/Bio-PrimerDesigner-0.07/lib/Bio/PrimerDesigner.pm&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>Ubuntu 10.10环境下安装GScribble</title>
+        <link>bio-spring/post/2010/10/28/2010-10-28-ubuntu-gscribble/</link>
+        <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/10/28/2010-10-28-ubuntu-gscribble/</guid>
+        <description>
+          &lt;p&gt;GScibble是Linux下面的优秀的博客程序客户端，比Blogtk界面友好。可以读取Wordpress的分类信息，还可以编辑已发布的条目。&lt;br&gt;
+为了在我的Ubuntu
+10.10环境下安装该程序，我还是处理了几个小问题，在这里Mark一下。&lt;br&gt;
+&lt;a href=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2010/10/2010-10-28-203549_714x532_scrot.png&#34;&gt;&lt;img src=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2010/10/2010-10-28-203549_714x532_scrot-300x223.png&#34; title=&#34;GScribble界面&#34; class=&#34;alignnone size-medium wp-image-28&#34; sizes=&#34;(max-width: 300px) 100vw, 300px&#34; srcset=&#34;https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2010/10/2010-10-28-203549_714x532_scrot-300x223.png 300w, https://cloudfs-spring.oss-cn-qingdao.aliyuncs.com/bio_spring_uploads/2010/10/2010-10-28-203549_714x532_scrot.png 714w&#34; width=&#34;300&#34; height=&#34;223&#34; /&gt;&lt;/a&gt;&lt;br&gt;
+首先，安装过程中的问题。&lt;br&gt;
+安装文件可以从SF下载：http://sourceforge.net/projects/gscribble/&lt;br&gt;
+按照安装文件INSTALL的说明操作即可。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$ chmod +x setup.py&lt;/li&gt;
+&lt;li&gt;$ sudo ./setup.py install&lt;br&gt;
+我的系统缺少python-gtkhtml2的库，打开新立得软件包管理器，搜索之后安装，即可完成安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其次，Python的版本问题。&lt;br&gt;
+我原先的Python版本为2.5。安装之后启动程序不成功。于是我安装了Python2.6,并将默认的Python链接到Python2.6上。&lt;/p&gt;
+&lt;p&gt;现在，可以使用GScribble方便的发布更新了。&lt;/p&gt;
+&lt;p&gt;小提示：如果程序无法正常启动，可以在终端输入gscribble的方式试试，终端中的错误提示会对你有帮助的。&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+      <item>
+        <title>重新安装bioperl</title>
+        <link>bio-spring/post/2010/10/28/2010-10-28-reinstall-bioperl/</link>
+        <pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+        <author>gaoch</author>
+        <guid>bio-spring/post/2010/10/28/2010-10-28-reinstall-bioperl/</guid>
+        <description>
+          &lt;p&gt;&lt;strong&gt;此文适合一下情况：&lt;/strong&gt;&lt;br&gt;
+更新BioPerl时，想彻底删除旧版程序，安装一个完整的全新BioPerl；&lt;br&gt;
+安装BioPerl后出错，需要从头安装。&lt;/p&gt;
+&lt;p&gt;重新安装时不会自动覆盖老板本，因此需要手动删除以下文件：&lt;br&gt;
+&lt;em&gt;bioperl位于以下目录：&lt;/em&gt;&lt;br&gt;
+/usr/local/man/man3/Bio::*&lt;br&gt;
+/usr/local/bin/bp_*&lt;br&gt;
+/usr/local/man/man1/bp_*&lt;br&gt;
+/usr/local/share/perl/5.8.8/Bio/&lt;/p&gt;
+&lt;p&gt;然后再进行安装即可。&lt;/p&gt;
+&lt;p&gt;&amp;gt;perl Build.PL&lt;br&gt;
+&amp;gt;./Build test&lt;/p&gt;
+&lt;p&gt;&amp;gt;./Build install&lt;/p&gt;
+&lt;p&gt;If your system is Ubuntu, just type the following command in terminal:&lt;br&gt;
+&lt;code&gt;sudo apt-get install bioperl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Posted from &lt;a href=&#34;http://sourceforge.net/projects/gscribble/&#34;&gt;GScribble&lt;/a&gt;.&lt;/p&gt;
+
+        </description>
+      </item>
+    
+  </channel>
+</rss>
