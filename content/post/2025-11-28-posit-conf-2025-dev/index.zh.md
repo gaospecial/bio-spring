@@ -57,6 +57,23 @@ Posit公司的工程师Julia Silge分享了她如何克服学习Python时遇到�
 
 演讲的重点是，如今情况已大为改观。对于环境管理，她推荐使用现代化工具`uv`，它是一个极其快速、一体化的解决方案，极大地降低了环境管理的难度。对于IDE，她推荐`Positron`，这款专为数据科学设计的工具，提供了更流畅的探索性分析体验。
 
+```
+# 创建环境
+uv venv
+
+# 安装模块
+uv add ruff
+
+# 保存环境
+uv pip freeze > requirements.txt
+
+# 重现环境
+uv pip install -r requirements.txt
+
+# 激活环境
+source .venv/bin/activate
+```
+
 最后，她强调，如果你过去学习Python时感到困难，很可能不是你的问题，而是当时生态工具链的挑战所致。现在有了更好的工具，是重新尝试并“解困”Python的好时机。
 
 
